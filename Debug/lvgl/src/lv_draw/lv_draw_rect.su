@@ -1,0 +1,4 @@
+lv_color.h:326:26:lv_color_mix	16	static
+lv_draw_rect.c:1465:17:lv_draw_cont_radius_corr	16	static
+lv_draw_rect.c:1493:17:antialias_get_opa_circ	0	static
+lv_draw_rect.c:79:6:lv_draw_rect	200	static

@@ -1,0 +1,6 @@
+log.c:18:6:HAL_printf_valist	264	static
+log.c:34:6:HAL_printf	16	static
+log.c:48:6:logUSB	0	static
+log.c:58:6:logI	16	static
+log.c:71:6:logE	16	static
+log.c:81:7:concat	32	static

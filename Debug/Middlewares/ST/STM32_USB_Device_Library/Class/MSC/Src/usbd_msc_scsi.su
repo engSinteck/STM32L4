@@ -1,0 +1,3 @@
+usbd_msc_scsi.c:420:6:SCSI_SenseCode.constprop	0	static
+usbd_msc_scsi.c:115:8:SCSI_ProcessCmd	40	static
+usbd_msc_scsi.c:420:6:SCSI_SenseCode	0	static

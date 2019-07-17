@@ -2,7 +2,7 @@ Debug/Core
 Debug/Drivers
 Debug/FATFS
 Debug/lvgl
-Debug/Middlewares
+Debug/Middlewares/*
 Debug/Sinteck
 Debug/startup
-Debug/USB_DEVICE
+Debug/USB_DEVICE/*

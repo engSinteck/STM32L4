@@ -1,3 +1,5 @@
+*.o
+*.su
 Debug/Core
 Debug/Drivers
 Debug/FATFS

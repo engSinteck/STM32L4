@@ -499,6 +499,9 @@ void KeyboardEvent(void)
 							sel_screen_send_esc();
 						}
 					}
+					else if(TelaAtiva == TelaReadings) {
+
+					}
 					if(event[1] == KEY_DN) {
 
 					}

@@ -200,6 +200,9 @@ int main(void)
 	  // Eventos de Teclado
 	  KeyboardEvent();
 
+	  // Read Rotary Encoder
+	  Read_Encoder();
+
 	  // Eventos da GUI LittleVG
 	  lv_task_handler();
   }

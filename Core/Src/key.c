@@ -347,6 +347,9 @@ uint8_t PushButton_Read(uint8_t key)
 		case 3:			// Esc
 			ret = !(HAL_GPIO_ReadPin(KEY_ESC_GPIO_Port, KEY_ESC_Pin));
 			break;
+		case 4:			// SW Rotary Encoder
+			ret = !(HAL_GPIO_ReadPin(SW_ENC_GPIO_Port, SW_ENC_Pin));
+			break;
 		default:
 			break;
 	}
@@ -470,36 +473,40 @@ void KeyboardEvent(void)
 			// event[2]: PBTN_SCLK, _DCLK, _TCLK, _LCLK, _DOWN, _ENDN
 			case EVT_PBTN_INPUT:
 				if(event[2] == PBTN_SCLK) {
-					if(event[1] == 0) {
-						// KEY_DN FREQ--
+					if(event[1] == KEY_DN) {
 
 					}
-					else if(event[1] == 1) {
-						// KEY_UP FREQ++
+					else if(event[1] == KEY_UP) {
 
 					}
-					else if(event[1] == 2) {
-						// KEY_ENTER PWM--
+					else if(event[1] == KEY_ENTER) {
 
 					}
-					else if(event[1] == 3) {
-						// KEY_ESC PWM++
+					else if(event[1] == KEY_ESC) {
+
+					}
+					else if(event[1] == KEY_ENCODER) {
 
 					}
 					logI("\r\nButton %s: single click.", teclas[event[1]]);
 				}
 				else if(event[2] == PBTN_LCLK) {
-					if(event[1] == 0) {
+					if(event[1] == KEY_DN) {
 
 					}
-					else if(event[1] == 1) {
-					}
-					else if(event[1] == 2) {
+					else if(event[1] == KEY_UP) {
 
 					}
-					else if(event[1] == 3) {
+					else if(event[1] == KEY_ENTER) {
 
 					}
+					else if(event[1] == KEY_ESC) {
+
+					}
+					else if(event[1] == KEY_ENCODER) {
+
+					}
+
 					logI("\r\nButton %s: long click.", teclas[event[1]]);
 				}
 				else if(event[2] == PBTN_DCLK) {

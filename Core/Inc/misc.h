@@ -16,5 +16,6 @@ void buzzer(uint8_t value);
 void MicroDelay(uint32_t val);
 void print_ad(void);
 void tft_backlight(uint16_t value);
+uint16_t Read_Encoder(void);
 
 #endif /* INC_MISC_H_ */

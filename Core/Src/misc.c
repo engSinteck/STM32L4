@@ -14,10 +14,43 @@
 #include "stdio.h"
 #include "string.h"
 
-extern UART_HandleTypeDef huart1;
+extern UART_HandleTypeDef huart2;
 extern TIM_HandleTypeDef htim3;
 
 extern uint16_t tft_pwm;
+extern char buffer[];
+
+uint8_t aVal = 0, bVal = 0, CLKLast = 0, bCW = 0, CCW = 0, CLKLast1 = 0;
+uint32_t encoderPosCount = 0;
+
+uint16_t Read_Encoder(void)
+{
+	/* BEGIN � Code for encoder */
+	aVal = HAL_GPIO_ReadPin(ENC_B_GPIO_Port, ENC_B_Pin);
+	if (aVal != CLKLast)
+	{ // Means the knob is rotating
+	  // if the knob is rotating, we need to determine direction
+	  // We do that by reading pin B.
+//		if(!aVal)
+//		{ // aVal is false or 0 then proceed. This prevents double incrementation.
+			if (HAL_GPIO_ReadPin(ENC_A_GPIO_Port, ENC_A_Pin) != aVal)
+			{ // Means pin A Changed first � We�re Rotating Clockwise
+				encoderPosCount++;
+				if(encoderPosCount >= 100) encoderPosCount = 100;
+				bCW = true;
+			}
+			else {// Otherwise B changed first and we�re moving CCW
+				if(encoderPosCount >= 1) encoderPosCount--;
+				bCW = false;
+			}
+			sprintf(buffer, "Encoder - aVal: %d DT: %d, EncoderPosition: %ld\n", aVal, HAL_GPIO_ReadPin(ENC_A_GPIO_Port, ENC_A_Pin), encoderPosCount);
+			HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
+			//tft_backlight(encoderPosCount);
+//		}
+	}
+	CLKLast = aVal;
+	return aVal;
+}
 
 void my_print(lv_log_level_t level, const char * file, uint32_t line, const char * dsc)
 {

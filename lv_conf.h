@@ -53,7 +53,7 @@
 /* Dot Per Inch: used to initialize default sizes.
  * E.g. a button with width = LV_DPI / 2 -> half inch wide
  * (Not so important, you can adjust it to modify default sizes and spaces)*/
-#define LV_DPI              25   /*[px]*/
+#define LV_DPI              25     /*[px]*/
 
 /* Type of coordinates. Should be `int16_t` (or `int32_t` for extreme cases) */
 typedef int16_t lv_coord_t;
@@ -69,7 +69,7 @@ typedef int16_t lv_coord_t;
 #define LV_MEM_CUSTOM      0
 #if LV_MEM_CUSTOM == 0
 /* Size of the memory used by `lv_mem_alloc` in bytes (>= 2kB)*/
-#  define LV_MEM_SIZE    (32U * 1024U)
+#  define LV_MEM_SIZE    (20U * 1024U)
 
 /* Complier prefix for a big array declaration */
 #  define LV_MEM_ATTR
@@ -142,17 +142,17 @@ typedef void * lv_group_user_data_t;
 #endif  /*LV_USE_GROUP*/
 
 /* 1: Enable GPU interface*/
-#define LV_USE_GPU              1
+#define LV_USE_GPU              0
 
 /* 1: Enable file system (might be required for images */
-#define LV_USE_FILESYSTEM       1
+#define LV_USE_FILESYSTEM       0
 #if LV_USE_FILESYSTEM
 /*Declare the type of the user data of file system drivers (can be e.g. `void *`, `int`, `struct`)*/
 typedef void * lv_fs_drv_user_data_t;
 #endif
 
 /*1: Add a `user_data` to drivers and objects*/
-#define LV_USE_USER_DATA        0
+#define LV_USE_USER_DATA        1
 
 /*========================
  * Image decoder and cache
@@ -220,8 +220,8 @@ typedef void * lv_indev_drv_user_data_t;            /*Type of user data in the i
  * LV_LOG_LEVEL_INFO        Log important events
  * LV_LOG_LEVEL_WARN        Log if something unwanted happened but didn't cause a problem
  * LV_LOG_LEVEL_ERROR       Only critical issue, when the system may fail
- * LV_LOG_LEVEL_NONE	    Do not log anything
-*/
+ * LV_LOG_LEVEL_NONE        Do not log anything
+ */
 #  define LV_LOG_LEVEL    LV_LOG_LEVEL_WARN
 
 /* 1: Print the log with 'printf';
@@ -256,9 +256,21 @@ typedef void * lv_indev_drv_user_data_t;            /*Type of user data in the i
 /* Robot fonts with bpp = 4
  * https://fonts.google.com/specimen/Roboto  */
 #define LV_FONT_ROBOTO_12    0
-#define LV_FONT_ROBOTO_16    1
+#define LV_FONT_ROBOTO_16    0
 #define LV_FONT_ROBOTO_22    0
 #define LV_FONT_ROBOTO_28    0
+
+// Fontes Customizadas Sinteck
+#define	LV_FONT_EUROSTILE_10	1
+#define	LV_FONT_EUROSTILE_12	0
+#define	LV_FONT_EUROSTILE_16	0
+#define	LV_FONT_EUROSTILE_18	0
+#define	LV_FONT_EUROSTILE_20	0
+#define	LV_FONT_EUROSTILE_22	1
+#define	LV_FONT_EUROSTILE_24	1
+#define	LV_FONT_EUROSTILE_28	1
+#define	LV_FONT_EUROSTILE_32	0
+#define	LV_FONT_EUROSTILE_34	0
 
 /*Pixel perfect monospace font
  * http://pelulamu.net/unscii/ */
@@ -270,10 +282,18 @@ typedef void * lv_indev_drv_user_data_t;            /*Type of user data in the i
  * #define LV_FONT_CUSTOM_DECLARE LV_FONT_DECLARE(my_font_1) \
  *                                LV_FONT_DECLARE(my_font_2)
  */
-#define LV_FONT_CUSTOM_DECLARE
+#define LV_FONT_CUSTOM_DECLARE  LV_FONT_DECLARE(lv_font_eurostile_10) \
+								LV_FONT_DECLARE(lv_font_eurostile_22) \
+								LV_FONT_DECLARE(lv_font_eurostile_24) \
+								LV_FONT_DECLARE(lv_font_eurostile_28)
 
 /*Always set a default font from the built-in fonts*/
-#define LV_FONT_DEFAULT        &lv_font_roboto_16
+#define LV_FONT_DEFAULT        &lv_font_eurostile_10
+
+/* Enable it if you have fonts with a lot of characters.
+ * The limit depends on the font size, font face and bpp
+ * but with > 10,000 characters if you see issues probably you need to enable it.*/
+#define LV_FONT_FMT_TXT_LARGE   0
 
 /*Declare the type of the user data of fonts (can be e.g. `void *`, `int`, `struct`)*/
 typedef void * lv_font_user_data_t;
@@ -297,7 +317,7 @@ typedef void * lv_font_user_data_t;
  *==================*/
 
 /*Declare the type of the user data of object (can be e.g. `void *`, `int`, `struct`)*/
-typedef void * lv_obj_user_data_t;
+typedef uint32_t lv_obj_user_data_t;
 
 /*1: enable `lv_obj_realaign()` based on `lv_obj_align()` parameters*/
 #define LV_USE_OBJ_REALIGN          1

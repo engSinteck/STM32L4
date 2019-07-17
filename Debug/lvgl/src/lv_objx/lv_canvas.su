@@ -13,7 +13,7 @@ lv_canvas.c:267:6:lv_canvas_rotate	160	static
 lv_canvas.c:432:6:lv_canvas_fill_bg	32	static
 lv_canvas.c:454:6:lv_canvas_draw_rect	440	static
 lv_canvas.c:504:6:lv_canvas_draw_text	464	static
-lv_canvas.c:559:6:lv_canvas_draw_img	456	static
+lv_canvas.c:559:6:lv_canvas_draw_img	448	static
 lv_canvas.c:612:6:lv_canvas_draw_line	440	static
 lv_canvas.c:655:6:lv_canvas_draw_polygon	440	static
 lv_canvas.c:698:6:lv_canvas_draw_arc	448	static

@@ -30,6 +30,7 @@
 #include "misc.h"
 #include "key.h"
 #include "w25qxx.h"
+#include "Sinteck/GUI/EX15-XT.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -39,13 +40,19 @@ static lv_color_t buf[LV_HOR_RES_MAX * 10];		// Declare a buffer for 10 lines
 static lv_color_t buf2[LV_HOR_RES_MAX * 10];	// Declare a buffer for 10 lines
 uint32_t timer_key = 0, timer_loop = 0;
 uint16_t tft_pwm = 0;
-char buffer[500] = {0};
-float temperatura = 0.0f;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+// Variaves TX EX15-XT
+long int frequencia = 10310;
+uint8_t Cfg_Stereo = 1, Cfg_Audio = 0, Cfg_Processador = 0, Cfg_Clipper = 0, Cfg_Emphase = 0, RFEnable = 1, mp3_status = 0;
+uint8_t pll_status = 1;
+char buffer[200] = {0};
+float temperatura = 25.0f;
+float forward = 0.0f, reflected = 0.0f, max_rfl = 1.5f, target = 15.0f;
+uint32_t falha = 0, mpx = 0;
+uint8_t sent_hor = 0;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -142,7 +149,7 @@ int main(void)
   // ST7735
   ST7735_Init();
   ST7735_Clear(0x0000);
-  ST7735_PutStr5x7(40, 0, "STM32L476RG Board", 0xFFFF);
+  //ST7735_PutStr5x7(40, 0, "STM32L476RG Board", 0xFFFF);
   tft_backlight(100);
 
   // Inicia Fila de Eventos do Teclado
@@ -174,19 +181,8 @@ int main(void)
   lv_disp_drv_register(&disp_drv);      //Finally register the driver
   // KEYPAD
 
-  lv_obj_t * scr = lv_disp_get_scr_act(NULL);     /*Get the current screen*/
-
-   /*Create a Label on the currently active screen*/
-   lv_obj_t * label1 =  lv_label_create(scr, NULL);
-
-   /*Modify the Label's text*/
-   lv_label_set_text(label1, "Hello world!");
-
-   /* Align the Label to the center
-    * NULL means align on parent (which is the screen now)
-    * 0, 0 at the end means an x, y offset after alignment*/
-lv_obj_align(label1, NULL, LV_ALIGN_CENTER, 0, 0);
-
+  // Tela Principal
+  main_screen();
   /* USER CODE END 2 */
 
   /* Infinite loop */

@@ -1,4 +1,4 @@
-lv_indev.c:1222:13:indev_reset_check	0	static
+lv_indev.c:1224:13:indev_reset_check	0	static
 lv_indev.c:986:19:indev_search_obj	24	static
 lv_indev.c:683:13:indev_proc_press	56	static
 lv_indev.c:826:13:indev_proc_release	40	static

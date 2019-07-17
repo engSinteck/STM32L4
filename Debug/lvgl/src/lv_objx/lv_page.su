@@ -1,8 +1,8 @@
 lv_area.h:73:20:lv_area_copy	0	static
 lv_page.c:1077:13:scrl_def_event_cb	16	static
-lv_page.c:1094:13:lv_page_sb_refresh	80	static
-lv_page.c:1218:13:edge_flash_anim_end	8	static
-lv_page.c:1211:13:edge_flash_anim	16	static
+lv_page.c:1095:13:lv_page_sb_refresh	80	static
+lv_page.c:1219:13:edge_flash_anim_end	8	static
+lv_page.c:1212:13:edge_flash_anim	16	static
 lv_page.c:740:13:lv_scrl_design	32	static
 lv_page.c:191:6:lv_page_set_sb_mode	16	static
 lv_page.c:217:6:lv_page_set_anim_time	8	static

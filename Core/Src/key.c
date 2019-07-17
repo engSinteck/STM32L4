@@ -8,6 +8,8 @@
 #include "key.h"
 #include "log.h"
 #include "misc.h"
+#include "lvgl/lvgl.h"
+#include "Sinteck/GUI/EX15-XT.h"
 
 extern TIM_HandleTypeDef htim17;
 extern TIM_HandleTypeDef htim3;
@@ -15,6 +17,7 @@ extern TIM_HandleTypeDef htim3;
 extern uint16_t tft_pwm, pwm_rf_value;
 extern long int frequencia;
 extern uint8_t audio_select, stereo_sel, processador_sel, emphase_sel, clipper_sel;
+extern uint32_t TelaAtiva, MenuSel;
 
 // Estrututa Botoes
 pushbtn_param btenter;
@@ -473,6 +476,29 @@ void KeyboardEvent(void)
 			// event[2]: PBTN_SCLK, _DCLK, _TCLK, _LCLK, _DOWN, _ENDN
 			case EVT_PBTN_INPUT:
 				if(event[2] == PBTN_SCLK) {
+					if(TelaAtiva == TelaPrincipal) {
+						main_screen_send_apply();
+					}
+					else if(TelaAtiva == TelaSelecao) {
+						if(event[1] == KEY_DN) {
+							if(MenuSel >= 1) MenuSel--;
+							sel_screen_send_button(MenuSel, LV_BTN_STATE_TGL_PR);
+							logI("Debug: Tela_Selecao KEY_Down: MenuSel: %ld\n", MenuSel);
+						}
+						else if(event[1] == KEY_UP) {
+							MenuSel++;
+							if(MenuSel >= 3) MenuSel = 3;
+							sel_screen_send_button(MenuSel, LV_BTN_STATE_TGL_PR);
+							logI("Debug: Tela_Selecao KEY_UP: MenuSel: %ld\n", MenuSel);
+						}
+						else if(event[1] == KEY_ENTER) {
+							sel_screen_send_apply(MenuSel);
+							logI("Debug: Tela_Selecao KEY_ENTER: MenuSel: %ld\n", MenuSel);
+						}
+						else if(event[1] == KEY_ESC) {
+							sel_screen_send_esc();
+						}
+					}
 					if(event[1] == KEY_DN) {
 
 					}

@@ -4,15 +4,17 @@
  *  Created on: 4 de jul de 2019
  *      Author: rinaldo
  */
-#include "Sinteck/GUI/EX15-XT.h"
+#include "main.h"
 #include "lvgl/lvgl.h"
 #include "stdio.h"
 #include "string.h"
+#include "Sinteck/GUI/EX15-XT.h"
 
 static void btn_event_esc_freq(lv_obj_t * btn, lv_event_t event);
 
 extern long int frequencia;
 extern char buffer[];
+extern uint32_t TelaAtiva;
 
 static lv_obj_t * Tela_Freq;
 static lv_obj_t * img_fundo;
@@ -48,6 +50,7 @@ void screen_freq(void)
 	update_vumeter(frequencia);
 	lv_ex_roller();
 	lv_scr_load(Tela_Freq);
+	TelaAtiva = TelaFrequencia;
 }
 
 void create_vumeter_freq(void)

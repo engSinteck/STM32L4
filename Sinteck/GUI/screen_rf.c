@@ -2,13 +2,15 @@
  * screen_rf.c
  *
  *  Created on: 4 de jul de 2019
- *      Author: rinaldo
+ *      Author: Rinaldo Dos Santos
+ *      Sinteck Next
  */
-#include "Sinteck/GUI/EX15-XT.h"
+#include "main.h"
 #include "stdio.h"
 #include "stdint.h"
 #include "string.h"
 #include "math.h"
+#include "Sinteck/GUI/EX15-XT.h"
 
 static void event_handler_target(lv_obj_t * obj, lv_event_t event);
 static void event_handler_swr(lv_obj_t * obj, lv_event_t event);
@@ -26,6 +28,7 @@ static void update_rf_1(lv_task_t * param);
 extern char buffer[];
 extern uint8_t RFEnable;
 extern float forward, max_rfl, target;
+extern uint32_t TelaAtiva;
 
 static lv_obj_t * Tela_RF;
 static lv_obj_t * Tela_RF_1;
@@ -85,6 +88,7 @@ void screen_rf(void)
 
 	// Task Update Vu-Meter
 	Task_RF = lv_task_create(update_rf, 500, LV_TASK_PRIO_MID, NULL);
+	TelaAtiva = TelaRF;
 }
 
 void screen_RF_1(void)
@@ -107,6 +111,7 @@ void screen_RF_1(void)
 
 	// Task Update Vu-Meter
 	Task_RF_1 = lv_task_create(update_rf_1, 500, LV_TASK_PRIO_MID, NULL);
+	TelaAtiva = TelaRF_1;
 }
 
 void screen_RF_2(void)
@@ -170,6 +175,7 @@ void screen_RF_2(void)
 	update_vumeter_pwr(forward);
 	print_pwr(forward);
 	lv_scr_load(Tela_RF_2);
+	TelaAtiva = TelaRF_2;
 }
 
 void create_vumeter_swr(void)

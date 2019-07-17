@@ -4,16 +4,18 @@
  *  Created on: 5 de jul de 2019
  *      Author: rinaldo
  */
-#include "Sinteck/GUI/EX15-XT.h"
+#include "main.h"
 #include "lvgl/lvgl.h"
 #include "stdio.h"
 #include "string.h"
+#include "Sinteck/GUI/EX15-XT.h"
 
 #define MAX_RFL	1.5f
 
 extern char buffer[];
 extern uint8_t pll_status;
 extern float temperatura, reflected;
+extern uint32_t TelaAtiva;
 
 static void btn_event_prev_status(lv_obj_t * btn, lv_event_t event);
 static void update_screen_status(lv_task_t * param);
@@ -50,6 +52,7 @@ void screen_reading_status(void)
 
 	// Task Update Main Screen
 	Task_Status = lv_task_create(update_screen_status, 500, LV_TASK_PRIO_MID, NULL);
+	TelaAtiva = TelaReading_Status;
 }
 
 void btn_prev_status(void)

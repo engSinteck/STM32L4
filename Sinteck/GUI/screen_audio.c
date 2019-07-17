@@ -5,10 +5,11 @@
  *      Author: rinaldo
  */
 
-#include "Sinteck/GUI/EX15-XT.h"
+#include "main.h"
 #include "lvgl/lvgl.h"
 #include "stdio.h"
 #include "string.h"
+#include "Sinteck/GUI/EX15-XT.h"
 
 static void btn_event_prev1(lv_obj_t * btn, lv_event_t event);
 static void btn_event_prev2(lv_obj_t * btn, lv_event_t event);
@@ -23,6 +24,7 @@ static void btn_clipper(lv_obj_t * btn, lv_event_t event);
 static void btn_mp3(lv_obj_t * btn, lv_event_t event);
 
 extern uint8_t Cfg_Stereo, Cfg_Audio, Cfg_Processador, Cfg_Clipper, Cfg_Emphase, mp3_status;
+extern uint32_t TelaAtiva;
 
 static lv_obj_t * Tela_Audio;
 static lv_obj_t * Tela_Audio_1;
@@ -258,6 +260,7 @@ void screen_audio(void)
 			break;
 	}
 	lv_scr_load(Tela_Audio);
+	TelaAtiva = TelaAudio;
 }
 
 
@@ -399,6 +402,7 @@ void screen_audio_1(void)
 	}
 
 	lv_scr_load(Tela_Audio_1);
+	TelaAtiva = TelaAudio_1;
 }
 
 void screen_audio_2(void)
@@ -554,7 +558,6 @@ void screen_audio_2(void)
 	lv_imgbtn_set_src(imgbtn2[3], LV_BTN_STATE_INA, &Btn_mp3Stop_am);
 #endif
 	lv_obj_set_pos(imgbtn2[3], 83, 105);
-	lv_scr_load(Tela_Audio_2);
 	// Atualiza MP3 Status
 	switch(mp3_status) {
 		case 0:			// STOP
@@ -568,6 +571,8 @@ void screen_audio_2(void)
 		case 4:
 			break;		// Next
 	}
+	lv_scr_load(Tela_Audio_2);
+	TelaAtiva = TelaAudio_2;
 }
 
 

@@ -5,10 +5,11 @@
  *      Author: rinaldo
  */
 
-#include "Sinteck/GUI/EX15-XT.h"
+#include "main.h"
 #include "lvgl/lvgl.h"
 #include "stdio.h"
 #include "string.h"
+#include "Sinteck/GUI/EX15-XT.h"
 
 static void btn_event_next_r(lv_obj_t * btn, lv_event_t event);
 static void btn_event_esc_r(lv_obj_t * btn, lv_event_t event);
@@ -18,6 +19,7 @@ void print_swr_1(float swr);
 
 extern float forward, reflected;
 extern char buffer[];
+extern uint32_t TelaAtiva;
 
 static lv_obj_t * Tela_Readings;
 static lv_obj_t * img_fundo;
@@ -71,6 +73,7 @@ void screen_readings(void)
 
 	// Task Update Reading RF
 	Task_Readings = lv_task_create(update_reading, 500, LV_TASK_PRIO_MID, NULL);
+	TelaAtiva = TelaReadings;
 }
 
 void create_vumeter_swr_1(void)

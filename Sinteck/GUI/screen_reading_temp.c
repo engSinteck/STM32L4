@@ -4,10 +4,11 @@
  *  Created on: 5 de jul de 2019
  *      Author: rinaldo
  */
-#include "Sinteck/GUI/EX15-XT.h"
+#include "main.h"
 #include "lvgl/lvgl.h"
 #include "stdio.h"
 #include "string.h"
+#include "Sinteck/GUI/EX15-XT.h"
 
 static void btn_event_prev_temp(lv_obj_t * btn, lv_event_t event);
 static void btn_event_next_temp(lv_obj_t * btn, lv_event_t event);
@@ -15,6 +16,7 @@ static void update_reading_temp(lv_task_t * param);
 
 extern float temperatura;
 extern char buffer[];
+extern uint32_t TelaAtiva;
 
 static lv_obj_t * Tela_Reading_TEMP;
 static lv_task_t * Task_Reading_TEMP;
@@ -58,6 +60,7 @@ void screen_reading_temp(void)
 
 	// Task Update Reading Temperatura
 	Task_Reading_TEMP = lv_task_create(update_reading_temp, 500, LV_TASK_PRIO_MID, NULL);
+	TelaAtiva = TelaReading_Temp;
 }
 
 void btn_next_temp(void)

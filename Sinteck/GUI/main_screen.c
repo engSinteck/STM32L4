@@ -2,13 +2,15 @@
  * main_screen.c
  *
  *  Created on: 3 de jul de 2019
- *      Author: rinaldo
+ *      Author: Rinaldo Dos Santos
+ *      Sinteck Next
  */
 
-#include "Sinteck/GUI/EX15-XT.h"
+#include "main.h"
 #include "lvgl/lvgl.h"
 #include "stdio.h"
 #include "string.h"
+#include "Sinteck/GUI/EX15-XT.h"
 
 static void main_screen_event(lv_obj_t * obj, lv_event_t event);
 static void update_main_screen(lv_task_t * param);
@@ -40,7 +42,7 @@ extern char buffer[500];
 extern long int frequencia;
 extern uint8_t Cfg_Stereo, Cfg_Audio, Cfg_Processador, Cfg_Clipper, Cfg_Emphase, RFEnable, mp3_status, sent_hor;
 extern float temperatura, forward, reflected;
-extern uint32_t falha, mpx;
+extern uint32_t TelaAtiva, falha, mpx;
 
 #if LV_USE_FILESYSTEM == 0
 	LV_IMG_DECLARE(tela_0);
@@ -79,6 +81,7 @@ void main_screen(void)
 
 	// Task Update Main Screen
 	Task_Principal = lv_task_create(update_main_screen, 500, LV_TASK_PRIO_MID, NULL);
+	TelaAtiva = TelaPrincipal;
 }
 
 void print_frequencia(uint32_t frequencia)
@@ -388,10 +391,15 @@ void create_vumeter(void)
 	}
 }
 
+void main_screen_send_apply(void)
+{
+	lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
+}
+
 static void main_screen_event(lv_obj_t * obj, lv_event_t event)
 {
     switch(event) {
-        case LV_EVENT_RELEASED:
+        case LV_EVENT_APPLY:
             //printf("Released\n");
             lv_task_del(Task_Principal);
     		lv_obj_del(Tela_Principal);

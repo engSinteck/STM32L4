@@ -2,15 +2,19 @@
  * screen_mpx.c
  *
  *  Created on: 5 de jul de 2019
- *      Author: rinaldo
+ *      Author: Rinaldo Dos Santos
+ *      Sinteck Next
  */
-#include "Sinteck/GUI/EX15-XT.h"
+#include "main.h"
 #include "lvgl/lvgl.h"
 #include "stdio.h"
 #include "string.h"
+#include "Sinteck/GUI/EX15-XT.h"
 
 static void btn_event_next_audio(lv_obj_t * btn, lv_event_t event);
 static void btn_event_esc_audio(lv_obj_t * btn, lv_event_t event);
+
+extern uint32_t TelaAtiva;
 
 static lv_obj_t * Tela_Reading_MPX;
 static lv_obj_t * img_fundo;
@@ -58,6 +62,7 @@ void screen_reading_mpx(void)
 	btn_next_audio();
 //	btn_esc_audio();
 	lv_scr_load(Tela_Reading_MPX);
+	TelaAtiva = TelaMpx;
 }
 
 void create_vumeter_m(void)

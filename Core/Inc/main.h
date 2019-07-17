@@ -56,7 +56,23 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+enum TFT {
+	TelaPrincipal,
+	TelaSelecao,
+	TelaFrequencia,
+	TelaAudio,
+	TelaAudio_1,
+	TelaAudio_2,
+	TelaRF,
+	TelaRF_1,
+	TelaRF_2,
+	TelaReadings,
+	TelaMpx,
+	TelaReading_Temp,
+	TelaReading_Vpa,
+	TelaReading_Efic,
+	TelaReading_Status
+};
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/

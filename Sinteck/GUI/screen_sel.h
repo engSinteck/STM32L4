@@ -10,5 +10,7 @@
 
 void screen_sel(void);
 void create_buttons(void);
+void sel_screen_send_esc(void);
+void sel_screen_send_apply(uint32_t btn);
 
 #endif /* EX15_XT_SRC_SCREEN_SEL_H_ */

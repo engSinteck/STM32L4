@@ -4,13 +4,18 @@
  *  Created on: 4 de jul de 2019
  *      Author: rinaldo
  */
-#include "Sinteck/GUI/EX15-XT.h"
+#include "main.h"
 #include "lvgl/lvgl.h"
 #include "stdio.h"
 #include "string.h"
+#include "Sinteck/GUI/EX15-XT.h"
+
+extern uint32_t TelaAtiva;
+extern uint8_t MenuSel;
 
 static void btn_event_btn1(lv_obj_t * btn, lv_event_t event);
 static void btn_event_esc_sel(lv_obj_t * btn, lv_event_t event);
+void sel_screen_send_button(uint32_t btn, lv_btn_state_t state);
 
 static lv_obj_t * Tela_Sel;
 static lv_obj_t * img_fundo;
@@ -31,6 +36,7 @@ static lv_group_t * group;
 
 void screen_sel(void)
 {
+	MenuSel = 0;
 	// Create a Screen
 	Tela_Sel = lv_obj_create(NULL, NULL);
 
@@ -48,7 +54,13 @@ void screen_sel(void)
 	// Cria Botoes
 	create_buttons();
 
+	lv_btn_set_state(imgbtn1[0], LV_BTN_STATE_TGL_PR);
+	lv_btn_set_state(imgbtn1[1], LV_BTN_STATE_TGL_REL);
+	lv_btn_set_state(imgbtn1[2], LV_BTN_STATE_TGL_REL);
+	lv_btn_set_state(imgbtn1[3], LV_BTN_STATE_TGL_REL);
+
 	lv_scr_load(Tela_Sel);
+	TelaAtiva = TelaSelecao;
 }
 
 void create_buttons(void)
@@ -136,19 +148,58 @@ void create_buttons(void)
 	lv_obj_set_pos(imgbtn1[3], 1, 100);
 }
 
+void sel_screen_send_esc(void)
+{
+	lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
+}
+
 static void btn_event_esc_sel(lv_obj_t * btn, lv_event_t event)
 {
-	if(event == LV_EVENT_RELEASED) {
+	if(event == LV_EVENT_APPLY) {
 		uint32_t id = lv_obj_get_user_data(btn);
 		lv_obj_del(Tela_Sel);
 		main_screen();
 	}
 }
 
+void sel_screen_send_button(uint32_t btn, lv_btn_state_t state)
+{
+	switch(btn) {
+		case 0:
+			lv_btn_set_state(imgbtn1[0], LV_BTN_STATE_TGL_PR);
+			lv_btn_set_state(imgbtn1[1], LV_BTN_STATE_TGL_REL);
+			lv_btn_set_state(imgbtn1[2], LV_BTN_STATE_TGL_REL);
+			lv_btn_set_state(imgbtn1[3], LV_BTN_STATE_TGL_REL);
+			break;
+		case 1:
+			lv_btn_set_state(imgbtn1[0], LV_BTN_STATE_TGL_REL);
+			lv_btn_set_state(imgbtn1[1], LV_BTN_STATE_TGL_PR);
+			lv_btn_set_state(imgbtn1[2], LV_BTN_STATE_TGL_REL);
+			lv_btn_set_state(imgbtn1[3], LV_BTN_STATE_TGL_REL);
+			break;
+		case 2:
+			lv_btn_set_state(imgbtn1[0], LV_BTN_STATE_TGL_REL);
+			lv_btn_set_state(imgbtn1[1], LV_BTN_STATE_TGL_REL);
+			lv_btn_set_state(imgbtn1[2], LV_BTN_STATE_TGL_PR);
+			lv_btn_set_state(imgbtn1[3], LV_BTN_STATE_TGL_REL);
+			break;
+		case 3:
+			lv_btn_set_state(imgbtn1[0], LV_BTN_STATE_TGL_REL);
+			lv_btn_set_state(imgbtn1[1], LV_BTN_STATE_TGL_REL);
+			lv_btn_set_state(imgbtn1[2], LV_BTN_STATE_TGL_REL);
+			lv_btn_set_state(imgbtn1[3], LV_BTN_STATE_TGL_PR);
+			break;
+	}
+}
+
+void sel_screen_send_apply(uint32_t btn)
+{
+	lv_event_send(imgbtn1[btn], LV_EVENT_APPLY, &btn);
+}
 
 static void btn_event_btn1(lv_obj_t * btn, lv_event_t event)
 {
-	if(event == LV_EVENT_RELEASED) {
+	if(event == LV_EVENT_APPLY) {
 		uint32_t id = lv_obj_get_user_data(btn);
 		lv_obj_del(Tela_Sel);
 		switch(id) {

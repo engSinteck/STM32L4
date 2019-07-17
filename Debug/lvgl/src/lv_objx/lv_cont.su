@@ -1,4 +1,4 @@
-lv_cont.c:586:13:lv_cont_refr_autofit	88	static
+lv_cont.c:585:13:lv_cont_refr_autofit	88	static
 lv_cont.c:63:12:lv_cont_create	24	static
 lv_cont.c:127:6:lv_cont_set_layout	16	static
 lv_cont.c:147:6:lv_cont_set_fit4	32	static

@@ -199,7 +199,7 @@ void lv_ex_roller(void)
     lv_roller_set_fix_width(rollerfreq[5], 19);
     lv_roller_set_style(rollerfreq[5], LV_ROLLER_STYLE_BG, &style_txt);
     lv_roller_set_style(rollerfreq[5], LV_ROLLER_STYLE_SEL, &style_txt);
-    lv_obj_align(rollerfreq[5], NULL, LV_ALIGN_IN_TOP_LEFT, 10, 44);
+    lv_obj_align(rollerfreq[5], NULL, LV_ALIGN_IN_TOP_LEFT, 10, 46);
     lv_obj_set_event_cb(rollerfreq[5], event_handler);
     // Centena
     rollerfreq[4] = lv_roller_create(Tela_Freq, NULL);
@@ -210,7 +210,7 @@ void lv_ex_roller(void)
     lv_roller_set_fix_width(rollerfreq[4], 19);
     lv_roller_set_style(rollerfreq[4], LV_ROLLER_STYLE_BG, &style_txt);
     lv_roller_set_style(rollerfreq[4], LV_ROLLER_STYLE_SEL, &style_txt);
-    lv_obj_align(rollerfreq[4], NULL, LV_ALIGN_IN_TOP_LEFT, 33, 44);
+    lv_obj_align(rollerfreq[4], NULL, LV_ALIGN_IN_TOP_LEFT, 33, 46);
     lv_obj_set_event_cb(rollerfreq[4], event_handler);
     // Dezena
     rollerfreq[3] = lv_roller_create(Tela_Freq, NULL);
@@ -221,7 +221,7 @@ void lv_ex_roller(void)
     lv_roller_set_fix_width(rollerfreq[3], 19);
     lv_roller_set_style(rollerfreq[3], LV_ROLLER_STYLE_BG, &style_txt);
     lv_roller_set_style(rollerfreq[3], LV_ROLLER_STYLE_SEL, &style_txt);
-    lv_obj_align(rollerfreq[3], NULL, LV_ALIGN_IN_TOP_LEFT, 57, 44);
+    lv_obj_align(rollerfreq[3], NULL, LV_ALIGN_IN_TOP_LEFT, 57, 46);
     lv_obj_set_event_cb(rollerfreq[3], event_handler);
     // Casa1
     rollerfreq[2] = lv_roller_create(Tela_Freq, NULL);
@@ -232,7 +232,7 @@ void lv_ex_roller(void)
     lv_roller_set_fix_width(rollerfreq[2], 19);
     lv_roller_set_style(rollerfreq[2], LV_ROLLER_STYLE_BG, &style_txt);
     lv_roller_set_style(rollerfreq[2], LV_ROLLER_STYLE_SEL, &style_txt);
-    lv_obj_align(rollerfreq[2], NULL, LV_ALIGN_IN_TOP_LEFT, 84, 44);
+    lv_obj_align(rollerfreq[2], NULL, LV_ALIGN_IN_TOP_LEFT, 84, 46);
     lv_obj_set_event_cb(rollerfreq[2], event_handler);
     // Casa1
     rollerfreq[1] = lv_roller_create(Tela_Freq, NULL);
@@ -243,7 +243,7 @@ void lv_ex_roller(void)
     lv_roller_set_fix_width(rollerfreq[1], 19);
     lv_roller_set_style(rollerfreq[1], LV_ROLLER_STYLE_BG, &style_txt);
     lv_roller_set_style(rollerfreq[1], LV_ROLLER_STYLE_SEL, &style_txt);
-    lv_obj_align(rollerfreq[1], NULL, LV_ALIGN_IN_TOP_LEFT, 107, 44);
+    lv_obj_align(rollerfreq[1], NULL, LV_ALIGN_IN_TOP_LEFT, 107, 46);
     lv_obj_set_event_cb(rollerfreq[1], event_handler);
 
     // teste
@@ -255,6 +255,6 @@ void lv_ex_roller(void)
     lv_roller_set_fix_width(rollerfreq[0], 19);
     lv_roller_set_style(rollerfreq[0], LV_ROLLER_STYLE_BG, &style_txt);
     lv_roller_set_style(rollerfreq[0], LV_ROLLER_STYLE_SEL, &style_txt);
-    lv_obj_align(rollerfreq[0], NULL, LV_ALIGN_IN_TOP_LEFT, 131, 44);
+    lv_obj_align(rollerfreq[0], NULL, LV_ALIGN_IN_TOP_LEFT, 131, 46);
     lv_obj_set_event_cb(rollerfreq[0], event_handler);
 }

@@ -144,7 +144,7 @@ int main(void)
   // Inicia PWM
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
-  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 3071);			    // PWM_CH1 = 0
+  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 4095);			// PWM_CH1 = 0
   __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_2, 4095);		    // PWM_CH2 = 4095 100% brilho
   // ST7735
   ST7735_Init();

@@ -1,5 +1,5 @@
 lv_draw_img.c:149:10:lv_img_buf_get_px_alpha	40	static
-lv_draw_img.c:310:6:lv_img_buf_set_palette	8	static
+lv_draw_img.c:310:6:lv_img_buf_set_palette	12	static
 lv_draw_img.c:329:9:lv_img_color_format_get_px_size	0	static
 lv_draw_img.c:78:12:lv_img_buf_get_px_color	24	static
 lv_draw_img.c:213:6:lv_img_buf_set_px_color	24	static

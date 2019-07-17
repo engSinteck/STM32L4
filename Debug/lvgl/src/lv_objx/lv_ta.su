@@ -20,7 +20,7 @@ lv_ta.c:914:14:lv_ta_get_placeholder_text	8	static
 lv_ta.c:930:12:lv_ta_get_label	8	static
 lv_ta.c:941:10:lv_ta_get_cursor_pos	8	static
 lv_ta.c:1612:13:refr_cursor_area	136	static
-lv_ta.c:537:6:lv_ta_set_cursor_pos	96	static
+lv_ta.c:537:6:lv_ta_set_cursor_pos	88	static
 lv_ta.c:1735:13:update_cursor_position_on_click	48	static
 lv_ta.c:1439:17:lv_ta_scrollable_signal	32	static
 lv_ta.c:613:6:lv_ta_set_cursor_type	16	static

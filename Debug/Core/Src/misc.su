@@ -1,4 +1,4 @@
-misc.c:22:6:my_print	8	static
+misc.c:22:6:my_print	0	static
 misc.c:49:6:MicroDelay	16	static
 misc.c:63:6:buzzer	8	static
 misc.c:148:6:tft_backlight	0	static

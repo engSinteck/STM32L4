@@ -1,2 +1,0 @@
-lv_log.c:46:6:lv_log_register_print_cb	0	static
-lv_log.c:58:6:lv_log_add	4	static

@@ -87,8 +87,5 @@ lv_obj.c:1981:16:lv_obj_get_design_cb	0	static
 lv_obj.c:1991:15:lv_obj_get_event_cb	0	static
 lv_obj.c:2006:8:lv_obj_get_ext_attr	0	static
 lv_obj.c:2017:6:lv_obj_get_type	48	static
-lv_obj.c:2045:20:lv_obj_get_user_data	0	static
-lv_obj.c:2055:22:lv_obj_get_user_data_ptr	0	static
-lv_obj.c:2065:6:lv_obj_set_user_data	0	static
 lv_obj.c:2077:8:lv_obj_get_group	0	static
 lv_obj.c:2087:6:lv_obj_is_focused	8	static

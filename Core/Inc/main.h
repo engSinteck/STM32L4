@@ -68,8 +68,10 @@ void Error_Handler(void);
 #define USART_RX_GPIO_Port GPIOA
 #define LD2_Pin GPIO_PIN_5
 #define LD2_GPIO_Port GPIOA
-#define BUZZER_Pin GPIO_PIN_2
-#define BUZZER_GPIO_Port GPIOB
+#define SW_ENC_Pin GPIO_PIN_4
+#define SW_ENC_GPIO_Port GPIOC
+#define ENC_A_Pin GPIO_PIN_2
+#define ENC_A_GPIO_Port GPIOB
 #define KEY_DN_Pin GPIO_PIN_12
 #define KEY_DN_GPIO_Port GPIOB
 #define KEY_UP_Pin GPIO_PIN_13
@@ -80,12 +82,6 @@ void Error_Handler(void);
 #define KEY_ESC_GPIO_Port GPIOB
 #define PWM_LED_Pin GPIO_PIN_6
 #define PWM_LED_GPIO_Port GPIOC
-#define ENC_B_Pin GPIO_PIN_8
-#define ENC_B_GPIO_Port GPIOA
-#define ENC_A_Pin GPIO_PIN_9
-#define ENC_A_GPIO_Port GPIOA
-#define SW_ENC_Pin GPIO_PIN_10
-#define SW_ENC_GPIO_Port GPIOA
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
@@ -94,6 +90,8 @@ void Error_Handler(void);
 #define CS_FLASH_GPIO_Port GPIOD
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
+#define ENC_B_Pin GPIO_PIN_4
+#define ENC_B_GPIO_Port GPIOB
 #define TFT_CS_Pin GPIO_PIN_5
 #define TFT_CS_GPIO_Port GPIOB
 #define TFT_RST_Pin GPIO_PIN_6

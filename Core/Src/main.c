@@ -137,8 +137,8 @@ int main(void)
   // Inicia PWM
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
-  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 0);			    // PWM_CH1 = 0
-  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_2, 3200);		    // PWM_CH2 = 4095 100% brilho
+  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 3071);			    // PWM_CH1 = 0
+  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_2, 4095);		    // PWM_CH2 = 4095 100% brilho
   // ST7735
   ST7735_Init();
   ST7735_Clear(0x0000);
@@ -174,7 +174,18 @@ int main(void)
   lv_disp_drv_register(&disp_drv);      //Finally register the driver
   // KEYPAD
 
+  lv_obj_t * scr = lv_disp_get_scr_act(NULL);     /*Get the current screen*/
 
+   /*Create a Label on the currently active screen*/
+   lv_obj_t * label1 =  lv_label_create(scr, NULL);
+
+   /*Modify the Label's text*/
+   lv_label_set_text(label1, "Hello world!");
+
+   /* Align the Label to the center
+    * NULL means align on parent (which is the screen now)
+    * 0, 0 at the end means an x, y offset after alignment*/
+lv_obj_align(label1, NULL, LV_ALIGN_CENTER, 0, 0);
 
   /* USER CODE END 2 */
 
@@ -221,7 +232,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 1;
-  RCC_OscInitStruct.PLL.PLLN = 16;
+  RCC_OscInitStruct.PLL.PLLN = 20;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV7;
   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
@@ -238,7 +249,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_3) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
   {
     Error_Handler();
   }
@@ -414,7 +425,7 @@ static void MX_I2C1_Init(void)
 
   /* USER CODE END I2C1_Init 1 */
   hi2c1.Instance = I2C1;
-  hi2c1.Init.Timing = 0x00602072;
+  hi2c1.Init.Timing = 0x00702890;
   hi2c1.Init.OwnAddress1 = 0;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
@@ -699,9 +710,6 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(CS_FLASH_GPIO_Port, CS_FLASH_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
@@ -720,24 +728,19 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : BUZZER_Pin TFT_CS_Pin TFT_RST_Pin TFT_DC_Pin */
-  GPIO_InitStruct.Pin = BUZZER_Pin|TFT_CS_Pin|TFT_RST_Pin|TFT_DC_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  /*Configure GPIO pin : SW_ENC_Pin */
+  GPIO_InitStruct.Pin = SW_ENC_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(SW_ENC_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : KEY_DN_Pin KEY_UP_Pin KEY_ENTER_Pin KEY_ESC_Pin */
-  GPIO_InitStruct.Pin = KEY_DN_Pin|KEY_UP_Pin|KEY_ENTER_Pin|KEY_ESC_Pin;
+  /*Configure GPIO pins : ENC_A_Pin KEY_DN_Pin KEY_UP_Pin KEY_ENTER_Pin 
+                           KEY_ESC_Pin ENC_B_Pin */
+  GPIO_InitStruct.Pin = ENC_A_Pin|KEY_DN_Pin|KEY_UP_Pin|KEY_ENTER_Pin 
+                          |KEY_ESC_Pin|ENC_B_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : ENC_B_Pin ENC_A_Pin SW_ENC_Pin */
-  GPIO_InitStruct.Pin = ENC_B_Pin|ENC_A_Pin|SW_ENC_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : CS_FLASH_Pin */
   GPIO_InitStruct.Pin = CS_FLASH_Pin;
@@ -745,6 +748,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(CS_FLASH_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : TFT_CS_Pin TFT_RST_Pin TFT_DC_Pin */
+  GPIO_InitStruct.Pin = TFT_CS_Pin|TFT_RST_Pin|TFT_DC_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 }
 

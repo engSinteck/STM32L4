@@ -50,14 +50,16 @@ const int32_t fwd_pos_x[20] = {8, 16, 23, 30, 38, 45, 52, 60, 67, 74,
 
 const int32_t pwr_pos_x[20] = {6, 14, 22, 30, 37, 45, 53, 61, 68, 76};
 
-LV_IMG_DECLARE(tela_rf);
-LV_IMG_DECLARE(Btn_poweron);
-LV_IMG_DECLARE(Btn_poweron_vd);
-LV_IMG_DECLARE(Btn_poweroff);
-LV_IMG_DECLARE(Btn_poweroff_vm);
-LV_IMG_DECLARE(BtnESC);
-LV_IMG_DECLARE(Btn_next);
-LV_IMG_DECLARE(Btn_prev);
+#if LV_USE_FILESYSTEM == 0
+	LV_IMG_DECLARE(tela_rf);
+	LV_IMG_DECLARE(Btn_poweron);
+	LV_IMG_DECLARE(Btn_poweron_vd);
+	LV_IMG_DECLARE(Btn_poweroff);
+	LV_IMG_DECLARE(Btn_poweroff_vm);
+	LV_IMG_DECLARE(BtnESC);
+	LV_IMG_DECLARE(Btn_next);
+	LV_IMG_DECLARE(Btn_prev);
+#endif
 
 void screen_rf(void)
 {

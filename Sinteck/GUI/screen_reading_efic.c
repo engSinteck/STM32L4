@@ -26,9 +26,11 @@ static lv_style_t style_indic_bar_vd;
 const int32_t e_pos_x[16] = {10, 19, 28, 37, 47, 56, 65, 74, 83,
                              92, 102, 111, 120, 129, 138, 147};
 
-LV_IMG_DECLARE(tela_reading_efic);
-LV_IMG_DECLARE(Btn_prev);
-LV_IMG_DECLARE(Btn_next);
+#if LV_USE_FILESYSTEM == 0
+	LV_IMG_DECLARE(tela_reading_efic);
+	LV_IMG_DECLARE(Btn_prev);
+	LV_IMG_DECLARE(Btn_next);
+#endif
 
 void screen_reading_efic(void)
 {

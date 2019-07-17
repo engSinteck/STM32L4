@@ -25,8 +25,10 @@ static lv_obj_t * txt_temp;
 static lv_obj_t * txt_vswr;
 static lv_task_t * Task_Status;
 
-LV_IMG_DECLARE(tela_status);
-LV_IMG_DECLARE(Btn_prev);
+#if LV_USE_FILESYSTEM == 0
+	LV_IMG_DECLARE(tela_status);
+	LV_IMG_DECLARE(Btn_prev);
+#endif
 
 void screen_reading_status(void)
 {

@@ -26,10 +26,11 @@ static lv_obj_t * txt_temp;
 
 const int32_t t_pos_x[20] = {6, 14, 21, 28, 36, 43, 50, 57, 65, 72,
                              79, 86, 94, 101, 108, 116, 123, 130, 137, 145};
-
-LV_IMG_DECLARE(tela_reading_temp);
-LV_IMG_DECLARE(Btn_next);
-LV_IMG_DECLARE(Btn_prev);
+#if LV_USE_FILESYSTEM == 0
+	LV_IMG_DECLARE(tela_reading_temp);
+	LV_IMG_DECLARE(Btn_next);
+	LV_IMG_DECLARE(Btn_prev);
+#endif
 
 void screen_reading_temp(void)
 {

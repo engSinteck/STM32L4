@@ -42,9 +42,11 @@ extern uint8_t Cfg_Stereo, Cfg_Audio, Cfg_Processador, Cfg_Clipper, Cfg_Emphase,
 extern float temperatura, forward, reflected;
 extern uint32_t falha, mpx;
 
-LV_IMG_DECLARE(tela_0);
-LV_IMG_DECLARE(stereo_vd);
-LV_IMG_DECLARE(stereo_off);
+#if LV_USE_FILESYSTEM == 0
+	LV_IMG_DECLARE(tela_0);
+	LV_IMG_DECLARE(stereo_vd);
+	LV_IMG_DECLARE(stereo_off);
+#endif
 
 const int32_t vumeter_pos_x[20] = {6, 12, 18, 23, 29,
 		                           35, 41, 47, 52, 58,
@@ -390,7 +392,7 @@ static void main_screen_event(lv_obj_t * obj, lv_event_t event)
 {
     switch(event) {
         case LV_EVENT_RELEASED:
-            printf("Released\n");
+            //printf("Released\n");
             lv_task_del(Task_Principal);
     		lv_obj_del(Tela_Principal);
     		screen_sel();

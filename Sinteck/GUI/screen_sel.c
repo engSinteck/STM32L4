@@ -17,15 +17,17 @@ static lv_obj_t * img_fundo;
 static lv_obj_t * imgbtn1[4];
 static lv_group_t * group;
 
-LV_IMG_DECLARE(tela_sel);
-LV_IMG_DECLARE(Btn_Frequency);
-LV_IMG_DECLARE(Btn_Frequency_am);
-LV_IMG_DECLARE(Btn_Audio);
-LV_IMG_DECLARE(Btn_Audio_am);
-LV_IMG_DECLARE(Btn_RF);
-LV_IMG_DECLARE(Btn_RF_am);
-LV_IMG_DECLARE(Btn_Readings);
-LV_IMG_DECLARE(Btn_Readings_am);
+#if LV_USE_FILESYSTEM == 0
+	LV_IMG_DECLARE(tela_sel);
+	LV_IMG_DECLARE(Btn_Frequency);
+	LV_IMG_DECLARE(Btn_Frequency_am);
+	LV_IMG_DECLARE(Btn_Audio);
+	LV_IMG_DECLARE(Btn_Audio_am);
+	LV_IMG_DECLARE(Btn_RF);
+	LV_IMG_DECLARE(Btn_RF_am);
+	LV_IMG_DECLARE(Btn_Readings);
+	LV_IMG_DECLARE(Btn_Readings_am);
+#endif
 
 void screen_sel(void)
 {

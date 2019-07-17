@@ -23,8 +23,9 @@ static lv_style_t style_indic_bar_vd;
 
 const int32_t freq_pos_x[21] = {8, 15, 22, 29, 36, 43, 50, 57, 64, 71,
                                 78, 85, 92, 99, 106, 113, 120, 127, 134, 141, 148};
-
-LV_IMG_DECLARE(tela_freq);
+#if LV_USE_FILESYSTEM == 0
+	LV_IMG_DECLARE(tela_freq);
+#endif
 
 void screen_freq(void)
 {

@@ -30,9 +30,11 @@ const int32_t r_pos_x[24] = {14, 20, 26, 32, 38, 44, 50, 56, 62, 68, 74, 80,
 const int32_t l_pos_x[24] = {14, 20, 26, 32, 38, 44, 50, 56, 62, 68, 74, 80,
                              86, 92, 98, 104, 110, 116, 122, 128, 134, 140, 146, 152};
 
-LV_IMG_DECLARE(tela_reading_audio);
-LV_IMG_DECLARE(BtnESC);
-LV_IMG_DECLARE(Btn_next);
+#if LV_USE_FILESYSTEM == 0
+	LV_IMG_DECLARE(tela_reading_audio);
+	LV_IMG_DECLARE(BtnESC);
+	LV_IMG_DECLARE(Btn_next);
+#endif
 
 void screen_reading_mpx(void)
 {

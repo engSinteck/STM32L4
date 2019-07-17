@@ -35,9 +35,11 @@ const int32_t swr1_pos_x[21] = {8, 15, 23, 30, 37, 44, 50, 57, 64, 71,
 const int32_t fwd1_pos_x[21] = {8, 15, 23, 30, 37, 44, 50, 57, 64, 71,
                                78, 85, 92, 99, 106, 113, 120, 127, 134, 141, 147};
 
-LV_IMG_DECLARE(tela_reading_rf);
-LV_IMG_DECLARE(Btn_next);
-LV_IMG_DECLARE(BtnESC);
+#if LV_USE_FILESYSTEM == 0
+	LV_IMG_DECLARE(tela_reading_rf);
+	LV_IMG_DECLARE(Btn_next);
+	LV_IMG_DECLARE(BtnESC);
+#endif
 
 void screen_readings(void)
 {

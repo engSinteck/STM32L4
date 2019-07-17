@@ -33,9 +33,11 @@ const int32_t vpa_pos_x[21] = {8, 15, 22, 29, 36, 43, 50, 57, 64, 70, 77,
 const int32_t ipa_pos_x[21] = {8, 15, 22, 29, 36, 43, 50, 57, 64, 70, 77,
                                85, 92, 98, 105, 112, 119, 126, 133, 140, 147};
 
-LV_IMG_DECLARE(tela_reading_vpa);
-LV_IMG_DECLARE(Btn_prev);
-LV_IMG_DECLARE(Btn_next);
+#if LV_USE_FILESYSTEM == 0
+	LV_IMG_DECLARE(tela_reading_vpa);
+	LV_IMG_DECLARE(Btn_prev);
+	LV_IMG_DECLARE(Btn_next);
+#endif
 
 void screen_reading_vpa(void)
 {

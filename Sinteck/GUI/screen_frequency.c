@@ -8,6 +8,8 @@
 #include "lvgl/lvgl.h"
 #include "stdio.h"
 #include "string.h"
+#include "key.h"
+#include "log.h"
 #include "Sinteck/GUI/EX15-XT.h"
 
 static void btn_event_esc_freq(lv_obj_t * btn, lv_event_t event);
@@ -137,7 +139,7 @@ void update_vumeter(long int freq)
 
 static void btn_event_esc_freq(lv_obj_t * btn, lv_event_t event)
 {
-	if(event == LV_EVENT_RELEASED) {
+	if(event == LV_EVENT_APPLY) {
 		//printf("Button ESC Released\n");
 		lv_obj_del(Tela_Freq);
 		screen_sel();
@@ -223,7 +225,7 @@ void lv_ex_roller(void)
     lv_roller_set_style(rollerfreq[3], LV_ROLLER_STYLE_SEL, &style_txt);
     lv_obj_align(rollerfreq[3], NULL, LV_ALIGN_IN_TOP_LEFT, 57, 46);
     lv_obj_set_event_cb(rollerfreq[3], event_handler);
-    // Casa1
+    // Casa 1
     rollerfreq[2] = lv_roller_create(Tela_Freq, NULL);
     lv_obj_set_user_data(rollerfreq[2], 2);
     lv_roller_set_options(rollerfreq[2], "0\n1\n2\n3\n4\n5\n6\n7\n8\n9", LV_ROLLER_MODE_INIFINITE);
@@ -234,7 +236,7 @@ void lv_ex_roller(void)
     lv_roller_set_style(rollerfreq[2], LV_ROLLER_STYLE_SEL, &style_txt);
     lv_obj_align(rollerfreq[2], NULL, LV_ALIGN_IN_TOP_LEFT, 84, 46);
     lv_obj_set_event_cb(rollerfreq[2], event_handler);
-    // Casa1
+    // Casa 2
     rollerfreq[1] = lv_roller_create(Tela_Freq, NULL);
     lv_obj_set_user_data(rollerfreq[1], 1);
     lv_roller_set_options(rollerfreq[1], "0\n1\n2\n3\n4\n5\n6\n7\n8\n9", LV_ROLLER_MODE_INIFINITE);
@@ -245,8 +247,7 @@ void lv_ex_roller(void)
     lv_roller_set_style(rollerfreq[1], LV_ROLLER_STYLE_SEL, &style_txt);
     lv_obj_align(rollerfreq[1], NULL, LV_ALIGN_IN_TOP_LEFT, 107, 46);
     lv_obj_set_event_cb(rollerfreq[1], event_handler);
-
-    // teste
+    // Casa 3
     rollerfreq[0] = lv_roller_create(Tela_Freq, NULL);
     lv_obj_set_user_data(rollerfreq[0], 0);
     lv_roller_set_options(rollerfreq[0], "0", LV_ROLLER_MODE_INIFINITE);
@@ -258,3 +259,23 @@ void lv_ex_roller(void)
     lv_obj_align(rollerfreq[0], NULL, LV_ALIGN_IN_TOP_LEFT, 131, 46);
     lv_obj_set_event_cb(rollerfreq[0], event_handler);
 }
+
+void ButtonEventTelaFrequencia(uint8_t event, uint8_t tipo, uint8_t id)
+{
+	if(event == EVT_PBTN_INPUT) {
+		if(tipo == PBTN_SCLK) {	// Single Click
+			switch(id) {
+				case KEY_DN:
+					lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
+					break;
+				case KEY_UP:
+					break;
+				case KEY_ENTER:
+					break;
+				case KEY_ESC:
+					break;
+			}
+		}
+	}
+}
+

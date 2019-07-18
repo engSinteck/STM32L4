@@ -9,6 +9,8 @@
 #include "stdio.h"
 #include "stdint.h"
 #include "string.h"
+#include "log.h"
+#include "key.h"
 #include "math.h"
 #include "Sinteck/GUI/EX15-XT.h"
 
@@ -36,10 +38,13 @@ static lv_obj_t * Tela_RF_2;
 static lv_task_t * Task_RF;
 static lv_task_t * Task_RF_1;
 static lv_obj_t * img_fundo;
+static lv_obj_t * img_fundo_1;
+static lv_obj_t * img_fundo_2;
 static lv_obj_t * bar_swr[20];
 static lv_obj_t * bar_fwd[20];
 static lv_obj_t * bar_pwr[10];
 static lv_obj_t * imgbtn1[2];
+static lv_obj_t * imgbtn_next[2];
 static lv_obj_t *rollerswr[2];
 static lv_obj_t *rollertarget[2];
 static lv_style_t style_indic_bar;
@@ -55,6 +60,8 @@ const int32_t pwr_pos_x[20] = {6, 14, 22, 30, 37, 45, 53, 61, 68, 76};
 
 #if LV_USE_FILESYSTEM == 0
 	LV_IMG_DECLARE(tela_rf);
+	LV_IMG_DECLARE(tela_rf_1);
+	LV_IMG_DECLARE(tela_rf_2);
 	LV_IMG_DECLARE(Btn_poweron);
 	LV_IMG_DECLARE(Btn_poweron_vd);
 	LV_IMG_DECLARE(Btn_poweroff);
@@ -97,11 +104,15 @@ void screen_RF_1(void)
 	Tela_RF_1 = lv_obj_create(NULL, NULL);
 
 	// Imagem de Fundo
-	img_fundo = lv_img_create(Tela_RF_1, NULL);
-    lv_img_set_src(img_fundo, "P:/EX15-XT/img/tela_rf_1.bin");
-	lv_obj_set_protect(img_fundo, LV_PROTECT_POS);
-	lv_obj_set_event_cb(img_fundo, btn_event_esc_rf1);
-	lv_obj_set_click(img_fundo, 1);
+	img_fundo_1 = lv_img_create(Tela_RF_1, NULL);
+#if	LV_USE_FILESYSTEM
+	lv_img_set_src(img_fundo_1, "P:/EX15-XT/img/tela_rf_1.bin");
+#else
+	lv_img_set_src(img_fundo_1, &tela_rf_1);
+#endif
+	lv_obj_set_protect(img_fundo_1, LV_PROTECT_POS);
+	lv_obj_set_event_cb(img_fundo_1, btn_event_esc_rf1);
+	lv_obj_set_click(img_fundo_1, 1);
 
 	btn_next_rf1();
 	create_vumeter_fwd();
@@ -120,9 +131,15 @@ void screen_RF_2(void)
 	Tela_RF_2 = lv_obj_create(NULL, NULL);
 
 	// Imagem de Fundo
-	img_fundo = lv_img_create(Tela_RF_2, NULL);
-    lv_img_set_src(img_fundo, "P:/EX15-XT/img/tela_rf_2.bin");
-	lv_obj_set_protect(img_fundo, LV_PROTECT_POS);
+	img_fundo_2 = lv_img_create(Tela_RF_2, NULL);
+#if	LV_USE_FILESYSTEM
+	lv_img_set_src(img_fundo_2, "P:/EX15-XT/img/tela_rf_2.bin");
+#else
+	lv_img_set_src(img_fundo_2, &tela_rf_2);
+#endif
+	lv_obj_set_protect(img_fundo_2, LV_PROTECT_POS);
+	lv_obj_set_event_cb(img_fundo_2, btn_event_esc_rf2);
+	lv_obj_set_click(img_fundo_2, 1);
 
 	// POWER ON
 	imgbtn1[0] = lv_imgbtn_create(Tela_RF_2, NULL);
@@ -170,7 +187,7 @@ void screen_RF_2(void)
 		lv_btn_set_state(imgbtn1[1], LV_BTN_STATE_TGL_REL);
 	}
 
-	btn_prev_rf2();
+	//btn_prev_rf2();
 	create_vumeter_pwr();
 	update_vumeter_pwr(forward);
 	print_pwr(forward);
@@ -429,7 +446,7 @@ void btn_esc_rf(void)
 
 static void btn_event_esc_rf(lv_obj_t * btn, lv_event_t event)
 {
-	if(event == LV_EVENT_RELEASED) {
+	if(event == LV_EVENT_APPLY) {
 		//printf("TELA RF - Button ESC Released\n");
 		lv_task_del(Task_RF);
 		lv_obj_del(Tela_RF);
@@ -437,6 +454,7 @@ static void btn_event_esc_rf(lv_obj_t * btn, lv_event_t event)
 	}
 }
 
+/*
 void btn_esc_rf1(void)
 {
 	// Create an Image button
@@ -457,10 +475,11 @@ void btn_esc_rf1(void)
 	lv_obj_set_event_cb(imgbtn1, btn_event_esc_rf1);
 	lv_obj_set_pos(imgbtn1, 143, 2);
 }
+*/
 
 static void btn_event_esc_rf1(lv_obj_t * btn, lv_event_t event)
 {
-	if(event == LV_EVENT_RELEASED) {
+	if(event == LV_EVENT_APPLY) {
 		//printf("Button ESC  1 Released\n");
 		lv_task_del(Task_RF_1);
 		lv_obj_del(Tela_RF_1);
@@ -489,7 +508,7 @@ static void btn_power(lv_obj_t * btn, lv_event_t event)
 	}
 }
 
-
+/*
 void btn_esc_rf2(void)
 {
 	// Create an Image button
@@ -510,11 +529,12 @@ void btn_esc_rf2(void)
 	lv_obj_set_event_cb(imgbtn1, btn_event_esc_rf2);
 	lv_obj_set_pos(imgbtn1, 143, 2);
 }
+*/
 
 static void btn_event_esc_rf2(lv_obj_t * btn, lv_event_t event)
 {
-	if(event == LV_EVENT_RELEASED) {
-		printf("Button ESC  2 Released\n");
+	if(event == LV_EVENT_APPLY) {
+		//printf("Button ESC  2 Released\n");
 		lv_obj_del(Tela_RF_2);
 		screen_RF_1();
 	}
@@ -523,28 +543,28 @@ static void btn_event_esc_rf2(lv_obj_t * btn, lv_event_t event)
 void btn_next_rf(void)
 {
 	// Create an Image button
-	lv_obj_t * imgbtn1 = lv_imgbtn_create(Tela_RF, NULL);
+	imgbtn_next[0] = lv_imgbtn_create(Tela_RF, NULL);
 #if	LV_USE_FILESYSTEM
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_REL, "P:/EX15-XT/img/Btn_next.bin");
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_TGL_REL, "P:/EX15-XT/img/Btn_next.bin");
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_TGL_PR, "P:/EX15-XT/img/Btn_next.bin");
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_next.bin");
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_INA, "P:/EX15-XT/img/Btn_next.bin");
+	lv_imgbtn_set_src(imgbtn_next[0], LV_BTN_STATE_REL, "P:/EX15-XT/img/Btn_next.bin");
+	lv_imgbtn_set_src(imgbtn_next[0], LV_BTN_STATE_TGL_REL, "P:/EX15-XT/img/Btn_next.bin");
+	lv_imgbtn_set_src(imgbtn_next[0], LV_BTN_STATE_TGL_PR, "P:/EX15-XT/img/Btn_next.bin");
+	lv_imgbtn_set_src(imgbtn_next[0], LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_next.bin");
+	lv_imgbtn_set_src(imgbtn_next[0], LV_BTN_STATE_INA, "P:/EX15-XT/img/Btn_next.bin");
 #else
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_REL, &Btn_next);
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_TGL_REL, &Btn_next);
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_TGL_PR, &Btn_next);
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_PR, &Btn_next);
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_INA, &Btn_next);
+	lv_imgbtn_set_src(imgbtn_next[0], LV_BTN_STATE_REL, &Btn_next);
+	lv_imgbtn_set_src(imgbtn_next[0], LV_BTN_STATE_TGL_REL, &Btn_next);
+	lv_imgbtn_set_src(imgbtn_next[0], LV_BTN_STATE_TGL_PR, &Btn_next);
+	lv_imgbtn_set_src(imgbtn_next[0], LV_BTN_STATE_PR, &Btn_next);
+	lv_imgbtn_set_src(imgbtn_next[0], LV_BTN_STATE_INA, &Btn_next);
 #endif
-	lv_obj_set_event_cb(imgbtn1, btn_event_next_rf);
-	lv_obj_set_pos(imgbtn1, 112, 18);
+	lv_obj_set_event_cb(imgbtn_next[0], btn_event_next_rf);
+	lv_obj_set_pos(imgbtn_next[0], 112, 18);
 }
 
 static void btn_event_next_rf(lv_obj_t * btn, lv_event_t event)
 {
-	if(event == LV_EVENT_RELEASED) {
-		printf("TELA_RF - Button Next Released\n");
+	if(event == LV_EVENT_APPLY) {
+		//printf("TELA_RF - Button Next Released\n");
 		lv_task_del(Task_RF);
 		lv_obj_del(Tela_RF);
 		screen_RF_1();
@@ -554,34 +574,35 @@ static void btn_event_next_rf(lv_obj_t * btn, lv_event_t event)
 void btn_next_rf1(void)
 {
 	// Create an Image button
-	lv_obj_t * imgbtn1 = lv_imgbtn_create(Tela_RF_1, NULL);
+	imgbtn_next[1] = lv_imgbtn_create(Tela_RF_1, NULL);
 #if	LV_USE_FILESYSTEM
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_REL, "P:/EX15-XT/img/Btn_next.bin");
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_TGL_REL, "P:/EX15-XT/img/Btn_next.bin");
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_TGL_PR, "P:/EX15-XT/img/Btn_next.bin");
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_next.bin");
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_INA, "P:/EX15-XT/img/Btn_next.bin");
+	lv_imgbtn_set_src(imgbtn_next[1], LV_BTN_STATE_REL, "P:/EX15-XT/img/Btn_next.bin");
+	lv_imgbtn_set_src(imgbtn_next[1], LV_BTN_STATE_TGL_REL, "P:/EX15-XT/img/Btn_next.bin");
+	lv_imgbtn_set_src(imgbtn_next[1], LV_BTN_STATE_TGL_PR, "P:/EX15-XT/img/Btn_next.bin");
+	lv_imgbtn_set_src(imgbtn_next[1], LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_next.bin");
+	lv_imgbtn_set_src(imgbtn_next[1], LV_BTN_STATE_INA, "P:/EX15-XT/img/Btn_next.bin");
 #else
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_REL, &Btn_next);
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_TGL_REL, &Btn_next);
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_TGL_PR, &Btn_next);
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_PR, &Btn_next);
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_INA, &Btn_next);
+	lv_imgbtn_set_src(imgbtn_next[1], LV_BTN_STATE_REL, &Btn_next);
+	lv_imgbtn_set_src(imgbtn_next[1], LV_BTN_STATE_TGL_REL, &Btn_next);
+	lv_imgbtn_set_src(imgbtn_next[1], LV_BTN_STATE_TGL_PR, &Btn_next);
+	lv_imgbtn_set_src(imgbtn_next[1], LV_BTN_STATE_PR, &Btn_next);
+	lv_imgbtn_set_src(imgbtn_next[1], LV_BTN_STATE_INA, &Btn_next);
 #endif
-	lv_obj_set_event_cb(imgbtn1, btn_event_next_rf1);
-	lv_obj_set_pos(imgbtn1, 112, 18);
+	lv_obj_set_event_cb(imgbtn_next[1], btn_event_next_rf1);
+	lv_obj_set_pos(imgbtn_next[1], 112, 18);
 }
 
 static void btn_event_next_rf1(lv_obj_t * btn, lv_event_t event)
 {
-	if(event == LV_EVENT_RELEASED) {
-		printf("Button Next  1 Released\n");
+	if(event == LV_EVENT_APPLY) {
+		//printf("Button Next  1 Released\n");
 		lv_task_del(Task_RF_1);
 		lv_obj_del(Tela_RF_1);
 		screen_RF_2();
 	}
 }
 
+/*
 void btn_prev_rf2(void)
 {
 	// Create an Image button
@@ -602,11 +623,12 @@ void btn_prev_rf2(void)
 	lv_obj_set_event_cb(imgbtn1, btn_event_prev_rf2);
 	lv_obj_set_pos(imgbtn1, 32, 18);
 }
+*/
 
 static void btn_event_prev_rf2(lv_obj_t * btn, lv_event_t event)
 {
-	if(event == LV_EVENT_RELEASED) {
-		printf("Button Prev 2 Released\n");
+	if(event == LV_EVENT_APPLY) {
+		//printf("Button Prev 2 Released\n");
 		lv_obj_del(Tela_RF_2);
 		screen_RF_1();
 	}
@@ -766,3 +788,61 @@ static void update_rf_1(lv_task_t * param)
 	update_vumeter_fwd(target);
 }
 
+void ButtonEventTelaRF(uint8_t event, uint8_t tipo, uint8_t id)
+{
+	if(event == EVT_PBTN_INPUT) {
+		if(tipo == PBTN_SCLK) {	// Single Click
+			switch(id) {
+				case KEY_DN:
+					lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
+					break;
+				case KEY_UP:
+					lv_event_send(imgbtn_next[0], LV_EVENT_APPLY, NULL);
+					break;
+				case KEY_ENTER:
+					break;
+				case KEY_ESC:
+					break;
+			}
+		}
+	}
+}
+
+void ButtonEventTelaRF_1(uint8_t event, uint8_t tipo, uint8_t id)
+{
+	if(event == EVT_PBTN_INPUT) {
+		if(tipo == PBTN_SCLK) {	// Single Click
+			switch(id) {
+				case KEY_DN:
+					lv_event_send(img_fundo_1, LV_EVENT_APPLY, NULL);
+					break;
+				case KEY_UP:
+					lv_event_send(imgbtn_next[1], LV_EVENT_APPLY, NULL);
+					break;
+				case KEY_ENTER:
+					break;
+				case KEY_ESC:
+					break;
+			}
+		}
+	}
+}
+
+void ButtonEventTelaRF_2(uint8_t event, uint8_t tipo, uint8_t id)
+{
+	if(event == EVT_PBTN_INPUT) {
+		if(tipo == PBTN_SCLK) {	// Single Click
+			switch(id) {
+				case KEY_DN:
+					lv_event_send(img_fundo_2, LV_EVENT_APPLY, NULL);
+					break;
+				case KEY_UP:
+					break;
+				case KEY_ENTER:
+					break;
+				case KEY_ESC:
+					break;
+			}
+		}
+	}
+}

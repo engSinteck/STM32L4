@@ -14,5 +14,6 @@ void btn_prev_efic(void);
 void create_vumeter_eficiencia(void);
 void update_vumeter_eficiencia(void);
 void print_eficiencia(void);
+void ButtonEventTelaReading_Efic(uint8_t event, uint8_t tipo, uint8_t id);
 
 #endif /* EX15_XT_SRC_SCREEN_READING_EFIC_H_ */

@@ -38,7 +38,7 @@
 static lv_disp_buf_t disp_buf;
 static lv_color_t buf[LV_HOR_RES_MAX * 10];		// Declare a buffer for 10 lines
 static lv_color_t buf2[LV_HOR_RES_MAX * 10];	// Declare a buffer for 10 lines
-uint32_t timer_key = 0, timer_loop = 0;
+uint32_t timer_key = 0, timer_loop = 0, timer_gui = 0;
 uint16_t tft_pwm = 0;
 /* USER CODE END PTD */
 
@@ -198,13 +198,19 @@ int main(void)
 		  HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 	  }
 	  // Eventos de Teclado
-	  KeyboardEvent();
+	  //KeyboardEvent();
+	  ButtonEvent();
 
 	  // Read Rotary Encoder
 	  Read_Encoder();
 
 	  // Eventos da GUI LittleVG
 	  lv_task_handler();
+
+	  // Timer GUI
+	  if(TelaAtiva != TelaPrincipal &&  ( (HAL_GetTick() - timer_gui) > 60000) ) {
+
+	  }
   }
   /* USER CODE END 3 */
 }

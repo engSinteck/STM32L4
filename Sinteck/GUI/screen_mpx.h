@@ -13,5 +13,6 @@ void create_vumeter_m(void);
 void create_vumeter_r(void);
 void create_vumeter_l(void);
 void btn_next_audio(void);
+void ButtonEventTelaMpx(uint8_t event, uint8_t tipo, uint8_t id);
 
 #endif /* EX15_XT_SRC_SCREEN_MPX_H_ */

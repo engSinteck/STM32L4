@@ -2,7 +2,8 @@
  * key.h
  *
  *  Created on: 4 de mai de 2019
- *      Author: rinaldo
+ *      Author: Rinaldo Dos Santos
+ *      Sinteck Next
  */
 
 #ifndef INC_KEY_H_
@@ -58,6 +59,7 @@ void KeyboardSetMode(uint8_t key, uint8_t mode, bool flag);
 void KeyboardRead(uint8_t key);
 void Key_Read(void);
 void KeyboardEvent(void);
+void ButtonEvent(void);
 
 // Eventos
 /// Register a new event

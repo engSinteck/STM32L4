@@ -17,5 +17,6 @@ void print_vpa_1(uint32_t vpa);
 void print_ipa_1(uint32_t ipa);
 void update_vumeter_vpa_1(uint32_t value);
 void update_vumeter_ipa_1(uint32_t value);
+void ButtonEventTelaReading_Vpa(uint8_t event, uint8_t tipo, uint8_t id);
 
 #endif /* EX15_XT_SRC_SCREEN_READING_VPA_H_ */

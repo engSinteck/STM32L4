@@ -9,6 +9,8 @@
 #include "lvgl/lvgl.h"
 #include "stdio.h"
 #include "string.h"
+#include "key.h"
+#include "log.h"
 #include "Sinteck/GUI/EX15-XT.h"
 
 extern char buffer[];
@@ -22,6 +24,8 @@ static lv_obj_t * Tela_Reading_VPA;
 static lv_task_t * Task_Reading_VPA;
 
 static lv_obj_t * img_fundo;
+static lv_obj_t * imgbtn_next;
+static lv_obj_t * imgbtn_prev;
 static lv_obj_t * txt_vpa;
 static lv_obj_t * txt_ipa;
 static lv_obj_t * bar_vpa[21];
@@ -74,28 +78,28 @@ void screen_reading_vpa(void)
 void btn_next_vpa(void)
 {
 	// Create an Image button
-	lv_obj_t * imgbtn1 = lv_imgbtn_create(Tela_Reading_VPA, NULL);
+	imgbtn_next = lv_imgbtn_create(Tela_Reading_VPA, NULL);
 #if	LV_USE_FILESYSTEM
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_REL, "P:/EX15-XT/img/Btn_next.bin");
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_TGL_REL, "P:/EX15-XT/img/Btn_next.bin");
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_TGL_PR, "P:/EX15-XT/img/Btn_next.bin");
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_next.bin");
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_INA, "P:/EX15-XT/img/Btn_next.bin");
+	lv_imgbtn_set_src(imgbtn_next, LV_BTN_STATE_REL, "P:/EX15-XT/img/Btn_next.bin");
+	lv_imgbtn_set_src(imgbtn_next, LV_BTN_STATE_TGL_REL, "P:/EX15-XT/img/Btn_next.bin");
+	lv_imgbtn_set_src(imgbtn_next, LV_BTN_STATE_TGL_PR, "P:/EX15-XT/img/Btn_next.bin");
+	lv_imgbtn_set_src(imgbtn_next, LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_next.bin");
+	lv_imgbtn_set_src(imgbtn_next, LV_BTN_STATE_INA, "P:/EX15-XT/img/Btn_next.bin");
 #else
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_REL, &Btn_next);
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_TGL_REL, &Btn_next);
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_TGL_PR, &Btn_next);
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_PR, &Btn_next);
-	lv_imgbtn_set_src(imgbtn1, LV_BTN_STATE_INA, &Btn_next);
+	lv_imgbtn_set_src(imgbtn_next, LV_BTN_STATE_REL, &Btn_next);
+	lv_imgbtn_set_src(imgbtn_next, LV_BTN_STATE_TGL_REL, &Btn_next);
+	lv_imgbtn_set_src(imgbtn_next, LV_BTN_STATE_TGL_PR, &Btn_next);
+	lv_imgbtn_set_src(imgbtn_next, LV_BTN_STATE_PR, &Btn_next);
+	lv_imgbtn_set_src(imgbtn_next, LV_BTN_STATE_INA, &Btn_next);
 #endif
-	lv_obj_set_event_cb(imgbtn1, btn_event_next_vpa);
-	lv_obj_set_pos(imgbtn1, 112, 18);
+	lv_obj_set_event_cb(imgbtn_next, btn_event_next_vpa);
+	lv_obj_set_pos(imgbtn_next, 112, 18);
 }
 
 static void btn_event_next_vpa(lv_obj_t * btn, lv_event_t event)
 {
-	if(event == LV_EVENT_RELEASED) {
-		printf("Button Next Released SCREEN_READING_VPA\n");
+	if(event == LV_EVENT_APPLY) {
+		//printf("Button Next Released SCREEN_READING_VPA\n");
 		lv_task_del(Task_Reading_VPA);
 		lv_obj_del(Tela_Reading_VPA);
 		screen_reading_efic();
@@ -105,28 +109,28 @@ static void btn_event_next_vpa(lv_obj_t * btn, lv_event_t event)
 void btn_prev_vpa(void)
 {
 	// Create an Image button
-	lv_obj_t * imgbtn2 = lv_imgbtn_create(Tela_Reading_VPA, NULL);
+	imgbtn_prev = lv_imgbtn_create(Tela_Reading_VPA, NULL);
 #if	LV_USE_FILESYSTEM
-	lv_imgbtn_set_src(imgbtn2, LV_BTN_STATE_REL, "P:/EX15-XT/img/Btn_prev.bin");
-	lv_imgbtn_set_src(imgbtn2, LV_BTN_STATE_TGL_REL, "P:/EX15-XT/img/Btn_prev.bin");
-	lv_imgbtn_set_src(imgbtn2, LV_BTN_STATE_TGL_PR, "P:/EX15-XT/img/Btn_prev.bin");
-	lv_imgbtn_set_src(imgbtn2, LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_prev.bin");
-	lv_imgbtn_set_src(imgbtn2, LV_BTN_STATE_INA, "P:/EX15-XT/img/Btn_prev.bin");
+	lv_imgbtn_set_src(imgbtn_prev, LV_BTN_STATE_REL, "P:/EX15-XT/img/Btn_prev.bin");
+	lv_imgbtn_set_src(imgbtn_prev, LV_BTN_STATE_TGL_REL, "P:/EX15-XT/img/Btn_prev.bin");
+	lv_imgbtn_set_src(imgbtn_prev, LV_BTN_STATE_TGL_PR, "P:/EX15-XT/img/Btn_prev.bin");
+	lv_imgbtn_set_src(imgbtn_prev, LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_prev.bin");
+	lv_imgbtn_set_src(imgbtn_prev, LV_BTN_STATE_INA, "P:/EX15-XT/img/Btn_prev.bin");
 #else
-	lv_imgbtn_set_src(imgbtn2, LV_BTN_STATE_REL, &Btn_prev);
-	lv_imgbtn_set_src(imgbtn2, LV_BTN_STATE_TGL_REL, &Btn_prev);
-	lv_imgbtn_set_src(imgbtn2, LV_BTN_STATE_TGL_PR, &Btn_prev);
-	lv_imgbtn_set_src(imgbtn2, LV_BTN_STATE_PR, &Btn_prev);
-	lv_imgbtn_set_src(imgbtn2, LV_BTN_STATE_INA, &Btn_prev);
+	lv_imgbtn_set_src(imgbtn_prev, LV_BTN_STATE_REL, &Btn_prev);
+	lv_imgbtn_set_src(imgbtn_prev, LV_BTN_STATE_TGL_REL, &Btn_prev);
+	lv_imgbtn_set_src(imgbtn_prev, LV_BTN_STATE_TGL_PR, &Btn_prev);
+	lv_imgbtn_set_src(imgbtn_prev, LV_BTN_STATE_PR, &Btn_prev);
+	lv_imgbtn_set_src(imgbtn_prev, LV_BTN_STATE_INA, &Btn_prev);
 #endif
-	lv_obj_set_event_cb(imgbtn2, btn_event_prev_vpa);
-	lv_obj_set_pos(imgbtn2, 32, 18);
+	lv_obj_set_event_cb(imgbtn_prev, btn_event_prev_vpa);
+	lv_obj_set_pos(imgbtn_prev, 32, 18);
 }
 
 static void btn_event_prev_vpa(lv_obj_t * btn, lv_event_t event)
 {
-	if(event == LV_EVENT_RELEASED) {
-		printf("Button ESC Released\n");
+	if(event == LV_EVENT_APPLY) {
+		//printf("Button ESC Released\n");
 		lv_task_del(Task_Reading_VPA);
 		lv_obj_del(Tela_Reading_VPA);
 		screen_reading_temp();
@@ -276,3 +280,22 @@ static void update_screen_vpa(lv_task_t * param)
 	update_vumeter_ipa_1(ipa);
 }
 
+void ButtonEventTelaReading_Vpa(uint8_t event, uint8_t tipo, uint8_t id)
+{
+	if(event == EVT_PBTN_INPUT) {
+		if(tipo == PBTN_SCLK) {	// Single Click
+			switch(id) {
+				case KEY_DN:
+					lv_event_send(imgbtn_prev, LV_EVENT_APPLY, NULL);
+					break;
+				case KEY_UP:
+					lv_event_send(imgbtn_next, LV_EVENT_APPLY, NULL);
+					break;
+				case KEY_ENTER:
+					break;
+				case KEY_ESC:
+					break;
+			}
+		}
+	}
+}

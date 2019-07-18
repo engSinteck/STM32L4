@@ -32,5 +32,8 @@ void btn_next_rf1(void);
 void btn_prev_rf2(void);
 void prog_swr(float swr);
 void prog_target(float fwd);
+void ButtonEventTelaRF(uint8_t event, uint8_t tipo, uint8_t id);
+void ButtonEventTelaRF_1(uint8_t event, uint8_t tipo, uint8_t id);
+void ButtonEventTelaRF_2(uint8_t event, uint8_t tipo, uint8_t id);
 
 #endif /* EX15_XT_SRC_SCREEN_RF_H_ */

@@ -391,9 +391,13 @@ void create_vumeter(void)
 	}
 }
 
-void main_screen_send_apply(void)
+void ButtonEventTelaPrincipal(uint8_t event, uint8_t tipo, uint8_t id)
 {
-	lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
+	if(event == 0x10) {
+		if(tipo == 0x01) {	// Single Click
+			lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
+		}
+	}
 }
 
 static void main_screen_event(lv_obj_t * obj, lv_event_t event)

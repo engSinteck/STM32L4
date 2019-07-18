@@ -8,6 +8,8 @@
 #include "lvgl/lvgl.h"
 #include "stdio.h"
 #include "string.h"
+#include "key.h"
+#include "log.h"
 #include "Sinteck/GUI/EX15-XT.h"
 
 #define MAX_RFL	1.5f
@@ -22,6 +24,7 @@ static void update_screen_status(lv_task_t * param);
 
 static lv_obj_t * Tela_Reading_STS;
 static lv_obj_t * img_fundo;
+static lv_obj_t * imgbtn2;
 static lv_obj_t * txt_pll;
 static lv_obj_t * txt_temp;
 static lv_obj_t * txt_vswr;
@@ -58,7 +61,7 @@ void screen_reading_status(void)
 void btn_prev_status(void)
 {
 	// Create an Image button
-	lv_obj_t * imgbtn2 = lv_imgbtn_create(Tela_Reading_STS, NULL);
+	imgbtn2 = lv_imgbtn_create(Tela_Reading_STS, NULL);
 #if	LV_USE_FILESYSTEM
 	lv_imgbtn_set_src(imgbtn2, LV_BTN_STATE_REL, "P:/EX15-XT/img/Btn_prev.bin");
 	lv_imgbtn_set_src(imgbtn2, LV_BTN_STATE_TGL_REL, "P:/EX15-XT/img/Btn_prev.bin");
@@ -78,8 +81,8 @@ void btn_prev_status(void)
 
 static void btn_event_prev_status(lv_obj_t * btn, lv_event_t event)
 {
-	if(event == LV_EVENT_RELEASED) {
-		printf("Button ESC Released\n");
+	if(event == LV_EVENT_APPLY) {
+		//printf("Button ESC Released\n");
 		lv_task_del(Task_Status);
 		lv_obj_del(Tela_Reading_STS);
 		screen_reading_efic();
@@ -171,4 +174,23 @@ static void update_screen_status(lv_task_t * param)
 		sprintf(buffer, "OK");
 
 	lv_label_set_text(txt_vswr, buffer);
+}
+
+void ButtonEventTelaReading_Status(uint8_t event, uint8_t tipo, uint8_t id)
+{
+	if(event == EVT_PBTN_INPUT) {
+		if(tipo == PBTN_SCLK) {	// Single Click
+			switch(id) {
+				case KEY_DN:
+					lv_event_send(imgbtn2, LV_EVENT_APPLY, NULL);
+					break;
+				case KEY_UP:
+					break;
+				case KEY_ENTER:
+					break;
+				case KEY_ESC:
+					break;
+			}
+		}
+	}
 }

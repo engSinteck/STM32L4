@@ -8,6 +8,8 @@
 #include "lvgl/lvgl.h"
 #include "stdio.h"
 #include "string.h"
+#include "log.h"
+#include "key.h"
 #include "Sinteck/GUI/EX15-XT.h"
 
 extern uint32_t TelaAtiva;
@@ -148,11 +150,6 @@ void create_buttons(void)
 	lv_obj_set_pos(imgbtn1[3], 1, 100);
 }
 
-void sel_screen_send_esc(void)
-{
-	lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
-}
-
 static void btn_event_esc_sel(lv_obj_t * btn, lv_event_t event)
 {
 	if(event == LV_EVENT_APPLY) {
@@ -192,9 +189,32 @@ void sel_screen_send_button(uint32_t btn, lv_btn_state_t state)
 	}
 }
 
-void sel_screen_send_apply(uint32_t btn)
+void ButtonEventTelaSelecao(uint8_t event, uint8_t tipo, uint8_t id)
 {
-	lv_event_send(imgbtn1[btn], LV_EVENT_APPLY, &btn);
+	if(event == EVT_PBTN_INPUT) {
+		if(tipo == PBTN_SCLK) {	// Single Click
+			switch(id) {
+				case KEY_DN:
+					if(MenuSel >= 1) MenuSel--;
+					sel_screen_send_button(MenuSel, LV_BTN_STATE_TGL_PR);
+					logI("Debug: Tela_Selecao KEY_Down: MenuSel: %ld\n", MenuSel);
+					break;
+				case KEY_UP:
+					MenuSel++;
+					if(MenuSel >= 3) MenuSel = 3;
+					sel_screen_send_button(MenuSel, LV_BTN_STATE_TGL_PR);
+					logI("Debug: Tela_Selecao KEY_UP: MenuSel: %ld\n", MenuSel);
+					break;
+				case KEY_ENTER:
+					lv_event_send(imgbtn1[MenuSel], LV_EVENT_APPLY, &MenuSel);
+					logI("Debug: Tela_Selecao KEY_ENTER: MenuSel: %ld\n", MenuSel);
+					break;
+				case KEY_ESC:
+					lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
+					break;
+			}
+		}
+	}
 }
 
 static void btn_event_btn1(lv_obj_t * btn, lv_event_t event)

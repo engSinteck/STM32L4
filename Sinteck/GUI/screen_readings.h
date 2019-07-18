@@ -14,5 +14,6 @@ void create_vumeter_fwd_1(void);
 void update_vumeter_swr_1(float swr);
 void update_vumeter_fwd_1(float fwd);
 void btn_next_r(void);
+void ButtonEventTelaReadings(uint8_t event, uint8_t tipo, uint8_t id);
 
 #endif /* EX15_XT_SRC_SCREEN_READINGS_H_ */

@@ -17,7 +17,7 @@ extern TIM_HandleTypeDef htim3;
 extern uint16_t tft_pwm, pwm_rf_value;
 extern long int frequencia;
 extern uint8_t audio_select, stereo_sel, processador_sel, emphase_sel, clipper_sel;
-extern uint32_t TelaAtiva, MenuSel;
+extern uint32_t TelaAtiva, MenuSel, timer_gui;
 
 // Estrututa Botoes
 pushbtn_param btenter;
@@ -462,6 +462,62 @@ void Evt_InitQueue(void)
 	evt_queue.head = evt_queue.tail = 0;
 }
 
+void ButtonEvent(void)
+{
+	uint8_t event[EVT_QWIDTH];
+	// check event queue
+	if(Evt_DeQueue(event)) {
+		timer_gui = HAL_GetTick();
+		switch(TelaAtiva) {
+			case TelaPrincipal:
+				ButtonEventTelaPrincipal(event[0], event[2], event[1]);
+				break;
+			case TelaSelecao:
+				ButtonEventTelaSelecao(event[0], event[2], event[1]);
+				break;
+			case TelaFrequencia:
+				ButtonEventTelaFrequencia(event[0], event[2], event[1]);
+				break;
+			case TelaAudio:
+				ButtonEventTelaAudio(event[0], event[2], event[1]);
+				break;
+			case TelaAudio_1:
+				ButtonEventTelaAudio_1(event[0], event[2], event[1]);
+				break;
+			case TelaAudio_2:
+				ButtonEventTelaAudio_2(event[0], event[2], event[1]);
+				break;
+			case TelaRF:
+				ButtonEventTelaRF(event[0], event[2], event[1]);
+				break;
+			case TelaRF_1:
+				ButtonEventTelaRF_1(event[0], event[2], event[1]);
+				break;
+			case TelaRF_2:
+				ButtonEventTelaRF_2(event[0], event[2], event[1]);
+				break;
+			case TelaReadings:
+				ButtonEventTelaReadings(event[0], event[2], event[1]);
+				break;
+			case TelaMpx:
+				ButtonEventTelaMpx(event[0], event[2], event[1]);
+				break;
+			case TelaReading_Temp:
+				ButtonEventTelaReading_Temp(event[0], event[2], event[1]);
+				break;
+			case TelaReading_Vpa:
+				ButtonEventTelaReading_Vpa(event[0], event[2], event[1]);
+				break;
+			case TelaReading_Efic:
+				ButtonEventTelaReading_Efic(event[0], event[2], event[1]);
+				break;
+			case TelaReading_Status:
+				ButtonEventTelaReading_Status(event[0], event[2], event[1]);
+				break;
+		}
+	}
+}
+
 // Eventos Teclado
 void KeyboardEvent(void)
 {
@@ -476,32 +532,6 @@ void KeyboardEvent(void)
 			// event[2]: PBTN_SCLK, _DCLK, _TCLK, _LCLK, _DOWN, _ENDN
 			case EVT_PBTN_INPUT:
 				if(event[2] == PBTN_SCLK) {
-					if(TelaAtiva == TelaPrincipal) {
-						main_screen_send_apply();
-					}
-					else if(TelaAtiva == TelaSelecao) {
-						if(event[1] == KEY_DN) {
-							if(MenuSel >= 1) MenuSel--;
-							sel_screen_send_button(MenuSel, LV_BTN_STATE_TGL_PR);
-							logI("Debug: Tela_Selecao KEY_Down: MenuSel: %ld\n", MenuSel);
-						}
-						else if(event[1] == KEY_UP) {
-							MenuSel++;
-							if(MenuSel >= 3) MenuSel = 3;
-							sel_screen_send_button(MenuSel, LV_BTN_STATE_TGL_PR);
-							logI("Debug: Tela_Selecao KEY_UP: MenuSel: %ld\n", MenuSel);
-						}
-						else if(event[1] == KEY_ENTER) {
-							sel_screen_send_apply(MenuSel);
-							logI("Debug: Tela_Selecao KEY_ENTER: MenuSel: %ld\n", MenuSel);
-						}
-						else if(event[1] == KEY_ESC) {
-							sel_screen_send_esc();
-						}
-					}
-					else if(TelaAtiva == TelaReadings) {
-
-					}
 					if(event[1] == KEY_DN) {
 
 					}

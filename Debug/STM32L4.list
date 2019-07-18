@@ -33,13 +33,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  14 .debug_ranges 00005e98  00000000  00000000  002495e0  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_line   00033eb4  00000000  00000000  0024f478  2**0
+ 15 .debug_line   00033eb7  00000000  00000000  0024f478  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_str    00013710  00000000  00000000  0028332c  2**0
+ 16 .debug_str    00013710  00000000  00000000  0028332f  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .comment      0000007c  00000000  00000000  00296a3c  2**0
+ 17 .comment      0000007c  00000000  00000000  00296a3f  2**0
                   CONTENTS, READONLY
- 18 .debug_frame  0000b7b0  00000000  00000000  00296ab8  2**2
+ 18 .debug_frame  0000b7b0  00000000  00000000  00296abc  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -3287,10 +3287,10 @@ static void MX_GPIO_Init(void)
  8001b2c:	4641      	mov	r1, r8
  8001b2e:	4630      	mov	r0, r6
  8001b30:	f003 ff20 	bl	8005974 <HAL_TIM_PWM_Start>
-  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 4095);			// PWM_CH1 = 0
+  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 4095);			// PWM_CH1 = 4095 100% brilho
  8001b34:	6833      	ldr	r3, [r6, #0]
  8001b36:	f8c3 9034 	str.w	r9, [r3, #52]	; 0x34
-  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_2, 4095);		    // PWM_CH2 = 4095 100% brilho
+  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_2, 4095);		    // PWM_CH2 = 4095
  8001b3a:	f8c3 9038 	str.w	r9, [r3, #56]	; 0x38
   ST7735_Init();
  8001b3e:	f7ff fa19 	bl	8000f74 <ST7735_Init>
@@ -3379,7 +3379,7 @@ static void MX_GPIO_Init(void)
 	  ButtonEvent();
  8001bdc:	f7ff fc80 	bl	80014e0 <ButtonEvent>
 	  Read_Encoder();
- 8001be0:	f000 f866 	bl	8001cb0 <Read_Encoder>
+ 8001be0:	f000 f86a 	bl	8001cb8 <Read_Encoder>
 	  lv_task_handler();
  8001be4:	f012 fd62 	bl	80146ac <lv_task_handler>
 	  if(TelaAtiva != TelaPrincipal &&  ( (HAL_GetTick() - timer_gui) > 60000) ) {
@@ -3487,102 +3487,107 @@ void tft_backlight(uint16_t value)
 {
 	if(value >= 0 && value <= 100) {
  8001c8c:	2864      	cmp	r0, #100	; 0x64
- 8001c8e:	d807      	bhi.n	8001ca0 <tft_backlight+0x14>
-		//tft_pwm = value * 32;
-		__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_2, value);		// PWM_CH2 = TFT
- 8001c90:	4b04      	ldr	r3, [pc, #16]	; (8001ca4 <tft_backlight+0x18>)
- 8001c92:	681b      	ldr	r3, [r3, #0]
- 8001c94:	6398      	str	r0, [r3, #56]	; 0x38
+ 8001c8e:	d80b      	bhi.n	8001ca8 <tft_backlight+0x1c>
+		tft_pwm = value * 40;
+ 8001c90:	eb00 0080 	add.w	r0, r0, r0, lsl #2
+ 8001c94:	00c1      	lsls	r1, r0, #3
+ 8001c96:	4b05      	ldr	r3, [pc, #20]	; (8001cac <tft_backlight+0x20>)
+		__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, tft_pwm);		// PWM_CH1 = TFT
+		//__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_2, tft_pwm);		// PWM_CH2 = TFT
 		logI("I - TFT_PWM: %ld\n\r", tft_pwm);
- 8001c96:	4b04      	ldr	r3, [pc, #16]	; (8001ca8 <tft_backlight+0x1c>)
- 8001c98:	4804      	ldr	r0, [pc, #16]	; (8001cac <tft_backlight+0x20>)
- 8001c9a:	8819      	ldrh	r1, [r3, #0]
- 8001c9c:	f7ff bce6 	b.w	800166c <logI>
- 8001ca0:	4770      	bx	lr
- 8001ca2:	bf00      	nop
- 8001ca4:	2000b35c 	.word	0x2000b35c
- 8001ca8:	20004de2 	.word	0x20004de2
- 8001cac:	0801c655 	.word	0x0801c655
+ 8001c98:	4805      	ldr	r0, [pc, #20]	; (8001cb0 <tft_backlight+0x24>)
+		tft_pwm = value * 40;
+ 8001c9a:	b289      	uxth	r1, r1
+ 8001c9c:	8019      	strh	r1, [r3, #0]
+		__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, tft_pwm);		// PWM_CH1 = TFT
+ 8001c9e:	4b05      	ldr	r3, [pc, #20]	; (8001cb4 <tft_backlight+0x28>)
+ 8001ca0:	681b      	ldr	r3, [r3, #0]
+ 8001ca2:	6359      	str	r1, [r3, #52]	; 0x34
+		logI("I - TFT_PWM: %ld\n\r", tft_pwm);
+ 8001ca4:	f7ff bce2 	b.w	800166c <logI>
+ 8001ca8:	4770      	bx	lr
+ 8001caa:	bf00      	nop
+ 8001cac:	20004de2 	.word	0x20004de2
+ 8001cb0:	0801c655 	.word	0x0801c655
+ 8001cb4:	2000b35c 	.word	0x2000b35c
 
-08001cb0 <Read_Encoder>:
+08001cb8 <Read_Encoder>:
 {
- 8001cb0:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+ 8001cb8:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
 	aVal = HAL_GPIO_ReadPin(ENC_B_GPIO_Port, ENC_B_Pin);
- 8001cb2:	2110      	movs	r1, #16
- 8001cb4:	481f      	ldr	r0, [pc, #124]	; (8001d34 <Read_Encoder+0x84>)
+ 8001cba:	2110      	movs	r1, #16
+ 8001cbc:	481d      	ldr	r0, [pc, #116]	; (8001d34 <Read_Encoder+0x7c>)
 	if (aVal != CLKLast)
- 8001cb6:	4e20      	ldr	r6, [pc, #128]	; (8001d38 <Read_Encoder+0x88>)
+ 8001cbe:	4e1e      	ldr	r6, [pc, #120]	; (8001d38 <Read_Encoder+0x80>)
 	aVal = HAL_GPIO_ReadPin(ENC_B_GPIO_Port, ENC_B_Pin);
- 8001cb8:	4d20      	ldr	r5, [pc, #128]	; (8001d3c <Read_Encoder+0x8c>)
- 8001cba:	f001 f989 	bl	8002fd0 <HAL_GPIO_ReadPin>
+ 8001cc0:	4d1e      	ldr	r5, [pc, #120]	; (8001d3c <Read_Encoder+0x84>)
+ 8001cc2:	f001 f985 	bl	8002fd0 <HAL_GPIO_ReadPin>
 	if (aVal != CLKLast)
- 8001cbe:	7833      	ldrb	r3, [r6, #0]
+ 8001cc6:	7833      	ldrb	r3, [r6, #0]
 	aVal = HAL_GPIO_ReadPin(ENC_B_GPIO_Port, ENC_B_Pin);
- 8001cc0:	7028      	strb	r0, [r5, #0]
+ 8001cc8:	7028      	strb	r0, [r5, #0]
 	if (aVal != CLKLast)
- 8001cc2:	4283      	cmp	r3, r0
- 8001cc4:	d02c      	beq.n	8001d20 <Read_Encoder+0x70>
+ 8001cca:	4283      	cmp	r3, r0
+ 8001ccc:	d029      	beq.n	8001d22 <Read_Encoder+0x6a>
 			if (HAL_GPIO_ReadPin(ENC_A_GPIO_Port, ENC_A_Pin) != aVal)
- 8001cc6:	2104      	movs	r1, #4
- 8001cc8:	481a      	ldr	r0, [pc, #104]	; (8001d34 <Read_Encoder+0x84>)
- 8001cca:	4c1d      	ldr	r4, [pc, #116]	; (8001d40 <Read_Encoder+0x90>)
- 8001ccc:	f001 f980 	bl	8002fd0 <HAL_GPIO_ReadPin>
- 8001cd0:	782f      	ldrb	r7, [r5, #0]
- 8001cd2:	4a1c      	ldr	r2, [pc, #112]	; (8001d44 <Read_Encoder+0x94>)
+ 8001cce:	2104      	movs	r1, #4
+ 8001cd0:	4818      	ldr	r0, [pc, #96]	; (8001d34 <Read_Encoder+0x7c>)
+ 8001cd2:	4c1b      	ldr	r4, [pc, #108]	; (8001d40 <Read_Encoder+0x88>)
+ 8001cd4:	f001 f97c 	bl	8002fd0 <HAL_GPIO_ReadPin>
+ 8001cd8:	782f      	ldrb	r7, [r5, #0]
+ 8001cda:	4a1a      	ldr	r2, [pc, #104]	; (8001d44 <Read_Encoder+0x8c>)
 				encoderPosCount++;
- 8001cd4:	6823      	ldr	r3, [r4, #0]
+ 8001cdc:	6823      	ldr	r3, [r4, #0]
 			if (HAL_GPIO_ReadPin(ENC_A_GPIO_Port, ENC_A_Pin) != aVal)
- 8001cd6:	42b8      	cmp	r0, r7
- 8001cd8:	d026      	beq.n	8001d28 <Read_Encoder+0x78>
+ 8001cde:	42b8      	cmp	r0, r7
+ 8001ce0:	d023      	beq.n	8001d2a <Read_Encoder+0x72>
 				encoderPosCount++;
- 8001cda:	3301      	adds	r3, #1
-				if(encoderPosCount >= 4095) encoderPosCount = 4095;
- 8001cdc:	f640 71fe 	movw	r1, #4094	; 0xffe
- 8001ce0:	428b      	cmp	r3, r1
- 8001ce2:	bf88      	it	hi
- 8001ce4:	f640 73ff 	movwhi	r3, #4095	; 0xfff
- 8001ce8:	6023      	str	r3, [r4, #0]
+ 8001ce2:	3301      	adds	r3, #1
+				if(encoderPosCount >= 100) encoderPosCount = 100;
+ 8001ce4:	2b63      	cmp	r3, #99	; 0x63
+ 8001ce6:	bf88      	it	hi
+ 8001ce8:	2364      	movhi	r3, #100	; 0x64
+ 8001cea:	6023      	str	r3, [r4, #0]
 				bCW = true;
- 8001cea:	2301      	movs	r3, #1
+ 8001cec:	2301      	movs	r3, #1
 			sprintf(buffer, "Encoder - aVal: %d DT: %d, EncoderPosition: %ld\n", aVal, HAL_GPIO_ReadPin(ENC_A_GPIO_Port, ENC_A_Pin), encoderPosCount);
- 8001cec:	2104      	movs	r1, #4
- 8001cee:	4811      	ldr	r0, [pc, #68]	; (8001d34 <Read_Encoder+0x84>)
+ 8001cee:	2104      	movs	r1, #4
+ 8001cf0:	4810      	ldr	r0, [pc, #64]	; (8001d34 <Read_Encoder+0x7c>)
 				bCW = false;
- 8001cf0:	7013      	strb	r3, [r2, #0]
+ 8001cf2:	7013      	strb	r3, [r2, #0]
 			sprintf(buffer, "Encoder - aVal: %d DT: %d, EncoderPosition: %ld\n", aVal, HAL_GPIO_ReadPin(ENC_A_GPIO_Port, ENC_A_Pin), encoderPosCount);
- 8001cf2:	f001 f96d 	bl	8002fd0 <HAL_GPIO_ReadPin>
- 8001cf6:	6823      	ldr	r3, [r4, #0]
- 8001cf8:	4913      	ldr	r1, [pc, #76]	; (8001d48 <Read_Encoder+0x98>)
- 8001cfa:	9300      	str	r3, [sp, #0]
- 8001cfc:	463a      	mov	r2, r7
- 8001cfe:	4603      	mov	r3, r0
- 8001d00:	4812      	ldr	r0, [pc, #72]	; (8001d4c <Read_Encoder+0x9c>)
- 8001d02:	f017 ff0b 	bl	8019b1c <sprintf>
+ 8001cf4:	f001 f96c 	bl	8002fd0 <HAL_GPIO_ReadPin>
+ 8001cf8:	6823      	ldr	r3, [r4, #0]
+ 8001cfa:	4913      	ldr	r1, [pc, #76]	; (8001d48 <Read_Encoder+0x90>)
+ 8001cfc:	9300      	str	r3, [sp, #0]
+ 8001cfe:	463a      	mov	r2, r7
+ 8001d00:	4603      	mov	r3, r0
+ 8001d02:	4812      	ldr	r0, [pc, #72]	; (8001d4c <Read_Encoder+0x94>)
+ 8001d04:	f017 ff0a 	bl	8019b1c <sprintf>
 			HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
- 8001d06:	4811      	ldr	r0, [pc, #68]	; (8001d4c <Read_Encoder+0x9c>)
- 8001d08:	f7fe fa62 	bl	80001d0 <strlen>
- 8001d0c:	f04f 33ff 	mov.w	r3, #4294967295	; 0xffffffff
- 8001d10:	b282      	uxth	r2, r0
- 8001d12:	490e      	ldr	r1, [pc, #56]	; (8001d4c <Read_Encoder+0x9c>)
- 8001d14:	480e      	ldr	r0, [pc, #56]	; (8001d50 <Read_Encoder+0xa0>)
- 8001d16:	f004 f8aa 	bl	8005e6e <HAL_UART_Transmit>
+ 8001d08:	4810      	ldr	r0, [pc, #64]	; (8001d4c <Read_Encoder+0x94>)
+ 8001d0a:	f7fe fa61 	bl	80001d0 <strlen>
+ 8001d0e:	f04f 33ff 	mov.w	r3, #4294967295	; 0xffffffff
+ 8001d12:	b282      	uxth	r2, r0
+ 8001d14:	490d      	ldr	r1, [pc, #52]	; (8001d4c <Read_Encoder+0x94>)
+ 8001d16:	480e      	ldr	r0, [pc, #56]	; (8001d50 <Read_Encoder+0x98>)
+ 8001d18:	f004 f8a9 	bl	8005e6e <HAL_UART_Transmit>
 			tft_backlight(encoderPosCount);
- 8001d1a:	8820      	ldrh	r0, [r4, #0]
- 8001d1c:	f7ff ffb6 	bl	8001c8c <tft_backlight>
+ 8001d1c:	8820      	ldrh	r0, [r4, #0]
+ 8001d1e:	f7ff ffb5 	bl	8001c8c <tft_backlight>
 	CLKLast = aVal;
- 8001d20:	7828      	ldrb	r0, [r5, #0]
- 8001d22:	7030      	strb	r0, [r6, #0]
+ 8001d22:	7828      	ldrb	r0, [r5, #0]
+ 8001d24:	7030      	strb	r0, [r6, #0]
 }
- 8001d24:	b003      	add	sp, #12
- 8001d26:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 8001d26:	b003      	add	sp, #12
+ 8001d28:	bdf0      	pop	{r4, r5, r6, r7, pc}
 				if(encoderPosCount >= 1) encoderPosCount--;
- 8001d28:	b10b      	cbz	r3, 8001d2e <Read_Encoder+0x7e>
- 8001d2a:	3b01      	subs	r3, #1
- 8001d2c:	6023      	str	r3, [r4, #0]
+ 8001d2a:	b10b      	cbz	r3, 8001d30 <Read_Encoder+0x78>
+ 8001d2c:	3b01      	subs	r3, #1
+ 8001d2e:	6023      	str	r3, [r4, #0]
 				bCW = false;
- 8001d2e:	2300      	movs	r3, #0
- 8001d30:	e7dc      	b.n	8001cec <Read_Encoder+0x3c>
- 8001d32:	bf00      	nop
+ 8001d30:	2300      	movs	r3, #0
+ 8001d32:	e7dc      	b.n	8001cee <Read_Encoder+0x36>
  8001d34:	48000400 	.word	0x48000400
  8001d38:	20004df0 	.word	0x20004df0
  8001d3c:	20004df1 	.word	0x20004df1

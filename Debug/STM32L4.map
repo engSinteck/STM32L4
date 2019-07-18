@@ -2323,24 +2323,136 @@ Discarded input sections
  .text          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Next_am.o
  .data          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Next_am.o
  .bss           0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Next_am.o
+ .text          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Next_vd.o
+ .data          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Next_vd.o
+ .bss           0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Next_vd.o
+ .data.Btn_mp3Next_vd
+                0x0000000000000000        0xc Sinteck/img_inc/Btn_mp3Next_vd.o
+ .rodata.Btn_mp3Next_vd_map
+                0x0000000000000000      0xa20 Sinteck/img_inc/Btn_mp3Next_vd.o
+ .debug_info    0x0000000000000000     0x104b Sinteck/img_inc/Btn_mp3Next_vd.o
+ .debug_abbrev  0x0000000000000000      0x1be Sinteck/img_inc/Btn_mp3Next_vd.o
+ .debug_aranges
+                0x0000000000000000       0x18 Sinteck/img_inc/Btn_mp3Next_vd.o
+ .debug_line    0x0000000000000000      0x389 Sinteck/img_inc/Btn_mp3Next_vd.o
+ .debug_str     0x0000000000000000      0xd8d Sinteck/img_inc/Btn_mp3Next_vd.o
+ .comment       0x0000000000000000       0x7d Sinteck/img_inc/Btn_mp3Next_vd.o
+ .ARM.attributes
+                0x0000000000000000       0x39 Sinteck/img_inc/Btn_mp3Next_vd.o
+ .text          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Pause.o
+ .data          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Pause.o
+ .bss           0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Pause.o
+ .data.Btn_mp3Pause
+                0x0000000000000000        0xc Sinteck/img_inc/Btn_mp3Pause.o
+ .rodata.Btn_mp3Pause_map
+                0x0000000000000000      0xa20 Sinteck/img_inc/Btn_mp3Pause.o
+ .debug_info    0x0000000000000000     0x104b Sinteck/img_inc/Btn_mp3Pause.o
+ .debug_abbrev  0x0000000000000000      0x1be Sinteck/img_inc/Btn_mp3Pause.o
+ .debug_aranges
+                0x0000000000000000       0x18 Sinteck/img_inc/Btn_mp3Pause.o
+ .debug_line    0x0000000000000000      0x387 Sinteck/img_inc/Btn_mp3Pause.o
+ .debug_str     0x0000000000000000      0xd87 Sinteck/img_inc/Btn_mp3Pause.o
+ .comment       0x0000000000000000       0x7d Sinteck/img_inc/Btn_mp3Pause.o
+ .ARM.attributes
+                0x0000000000000000       0x39 Sinteck/img_inc/Btn_mp3Pause.o
+ .text          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Pause_am.o
+ .data          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Pause_am.o
+ .bss           0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Pause_am.o
+ .data.Btn_mp3Pause_am
+                0x0000000000000000        0xc Sinteck/img_inc/Btn_mp3Pause_am.o
+ .rodata.Btn_mp3Pause_am_map
+                0x0000000000000000      0xa20 Sinteck/img_inc/Btn_mp3Pause_am.o
+ .debug_info    0x0000000000000000     0x104b Sinteck/img_inc/Btn_mp3Pause_am.o
+ .debug_abbrev  0x0000000000000000      0x1be Sinteck/img_inc/Btn_mp3Pause_am.o
+ .debug_aranges
+                0x0000000000000000       0x18 Sinteck/img_inc/Btn_mp3Pause_am.o
+ .debug_line    0x0000000000000000      0x38a Sinteck/img_inc/Btn_mp3Pause_am.o
+ .debug_str     0x0000000000000000      0xd90 Sinteck/img_inc/Btn_mp3Pause_am.o
+ .comment       0x0000000000000000       0x7d Sinteck/img_inc/Btn_mp3Pause_am.o
+ .ARM.attributes
+                0x0000000000000000       0x39 Sinteck/img_inc/Btn_mp3Pause_am.o
+ .text          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Pause_vd.o
+ .data          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Pause_vd.o
+ .bss           0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Pause_vd.o
+ .data.Btn_mp3Pause_vd
+                0x0000000000000000        0xc Sinteck/img_inc/Btn_mp3Pause_vd.o
+ .rodata.Btn_mp3Pause_vd_map
+                0x0000000000000000      0xa20 Sinteck/img_inc/Btn_mp3Pause_vd.o
+ .debug_info    0x0000000000000000     0x104b Sinteck/img_inc/Btn_mp3Pause_vd.o
+ .debug_abbrev  0x0000000000000000      0x1be Sinteck/img_inc/Btn_mp3Pause_vd.o
+ .debug_aranges
+                0x0000000000000000       0x18 Sinteck/img_inc/Btn_mp3Pause_vd.o
+ .debug_line    0x0000000000000000      0x38a Sinteck/img_inc/Btn_mp3Pause_vd.o
+ .debug_str     0x0000000000000000      0xd90 Sinteck/img_inc/Btn_mp3Pause_vd.o
+ .comment       0x0000000000000000       0x7d Sinteck/img_inc/Btn_mp3Pause_vd.o
+ .ARM.attributes
+                0x0000000000000000       0x39 Sinteck/img_inc/Btn_mp3Pause_vd.o
  .text          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Play.o
  .data          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Play.o
  .bss           0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Play.o
  .text          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Play_am.o
  .data          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Play_am.o
  .bss           0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Play_am.o
+ .text          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Play_vd.o
+ .data          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Play_vd.o
+ .bss           0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Play_vd.o
+ .data.Btn_mp3Play_vd
+                0x0000000000000000        0xc Sinteck/img_inc/Btn_mp3Play_vd.o
+ .rodata.Btn_mp3Play_vd_map
+                0x0000000000000000      0xa20 Sinteck/img_inc/Btn_mp3Play_vd.o
+ .debug_info    0x0000000000000000     0x104b Sinteck/img_inc/Btn_mp3Play_vd.o
+ .debug_abbrev  0x0000000000000000      0x1be Sinteck/img_inc/Btn_mp3Play_vd.o
+ .debug_aranges
+                0x0000000000000000       0x18 Sinteck/img_inc/Btn_mp3Play_vd.o
+ .debug_line    0x0000000000000000      0x389 Sinteck/img_inc/Btn_mp3Play_vd.o
+ .debug_str     0x0000000000000000      0xd8d Sinteck/img_inc/Btn_mp3Play_vd.o
+ .comment       0x0000000000000000       0x7d Sinteck/img_inc/Btn_mp3Play_vd.o
+ .ARM.attributes
+                0x0000000000000000       0x39 Sinteck/img_inc/Btn_mp3Play_vd.o
  .text          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Prev.o
  .data          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Prev.o
  .bss           0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Prev.o
  .text          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Prev_am.o
  .data          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Prev_am.o
  .bss           0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Prev_am.o
+ .text          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Prev_vd.o
+ .data          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Prev_vd.o
+ .bss           0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Prev_vd.o
+ .data.Btn_mp3Prev_vd
+                0x0000000000000000        0xc Sinteck/img_inc/Btn_mp3Prev_vd.o
+ .rodata.Btn_mp3Prev_vd_map
+                0x0000000000000000      0xa20 Sinteck/img_inc/Btn_mp3Prev_vd.o
+ .debug_info    0x0000000000000000     0x104b Sinteck/img_inc/Btn_mp3Prev_vd.o
+ .debug_abbrev  0x0000000000000000      0x1be Sinteck/img_inc/Btn_mp3Prev_vd.o
+ .debug_aranges
+                0x0000000000000000       0x18 Sinteck/img_inc/Btn_mp3Prev_vd.o
+ .debug_line    0x0000000000000000      0x389 Sinteck/img_inc/Btn_mp3Prev_vd.o
+ .debug_str     0x0000000000000000      0xd8d Sinteck/img_inc/Btn_mp3Prev_vd.o
+ .comment       0x0000000000000000       0x7d Sinteck/img_inc/Btn_mp3Prev_vd.o
+ .ARM.attributes
+                0x0000000000000000       0x39 Sinteck/img_inc/Btn_mp3Prev_vd.o
  .text          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Stop.o
  .data          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Stop.o
  .bss           0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Stop.o
  .text          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Stop_am.o
  .data          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Stop_am.o
  .bss           0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Stop_am.o
+ .text          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Stop_vd.o
+ .data          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Stop_vd.o
+ .bss           0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3Stop_vd.o
+ .data.Btn_mp3Stop_vd
+                0x0000000000000000        0xc Sinteck/img_inc/Btn_mp3Stop_vd.o
+ .rodata.Btn_mp3Stop_vd_map
+                0x0000000000000000      0xa20 Sinteck/img_inc/Btn_mp3Stop_vd.o
+ .debug_info    0x0000000000000000     0x104b Sinteck/img_inc/Btn_mp3Stop_vd.o
+ .debug_abbrev  0x0000000000000000      0x1be Sinteck/img_inc/Btn_mp3Stop_vd.o
+ .debug_aranges
+                0x0000000000000000       0x18 Sinteck/img_inc/Btn_mp3Stop_vd.o
+ .debug_line    0x0000000000000000      0x389 Sinteck/img_inc/Btn_mp3Stop_vd.o
+ .debug_str     0x0000000000000000      0xd8d Sinteck/img_inc/Btn_mp3Stop_vd.o
+ .comment       0x0000000000000000       0x7d Sinteck/img_inc/Btn_mp3Stop_vd.o
+ .ARM.attributes
+                0x0000000000000000       0x39 Sinteck/img_inc/Btn_mp3Stop_vd.o
  .text          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3_am.o
  .data          0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3_am.o
  .bss           0x0000000000000000        0x0 Sinteck/img_inc/Btn_mp3_am.o
@@ -4967,12 +5079,19 @@ LOAD Sinteck/img_inc/Btn_mono_am.o
 LOAD Sinteck/img_inc/Btn_mp3.o
 LOAD Sinteck/img_inc/Btn_mp3Next.o
 LOAD Sinteck/img_inc/Btn_mp3Next_am.o
+LOAD Sinteck/img_inc/Btn_mp3Next_vd.o
+LOAD Sinteck/img_inc/Btn_mp3Pause.o
+LOAD Sinteck/img_inc/Btn_mp3Pause_am.o
+LOAD Sinteck/img_inc/Btn_mp3Pause_vd.o
 LOAD Sinteck/img_inc/Btn_mp3Play.o
 LOAD Sinteck/img_inc/Btn_mp3Play_am.o
+LOAD Sinteck/img_inc/Btn_mp3Play_vd.o
 LOAD Sinteck/img_inc/Btn_mp3Prev.o
 LOAD Sinteck/img_inc/Btn_mp3Prev_am.o
+LOAD Sinteck/img_inc/Btn_mp3Prev_vd.o
 LOAD Sinteck/img_inc/Btn_mp3Stop.o
 LOAD Sinteck/img_inc/Btn_mp3Stop_am.o
+LOAD Sinteck/img_inc/Btn_mp3Stop_vd.o
 LOAD Sinteck/img_inc/Btn_mp3_am.o
 LOAD Sinteck/img_inc/Btn_mpxext.o
 LOAD Sinteck/img_inc/Btn_mpxext_am.o
@@ -5260,11 +5379,11 @@ LOAD /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-
                 0x0000000008001c88                Error_Handler
  *fill*         0x0000000008001c8a        0x2 
  .text.tft_backlight
-                0x0000000008001c8c       0x24 Core/Src/misc.o
+                0x0000000008001c8c       0x2c Core/Src/misc.o
                 0x0000000008001c8c                tft_backlight
  .text.Read_Encoder
-                0x0000000008001cb0       0xa4 Core/Src/misc.o
-                0x0000000008001cb0                Read_Encoder
+                0x0000000008001cb8       0x9c Core/Src/misc.o
+                0x0000000008001cb8                Read_Encoder
  .text.HAL_MspInit
                 0x0000000008001d54       0x30 Core/Src/stm32l4xx_hal_msp.o
                 0x0000000008001d54                HAL_MspInit
@@ -10072,166 +10191,166 @@ OUTPUT(STM32L4.elf elf32-littlearm)
  .debug_ranges  0x0000000000005e60       0x18 lvgl/src/lv_themes/lv_theme.o
  .debug_ranges  0x0000000000005e78       0x20 startup/startup_stm32l476xx.o
 
-.debug_line     0x0000000000000000    0x33eb4
+.debug_line     0x0000000000000000    0x33eb7
  .debug_line    0x0000000000000000      0x8a2 Core/Src/ST7735.o
  .debug_line    0x00000000000008a2      0x87e Core/Src/key.o
  .debug_line    0x0000000000001120      0x3cc Core/Src/log.o
  .debug_line    0x00000000000014ec      0xa12 Core/Src/main.o
- .debug_line    0x0000000000001efe      0x6b0 Core/Src/misc.o
- .debug_line    0x00000000000025ae      0x4f4 Core/Src/stm32l4xx_hal_msp.o
- .debug_line    0x0000000000002aa2      0x2ab Core/Src/stm32l4xx_hal_timebase_tim.o
- .debug_line    0x0000000000002d4d      0x2d4 Core/Src/stm32l4xx_it.o
- .debug_line    0x0000000000003021      0x394 Core/Src/syscalls.o
- .debug_line    0x00000000000033b5      0x267 Core/Src/system_stm32l4xx.o
- .debug_line    0x000000000000361c      0x959 Core/Src/w25qxx.o
- .debug_line    0x0000000000003f75      0x4b1 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.o
- .debug_line    0x0000000000004426      0xe4f Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_adc.o
- .debug_line    0x0000000000005275      0xc24 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_adc_ex.o
- .debug_line    0x0000000000005e99      0x483 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.o
- .debug_line    0x000000000000631c      0x4c8 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dac.o
- .debug_line    0x00000000000067e4      0x403 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dac_ex.o
- .debug_line    0x0000000000006be7      0x3ea Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.o
- .debug_line    0x0000000000006fd1     0x1945 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.o
- .debug_line    0x0000000000008916      0x370 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c_ex.o
- .debug_line    0x0000000000008c86      0x733 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd.o
- .debug_line    0x00000000000093b9      0x320 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.o
- .debug_line    0x00000000000096d9      0x381 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.o
- .debug_line    0x0000000000009a5a      0x5a0 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.o
- .debug_line    0x0000000000009ffa      0x86a Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_qspi.o
- .debug_line    0x000000000000a864      0x5db Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.o
- .debug_line    0x000000000000ae3f      0x70f Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.o
- .debug_line    0x000000000000b54e      0x630 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rtc.o
- .debug_line    0x000000000000bb7e      0xc8b Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi.o
- .debug_line    0x000000000000c809     0x13c6 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.o
- .debug_line    0x000000000000dbcf      0x78e Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.o
- .debug_line    0x000000000000e35d      0xde3 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.o
- .debug_line    0x000000000000f140      0x8e1 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.o
- .debug_line    0x000000000000fa21      0x360 FATFS/App/fatfs.o
- .debug_line    0x000000000000fd81      0x34a FATFS/Target/user_diskio.o
- .debug_line    0x00000000000100cb      0x529 Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc.o
- .debug_line    0x00000000000105f4      0x4c0 Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.o
- .debug_line    0x0000000000010ab4      0x33e Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_data.o
- .debug_line    0x0000000000010df2      0x517 Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.o
- .debug_line    0x0000000000011309      0x54e Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
- .debug_line    0x0000000000011857      0x4ea Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
- .debug_line    0x0000000000011d41      0x3c4 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
- .debug_line    0x0000000000012105      0x378 Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
- .debug_line    0x000000000001247d      0x383 Sinteck/Fonts/lv_font_eurostile_10.o
- .debug_line    0x0000000000012800      0x383 Sinteck/Fonts/lv_font_eurostile_22.o
- .debug_line    0x0000000000012b83      0x383 Sinteck/Fonts/lv_font_eurostile_24.o
- .debug_line    0x0000000000012f06      0x383 Sinteck/Fonts/lv_font_eurostile_28.o
- .debug_line    0x0000000000013289      0x979 Sinteck/GUI/main_screen.o
- .debug_line    0x0000000000013c02      0xb5c Sinteck/GUI/screen_audio.o
- .debug_line    0x000000000001475e      0x7b2 Sinteck/GUI/screen_frequency.o
- .debug_line    0x0000000000014f10      0x765 Sinteck/GUI/screen_mpx.o
- .debug_line    0x0000000000015675      0x765 Sinteck/GUI/screen_reading_efic.o
- .debug_line    0x0000000000015dda      0x6c4 Sinteck/GUI/screen_reading_status.o
- .debug_line    0x000000000001649e      0x75b Sinteck/GUI/screen_reading_temp.o
- .debug_line    0x0000000000016bf9      0x80c Sinteck/GUI/screen_reading_vpa.o
- .debug_line    0x0000000000017405      0x844 Sinteck/GUI/screen_readings.o
- .debug_line    0x0000000000017c49      0xb52 Sinteck/GUI/screen_rf.o
- .debug_line    0x000000000001879b      0x723 Sinteck/GUI/screen_sel.o
- .debug_line    0x0000000000018ebe      0x382 Sinteck/img_inc/Btn_50u.o
- .debug_line    0x0000000000019240      0x385 Sinteck/img_inc/Btn_50u_am.o
- .debug_line    0x00000000000195c5      0x382 Sinteck/img_inc/Btn_75u.o
- .debug_line    0x0000000000019947      0x385 Sinteck/img_inc/Btn_75u_am.o
- .debug_line    0x0000000000019ccc      0x384 Sinteck/img_inc/Btn_Audio.o
- .debug_line    0x000000000001a050      0x387 Sinteck/img_inc/Btn_Audio_am.o
- .debug_line    0x000000000001a3d7      0x388 Sinteck/img_inc/Btn_Frequency.o
- .debug_line    0x000000000001a75f      0x38b Sinteck/img_inc/Btn_Frequency_am.o
- .debug_line    0x000000000001aaea      0x381 Sinteck/img_inc/Btn_RF.o
- .debug_line    0x000000000001ae6b      0x384 Sinteck/img_inc/Btn_RF_am.o
- .debug_line    0x000000000001b1ef      0x387 Sinteck/img_inc/Btn_Readings.o
- .debug_line    0x000000000001b576      0x38a Sinteck/img_inc/Btn_Readings_am.o
- .debug_line    0x000000000001b900      0x382 Sinteck/img_inc/Btn_mic.o
- .debug_line    0x000000000001bc82      0x385 Sinteck/img_inc/Btn_mic_am.o
- .debug_line    0x000000000001c007      0x383 Sinteck/img_inc/Btn_mono.o
- .debug_line    0x000000000001c38a      0x386 Sinteck/img_inc/Btn_mono_am.o
- .debug_line    0x000000000001c710      0x382 Sinteck/img_inc/Btn_mp3.o
- .debug_line    0x000000000001ca92      0x386 Sinteck/img_inc/Btn_mp3Next.o
- .debug_line    0x000000000001ce18      0x389 Sinteck/img_inc/Btn_mp3Next_am.o
- .debug_line    0x000000000001d1a1      0x386 Sinteck/img_inc/Btn_mp3Play.o
- .debug_line    0x000000000001d527      0x389 Sinteck/img_inc/Btn_mp3Play_am.o
- .debug_line    0x000000000001d8b0      0x386 Sinteck/img_inc/Btn_mp3Prev.o
- .debug_line    0x000000000001dc36      0x389 Sinteck/img_inc/Btn_mp3Prev_am.o
- .debug_line    0x000000000001dfbf      0x386 Sinteck/img_inc/Btn_mp3Stop.o
- .debug_line    0x000000000001e345      0x389 Sinteck/img_inc/Btn_mp3Stop_am.o
- .debug_line    0x000000000001e6ce      0x385 Sinteck/img_inc/Btn_mp3_am.o
- .debug_line    0x000000000001ea53      0x385 Sinteck/img_inc/Btn_mpxext.o
- .debug_line    0x000000000001edd8      0x388 Sinteck/img_inc/Btn_mpxext_am.o
- .debug_line    0x000000000001f160      0x385 Sinteck/img_inc/Btn_mpxint.o
- .debug_line    0x000000000001f4e5      0x388 Sinteck/img_inc/Btn_mpxint_am.o
- .debug_line    0x000000000001f86d      0x383 Sinteck/img_inc/Btn_next.o
- .debug_line    0x000000000001fbf0      0x382 Sinteck/img_inc/Btn_off.o
- .debug_line    0x000000000001ff72      0x385 Sinteck/img_inc/Btn_off_am.o
- .debug_line    0x00000000000202f7      0x381 Sinteck/img_inc/Btn_on.o
- .debug_line    0x0000000000020678      0x384 Sinteck/img_inc/Btn_on_am.o
- .debug_line    0x00000000000209fc      0x387 Sinteck/img_inc/Btn_poweroff.o
- .debug_line    0x0000000000020d83      0x38a Sinteck/img_inc/Btn_poweroff_vm.o
- .debug_line    0x000000000002110d      0x386 Sinteck/img_inc/Btn_poweron.o
- .debug_line    0x0000000000021493      0x389 Sinteck/img_inc/Btn_poweron_vd.o
- .debug_line    0x000000000002181c      0x383 Sinteck/img_inc/Btn_prev.o
- .debug_line    0x0000000000021b9f      0x385 Sinteck/img_inc/Btn_stereo.o
- .debug_line    0x0000000000021f24      0x388 Sinteck/img_inc/Btn_stereo_am.o
- .debug_line    0x00000000000222ac      0x385 Sinteck/img_inc/stereo_off.o
- .debug_line    0x0000000000022631      0x384 Sinteck/img_inc/stereo_vd.o
- .debug_line    0x00000000000229b5      0x381 Sinteck/img_inc/tela_0.o
- .debug_line    0x0000000000022d36      0x385 Sinteck/img_inc/tela_audio.o
- .debug_line    0x00000000000230bb      0x387 Sinteck/img_inc/tela_audio_1.o
- .debug_line    0x0000000000023442      0x387 Sinteck/img_inc/tela_audio_2.o
- .debug_line    0x00000000000237c9      0x384 Sinteck/img_inc/tela_freq.o
- .debug_line    0x0000000000023b4d      0x38d Sinteck/img_inc/tela_reading_audio.o
- .debug_line    0x0000000000023eda      0x38c Sinteck/img_inc/tela_reading_efic.o
- .debug_line    0x0000000000024266      0x38a Sinteck/img_inc/tela_reading_rf.o
- .debug_line    0x00000000000245f0      0x38c Sinteck/img_inc/tela_reading_temp.o
- .debug_line    0x000000000002497c      0x38b Sinteck/img_inc/tela_reading_vpa.o
- .debug_line    0x0000000000024d07      0x382 Sinteck/img_inc/tela_rf.o
- .debug_line    0x0000000000025089      0x384 Sinteck/img_inc/tela_rf_1.o
- .debug_line    0x000000000002540d      0x384 Sinteck/img_inc/tela_rf_2.o
- .debug_line    0x0000000000025791      0x383 Sinteck/img_inc/tela_sel.o
- .debug_line    0x0000000000025b14      0x386 Sinteck/img_inc/tela_status.o
- .debug_line    0x0000000000025e9a      0x3c6 USB_DEVICE/App/usb_device.o
- .debug_line    0x0000000000026260      0x3f3 USB_DEVICE/App/usbd_desc.o
- .debug_line    0x0000000000026653      0x3c4 USB_DEVICE/App/usbd_storage_if.o
- .debug_line    0x0000000000026a17      0x6d0 USB_DEVICE/Target/usbd_conf.o
- .debug_line    0x00000000000270e7      0x3e1 lvgl/src/lv_core/lv_disp.o
- .debug_line    0x00000000000274c8      0x77e lvgl/src/lv_core/lv_group.o
- .debug_line    0x0000000000027c46      0x7df lvgl/src/lv_core/lv_indev.o
- .debug_line    0x0000000000028425     0x1229 lvgl/src/lv_core/lv_obj.o
- .debug_line    0x000000000002964e      0x6a5 lvgl/src/lv_core/lv_refr.o
- .debug_line    0x0000000000029cf3      0x458 lvgl/src/lv_core/lv_style.o
- .debug_line    0x000000000002a14b      0x3d2 lvgl/src/lv_draw/lv_draw.o
- .debug_line    0x000000000002a51d      0x6da lvgl/src/lv_draw/lv_draw_basic.o
- .debug_line    0x000000000002abf7      0x53b lvgl/src/lv_draw/lv_draw_img.o
- .debug_line    0x000000000002b132      0x42d lvgl/src/lv_draw/lv_draw_label.o
- .debug_line    0x000000000002b55f      0xa1a lvgl/src/lv_draw/lv_draw_rect.o
- .debug_line    0x000000000002bf79      0x3b4 lvgl/src/lv_draw/lv_img_cache.o
- .debug_line    0x000000000002c32d      0x647 lvgl/src/lv_draw/lv_img_decoder.o
- .debug_line    0x000000000002c974      0x180 lvgl/src/lv_font/lv_font.o
- .debug_line    0x000000000002caf4      0x297 lvgl/src/lv_font/lv_font_fmt_txt.o
- .debug_line    0x000000000002cd8b      0x51a lvgl/src/lv_hal/lv_hal_disp.o
- .debug_line    0x000000000002d2a5      0x46e lvgl/src/lv_hal/lv_hal_indev.o
- .debug_line    0x000000000002d713      0x153 lvgl/src/lv_hal/lv_hal_tick.o
- .debug_line    0x000000000002d866      0x56d lvgl/src/lv_misc/lv_anim.o
- .debug_line    0x000000000002ddd3      0x2f8 lvgl/src/lv_misc/lv_area.o
- .debug_line    0x000000000002e0cb      0x20c lvgl/src/lv_misc/lv_circ.o
- .debug_line    0x000000000002e2d7      0x311 lvgl/src/lv_misc/lv_gc.o
- .debug_line    0x000000000002e5e8      0x3b7 lvgl/src/lv_misc/lv_ll.o
- .debug_line    0x000000000002e99f      0x32c lvgl/src/lv_misc/lv_mem.o
- .debug_line    0x000000000002eccb      0x4e6 lvgl/src/lv_misc/lv_task.o
- .debug_line    0x000000000002f1b1      0x4dc lvgl/src/lv_misc/lv_txt.o
- .debug_line    0x000000000002f68d      0x15e lvgl/src/lv_misc/lv_utils.o
- .debug_line    0x000000000002f7eb      0x61e lvgl/src/lv_objx/lv_bar.o
- .debug_line    0x000000000002fe09      0x531 lvgl/src/lv_objx/lv_btn.o
- .debug_line    0x000000000003033a      0x69d lvgl/src/lv_objx/lv_cont.o
- .debug_line    0x00000000000309d7      0xa2d lvgl/src/lv_objx/lv_ddlist.o
- .debug_line    0x0000000000031404      0x548 lvgl/src/lv_objx/lv_img.o
- .debug_line    0x000000000003194c      0x43e lvgl/src/lv_objx/lv_imgbtn.o
- .debug_line    0x0000000000031d8a      0x955 lvgl/src/lv_objx/lv_label.o
- .debug_line    0x00000000000326df      0xb9b lvgl/src/lv_objx/lv_page.o
- .debug_line    0x000000000003327a      0x8db lvgl/src/lv_objx/lv_roller.o
- .debug_line    0x0000000000033b55      0x2e1 lvgl/src/lv_themes/lv_theme.o
- .debug_line    0x0000000000033e36       0x7e startup/startup_stm32l476xx.o
+ .debug_line    0x0000000000001efe      0x6b3 Core/Src/misc.o
+ .debug_line    0x00000000000025b1      0x4f4 Core/Src/stm32l4xx_hal_msp.o
+ .debug_line    0x0000000000002aa5      0x2ab Core/Src/stm32l4xx_hal_timebase_tim.o
+ .debug_line    0x0000000000002d50      0x2d4 Core/Src/stm32l4xx_it.o
+ .debug_line    0x0000000000003024      0x394 Core/Src/syscalls.o
+ .debug_line    0x00000000000033b8      0x267 Core/Src/system_stm32l4xx.o
+ .debug_line    0x000000000000361f      0x959 Core/Src/w25qxx.o
+ .debug_line    0x0000000000003f78      0x4b1 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.o
+ .debug_line    0x0000000000004429      0xe4f Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_adc.o
+ .debug_line    0x0000000000005278      0xc24 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_adc_ex.o
+ .debug_line    0x0000000000005e9c      0x483 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.o
+ .debug_line    0x000000000000631f      0x4c8 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dac.o
+ .debug_line    0x00000000000067e7      0x403 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dac_ex.o
+ .debug_line    0x0000000000006bea      0x3ea Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.o
+ .debug_line    0x0000000000006fd4     0x1945 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.o
+ .debug_line    0x0000000000008919      0x370 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c_ex.o
+ .debug_line    0x0000000000008c89      0x733 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd.o
+ .debug_line    0x00000000000093bc      0x320 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.o
+ .debug_line    0x00000000000096dc      0x381 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.o
+ .debug_line    0x0000000000009a5d      0x5a0 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.o
+ .debug_line    0x0000000000009ffd      0x86a Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_qspi.o
+ .debug_line    0x000000000000a867      0x5db Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.o
+ .debug_line    0x000000000000ae42      0x70f Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.o
+ .debug_line    0x000000000000b551      0x630 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rtc.o
+ .debug_line    0x000000000000bb81      0xc8b Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi.o
+ .debug_line    0x000000000000c80c     0x13c6 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.o
+ .debug_line    0x000000000000dbd2      0x78e Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.o
+ .debug_line    0x000000000000e360      0xde3 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.o
+ .debug_line    0x000000000000f143      0x8e1 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.o
+ .debug_line    0x000000000000fa24      0x360 FATFS/App/fatfs.o
+ .debug_line    0x000000000000fd84      0x34a FATFS/Target/user_diskio.o
+ .debug_line    0x00000000000100ce      0x529 Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc.o
+ .debug_line    0x00000000000105f7      0x4c0 Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.o
+ .debug_line    0x0000000000010ab7      0x33e Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_data.o
+ .debug_line    0x0000000000010df5      0x517 Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.o
+ .debug_line    0x000000000001130c      0x54e Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
+ .debug_line    0x000000000001185a      0x4ea Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
+ .debug_line    0x0000000000011d44      0x3c4 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
+ .debug_line    0x0000000000012108      0x378 Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
+ .debug_line    0x0000000000012480      0x383 Sinteck/Fonts/lv_font_eurostile_10.o
+ .debug_line    0x0000000000012803      0x383 Sinteck/Fonts/lv_font_eurostile_22.o
+ .debug_line    0x0000000000012b86      0x383 Sinteck/Fonts/lv_font_eurostile_24.o
+ .debug_line    0x0000000000012f09      0x383 Sinteck/Fonts/lv_font_eurostile_28.o
+ .debug_line    0x000000000001328c      0x979 Sinteck/GUI/main_screen.o
+ .debug_line    0x0000000000013c05      0xb5c Sinteck/GUI/screen_audio.o
+ .debug_line    0x0000000000014761      0x7b2 Sinteck/GUI/screen_frequency.o
+ .debug_line    0x0000000000014f13      0x765 Sinteck/GUI/screen_mpx.o
+ .debug_line    0x0000000000015678      0x765 Sinteck/GUI/screen_reading_efic.o
+ .debug_line    0x0000000000015ddd      0x6c4 Sinteck/GUI/screen_reading_status.o
+ .debug_line    0x00000000000164a1      0x75b Sinteck/GUI/screen_reading_temp.o
+ .debug_line    0x0000000000016bfc      0x80c Sinteck/GUI/screen_reading_vpa.o
+ .debug_line    0x0000000000017408      0x844 Sinteck/GUI/screen_readings.o
+ .debug_line    0x0000000000017c4c      0xb52 Sinteck/GUI/screen_rf.o
+ .debug_line    0x000000000001879e      0x723 Sinteck/GUI/screen_sel.o
+ .debug_line    0x0000000000018ec1      0x382 Sinteck/img_inc/Btn_50u.o
+ .debug_line    0x0000000000019243      0x385 Sinteck/img_inc/Btn_50u_am.o
+ .debug_line    0x00000000000195c8      0x382 Sinteck/img_inc/Btn_75u.o
+ .debug_line    0x000000000001994a      0x385 Sinteck/img_inc/Btn_75u_am.o
+ .debug_line    0x0000000000019ccf      0x384 Sinteck/img_inc/Btn_Audio.o
+ .debug_line    0x000000000001a053      0x387 Sinteck/img_inc/Btn_Audio_am.o
+ .debug_line    0x000000000001a3da      0x388 Sinteck/img_inc/Btn_Frequency.o
+ .debug_line    0x000000000001a762      0x38b Sinteck/img_inc/Btn_Frequency_am.o
+ .debug_line    0x000000000001aaed      0x381 Sinteck/img_inc/Btn_RF.o
+ .debug_line    0x000000000001ae6e      0x384 Sinteck/img_inc/Btn_RF_am.o
+ .debug_line    0x000000000001b1f2      0x387 Sinteck/img_inc/Btn_Readings.o
+ .debug_line    0x000000000001b579      0x38a Sinteck/img_inc/Btn_Readings_am.o
+ .debug_line    0x000000000001b903      0x382 Sinteck/img_inc/Btn_mic.o
+ .debug_line    0x000000000001bc85      0x385 Sinteck/img_inc/Btn_mic_am.o
+ .debug_line    0x000000000001c00a      0x383 Sinteck/img_inc/Btn_mono.o
+ .debug_line    0x000000000001c38d      0x386 Sinteck/img_inc/Btn_mono_am.o
+ .debug_line    0x000000000001c713      0x382 Sinteck/img_inc/Btn_mp3.o
+ .debug_line    0x000000000001ca95      0x386 Sinteck/img_inc/Btn_mp3Next.o
+ .debug_line    0x000000000001ce1b      0x389 Sinteck/img_inc/Btn_mp3Next_am.o
+ .debug_line    0x000000000001d1a4      0x386 Sinteck/img_inc/Btn_mp3Play.o
+ .debug_line    0x000000000001d52a      0x389 Sinteck/img_inc/Btn_mp3Play_am.o
+ .debug_line    0x000000000001d8b3      0x386 Sinteck/img_inc/Btn_mp3Prev.o
+ .debug_line    0x000000000001dc39      0x389 Sinteck/img_inc/Btn_mp3Prev_am.o
+ .debug_line    0x000000000001dfc2      0x386 Sinteck/img_inc/Btn_mp3Stop.o
+ .debug_line    0x000000000001e348      0x389 Sinteck/img_inc/Btn_mp3Stop_am.o
+ .debug_line    0x000000000001e6d1      0x385 Sinteck/img_inc/Btn_mp3_am.o
+ .debug_line    0x000000000001ea56      0x385 Sinteck/img_inc/Btn_mpxext.o
+ .debug_line    0x000000000001eddb      0x388 Sinteck/img_inc/Btn_mpxext_am.o
+ .debug_line    0x000000000001f163      0x385 Sinteck/img_inc/Btn_mpxint.o
+ .debug_line    0x000000000001f4e8      0x388 Sinteck/img_inc/Btn_mpxint_am.o
+ .debug_line    0x000000000001f870      0x383 Sinteck/img_inc/Btn_next.o
+ .debug_line    0x000000000001fbf3      0x382 Sinteck/img_inc/Btn_off.o
+ .debug_line    0x000000000001ff75      0x385 Sinteck/img_inc/Btn_off_am.o
+ .debug_line    0x00000000000202fa      0x381 Sinteck/img_inc/Btn_on.o
+ .debug_line    0x000000000002067b      0x384 Sinteck/img_inc/Btn_on_am.o
+ .debug_line    0x00000000000209ff      0x387 Sinteck/img_inc/Btn_poweroff.o
+ .debug_line    0x0000000000020d86      0x38a Sinteck/img_inc/Btn_poweroff_vm.o
+ .debug_line    0x0000000000021110      0x386 Sinteck/img_inc/Btn_poweron.o
+ .debug_line    0x0000000000021496      0x389 Sinteck/img_inc/Btn_poweron_vd.o
+ .debug_line    0x000000000002181f      0x383 Sinteck/img_inc/Btn_prev.o
+ .debug_line    0x0000000000021ba2      0x385 Sinteck/img_inc/Btn_stereo.o
+ .debug_line    0x0000000000021f27      0x388 Sinteck/img_inc/Btn_stereo_am.o
+ .debug_line    0x00000000000222af      0x385 Sinteck/img_inc/stereo_off.o
+ .debug_line    0x0000000000022634      0x384 Sinteck/img_inc/stereo_vd.o
+ .debug_line    0x00000000000229b8      0x381 Sinteck/img_inc/tela_0.o
+ .debug_line    0x0000000000022d39      0x385 Sinteck/img_inc/tela_audio.o
+ .debug_line    0x00000000000230be      0x387 Sinteck/img_inc/tela_audio_1.o
+ .debug_line    0x0000000000023445      0x387 Sinteck/img_inc/tela_audio_2.o
+ .debug_line    0x00000000000237cc      0x384 Sinteck/img_inc/tela_freq.o
+ .debug_line    0x0000000000023b50      0x38d Sinteck/img_inc/tela_reading_audio.o
+ .debug_line    0x0000000000023edd      0x38c Sinteck/img_inc/tela_reading_efic.o
+ .debug_line    0x0000000000024269      0x38a Sinteck/img_inc/tela_reading_rf.o
+ .debug_line    0x00000000000245f3      0x38c Sinteck/img_inc/tela_reading_temp.o
+ .debug_line    0x000000000002497f      0x38b Sinteck/img_inc/tela_reading_vpa.o
+ .debug_line    0x0000000000024d0a      0x382 Sinteck/img_inc/tela_rf.o
+ .debug_line    0x000000000002508c      0x384 Sinteck/img_inc/tela_rf_1.o
+ .debug_line    0x0000000000025410      0x384 Sinteck/img_inc/tela_rf_2.o
+ .debug_line    0x0000000000025794      0x383 Sinteck/img_inc/tela_sel.o
+ .debug_line    0x0000000000025b17      0x386 Sinteck/img_inc/tela_status.o
+ .debug_line    0x0000000000025e9d      0x3c6 USB_DEVICE/App/usb_device.o
+ .debug_line    0x0000000000026263      0x3f3 USB_DEVICE/App/usbd_desc.o
+ .debug_line    0x0000000000026656      0x3c4 USB_DEVICE/App/usbd_storage_if.o
+ .debug_line    0x0000000000026a1a      0x6d0 USB_DEVICE/Target/usbd_conf.o
+ .debug_line    0x00000000000270ea      0x3e1 lvgl/src/lv_core/lv_disp.o
+ .debug_line    0x00000000000274cb      0x77e lvgl/src/lv_core/lv_group.o
+ .debug_line    0x0000000000027c49      0x7df lvgl/src/lv_core/lv_indev.o
+ .debug_line    0x0000000000028428     0x1229 lvgl/src/lv_core/lv_obj.o
+ .debug_line    0x0000000000029651      0x6a5 lvgl/src/lv_core/lv_refr.o
+ .debug_line    0x0000000000029cf6      0x458 lvgl/src/lv_core/lv_style.o
+ .debug_line    0x000000000002a14e      0x3d2 lvgl/src/lv_draw/lv_draw.o
+ .debug_line    0x000000000002a520      0x6da lvgl/src/lv_draw/lv_draw_basic.o
+ .debug_line    0x000000000002abfa      0x53b lvgl/src/lv_draw/lv_draw_img.o
+ .debug_line    0x000000000002b135      0x42d lvgl/src/lv_draw/lv_draw_label.o
+ .debug_line    0x000000000002b562      0xa1a lvgl/src/lv_draw/lv_draw_rect.o
+ .debug_line    0x000000000002bf7c      0x3b4 lvgl/src/lv_draw/lv_img_cache.o
+ .debug_line    0x000000000002c330      0x647 lvgl/src/lv_draw/lv_img_decoder.o
+ .debug_line    0x000000000002c977      0x180 lvgl/src/lv_font/lv_font.o
+ .debug_line    0x000000000002caf7      0x297 lvgl/src/lv_font/lv_font_fmt_txt.o
+ .debug_line    0x000000000002cd8e      0x51a lvgl/src/lv_hal/lv_hal_disp.o
+ .debug_line    0x000000000002d2a8      0x46e lvgl/src/lv_hal/lv_hal_indev.o
+ .debug_line    0x000000000002d716      0x153 lvgl/src/lv_hal/lv_hal_tick.o
+ .debug_line    0x000000000002d869      0x56d lvgl/src/lv_misc/lv_anim.o
+ .debug_line    0x000000000002ddd6      0x2f8 lvgl/src/lv_misc/lv_area.o
+ .debug_line    0x000000000002e0ce      0x20c lvgl/src/lv_misc/lv_circ.o
+ .debug_line    0x000000000002e2da      0x311 lvgl/src/lv_misc/lv_gc.o
+ .debug_line    0x000000000002e5eb      0x3b7 lvgl/src/lv_misc/lv_ll.o
+ .debug_line    0x000000000002e9a2      0x32c lvgl/src/lv_misc/lv_mem.o
+ .debug_line    0x000000000002ecce      0x4e6 lvgl/src/lv_misc/lv_task.o
+ .debug_line    0x000000000002f1b4      0x4dc lvgl/src/lv_misc/lv_txt.o
+ .debug_line    0x000000000002f690      0x15e lvgl/src/lv_misc/lv_utils.o
+ .debug_line    0x000000000002f7ee      0x61e lvgl/src/lv_objx/lv_bar.o
+ .debug_line    0x000000000002fe0c      0x531 lvgl/src/lv_objx/lv_btn.o
+ .debug_line    0x000000000003033d      0x69d lvgl/src/lv_objx/lv_cont.o
+ .debug_line    0x00000000000309da      0xa2d lvgl/src/lv_objx/lv_ddlist.o
+ .debug_line    0x0000000000031407      0x548 lvgl/src/lv_objx/lv_img.o
+ .debug_line    0x000000000003194f      0x43e lvgl/src/lv_objx/lv_imgbtn.o
+ .debug_line    0x0000000000031d8d      0x955 lvgl/src/lv_objx/lv_label.o
+ .debug_line    0x00000000000326e2      0xb9b lvgl/src/lv_objx/lv_page.o
+ .debug_line    0x000000000003327d      0x8db lvgl/src/lv_objx/lv_roller.o
+ .debug_line    0x0000000000033b58      0x2e1 lvgl/src/lv_themes/lv_theme.o
+ .debug_line    0x0000000000033e39       0x7e startup/startup_stm32l476xx.o
 
 .debug_str      0x0000000000000000    0x13710
  .debug_str     0x0000000000000000     0x109f Core/Src/ST7735.o

@@ -36,7 +36,7 @@ uint16_t Read_Encoder(void)
 			if (HAL_GPIO_ReadPin(ENC_A_GPIO_Port, ENC_A_Pin) != aVal)
 			{ // Means pin A Changed first � We�re Rotating Clockwise
 				encoderPosCount++;
-				if(encoderPosCount >= 4095) encoderPosCount = 4095;
+				if(encoderPosCount >= 100) encoderPosCount = 100;
 				bCW = true;
 			}
 			else {// Otherwise B changed first and we�re moving CCW
@@ -181,8 +181,9 @@ void buzzer(uint8_t value)
 void tft_backlight(uint16_t value)
 {
 	if(value >= 0 && value <= 100) {
-		//tft_pwm = value * 32;
-		__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_2, value);		// PWM_CH2 = TFT
+		tft_pwm = value * 40;
+		__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, tft_pwm);		// PWM_CH1 = TFT
+		//__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_2, tft_pwm);		// PWM_CH2 = TFT
 		logI("I - TFT_PWM: %ld\n\r", tft_pwm);
 	}
 }

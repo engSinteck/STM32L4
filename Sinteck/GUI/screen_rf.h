@@ -32,6 +32,8 @@ void btn_next_rf1(void);
 void btn_prev_rf2(void);
 void prog_swr(float swr);
 void prog_target(float fwd);
+void update_style_roller_rf(uint32_t idx);
+void update_style_roller_rf_1(uint32_t idx);
 void ButtonEventTelaRF(uint8_t event, uint8_t tipo, uint8_t id);
 void ButtonEventTelaRF_1(uint8_t event, uint8_t tipo, uint8_t id);
 void ButtonEventTelaRF_2(uint8_t event, uint8_t tipo, uint8_t id);

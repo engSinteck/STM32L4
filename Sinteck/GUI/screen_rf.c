@@ -32,6 +32,10 @@ extern uint8_t RFEnable;
 extern float forward, max_rfl, target;
 extern uint32_t TelaAtiva;
 
+uint32_t TelaProgRF = 0, IndiceRF = 0;
+uint32_t TelaProgRF_1 = 0, IndiceRF_1 = 0;
+uint32_t TelaProgRF_2 = 0, IndiceRF_2 = 0;
+
 static lv_obj_t * Tela_RF;
 static lv_obj_t * Tela_RF_1;
 static lv_obj_t * Tela_RF_2;
@@ -49,6 +53,8 @@ static lv_obj_t *rollerswr[2];
 static lv_obj_t *rollertarget[2];
 static lv_style_t style_indic_bar;
 static lv_style_t style_indic_bar_vd;
+static lv_style_t style_roller;
+static lv_style_t style_roller_bg;
 
 const int32_t swr_pos_x[20] = {8, 15, 23, 30, 37, 44, 51, 59, 66, 73,
                                81, 88, 95, 102, 110, 117, 124, 132, 139, 146};
@@ -64,8 +70,10 @@ const int32_t pwr_pos_x[20] = {6, 14, 22, 30, 37, 45, 53, 61, 68, 76};
 	LV_IMG_DECLARE(tela_rf_2);
 	LV_IMG_DECLARE(Btn_poweron);
 	LV_IMG_DECLARE(Btn_poweron_vd);
+	LV_IMG_DECLARE(Btn_poweron_am);
 	LV_IMG_DECLARE(Btn_poweroff);
 	LV_IMG_DECLARE(Btn_poweroff_vm);
+	LV_IMG_DECLARE(Btn_poweroff_am);
 	LV_IMG_DECLARE(BtnESC);
 	LV_IMG_DECLARE(Btn_next);
 	LV_IMG_DECLARE(Btn_prev);
@@ -149,13 +157,13 @@ void screen_RF_2(void)
 	lv_imgbtn_set_src(imgbtn1[0], LV_BTN_STATE_TGL_REL, "P:/EX15-XT/img/Btn_poweron_vd.bin");
 	lv_imgbtn_set_src(imgbtn1[0], LV_BTN_STATE_TGL_PR, "P:/EX15-XT/img/Btn_poweron.bin");
 	lv_imgbtn_set_src(imgbtn1[0], LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_poweron.bin");
-	lv_imgbtn_set_src(imgbtn1[0], LV_BTN_STATE_INA, "P:/EX15-XT/img/Btn_poweron.bin");
+	lv_imgbtn_set_src(imgbtn1[0], LV_BTN_STATE_INA, "P:/EX15-XT/img/Btn_poweron.bin_am");
 #else
 	lv_imgbtn_set_src(imgbtn1[0], LV_BTN_STATE_REL, &Btn_poweron);
 	lv_imgbtn_set_src(imgbtn1[0], LV_BTN_STATE_TGL_REL, &Btn_poweron_vd);
 	lv_imgbtn_set_src(imgbtn1[0], LV_BTN_STATE_TGL_PR, &Btn_poweron);
 	lv_imgbtn_set_src(imgbtn1[0], LV_BTN_STATE_PR, &Btn_poweron);
-	lv_imgbtn_set_src(imgbtn1[0], LV_BTN_STATE_INA, &Btn_poweron);
+	lv_imgbtn_set_src(imgbtn1[0], LV_BTN_STATE_INA, &Btn_poweron_am);
 #endif
 
 	lv_obj_set_event_cb(imgbtn1[0], btn_power);
@@ -168,13 +176,13 @@ void screen_RF_2(void)
 	lv_imgbtn_set_src(imgbtn1[1], LV_BTN_STATE_TGL_REL, "P:/EX15-XT/img/Btn_poweroff_vm.bin");
 	lv_imgbtn_set_src(imgbtn1[1], LV_BTN_STATE_TGL_PR, "P:/EX15-XT/img/Btn_poweroff.bin");
 	lv_imgbtn_set_src(imgbtn1[1], LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_poweroff.bin");
-	lv_imgbtn_set_src(imgbtn1[1], LV_BTN_STATE_INA, "P:/EX15-XT/img/Btn_poweroff.bin");
+	lv_imgbtn_set_src(imgbtn1[1], LV_BTN_STATE_INA, "P:/EX15-XT/img/Btn_poweroff_am.bin");
 #else
 	lv_imgbtn_set_src(imgbtn1[1], LV_BTN_STATE_REL, &Btn_poweroff);
 	lv_imgbtn_set_src(imgbtn1[1], LV_BTN_STATE_TGL_REL, &Btn_poweroff_vm);
 	lv_imgbtn_set_src(imgbtn1[1], LV_BTN_STATE_TGL_PR, &Btn_poweroff);
 	lv_imgbtn_set_src(imgbtn1[1], LV_BTN_STATE_PR, &Btn_poweroff);
-	lv_imgbtn_set_src(imgbtn1[1], LV_BTN_STATE_INA, &Btn_poweroff);
+	lv_imgbtn_set_src(imgbtn1[1], LV_BTN_STATE_INA, &Btn_poweroff_am);
 #endif
 	lv_obj_set_pos(imgbtn1[1], 1, 63);
 
@@ -642,44 +650,50 @@ void prog_swr(float swr)
 		teste = (uint32_t) swr * 10;
 		un = teste / 100;
 		ml = (teste % 100) / 10;
-		//printf("Debug: Prog_SWR SWR: %0.1f Teste: %d  Unidade: %d, Mantissa: %d\n", swr, teste, un, ml);
+		logI("Debug: Prog_SWR SWR: %0.1f Teste: %d  Unidade: %d, Mantissa: %d\n", swr, teste, un, ml);
 	}
 	else {
 		un = 0;
 		ml = 0;
 	}
 
-	static lv_style_t style_txt;
-	lv_style_copy(&style_txt, &lv_style_plain_color);
-	style_txt.body.main_color = LV_COLOR_GRAY;
-	style_txt.body.grad_color = LV_COLOR_BLACK;
+	lv_style_copy(&style_roller, &lv_style_plain_color);
+	style_roller.body.main_color = LV_COLOR_GRAY;
+	style_roller.body.grad_color = LV_COLOR_BLACK;
+	style_roller.text.font = &lv_font_eurostile_24;
+	style_roller.text.letter_space = 2;
+	style_roller.text.line_space = 24;
+	style_roller.text.color = LV_COLOR_WHITE;
 
-	style_txt.text.font = &lv_font_eurostile_24;
-	style_txt.text.letter_space = 2;
-	style_txt.text.line_space = 24;
-	style_txt.text.color = LV_COLOR_WHITE;
+	lv_style_copy(&style_roller_bg, &lv_style_plain_color);
+	style_roller_bg.body.main_color = LV_COLOR_YELLOW;
+	style_roller_bg.body.grad_color = LV_COLOR_YELLOW;
+	style_roller_bg.text.font = &lv_font_eurostile_24;
+	style_roller_bg.text.letter_space = 2;
+	style_roller_bg.text.line_space = 24;
+	style_roller_bg.text.color = LV_COLOR_BLACK;
 
 	// Unidade
 	rollerswr[0] = lv_roller_create(Tela_RF, NULL);
-	lv_obj_set_user_data(rollerswr[0], 5);
+	lv_obj_set_user_data(rollerswr[0], 0);
     lv_roller_set_options(rollerswr[0], "0\n1\n2\n3\n4\n5\n6\n7\n8\n9", LV_ROLLER_MODE_INIFINITE);
     lv_roller_set_visible_row_count(rollerswr[0], 2);
     lv_roller_set_selected(rollerswr[0], un, true);
     lv_roller_set_fix_width(rollerswr[0], 34);
-    lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_BG, &style_txt);
-    lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_SEL, &style_txt);
-    lv_obj_align(rollerswr[0], NULL, LV_ALIGN_IN_TOP_LEFT, 39, 38);
+    lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_BG, &style_roller);
+    lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_SEL, &style_roller);
+    lv_obj_align(rollerswr[0], NULL, LV_ALIGN_IN_TOP_LEFT, 39, 40);
     lv_obj_set_event_cb(rollerswr[0], event_handler_swr);
     // Mantis
     rollerswr[1] = lv_roller_create(Tela_RF, NULL);
-    lv_obj_set_user_data(rollerswr[1], 4);
+    lv_obj_set_user_data(rollerswr[1], 1);
     lv_roller_set_options(rollerswr[1], "0\n1\n2\n3\n4\n5\n6\n7\n8\n9", LV_ROLLER_MODE_INIFINITE);
     lv_roller_set_visible_row_count(rollerswr[1], 2);
     lv_roller_set_selected(rollerswr[1], ml, true);
     lv_roller_set_fix_width(rollerswr[1], 35);
-    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_BG, &style_txt);
-    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_SEL, &style_txt);
-    lv_obj_align(rollerswr[1], NULL, LV_ALIGN_IN_TOP_LEFT, 84, 38);
+    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_BG, &style_roller);
+    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_SEL, &style_roller);
+    lv_obj_align(rollerswr[1], NULL, LV_ALIGN_IN_TOP_LEFT, 84, 40);
     lv_obj_set_event_cb(rollerswr[1], event_handler_swr);
 }
 
@@ -700,8 +714,8 @@ static void event_handler_swr(lv_obj_t * obj, lv_event_t event)
         out[1] = buf[0];
         out[5] = 0;
 
-        max_rfl = atoi(out);
-       // printf("Selected Roller: %d Digit: %s  MAX_RFL: %0.1fW\n", id, buf, max_rfl);
+        max_rfl = (float)atoi(out);
+        logI("Selected Roller: %d Digit: %s  MAX_RFL: %0.1fW\n", id, buf, max_rfl);
     }
 }
 
@@ -721,15 +735,21 @@ void prog_target(float fwd)
 		ml = 0;
 	}
 
-	static lv_style_t style_txt;
-	lv_style_copy(&style_txt, &lv_style_plain_color);
-	style_txt.body.main_color = LV_COLOR_GRAY;
-	style_txt.body.grad_color = LV_COLOR_BLACK;
+	lv_style_copy(&style_roller, &lv_style_plain_color);
+	style_roller.body.main_color = LV_COLOR_GRAY;
+	style_roller.body.grad_color = LV_COLOR_BLACK;
+	style_roller.text.font = &lv_font_eurostile_24;
+	style_roller.text.letter_space = 2;
+	style_roller.text.line_space = 24;
+	style_roller.text.color = LV_COLOR_WHITE;
 
-	style_txt.text.font = &lv_font_eurostile_24;
-	style_txt.text.letter_space = 2;
-	style_txt.text.line_space = 24;
-	style_txt.text.color = LV_COLOR_WHITE;
+	lv_style_copy(&style_roller_bg, &lv_style_plain_color);
+	style_roller_bg.body.main_color = LV_COLOR_YELLOW;
+	style_roller_bg.body.grad_color = LV_COLOR_YELLOW;
+	style_roller_bg.text.font = &lv_font_eurostile_24;
+	style_roller_bg.text.letter_space = 2;
+	style_roller_bg.text.line_space = 24;
+	style_roller_bg.text.color = LV_COLOR_BLACK;
 
 	// Milhar
 	rollertarget[0] = lv_roller_create(Tela_RF, NULL);
@@ -738,9 +758,9 @@ void prog_target(float fwd)
     lv_roller_set_visible_row_count(rollertarget[0], 2);
     lv_roller_set_selected(rollertarget[0], un, true);
     lv_roller_set_fix_width(rollertarget[0], 34);
-    lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_BG, &style_txt);
-    lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_SEL, &style_txt);
-    lv_obj_align(rollertarget[0], NULL, LV_ALIGN_IN_TOP_LEFT, 39, 38);
+    lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_BG, &style_roller);
+    lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_SEL, &style_roller);
+    lv_obj_align(rollertarget[0], NULL, LV_ALIGN_IN_TOP_LEFT, 39, 40);
     lv_obj_set_event_cb(rollertarget[0], event_handler_target);
     // Centena
     rollertarget[1] = lv_roller_create(Tela_RF, NULL);
@@ -749,9 +769,9 @@ void prog_target(float fwd)
     lv_roller_set_visible_row_count(rollertarget[1], 2);
     lv_roller_set_selected(rollertarget[1], ml, true);
     lv_roller_set_fix_width(rollertarget[1], 35);
-    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_BG, &style_txt);
-    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_SEL, &style_txt);
-    lv_obj_align(rollertarget[1], NULL, LV_ALIGN_IN_TOP_LEFT, 84, 38);
+    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_BG, &style_roller);
+    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_SEL, &style_roller);
+    lv_obj_align(rollertarget[1], NULL, LV_ALIGN_IN_TOP_LEFT, 84, 40);
     lv_obj_set_event_cb(rollertarget[1], event_handler_target);
 }
 
@@ -774,7 +794,7 @@ static void event_handler_target(lv_obj_t * obj, lv_event_t event)
         out[5] = 0;
 
         target = (float)atoi(out);
-        //printf("Selected Roller: %d Digit: %s  TARGET: %0.1fW\n", id, buf, target);
+        logI("Selected Roller: %d Digit: %s  TARGET: %0.1fW\n", id, buf, target);
     }
 }
 
@@ -788,20 +808,104 @@ static void update_rf_1(lv_task_t * param)
 	update_vumeter_fwd(target);
 }
 
+void update_style_roller_rf(uint32_t idx)
+{
+	switch(idx) {
+		case 0:
+			lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_BG, &style_roller);
+		    lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_SEL, &style_roller);
+		    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_BG, &style_roller);
+		    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_SEL, &style_roller);
+			break;
+		case 1:
+			lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_BG, &style_roller_bg);
+		    lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_SEL, &style_roller_bg);
+		    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_BG, &style_roller);
+		    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_SEL, &style_roller);
+			break;
+		case 2:
+			lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_BG, &style_roller);
+		    lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_SEL, &style_roller);
+		    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_BG, &style_roller_bg);
+		    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_SEL, &style_roller_bg);
+			break;
+	}
+}
+
+void update_style_roller_rf_1(uint32_t idx)
+{
+	switch(idx) {
+		case 0:
+			lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_BG, &style_roller);
+		    lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_SEL, &style_roller);
+		    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_BG, &style_roller);
+		    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_SEL, &style_roller);
+			break;
+		case 1:
+			lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_BG, &style_roller_bg);
+		    lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_SEL, &style_roller_bg);
+		    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_BG, &style_roller);
+		    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_SEL, &style_roller);
+			break;
+		case 2:
+			lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_BG, &style_roller);
+		    lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_SEL, &style_roller);
+		    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_BG, &style_roller_bg);
+		    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_SEL, &style_roller_bg);
+			break;
+	}
+}
+
 void ButtonEventTelaRF(uint8_t event, uint8_t tipo, uint8_t id)
 {
 	if(event == EVT_PBTN_INPUT) {
 		if(tipo == PBTN_SCLK) {	// Single Click
+			logI("TelaRF - TelaProgRF: %ld IndiceRF: %ld\n", TelaProgRF, IndiceRF);
 			switch(id) {
 				case KEY_DN:
-					lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
+					if(TelaProgRF == 0) {
+						lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
+					}
+					else if(TelaProgRF == 1) {
+						if(IndiceRF >= 1) IndiceRF--;
+						logI("TelaRF - KEY_DN - IndiceRF: %ld\n", IndiceRF);
+						update_style_roller_rf(IndiceRF + 1);
+					}
+					else if(TelaProgRF == 2) {
+						lv_event_send(rollerswr[0], LV_EVENT_CLICKED, NULL);
+					}
 					break;
 				case KEY_UP:
-					lv_event_send(imgbtn_next[0], LV_EVENT_APPLY, NULL);
+					if(TelaProgRF == 0) {
+						lv_event_send(imgbtn_next[0], LV_EVENT_APPLY, NULL);
+					}
+					else if(TelaProgRF == 1){
+						IndiceRF++;
+						if(IndiceRF > 1) IndiceRF = 1;
+						logI("TelaRF - KEY_UP - IndiceRF: %ld\n", IndiceRF);
+						update_style_roller_rf(IndiceRF + 1);
+					}
+					else if(TelaProgRF == 2) {
+						lv_event_send(rollerswr[0], LV_EVENT_CLICKED, NULL);
+					}
 					break;
 				case KEY_ENTER:
+					if(TelaProgRF == 0) {
+						TelaProgRF = 1;
+						IndiceRF = 0;
+						update_style_roller_rf(IndiceRF + 1);
+					}
+					else if(TelaProgRF == 1) {
+						TelaProgRF = 2;
+					}
+					else if(TelaProgRF == 2) {
+						TelaProgRF = 3;
+					}
 					break;
 				case KEY_ESC:
+					TelaProgRF = 0;
+					IndiceRF = 0;
+					update_style_roller_rf(0);
 					break;
 			}
 		}
@@ -812,16 +916,52 @@ void ButtonEventTelaRF_1(uint8_t event, uint8_t tipo, uint8_t id)
 {
 	if(event == EVT_PBTN_INPUT) {
 		if(tipo == PBTN_SCLK) {	// Single Click
+			logI("TelaRF_1 - TelaProgRF_1: %ld IndiceRF_1: %ld\n", TelaProgRF_1, IndiceRF_1);
 			switch(id) {
 				case KEY_DN:
-					lv_event_send(img_fundo_1, LV_EVENT_APPLY, NULL);
+					if(TelaProgRF_1 == 0) {
+						lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
+					}
+					else if(TelaProgRF_1 == 1) {
+						if(IndiceRF_1 >= 1) IndiceRF_1--;
+						logI("TelaRF_1 - KEY_DN - IndiceRF_1: %ld\n", IndiceRF_1);
+						update_style_roller_rf_1(IndiceRF_1 + 1);
+					}
+					else if(TelaProgRF_1 == 2) {
+						lv_event_send(rollertarget[0], LV_EVENT_CLICKED, NULL);
+					}
 					break;
 				case KEY_UP:
-					lv_event_send(imgbtn_next[1], LV_EVENT_APPLY, NULL);
+					if(TelaProgRF_1 == 0) {
+						lv_event_send(imgbtn_next[1], LV_EVENT_APPLY, NULL);
+					}
+					else if(TelaProgRF_1 == 1){
+						IndiceRF_1++;
+						if(IndiceRF_1 > 1) IndiceRF_1 = 1;
+						logI("TelaRF - KEY_UP - IndiceRF: %ld\n", IndiceRF_1);
+						update_style_roller_rf_1(IndiceRF_1 + 1);
+					}
+					else if(TelaProgRF_1 == 2) {
+						lv_event_send(rollertarget[0], LV_EVENT_CLICKED, NULL);
+					}
 					break;
 				case KEY_ENTER:
+					if(TelaProgRF_1 == 0) {
+						TelaProgRF_1 = 1;
+						IndiceRF_1 = 0;
+						update_style_roller_rf_1(IndiceRF_1 + 1);
+					}
+					else if(TelaProgRF_1 == 1) {
+						TelaProgRF_1 = 2;
+					}
+					else if(TelaProgRF_1 == 2) {
+						TelaProgRF_1 = 3;
+					}
 					break;
 				case KEY_ESC:
+					TelaProgRF_1 = 0;
+					IndiceRF_1 = 0;
+					update_style_roller_rf_1(0);
 					break;
 			}
 		}
@@ -830,17 +970,78 @@ void ButtonEventTelaRF_1(uint8_t event, uint8_t tipo, uint8_t id)
 
 void ButtonEventTelaRF_2(uint8_t event, uint8_t tipo, uint8_t id)
 {
+	static uint8_t var = 0;
+
 	if(event == EVT_PBTN_INPUT) {
 		if(tipo == PBTN_SCLK) {	// Single Click
 			switch(id) {
 				case KEY_DN:
-					lv_event_send(img_fundo_2, LV_EVENT_APPLY, NULL);
+					if(TelaProgRF_2 == 0) {
+						lv_event_send(img_fundo_2, LV_EVENT_APPLY, NULL);
+					}
+					else if(TelaProgRF_2 == 1) {
+						var = !var;
+						if(var) {
+							lv_btn_set_state(imgbtn1[0], LV_BTN_STATE_INA);
+							lv_btn_set_state(imgbtn1[1], LV_BTN_STATE_TGL_PR);
+						}
+						else {
+							lv_btn_set_state(imgbtn1[0], LV_BTN_STATE_TGL_PR);
+							lv_btn_set_state(imgbtn1[1], LV_BTN_STATE_INA);
+						}
+					}
 					break;
 				case KEY_UP:
+					if(TelaProgRF_2 == 1) {
+						var = !var;
+						if(var) {
+							lv_btn_set_state(imgbtn1[0], LV_BTN_STATE_INA);
+							lv_btn_set_state(imgbtn1[1], LV_BTN_STATE_TGL_PR);
+						}
+						else {
+							lv_btn_set_state(imgbtn1[0], LV_BTN_STATE_TGL_PR);
+							lv_btn_set_state(imgbtn1[1], LV_BTN_STATE_INA);
+						}
+					}
 					break;
 				case KEY_ENTER:
+					if(TelaProgRF_2 == 0) {
+						TelaProgRF_2 = 1;
+						var = RFEnable;
+						if(var) {
+							lv_btn_set_state(imgbtn1[0], LV_BTN_STATE_INA);
+							lv_btn_set_state(imgbtn1[1], LV_BTN_STATE_TGL_PR);
+						}
+						else {
+							lv_btn_set_state(imgbtn1[0], LV_BTN_STATE_TGL_PR);
+							lv_btn_set_state(imgbtn1[1], LV_BTN_STATE_INA);
+						}
+					}
+					else if(TelaProgRF_2 == 1) {
+						TelaProgRF_2 = 2;
+						logI("Salva RFENABLE %d\n", var);
+						RFEnable = var;
+						if(RFEnable) {
+							lv_btn_set_state(imgbtn1[0], LV_BTN_STATE_TGL_REL);
+							lv_btn_set_state(imgbtn1[1], LV_BTN_STATE_TGL_PR);
+						}
+						else {
+							lv_btn_set_state(imgbtn1[0], LV_BTN_STATE_TGL_PR);
+							lv_btn_set_state(imgbtn1[1], LV_BTN_STATE_TGL_REL);
+						}
+					}
 					break;
 				case KEY_ESC:
+					TelaProgRF_2 = 0;
+					IndiceRF_2 = 0;
+					if(RFEnable) {
+						lv_btn_set_state(imgbtn1[0], LV_BTN_STATE_TGL_REL);
+						lv_btn_set_state(imgbtn1[1], LV_BTN_STATE_TGL_PR);
+					}
+					else {
+						lv_btn_set_state(imgbtn1[0], LV_BTN_STATE_TGL_PR);
+						lv_btn_set_state(imgbtn1[1], LV_BTN_STATE_TGL_REL);
+					}
 					break;
 			}
 		}

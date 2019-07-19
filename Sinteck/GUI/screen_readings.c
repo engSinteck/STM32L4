@@ -302,7 +302,7 @@ void ButtonEventTelaReadings(uint8_t event, uint8_t tipo, uint8_t id)
 		if(tipo == PBTN_SCLK) {	// Single Click
 			switch(id) {
 				case KEY_DN:
-					lv_event_send(imgbtn_prev, LV_EVENT_APPLY, NULL);
+					lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
 					break;
 				case KEY_UP:
 					lv_event_send(imgbtn_next, LV_EVENT_APPLY, NULL);

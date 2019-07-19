@@ -73,12 +73,17 @@ static lv_style_t style_indic;
 	LV_IMG_DECLARE(Btn_off_am);
 	LV_IMG_DECLARE(Btn_mp3Prev);
 	LV_IMG_DECLARE(Btn_mp3Prev_am);
+	LV_IMG_DECLARE(Btn_mp3Prev_vd);
 	LV_IMG_DECLARE(Btn_mp3Play);
 	LV_IMG_DECLARE(Btn_mp3Play_am);
+	LV_IMG_DECLARE(Btn_mp3Play_vd);
+	LV_IMG_DECLARE(Btn_mp3Pause_vd);
 	LV_IMG_DECLARE(Btn_mp3Next);
 	LV_IMG_DECLARE(Btn_mp3Next_am);
+	LV_IMG_DECLARE(Btn_mp3Next_vd);
 	LV_IMG_DECLARE(Btn_mp3Stop);
 	LV_IMG_DECLARE(Btn_mp3Stop_am);
+	LV_IMG_DECLARE(Btn_mp3Stop_vd);
 	LV_IMG_DECLARE(Btn_next);
 #endif
 
@@ -504,13 +509,13 @@ void screen_audio_2(void)
 	lv_imgbtn_set_src(imgbtn2[0], LV_BTN_STATE_REL, "P:/EX15-XT/img/Btn_mp3Prev.bin");
 	lv_imgbtn_set_src(imgbtn2[0], LV_BTN_STATE_TGL_REL, "P:/EX15-XT/img/Btn_mp3Prev.bin");
 	lv_imgbtn_set_src(imgbtn2[0], LV_BTN_STATE_TGL_PR, "P:/EX15-XT/img/Btn_mp3Prev_am.bin");
-	lv_imgbtn_set_src(imgbtn2[0], LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_mp3Prev_am.bin");
+	lv_imgbtn_set_src(imgbtn2[0], LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_mp3Prev_vd.bin");
 	lv_imgbtn_set_src(imgbtn2[0], LV_BTN_STATE_INA, "P:/EX15-XT/img/Btn_mp3Prev_am.bin");
 #else
 	lv_imgbtn_set_src(imgbtn2[0], LV_BTN_STATE_REL, &Btn_mp3Prev);
 	lv_imgbtn_set_src(imgbtn2[0], LV_BTN_STATE_TGL_REL, &Btn_mp3Prev);
 	lv_imgbtn_set_src(imgbtn2[0], LV_BTN_STATE_TGL_PR, &Btn_mp3Prev_am);
-	lv_imgbtn_set_src(imgbtn2[0], LV_BTN_STATE_PR, &Btn_mp3Prev_am);
+	lv_imgbtn_set_src(imgbtn2[0], LV_BTN_STATE_PR, &Btn_mp3Prev_vd);
 	lv_imgbtn_set_src(imgbtn2[0], LV_BTN_STATE_INA, &Btn_mp3Prev_am);
 #endif
 	lv_obj_set_event_cb(imgbtn2[0], btn_mp3);
@@ -522,14 +527,14 @@ void screen_audio_2(void)
 	lv_imgbtn_set_src(imgbtn2[1], LV_BTN_STATE_REL, "P:/EX15-XT/img/Btn_mp3Play.bin");
 	lv_imgbtn_set_src(imgbtn2[1], LV_BTN_STATE_TGL_REL, "P:/EX15-XT/img/Btn_mp3Play.bin");
 	lv_imgbtn_set_src(imgbtn2[1], LV_BTN_STATE_TGL_PR, "P:/EX15-XT/img/Btn_mp3Play_am.bin");
-	lv_imgbtn_set_src(imgbtn2[1], LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_mp3Play_am.bin");
-	lv_imgbtn_set_src(imgbtn2[1], LV_BTN_STATE_INA, "P:/EX15-XT/img/Btn_mp3Play_am.bin");
+	lv_imgbtn_set_src(imgbtn2[1], LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_mp3Play_vd.bin");
+	lv_imgbtn_set_src(imgbtn2[1], LV_BTN_STATE_INA, "P:/EX15-XT/img/Btn_mp3Pause_vd.bin");
 #else
 	lv_imgbtn_set_src(imgbtn2[1], LV_BTN_STATE_REL, &Btn_mp3Play);
 	lv_imgbtn_set_src(imgbtn2[1], LV_BTN_STATE_TGL_REL, &Btn_mp3Play);
 	lv_imgbtn_set_src(imgbtn2[1], LV_BTN_STATE_TGL_PR, &Btn_mp3Play_am);
-	lv_imgbtn_set_src(imgbtn2[1], LV_BTN_STATE_PR, &Btn_mp3Play_am);
-	lv_imgbtn_set_src(imgbtn2[1], LV_BTN_STATE_INA, &Btn_mp3Play_am);
+	lv_imgbtn_set_src(imgbtn2[1], LV_BTN_STATE_PR, &Btn_mp3Play_vd);
+	lv_imgbtn_set_src(imgbtn2[1], LV_BTN_STATE_INA, &Btn_mp3Pause_vd);
 #endif
 	lv_obj_set_pos(imgbtn2[1], 83, 67);
 	// MP3 NEXT
@@ -539,13 +544,13 @@ void screen_audio_2(void)
 	lv_imgbtn_set_src(imgbtn2[2], LV_BTN_STATE_REL, "P:/EX15-XT/img/Btn_mp3Next.bin");
 	lv_imgbtn_set_src(imgbtn2[2], LV_BTN_STATE_TGL_REL, "P:/EX15-XT/img/Btn_mp3Next.bin");
 	lv_imgbtn_set_src(imgbtn2[2], LV_BTN_STATE_TGL_PR, "P:/EX15-XT/img/Btn_mp3Next_am.bin");
-	lv_imgbtn_set_src(imgbtn2[2], LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_mp3Next_am.bin");
+	lv_imgbtn_set_src(imgbtn2[2], LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_mp3Next_vd.bin");
 	lv_imgbtn_set_src(imgbtn2[2], LV_BTN_STATE_INA, "P:/EX15-XT/img/Btn_mp3Next_am.bin");
 #else
 	lv_imgbtn_set_src(imgbtn2[2], LV_BTN_STATE_REL, &Btn_mp3Next);
 	lv_imgbtn_set_src(imgbtn2[2], LV_BTN_STATE_TGL_REL, &Btn_mp3Next);
 	lv_imgbtn_set_src(imgbtn2[2], LV_BTN_STATE_TGL_PR, &Btn_mp3Next_am);
-	lv_imgbtn_set_src(imgbtn2[2], LV_BTN_STATE_PR, &Btn_mp3Next_am);
+	lv_imgbtn_set_src(imgbtn2[2], LV_BTN_STATE_PR, &Btn_mp3Next_vd);
 	lv_imgbtn_set_src(imgbtn2[2], LV_BTN_STATE_INA, &Btn_mp3Next_am);
 #endif
 	lv_obj_set_pos(imgbtn2[2], 83, 86);
@@ -556,27 +561,32 @@ void screen_audio_2(void)
 	lv_imgbtn_set_src(imgbtn2[3], LV_BTN_STATE_REL, "P:/EX15-XT/img/Btn_mp3Stop.bin");
 	lv_imgbtn_set_src(imgbtn2[3], LV_BTN_STATE_TGL_REL, "P:/EX15-XT/img/Btn_mp3Stop.bin");
 	lv_imgbtn_set_src(imgbtn2[3], LV_BTN_STATE_TGL_PR, "P:/EX15-XT/img/Btn_mp3Stop_am.bin");
-	lv_imgbtn_set_src(imgbtn2[3], LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_mp3Stop_am.bin");
+	lv_imgbtn_set_src(imgbtn2[3], LV_BTN_STATE_PR, "P:/EX15-XT/img/Btn_mp3Stop_vd.bin");
 	lv_imgbtn_set_src(imgbtn2[3], LV_BTN_STATE_INA, "P:/EX15-XT/img/Btn_mp3Stop_am.bin");
 #else
 	lv_imgbtn_set_src(imgbtn2[3], LV_BTN_STATE_REL, &Btn_mp3Stop);
 	lv_imgbtn_set_src(imgbtn2[3], LV_BTN_STATE_TGL_REL, &Btn_mp3Stop);
 	lv_imgbtn_set_src(imgbtn2[3], LV_BTN_STATE_TGL_PR, &Btn_mp3Stop_am);
-	lv_imgbtn_set_src(imgbtn2[3], LV_BTN_STATE_PR, &Btn_mp3Stop_am);
+	lv_imgbtn_set_src(imgbtn2[3], LV_BTN_STATE_PR, &Btn_mp3Stop_vd);
 	lv_imgbtn_set_src(imgbtn2[3], LV_BTN_STATE_INA, &Btn_mp3Stop_am);
 #endif
 	lv_obj_set_pos(imgbtn2[3], 83, 105);
 	// Atualiza MP3 Status
 	switch(mp3_status) {
 		case 0:			// STOP
+			lv_imgbtn_set_state(imgbtn2[3], LV_BTN_STATE_PR);
 			break;
 		case 1:			// Play
+			lv_imgbtn_set_state(imgbtn2[1], LV_BTN_STATE_PR);
 			break;
 		case 2:			// Pause
+			lv_imgbtn_set_state(imgbtn2[1], LV_BTN_STATE_INA);
 			break;
 		case 3:			// REV
+			lv_imgbtn_set_state(imgbtn2[0], LV_BTN_STATE_PR);
 			break;
 		case 4:
+			lv_imgbtn_set_state(imgbtn2[2], LV_BTN_STATE_PR);
 			break;		// Next
 	}
 	lv_scr_load(Tela_Audio_2);
@@ -837,19 +847,28 @@ static void btn_mp3(lv_obj_t * btn, lv_event_t event)
 		switch(id) {
 			case 0:
 				logI("MP3 Function: PREV\n");
+				lv_imgbtn_set_state(imgbtn2[0], LV_BTN_STATE_PR);
 				mp3_status = 3;
 				break;
 			case 1:
 				logI("MP3 Function: PLAY-PAUSE\n");
-				if(mp3_status == 1) mp3_status = 2;
-				else mp3_status = 1;
+				if(mp3_status == 1) {
+					mp3_status = 2;
+					lv_imgbtn_set_state(imgbtn2[1], LV_BTN_STATE_INA);
+				}
+				else {
+					mp3_status = 1;
+					lv_imgbtn_set_state(imgbtn2[1], LV_BTN_STATE_PR);
+				}
 				break;
 			case 2:
 				logI("MP3 Function: NEXT\n");
+				lv_imgbtn_set_state(imgbtn2[2], LV_BTN_STATE_PR);
 				mp3_status = 4;
 				break;
 			case 3:
 				logI("MP3 Function: STOP\n");
+				lv_imgbtn_set_state(imgbtn2[3], LV_BTN_STATE_PR);
 				mp3_status = 0;
 				break;
 		}
@@ -1015,6 +1034,26 @@ void update_sel_button_Audio_2(uint8_t idx)
 			lv_imgbtn_set_state(imgbtn2[3], LV_BTN_STATE_TGL_PR);
 			break;
 	}
+	// Re-Update MP3 Button
+	if(idx < 3) {
+		switch(mp3_status) {
+			case 0:
+				lv_imgbtn_set_state(imgbtn2[3], LV_BTN_STATE_PR);
+				break;
+			case 1:
+				lv_imgbtn_set_state(imgbtn2[1], LV_BTN_STATE_PR);
+				break;
+			case 2:
+				lv_imgbtn_set_state(imgbtn2[1], LV_BTN_STATE_INA);
+				break;
+			case 3:
+				lv_imgbtn_set_state(imgbtn2[0], LV_BTN_STATE_PR);
+				break;
+			case 4:
+				lv_imgbtn_set_state(imgbtn2[2], LV_BTN_STATE_PR);
+				break;
+		}
+	}
 }
 
 void ButtonEventTelaAudio(uint8_t event, uint8_t tipo, uint8_t id)
@@ -1171,6 +1210,7 @@ void ButtonEventTelaAudio_2(uint8_t event, uint8_t tipo, uint8_t id)
 							lv_obj_set_user_data(imgbtn2[x], x);
 							lv_event_send(imgbtn2[x], LV_EVENT_RELEASED, &x);
 							logI("Debug: MP3  DBG: %ld\n", x);
+							TelaAudioProg_2 = 0;
 						}
 					}
 					break;

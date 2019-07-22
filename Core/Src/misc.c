@@ -45,7 +45,6 @@ uint16_t Read_Encoder(void)
 			}
 			sprintf(buffer, "Encoder - aVal: %d DT: %d, EncoderPosition: %ld\n", aVal, HAL_GPIO_ReadPin(ENC_A_GPIO_Port, ENC_A_Pin), encoderPosCount);
 			HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
-			tft_backlight(encoderPosCount);
 //		}
 	}
 	CLKLast = aVal;

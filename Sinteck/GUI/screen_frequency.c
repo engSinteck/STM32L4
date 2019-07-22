@@ -19,6 +19,7 @@ extern char buffer[];
 extern uint32_t TelaAtiva;
 
 uint32_t TelaProgFREQ = 0, IndiceFREQ = 0;
+uint16_t freq1, freq2, freq3, freq4, freq5, freq6;
 
 static lv_obj_t * Tela_Freq;
 static lv_obj_t * img_fundo;
@@ -26,9 +27,11 @@ static lv_obj_t * bar[21];
 static lv_obj_t *rollerfreq[6];
 static lv_style_t style_indic_bar;
 static lv_style_t style_indic_bar_vd;
+static lv_style_t style_roller_anim;
 static lv_style_t style_roller;
 static lv_style_t style_roller_bg;
 static lv_style_t style_roller_s;
+static lv_anim_t sf;
 
 const int32_t freq_pos_x[21] = {8, 15, 22, 29, 36, 43, 50, 57, 64, 71,
                                 78, 85, 92, 99, 106, 113, 120, 127, 134, 141, 148};
@@ -51,11 +54,9 @@ void screen_freq(void)
 	lv_obj_set_protect(img_fundo, LV_PROTECT_POS);
 	lv_obj_set_event_cb(img_fundo, btn_event_esc_freq);
 	lv_obj_set_click(img_fundo, 1);
-	//btn_esc_freq();
 	create_vumeter_freq();
-	//print_freq(frequencia);
 	update_vumeter(frequencia);
-	lv_ex_roller();
+	prog_freq();
 	lv_scr_load(Tela_Freq);
 	TelaAtiva = TelaFrequencia;
 }
@@ -185,7 +186,7 @@ static void event_handler(lv_obj_t * obj, lv_event_t event)
     }
 }
 
-void lv_ex_roller(void)
+void prog_freq(void)
 {
 	lv_style_copy(&style_roller, &lv_style_plain_color);
 	style_roller.body.main_color = LV_COLOR_BLACK;
@@ -194,6 +195,14 @@ void lv_ex_roller(void)
 	style_roller.text.letter_space = 2;
 	style_roller.text.line_space = 24;
 	style_roller.text.color = LV_COLOR_WHITE;
+
+	lv_style_copy(&style_roller_anim, &lv_style_plain_color);
+	style_roller_anim.body.main_color = LV_COLOR_BLACK;
+	style_roller_anim.body.grad_color = LV_COLOR_BLACK;
+	style_roller_anim.text.font = &lv_font_eurostile_24;
+	style_roller_anim.text.letter_space = 2;
+	style_roller_anim.text.line_space = 24;
+	style_roller_anim.text.color = LV_COLOR_WHITE;
 
 	lv_style_copy(&style_roller_bg, &lv_style_plain_color);
 	style_roller_bg.body.main_color = LV_COLOR_YELLOW;
@@ -211,6 +220,13 @@ void lv_ex_roller(void)
 	style_roller_s.text.line_space = 24;
 	style_roller_s.text.color = LV_COLOR_LIME;
 
+	// Animate the new style
+	lv_style_anim_init(&sf);
+	lv_style_anim_set_styles(&sf, &style_roller_anim, &style_roller, &style_roller_bg);
+	lv_style_anim_set_time(&sf, 500, 500);
+	lv_style_anim_set_playback(&sf, 500);
+	lv_style_anim_set_repeat(&sf, 500);
+	lv_style_anim_create(&sf);
 
 	// Milhar
 	rollerfreq[5] = lv_roller_create(Tela_Freq, NULL);
@@ -387,6 +403,8 @@ void update_style_roller_freq(uint32_t idx)
 void ButtonEventTelaFrequencia(uint8_t event, uint8_t tipo, uint8_t id)
 {
 	uint8_t x;
+	char buf[32];
+	char out[8];
 
 	if(event == EVT_PBTN_INPUT) {
 		if(tipo == PBTN_SCLK) {	// Single Click
@@ -419,6 +437,8 @@ void ButtonEventTelaFrequencia(uint8_t event, uint8_t tipo, uint8_t id)
 					}
 					else if(TelaProgFREQ == 1) {
 						TelaProgFREQ = 2;
+						lv_roller_set_style(rollerfreq[IndiceFREQ], LV_ROLLER_STYLE_BG, &style_roller_anim);
+						lv_roller_set_style(rollerfreq[IndiceFREQ], LV_ROLLER_STYLE_SEL, &style_roller_anim);
 					}
 					else if(TelaProgFREQ == 2) {
 						logI("Salva Frequencia\n");
@@ -429,6 +449,20 @@ void ButtonEventTelaFrequencia(uint8_t event, uint8_t tipo, uint8_t id)
 							lv_roller_set_style(rollerfreq[x], LV_ROLLER_STYLE_BG, &style_roller_s);
 						    lv_roller_set_style(rollerfreq[x], LV_ROLLER_STYLE_SEL, &style_roller_s);
 						}
+				        lv_roller_get_selected_str(rollerfreq[5], buf, sizeof(buf));
+				        out[0] = buf[0];
+				        lv_roller_get_selected_str(rollerfreq[4], buf, sizeof(buf));
+				        out[1] = buf[0];
+				        lv_roller_get_selected_str(rollerfreq[3], buf, sizeof(buf));
+				        out[2] = buf[0];
+				        lv_roller_get_selected_str(rollerfreq[2], buf, sizeof(buf));
+				        out[3] = buf[0];
+				        lv_roller_get_selected_str(rollerfreq[1], buf, sizeof(buf));
+				        out[4] = buf[0];
+				        out[5] = 0;
+
+				        logI("Selected Roller: %d Digit: %s  Frequencia: %d\n", id, buf, atoi(out));
+
 					}
 					break;
 				case KEY_ESC:

@@ -16,7 +16,7 @@
 
 static void event_handler_target(lv_obj_t * obj, lv_event_t event);
 static void event_handler_swr(lv_obj_t * obj, lv_event_t event);
-static void btn_event_prev_rf2(lv_obj_t * btn, lv_event_t event);
+//static void btn_event_prev_rf2(lv_obj_t * btn, lv_event_t event);
 static void btn_event_next_rf1(lv_obj_t * btn, lv_event_t event);
 static void btn_event_next_rf(lv_obj_t * btn, lv_event_t event);
 static void btn_event_esc_rf2(lv_obj_t * btn, lv_event_t event);
@@ -30,10 +30,12 @@ static void update_rf_1(lv_task_t * param);
 extern char buffer[];
 extern uint8_t RFEnable;
 extern float forward, max_rfl, target;
-extern uint32_t TelaAtiva;
+extern uint32_t TelaAtiva, Max_Reflected, Target_Int;
 
-uint32_t TelaProgRF = 0, IndiceRF = 0;
-uint32_t TelaProgRF_1 = 0, IndiceRF_1 = 0;
+uint32_t TelaProgRF = 0, IndiceRF = 0, ProgRF = 0;
+uint16_t roller_swr[2];
+uint32_t TelaProgRF_1 = 0, IndiceRF_1 = 0, ProgRF_1 = 0;
+uint16_t roller_target[2];
 uint32_t TelaProgRF_2 = 0, IndiceRF_2 = 0;
 
 static lv_obj_t * Tela_RF;
@@ -53,8 +55,11 @@ static lv_obj_t *rollerswr[2];
 static lv_obj_t *rollertarget[2];
 static lv_style_t style_indic_bar;
 static lv_style_t style_indic_bar_vd;
-static lv_style_t style_roller;
+static lv_style_t style_roller_anim;
+static lv_style_t style_roller_b;
 static lv_style_t style_roller_bg;
+static lv_style_t style_roller_save;
+static lv_anim_t sa;
 
 const int32_t swr_pos_x[20] = {8, 15, 23, 30, 37, 44, 51, 59, 66, 73,
                                81, 88, 95, 102, 110, 117, 124, 132, 139, 146};
@@ -97,8 +102,8 @@ void screen_rf(void)
 
 	btn_next_rf();
 	create_vumeter_swr();
-	prog_swr(max_rfl);
-	update_vumeter_swr(max_rfl);
+	prog_swr(Max_Reflected);
+	update_vumeter_swr(Max_Reflected);
 	lv_scr_load(Tela_RF);
 
 	// Task Update Vu-Meter
@@ -257,10 +262,10 @@ void create_vumeter_pwr(void)
 	}
 }
 
-void update_vumeter_swr(float swr)
+void update_vumeter_swr(uint32_t swr)
 {
 	uint32_t y;
-	float resul;
+	uint32_t resul;
 
 	// Create a default bar
 	for(uint8_t x = 0; x < 20; x++) {
@@ -269,8 +274,8 @@ void update_vumeter_swr(float swr)
 	}
 
 	if(swr != 0) {
-		resul = (uint32_t) (((((swr / 10) / target) * 100) / 2.50f) - 1) ;
-		//printf("Debug: Task_SWR Target: %0.1f SWR: %0.1f Resul: %0.1f\n", target, swr, resul);
+		resul = (uint32_t) (((((swr / 10) / target) * 100) / 2.50f)) ;
+		//logI("Debug: Task_SWR Target: %0.1f SWR: %ld Resul: %ld\n", target, swr, resul);
 		if(resul >= 20) resul = 19;
 
 		for(y = 0; y <= resul; y++) {
@@ -631,7 +636,7 @@ void btn_prev_rf2(void)
 	lv_obj_set_event_cb(imgbtn1, btn_event_prev_rf2);
 	lv_obj_set_pos(imgbtn1, 32, 18);
 }
-*/
+
 
 static void btn_event_prev_rf2(lv_obj_t * btn, lv_event_t event)
 {
@@ -641,29 +646,36 @@ static void btn_event_prev_rf2(lv_obj_t * btn, lv_event_t event)
 		screen_RF_1();
 	}
 }
+*/
 
-void prog_swr(float swr)
+void prog_swr(uint32_t swr)
 {
-	uint32_t teste, un, ml;
+	uint32_t un, ml;
 
 	if( swr > 0) {
-		teste = (uint32_t) swr * 10;
-		un = teste / 100;
-		ml = (teste % 100) / 10;
-		logI("Debug: Prog_SWR SWR: %0.1f Teste: %d  Unidade: %d, Mantissa: %d\n", swr, teste, un, ml);
+		un = swr / 10;
+		ml = (swr % 10);
+		logI("Debug: Prog_SWR SWR: %ld  Unidade: %d, Mantissa: %d\n", swr, un, ml);
 	}
 	else {
 		un = 0;
 		ml = 0;
 	}
+	lv_style_copy(&style_roller_anim, &lv_style_plain_color);
+	style_roller_anim.body.main_color = LV_COLOR_GRAY;
+	style_roller_anim.body.grad_color = LV_COLOR_BLACK;
+	style_roller_anim.text.font = &lv_font_eurostile_24;
+	style_roller_anim.text.letter_space = 2;
+	style_roller_anim.text.line_space = 24;
+	style_roller_anim.text.color = LV_COLOR_WHITE;
 
-	lv_style_copy(&style_roller, &lv_style_plain_color);
-	style_roller.body.main_color = LV_COLOR_GRAY;
-	style_roller.body.grad_color = LV_COLOR_BLACK;
-	style_roller.text.font = &lv_font_eurostile_24;
-	style_roller.text.letter_space = 2;
-	style_roller.text.line_space = 24;
-	style_roller.text.color = LV_COLOR_WHITE;
+	lv_style_copy(&style_roller_b, &lv_style_plain_color);
+	style_roller_b.body.main_color = LV_COLOR_GRAY;
+	style_roller_b.body.grad_color = LV_COLOR_BLACK;
+	style_roller_b.text.font = &lv_font_eurostile_24;
+	style_roller_b.text.letter_space = 2;
+	style_roller_b.text.line_space = 24;
+	style_roller_b.text.color = LV_COLOR_WHITE;
 
 	lv_style_copy(&style_roller_bg, &lv_style_plain_color);
 	style_roller_bg.body.main_color = LV_COLOR_YELLOW;
@@ -673,6 +685,22 @@ void prog_swr(float swr)
 	style_roller_bg.text.line_space = 24;
 	style_roller_bg.text.color = LV_COLOR_BLACK;
 
+	lv_style_copy(&style_roller_save, &lv_style_plain_color);
+	style_roller_save.body.main_color = LV_COLOR_LIME;
+	style_roller_save.body.grad_color = LV_COLOR_LIME;
+	style_roller_save.text.font = &lv_font_eurostile_24;
+	style_roller_save.text.letter_space = 2;
+	style_roller_save.text.line_space = 24;
+	style_roller_save.text.color = LV_COLOR_WHITE;
+
+	// Animate the new style
+	lv_style_anim_init(&sa);
+	lv_style_anim_set_styles(&sa, &style_roller_anim, &style_roller_b, &style_roller_bg);
+	lv_style_anim_set_time(&sa, 500, 500);
+	lv_style_anim_set_playback(&sa, 500);
+	lv_style_anim_set_repeat(&sa, 500);
+	lv_style_anim_create(&sa);
+
 	// Unidade
 	rollerswr[0] = lv_roller_create(Tela_RF, NULL);
 	lv_obj_set_user_data(rollerswr[0], 0);
@@ -680,8 +708,8 @@ void prog_swr(float swr)
     lv_roller_set_visible_row_count(rollerswr[0], 2);
     lv_roller_set_selected(rollerswr[0], un, true);
     lv_roller_set_fix_width(rollerswr[0], 34);
-    lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_BG, &style_roller);
-    lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_SEL, &style_roller);
+    lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_BG, &style_roller_b);
+    lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_SEL, &style_roller_b);
     lv_obj_align(rollerswr[0], NULL, LV_ALIGN_IN_TOP_LEFT, 39, 40);
     lv_obj_set_event_cb(rollerswr[0], event_handler_swr);
     // Mantis
@@ -691,8 +719,8 @@ void prog_swr(float swr)
     lv_roller_set_visible_row_count(rollerswr[1], 2);
     lv_roller_set_selected(rollerswr[1], ml, true);
     lv_roller_set_fix_width(rollerswr[1], 35);
-    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_BG, &style_roller);
-    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_SEL, &style_roller);
+    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_BG, &style_roller_b);
+    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_SEL, &style_roller_b);
     lv_obj_align(rollerswr[1], NULL, LV_ALIGN_IN_TOP_LEFT, 84, 40);
     lv_obj_set_event_cb(rollerswr[1], event_handler_swr);
 }
@@ -712,10 +740,10 @@ static void event_handler_swr(lv_obj_t * obj, lv_event_t event)
         out[0] = buf[0];
         lv_roller_get_selected_str(rollerswr[1], buf, sizeof(buf));
         out[1] = buf[0];
-        out[5] = 0;
+        out[3] = 0;
 
         max_rfl = (float)atoi(out);
-        logI("Selected Roller: %d Digit: %s  MAX_RFL: %0.1fW\n", id, buf, max_rfl);
+        logI("Selected Roller: %d Digit: %s  MAX_RFL: %0.1fW B0: %d B1: %d\n", id, buf, max_rfl, buf[0], buf[1]);
     }
 }
 
@@ -735,13 +763,21 @@ void prog_target(float fwd)
 		ml = 0;
 	}
 
-	lv_style_copy(&style_roller, &lv_style_plain_color);
-	style_roller.body.main_color = LV_COLOR_GRAY;
-	style_roller.body.grad_color = LV_COLOR_BLACK;
-	style_roller.text.font = &lv_font_eurostile_24;
-	style_roller.text.letter_space = 2;
-	style_roller.text.line_space = 24;
-	style_roller.text.color = LV_COLOR_WHITE;
+	lv_style_copy(&style_roller_anim, &lv_style_plain_color);
+	style_roller_anim.body.main_color = LV_COLOR_GRAY;
+	style_roller_anim.body.grad_color = LV_COLOR_BLACK;
+	style_roller_anim.text.font = &lv_font_eurostile_24;
+	style_roller_anim.text.letter_space = 2;
+	style_roller_anim.text.line_space = 24;
+	style_roller_anim.text.color = LV_COLOR_WHITE;
+
+	lv_style_copy(&style_roller_b, &lv_style_plain_color);
+	style_roller_b.body.main_color = LV_COLOR_GRAY;
+	style_roller_b.body.grad_color = LV_COLOR_BLACK;
+	style_roller_b.text.font = &lv_font_eurostile_24;
+	style_roller_b.text.letter_space = 2;
+	style_roller_b.text.line_space = 24;
+	style_roller_b.text.color = LV_COLOR_WHITE;
 
 	lv_style_copy(&style_roller_bg, &lv_style_plain_color);
 	style_roller_bg.body.main_color = LV_COLOR_YELLOW;
@@ -751,6 +787,22 @@ void prog_target(float fwd)
 	style_roller_bg.text.line_space = 24;
 	style_roller_bg.text.color = LV_COLOR_BLACK;
 
+	lv_style_copy(&style_roller_save, &lv_style_plain_color);
+	style_roller_save.body.main_color = LV_COLOR_LIME;
+	style_roller_save.body.grad_color = LV_COLOR_LIME;
+	style_roller_save.text.font = &lv_font_eurostile_24;
+	style_roller_save.text.letter_space = 2;
+	style_roller_save.text.line_space = 24;
+	style_roller_save.text.color = LV_COLOR_WHITE;
+
+	// Animate the new style
+//	lv_style_anim_init(&sa);
+//	lv_style_anim_set_styles(&sa, &style_roller_anim, &style_roller_b, &style_roller_bg);
+//	lv_style_anim_set_time(&sa, 500, 500);
+//	lv_style_anim_set_playback(&sa, 500);
+//	lv_style_anim_set_repeat(&sa, 500);
+//	lv_style_anim_create(&sa);
+
 	// Milhar
 	rollertarget[0] = lv_roller_create(Tela_RF, NULL);
 	lv_obj_set_user_data(rollertarget[0], 5);
@@ -758,8 +810,8 @@ void prog_target(float fwd)
     lv_roller_set_visible_row_count(rollertarget[0], 2);
     lv_roller_set_selected(rollertarget[0], un, true);
     lv_roller_set_fix_width(rollertarget[0], 34);
-    lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_BG, &style_roller);
-    lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_SEL, &style_roller);
+    lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_BG, &style_roller_b);
+    lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_SEL, &style_roller_b);
     lv_obj_align(rollertarget[0], NULL, LV_ALIGN_IN_TOP_LEFT, 39, 40);
     lv_obj_set_event_cb(rollertarget[0], event_handler_target);
     // Centena
@@ -769,8 +821,8 @@ void prog_target(float fwd)
     lv_roller_set_visible_row_count(rollertarget[1], 2);
     lv_roller_set_selected(rollertarget[1], ml, true);
     lv_roller_set_fix_width(rollertarget[1], 35);
-    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_BG, &style_roller);
-    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_SEL, &style_roller);
+    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_BG, &style_roller_b);
+    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_SEL, &style_roller_b);
     lv_obj_align(rollertarget[1], NULL, LV_ALIGN_IN_TOP_LEFT, 84, 40);
     lv_obj_set_event_cb(rollertarget[1], event_handler_target);
 }
@@ -800,7 +852,7 @@ static void event_handler_target(lv_obj_t * obj, lv_event_t event)
 
 static void update_rf(lv_task_t * param)
 {
-	update_vumeter_swr(max_rfl);
+	update_vumeter_swr(Max_Reflected);
 }
 
 static void update_rf_1(lv_task_t * param)
@@ -812,20 +864,20 @@ void update_style_roller_rf(uint32_t idx)
 {
 	switch(idx) {
 		case 0:
-			lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_BG, &style_roller);
-		    lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_SEL, &style_roller);
-		    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_BG, &style_roller);
-		    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_SEL, &style_roller);
+			lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_BG, &style_roller_b);
+		    lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_SEL, &style_roller_b);
+		    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_BG, &style_roller_b);
+		    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_SEL, &style_roller_b);
 			break;
 		case 1:
 			lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_BG, &style_roller_bg);
 		    lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_SEL, &style_roller_bg);
-		    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_BG, &style_roller);
-		    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_SEL, &style_roller);
+		    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_BG, &style_roller_b);
+		    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_SEL, &style_roller_b);
 			break;
 		case 2:
-			lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_BG, &style_roller);
-		    lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_SEL, &style_roller);
+			lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_BG, &style_roller_b);
+		    lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_SEL, &style_roller_b);
 		    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_BG, &style_roller_bg);
 		    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_SEL, &style_roller_bg);
 			break;
@@ -836,20 +888,20 @@ void update_style_roller_rf_1(uint32_t idx)
 {
 	switch(idx) {
 		case 0:
-			lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_BG, &style_roller);
-		    lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_SEL, &style_roller);
-		    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_BG, &style_roller);
-		    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_SEL, &style_roller);
+			lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_BG, &style_roller_b);
+		    lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_SEL, &style_roller_b);
+		    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_BG, &style_roller_b);
+		    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_SEL, &style_roller_b);
 			break;
 		case 1:
 			lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_BG, &style_roller_bg);
 		    lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_SEL, &style_roller_bg);
-		    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_BG, &style_roller);
-		    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_SEL, &style_roller);
+		    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_BG, &style_roller_b);
+		    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_SEL, &style_roller_b);
 			break;
 		case 2:
-			lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_BG, &style_roller);
-		    lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_SEL, &style_roller);
+			lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_BG, &style_roller_b);
+		    lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_SEL, &style_roller_b);
 		    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_BG, &style_roller_bg);
 		    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_SEL, &style_roller_bg);
 			break;
@@ -858,6 +910,9 @@ void update_style_roller_rf_1(uint32_t idx)
 
 void ButtonEventTelaRF(uint8_t event, uint8_t tipo, uint8_t id)
 {
+    char buf[32];
+    char out[6];
+
 	if(event == EVT_PBTN_INPUT) {
 		if(tipo == PBTN_SCLK) {	// Single Click
 			logI("TelaRF - TelaProgRF: %ld IndiceRF: %ld\n", TelaProgRF, IndiceRF);
@@ -872,7 +927,15 @@ void ButtonEventTelaRF(uint8_t event, uint8_t tipo, uint8_t id)
 						update_style_roller_rf(IndiceRF + 1);
 					}
 					else if(TelaProgRF == 2) {
-						lv_event_send(rollerswr[0], LV_EVENT_CLICKED, NULL);
+						if(IndiceRF == 0) {
+							if(roller_swr[0] > 0) roller_swr[0]--;
+							lv_roller_set_selected(rollerswr[IndiceRF], roller_swr[0], false);
+						}
+						else {
+							if(roller_swr[1] > 0) roller_swr[1]--;
+							lv_roller_set_selected(rollerswr[IndiceRF], roller_swr[1], false);
+						}
+						logI("Debug: KEY_DN Roller_SWR: %ld, Dado: %ld %d\n", IndiceRF, roller_swr[0], roller_swr[1]);
 					}
 					break;
 				case KEY_UP:
@@ -886,7 +949,17 @@ void ButtonEventTelaRF(uint8_t event, uint8_t tipo, uint8_t id)
 						update_style_roller_rf(IndiceRF + 1);
 					}
 					else if(TelaProgRF == 2) {
-						lv_event_send(rollerswr[0], LV_EVENT_CLICKED, NULL);
+						if(IndiceRF == 0) {
+							roller_swr[0]++;
+							if(roller_swr[0] > 2) roller_swr[0] = 0;
+							lv_roller_set_selected(rollerswr[IndiceRF], roller_swr[0], false);
+						}
+						else {
+							roller_swr[1]++;
+							if(roller_swr[1] > 9) roller_swr[1] = 0;
+							lv_roller_set_selected(rollerswr[IndiceRF], roller_swr[1], false);
+						}
+						logI("Debug: KEY_UP Roller_SWR: %ld, Dado: %d %d\n", IndiceRF, roller_swr[0], roller_swr[1]);
 					}
 					break;
 				case KEY_ENTER:
@@ -897,9 +970,29 @@ void ButtonEventTelaRF(uint8_t event, uint8_t tipo, uint8_t id)
 					}
 					else if(TelaProgRF == 1) {
 						TelaProgRF = 2;
+						roller_swr[0] = Max_Reflected / 10;
+						roller_swr[1] = Max_Reflected % 10;
+					    lv_roller_set_style(rollerswr[IndiceRF], LV_ROLLER_STYLE_BG, &style_roller_anim);
+					    lv_roller_set_style(rollerswr[IndiceRF], LV_ROLLER_STYLE_SEL, &style_roller_anim);
+						logI("Debug: Roller[0] = %d, Roller[1] = %d IndiceRF: %d\n", roller_swr[0], roller_swr[1], IndiceRF);
 					}
 					else if(TelaProgRF == 2) {
 						TelaProgRF = 3;
+						lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_BG, &style_roller_save);
+					    lv_roller_set_style(rollerswr[0], LV_ROLLER_STYLE_SEL, &style_roller_save);
+					    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_BG, &style_roller_save);
+					    lv_roller_set_style(rollerswr[1], LV_ROLLER_STYLE_SEL, &style_roller_save);
+				        // Get Value Roller
+					    lv_roller_get_selected_str(rollerswr[0], buf, sizeof(buf));
+				        out[0] = buf[0];
+				        lv_roller_get_selected_str(rollerswr[1], buf, sizeof(buf));
+				        out[1] = buf[0];
+				        out[3] = 0;
+
+				        Max_Reflected = atoi(out);
+				        max_rfl = (float)(Max_Reflected);
+				        max_rfl /= 10;
+				        logI("Save MAX_RFL: Digit: %s  Max_reflected: %ld   max_rfl: %0.1fW  B1: %s\n", buf, Max_Reflected, max_rfl, out);
 					}
 					break;
 				case KEY_ESC:
@@ -914,9 +1007,11 @@ void ButtonEventTelaRF(uint8_t event, uint8_t tipo, uint8_t id)
 
 void ButtonEventTelaRF_1(uint8_t event, uint8_t tipo, uint8_t id)
 {
+    char buf[32];
+    char out[6];
+
 	if(event == EVT_PBTN_INPUT) {
 		if(tipo == PBTN_SCLK) {	// Single Click
-			logI("TelaRF_1 - TelaProgRF_1: %ld IndiceRF_1: %ld\n", TelaProgRF_1, IndiceRF_1);
 			switch(id) {
 				case KEY_DN:
 					if(TelaProgRF_1 == 0) {
@@ -928,7 +1023,15 @@ void ButtonEventTelaRF_1(uint8_t event, uint8_t tipo, uint8_t id)
 						update_style_roller_rf_1(IndiceRF_1 + 1);
 					}
 					else if(TelaProgRF_1 == 2) {
-						lv_event_send(rollertarget[0], LV_EVENT_CLICKED, NULL);
+						if(IndiceRF_1 == 0) {
+							if(roller_target[0] > 0) roller_target[0]--;
+							lv_roller_set_selected(rollertarget[IndiceRF_1], roller_target[0], false);
+						}
+						else {
+							if(roller_target[1] > 0) roller_target[1]--;
+							lv_roller_set_selected(rollertarget[IndiceRF_1], roller_target[1], false);
+						}
+						logI("Debug: KEY_DN Roller_Target: %ld, Dado: %ld %d\n", IndiceRF_1, roller_target[0], roller_target[1]);
 					}
 					break;
 				case KEY_UP:
@@ -942,7 +1045,17 @@ void ButtonEventTelaRF_1(uint8_t event, uint8_t tipo, uint8_t id)
 						update_style_roller_rf_1(IndiceRF_1 + 1);
 					}
 					else if(TelaProgRF_1 == 2) {
-						lv_event_send(rollertarget[0], LV_EVENT_CLICKED, NULL);
+						if(IndiceRF_1 == 0) {
+							roller_target[0]++;
+							if(roller_target[0] > 2) roller_target[0] = 0;
+							lv_roller_set_selected(rollertarget[IndiceRF_1], roller_target[0], false);
+						}
+						else {
+							roller_target[1]++;
+							if(roller_target[1] > 9) roller_target[1] = 0;
+							lv_roller_set_selected(rollertarget[IndiceRF_1], roller_target[1], false);
+						}
+						logI("Debug: KEY_UP Roller_SWR: %ld, Dado: %d %d\n", IndiceRF, roller_target[0], roller_target[1]);
 					}
 					break;
 				case KEY_ENTER:
@@ -953,9 +1066,28 @@ void ButtonEventTelaRF_1(uint8_t event, uint8_t tipo, uint8_t id)
 					}
 					else if(TelaProgRF_1 == 1) {
 						TelaProgRF_1 = 2;
+						roller_target[0] = Target_Int / 10;
+						roller_target[1] = Target_Int % 10;
+					    lv_roller_set_style(rollertarget[IndiceRF_1], LV_ROLLER_STYLE_BG, &style_roller_anim);
+					    lv_roller_set_style(rollertarget[IndiceRF_1], LV_ROLLER_STYLE_SEL, &style_roller_anim);
+						logI("Debug Target: Roller[0] = %d, Roller[1] = %d IndiceRF_1: %d\n", roller_target[0], roller_target[1], IndiceRF_1);
 					}
 					else if(TelaProgRF_1 == 2) {
 						TelaProgRF_1 = 3;
+						lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_BG, &style_roller_save);
+					    lv_roller_set_style(rollertarget[0], LV_ROLLER_STYLE_SEL, &style_roller_save);
+					    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_BG, &style_roller_save);
+					    lv_roller_set_style(rollertarget[1], LV_ROLLER_STYLE_SEL, &style_roller_save);
+				        // Get Value Roller
+					    lv_roller_get_selected_str(rollertarget[0], buf, sizeof(buf));
+				        out[0] = buf[0];
+				        lv_roller_get_selected_str(rollertarget[1], buf, sizeof(buf));
+				        out[1] = buf[0];
+				        out[3] = 0;
+
+				        Target_Int = atoi(out);
+				        target = (float)(Target_Int);
+				        logI("Save TARGET: Digit: %s  Target_Int: %ld target: %0.1fW  B1: %s\n", buf, Target_Int, target, out);
 					}
 					break;
 				case KEY_ESC:

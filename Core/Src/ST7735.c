@@ -16,7 +16,7 @@ extern char buffer[];
 
 uint16_t scr_width;
 uint16_t scr_height;
-uint8_t buf_tft[4096] = {0};
+uint8_t buf_tft[3300] = {0};
 
 void ST7735_write(uint8_t data)
 {
@@ -206,13 +206,6 @@ void ST7735_Flush_3(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_color_t
 	ST7735_cmd(0x2c); // Memory write
 	A0_H();
 	//
-//	for(uint16_t x = 0; x <= size-1; x++) {
-//		tmp[0] = color_p->full >> 8;
-//		tmp[1] = color_p->full;
-//		HAL_SPI_Transmit(&_SPI_PORT, (uint8_t *)&tmp[0], 2, HAL_MAX_DELAY);
-//		color_p++;
-//		teste++;
-//	}
 	for(uint16_t x = 0; x <= size-1; x++) {
 		buf_tft[(x*2) + 0] = color_p->full >> 8;
 		buf_tft[(x*2) + 1] = color_p->full;

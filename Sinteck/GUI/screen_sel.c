@@ -22,7 +22,6 @@ void sel_screen_send_button(uint32_t btn, lv_btn_state_t state);
 static lv_obj_t * Tela_Sel;
 static lv_obj_t * img_fundo;
 static lv_obj_t * imgbtn1[4];
-static lv_group_t * group;
 
 #if LV_USE_FILESYSTEM == 0
 	LV_IMG_DECLARE(tela_sel);
@@ -86,7 +85,6 @@ void create_buttons(void)
 	lv_imgbtn_set_src(imgbtn1[0], LV_BTN_STATE_INA, &Btn_Frequency);
 #endif
 	lv_obj_set_event_cb(imgbtn1[0], btn_event_btn1);
-	lv_group_add_obj(group, imgbtn1[0]);
 	lv_obj_set_pos(imgbtn1[0], 1, 18);
 
 	imgbtn1[1] = lv_imgbtn_create(Tela_Sel, imgbtn1[0]);
@@ -106,7 +104,6 @@ void create_buttons(void)
 	lv_imgbtn_set_src(imgbtn1[1], LV_BTN_STATE_REL, &Btn_Audio);
 	lv_imgbtn_set_src(imgbtn1[1], LV_BTN_STATE_INA, &Btn_Audio);
 #endif
-	lv_group_add_obj(group, imgbtn1[1]);
 	lv_obj_set_pos(imgbtn1[1], 1, 45);
 
 	imgbtn1[2] = lv_imgbtn_create(Tela_Sel, imgbtn1[0]);
@@ -126,7 +123,6 @@ void create_buttons(void)
 	lv_imgbtn_set_src(imgbtn1[2], LV_BTN_STATE_REL, &Btn_RF);
 	lv_imgbtn_set_src(imgbtn1[2], LV_BTN_STATE_INA, &Btn_RF);
 #endif
-	lv_group_add_obj(group, imgbtn1[2]);
 	lv_obj_set_pos(imgbtn1[2], 1, 73);
 
 	imgbtn1[3] = lv_imgbtn_create(Tela_Sel, imgbtn1[0]);
@@ -146,7 +142,6 @@ void create_buttons(void)
 	lv_imgbtn_set_src(imgbtn1[3], LV_BTN_STATE_REL, &Btn_Readings);
 	lv_imgbtn_set_src(imgbtn1[3], LV_BTN_STATE_INA, &Btn_Readings);
 #endif
-	lv_group_add_obj(group, imgbtn1[3]);
 	lv_obj_set_pos(imgbtn1[3], 1, 100);
 }
 

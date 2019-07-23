@@ -37,7 +37,7 @@
 /* USER CODE BEGIN PTD */
 static lv_disp_buf_t disp_buf;
 static lv_color_t buf[LV_HOR_RES_MAX * 10];		// Declare a buffer for 10 lines
-static lv_color_t buf2[LV_HOR_RES_MAX * 10];	// Declare a buffer for 10 lines
+//static lv_color_t buf2[LV_HOR_RES_MAX * 10];	// Declare a buffer for 10 lines
 uint32_t timer_key = 0, timer_loop = 0, timer_gui = 0;
 uint16_t tft_pwm = 0;
 /* USER CODE END PTD */
@@ -166,7 +166,8 @@ int main(void)
   sprintf(buffer, "Temperatura: %0.1f°C\n", temperatura);
   HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY); // send message via UART
 
-  lv_disp_buf_init(&disp_buf, buf, buf2, LV_HOR_RES_MAX * 10);    //Initialize the display buffer
+  //lv_disp_buf_init(&disp_buf, buf, buf2, LV_HOR_RES_MAX * 10);    //Initialize the display buffer
+  lv_disp_buf_init(&disp_buf, buf, NULL, LV_HOR_RES_MAX * 10);    //Initialize the display buffer
   //lv_log_register_print_cb(my_print);
   lv_init();
 
@@ -579,7 +580,7 @@ static void MX_SPI3_Init(void)
   hspi3.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi3.Init.NSS = SPI_NSS_SOFT;
-  hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
+  hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
   hspi3.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi3.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi3.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;

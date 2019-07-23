@@ -160,8 +160,8 @@ __lock___dd_hash_mutex
 __lock___tz_mutex   0x1               /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-lock.o)
 lv_style_plain_color
                     0x3c              lvgl/src/lv_core/lv_style.o
-USERFile            0x230             FATFS/App/fatfs.o
-USERFatFS           0x230             FATFS/App/fatfs.o
+USERFile            0x1030            FATFS/App/fatfs.o
+USERFatFS           0x1030            FATFS/App/fatfs.o
 hqspi               0x44              Core/Src/main.o
 __lock___sfp_recursive_mutex
                     0x1               /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-lock.o)
@@ -2015,9 +2015,9 @@ Discarded input sections
                 0x0000000000000000       0x80 Middlewares/Third_Party/FatFs/src/ff.o
  .text.find_volume
                 0x0000000000000000      0x2bc Middlewares/Third_Party/FatFs/src/ff.o
- .text.put_fat  0x0000000000000000       0xf8 Middlewares/Third_Party/FatFs/src/ff.o
+ .text.put_fat  0x0000000000000000       0xfc Middlewares/Third_Party/FatFs/src/ff.o
  .text.get_fat.isra.8
-                0x0000000000000000       0xb4 Middlewares/Third_Party/FatFs/src/ff.o
+                0x0000000000000000       0xb6 Middlewares/Third_Party/FatFs/src/ff.o
  .text.create_chain
                 0x0000000000000000       0xb0 Middlewares/Third_Party/FatFs/src/ff.o
  .text.remove_chain
@@ -7041,7 +7041,7 @@ LOAD /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-
  .igot.plt      0x000000002000175c        0x0 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/crtbegin.o
                 0x000000002000175c                . = ALIGN (0x4)
 
-.bss            0x000000002000175c     0x8914 load address 0x00000000080ec7e4
+.bss            0x000000002000175c     0xa514 load address 0x00000000080ec7e4
                 0x000000002000175c                _sbss = .
                 0x000000002000175c                __bss_start__ = _sbss
  *(.bss)
@@ -7507,73 +7507,73 @@ LOAD /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-
                 0x0000000020008fa8                w25qxx
  COMMON         0x0000000020008fd0        0x4 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.o
                 0x0000000020008fd0                uwTick
- COMMON         0x0000000020008fd4      0x468 FATFS/App/fatfs.o
+ COMMON         0x0000000020008fd4     0x2068 FATFS/App/fatfs.o
                 0x0000000020008fd4                USERPath
                 0x0000000020008fd8                retUSER
                 0x0000000020008fdc                USERFile
-                0x000000002000920c                USERFatFS
- COMMON         0x000000002000943c        0x8 Sinteck/GUI/screen_rf.o
-                0x000000002000943c                roller_swr
-                0x0000000020009440                roller_target
- COMMON         0x0000000020009444      0x29c USB_DEVICE/App/usb_device.o
-                0x0000000020009444                hUsbDeviceFS
- COMMON         0x00000000200096e0      0x200 USB_DEVICE/App/usbd_desc.o
-                0x00000000200096e0                USBD_StrDesc
- COMMON         0x00000000200098e0      0x408 USB_DEVICE/Target/usbd_conf.o
-                0x00000000200098e0                hpcd_USB_OTG_FS
- COMMON         0x0000000020009ce8      0x30c lvgl/src/lv_core/lv_style.o
-                0x0000000020009ce8                lv_style_pretty_color
-                0x0000000020009d24                lv_style_transp
-                0x0000000020009d60                lv_style_btn_rel
-                0x0000000020009d9c                lv_style_btn_pr
-                0x0000000020009dd8                lv_style_pretty
-                0x0000000020009e14                lv_style_transp_tight
-                0x0000000020009e50                lv_style_btn_ina
-                0x0000000020009e8c                lv_style_transp_fit
-                0x0000000020009ec8                lv_style_plain
-                0x0000000020009f04                lv_style_btn_tgl_rel
-                0x0000000020009f40                lv_style_scr
-                0x0000000020009f7c                lv_style_btn_tgl_pr
-                0x0000000020009fb8                lv_style_plain_color
- COMMON         0x0000000020009ff4       0x6c lvgl/src/lv_misc/lv_gc.o
-                0x0000000020009ff4                _lv_task_ll
-                0x000000002000a000                _lv_indev_ll
-                0x000000002000a00c                _lv_draw_buf
-                0x000000002000a010                _lv_disp_ll
-                0x000000002000a01c                _lv_img_defoder_ll
-                0x000000002000a028                _lv_drv_ll
-                0x000000002000a034                _lv_task_act
-                0x000000002000a038                _lv_img_cache_array
-                0x000000002000a03c                _lv_anim_ll
-                0x000000002000a048                _lv_group_ll
-                0x000000002000a054                _lv_file_ll
- COMMON         0x000000002000a060        0x9 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-lock.o)
-                0x000000002000a060                __lock___atexit_recursive_mutex
-                0x000000002000a061                __lock___arc4random_mutex
-                0x000000002000a062                __lock___env_recursive_mutex
-                0x000000002000a063                __lock___sinit_recursive_mutex
-                0x000000002000a064                __lock___malloc_recursive_mutex
-                0x000000002000a065                __lock___at_quick_exit_mutex
-                0x000000002000a066                __lock___dd_hash_mutex
-                0x000000002000a067                __lock___tz_mutex
-                0x000000002000a068                __lock___sfp_recursive_mutex
- *fill*         0x000000002000a069        0x3 
- COMMON         0x000000002000a06c        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-reent.o)
-                0x000000002000a06c                errno
-                0x000000002000a070                . = ALIGN (0x4)
-                0x000000002000a070                _ebss = .
-                0x000000002000a070                __bss_end__ = _ebss
+                0x000000002000a00c                USERFatFS
+ COMMON         0x000000002000b03c        0x8 Sinteck/GUI/screen_rf.o
+                0x000000002000b03c                roller_swr
+                0x000000002000b040                roller_target
+ COMMON         0x000000002000b044      0x29c USB_DEVICE/App/usb_device.o
+                0x000000002000b044                hUsbDeviceFS
+ COMMON         0x000000002000b2e0      0x200 USB_DEVICE/App/usbd_desc.o
+                0x000000002000b2e0                USBD_StrDesc
+ COMMON         0x000000002000b4e0      0x408 USB_DEVICE/Target/usbd_conf.o
+                0x000000002000b4e0                hpcd_USB_OTG_FS
+ COMMON         0x000000002000b8e8      0x30c lvgl/src/lv_core/lv_style.o
+                0x000000002000b8e8                lv_style_pretty_color
+                0x000000002000b924                lv_style_transp
+                0x000000002000b960                lv_style_btn_rel
+                0x000000002000b99c                lv_style_btn_pr
+                0x000000002000b9d8                lv_style_pretty
+                0x000000002000ba14                lv_style_transp_tight
+                0x000000002000ba50                lv_style_btn_ina
+                0x000000002000ba8c                lv_style_transp_fit
+                0x000000002000bac8                lv_style_plain
+                0x000000002000bb04                lv_style_btn_tgl_rel
+                0x000000002000bb40                lv_style_scr
+                0x000000002000bb7c                lv_style_btn_tgl_pr
+                0x000000002000bbb8                lv_style_plain_color
+ COMMON         0x000000002000bbf4       0x6c lvgl/src/lv_misc/lv_gc.o
+                0x000000002000bbf4                _lv_task_ll
+                0x000000002000bc00                _lv_indev_ll
+                0x000000002000bc0c                _lv_draw_buf
+                0x000000002000bc10                _lv_disp_ll
+                0x000000002000bc1c                _lv_img_defoder_ll
+                0x000000002000bc28                _lv_drv_ll
+                0x000000002000bc34                _lv_task_act
+                0x000000002000bc38                _lv_img_cache_array
+                0x000000002000bc3c                _lv_anim_ll
+                0x000000002000bc48                _lv_group_ll
+                0x000000002000bc54                _lv_file_ll
+ COMMON         0x000000002000bc60        0x9 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-lock.o)
+                0x000000002000bc60                __lock___atexit_recursive_mutex
+                0x000000002000bc61                __lock___arc4random_mutex
+                0x000000002000bc62                __lock___env_recursive_mutex
+                0x000000002000bc63                __lock___sinit_recursive_mutex
+                0x000000002000bc64                __lock___malloc_recursive_mutex
+                0x000000002000bc65                __lock___at_quick_exit_mutex
+                0x000000002000bc66                __lock___dd_hash_mutex
+                0x000000002000bc67                __lock___tz_mutex
+                0x000000002000bc68                __lock___sfp_recursive_mutex
+ *fill*         0x000000002000bc69        0x3 
+ COMMON         0x000000002000bc6c        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-reent.o)
+                0x000000002000bc6c                errno
+                0x000000002000bc70                . = ALIGN (0x4)
+                0x000000002000bc70                _ebss = .
+                0x000000002000bc70                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x000000002000a070      0x600 load address 0x00000000080ec7e4
-                0x000000002000a070                . = ALIGN (0x4)
-                0x000000002000a070                PROVIDE (end, .)
+                0x000000002000bc70      0x600 load address 0x00000000080ec7e4
+                0x000000002000bc70                . = ALIGN (0x4)
+                0x000000002000bc70                PROVIDE (end, .)
                 [!provide]                        PROVIDE (_end, .)
-                0x000000002000a270                . = (. + _Min_Heap_Size)
- *fill*         0x000000002000a070      0x200 
-                0x000000002000a670                . = (. + _Min_Stack_Size)
- *fill*         0x000000002000a270      0x400 
-                0x000000002000a670                . = ALIGN (0x4)
+                0x000000002000be70                . = (. + _Min_Heap_Size)
+ *fill*         0x000000002000bc70      0x200 
+                0x000000002000c270                . = (. + _Min_Stack_Size)
+ *fill*         0x000000002000be70      0x400 
+                0x000000002000c270                . = ALIGN (0x4)
 
 /DISCARD/
  libc.a(*)

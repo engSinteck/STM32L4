@@ -69,7 +69,7 @@ typedef int16_t lv_coord_t;
 #define LV_MEM_CUSTOM      0
 #if LV_MEM_CUSTOM == 0
 /* Size of the memory used by `lv_mem_alloc` in bytes (>= 2kB)*/
-#  define LV_MEM_SIZE    (18U * 1024U)
+#  define LV_MEM_SIZE    (17U * 1024U)
 
 /* Complier prefix for a big array declaration */
 #  define LV_MEM_ATTR
@@ -262,15 +262,7 @@ typedef void * lv_indev_drv_user_data_t;            /*Type of user data in the i
 
 // Fontes Customizadas Sinteck
 #define	LV_FONT_EUROSTILE_10	1
-#define	LV_FONT_EUROSTILE_12	0
-#define	LV_FONT_EUROSTILE_16	0
-#define	LV_FONT_EUROSTILE_18	0
-#define	LV_FONT_EUROSTILE_20	0
-#define	LV_FONT_EUROSTILE_22	1
 #define	LV_FONT_EUROSTILE_24	1
-#define	LV_FONT_EUROSTILE_28	1
-#define	LV_FONT_EUROSTILE_32	0
-#define	LV_FONT_EUROSTILE_34	0
 
 /*Pixel perfect monospace font
  * http://pelulamu.net/unscii/ */
@@ -283,9 +275,7 @@ typedef void * lv_indev_drv_user_data_t;            /*Type of user data in the i
  *                                LV_FONT_DECLARE(my_font_2)
  */
 #define LV_FONT_CUSTOM_DECLARE  LV_FONT_DECLARE(lv_font_eurostile_10) \
-								LV_FONT_DECLARE(lv_font_eurostile_22) \
-								LV_FONT_DECLARE(lv_font_eurostile_24) \
-								LV_FONT_DECLARE(lv_font_eurostile_28)
+								LV_FONT_DECLARE(lv_font_eurostile_24)
 
 /*Always set a default font from the built-in fonts*/
 #define LV_FONT_DEFAULT        &lv_font_eurostile_10

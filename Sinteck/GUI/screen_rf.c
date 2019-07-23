@@ -325,7 +325,7 @@ void print_pwr(float pwr)
 	// Area de Potencia
 	static lv_style_t style_txt_fwd;
 	lv_style_copy(&style_txt_fwd, &lv_style_plain);
-	style_txt_fwd.text.font = &lv_font_eurostile_22;
+	style_txt_fwd.text.font = &lv_font_eurostile_24;					// &lv_font_eurostile_22;
 	style_txt_fwd.text.letter_space = 1;
 	style_txt_fwd.text.line_space = 1;
 	style_txt_fwd.text.color = LV_COLOR_CYAN;
@@ -339,7 +339,7 @@ void print_pwr(float pwr)
 	sprintf(buffer, "%0.1f", pwr);
 	lv_label_set_text(txt_fwd, buffer);
 	lv_obj_set_width(txt_fwd, 200); 									// Configuura o comprimento
-	lv_obj_align(txt_fwd, NULL, LV_ALIGN_IN_BOTTOM_RIGHT, -30, -13); 		// Alinha ao centro
+	lv_obj_align(txt_fwd, NULL, LV_ALIGN_IN_BOTTOM_RIGHT, -27, -12); 	// Alinha ao centro
 }
 
 void print_reflected(float swr)
@@ -349,7 +349,7 @@ void print_reflected(float swr)
 	// Area de Refletida
 	static lv_style_t style_txt1;
 	lv_style_copy(&style_txt1, &lv_style_plain);
-	style_txt1.text.font = &lv_font_eurostile_28;
+	style_txt1.text.font = &lv_font_eurostile_24; 					// &lv_font_eurostile_28;
 	style_txt1.text.letter_space = 1;
 	style_txt1.text.line_space = 1;
 	style_txt1.text.color = LV_COLOR_WHITE;
@@ -383,7 +383,7 @@ void print_forward(float fwd)
 	// Area de Refletida
 	static lv_style_t style_txt1;
 	lv_style_copy(&style_txt1, &lv_style_plain);
-	style_txt1.text.font = &lv_font_eurostile_28;
+	style_txt1.text.font = &lv_font_eurostile_24;					// &lv_font_eurostile_28
 	style_txt1.text.letter_space = 1;
 	style_txt1.text.line_space = 1;
 	style_txt1.text.color = LV_COLOR_WHITE;

@@ -238,8 +238,8 @@ Discarded input sections
  .bss.CCW       0x0000000000000000        0x1 Core/Src/misc.o
  .bss.CLKLast1  0x0000000000000000        0x1 Core/Src/misc.o
  .bss.bVal      0x0000000000000000        0x1 Core/Src/misc.o
- .bss.i.14713   0x0000000000000000        0x4 Core/Src/misc.o
- .bss.j.14714   0x0000000000000000        0x4 Core/Src/misc.o
+ .bss.i.14711   0x0000000000000000        0x4 Core/Src/misc.o
+ .bss.j.14712   0x0000000000000000        0x4 Core/Src/misc.o
  .text          0x0000000000000000        0x0 Core/Src/stm32l4xx_hal_msp.o
  .data          0x0000000000000000        0x0 Core/Src/stm32l4xx_hal_msp.o
  .bss           0x0000000000000000        0x0 Core/Src/stm32l4xx_hal_msp.o
@@ -2098,15 +2098,9 @@ Discarded input sections
  .text          0x0000000000000000        0x0 Sinteck/Fonts/lv_font_eurostile_10.o
  .data          0x0000000000000000        0x0 Sinteck/Fonts/lv_font_eurostile_10.o
  .bss           0x0000000000000000        0x0 Sinteck/Fonts/lv_font_eurostile_10.o
- .text          0x0000000000000000        0x0 Sinteck/Fonts/lv_font_eurostile_22.o
- .data          0x0000000000000000        0x0 Sinteck/Fonts/lv_font_eurostile_22.o
- .bss           0x0000000000000000        0x0 Sinteck/Fonts/lv_font_eurostile_22.o
  .text          0x0000000000000000        0x0 Sinteck/Fonts/lv_font_eurostile_24.o
  .data          0x0000000000000000        0x0 Sinteck/Fonts/lv_font_eurostile_24.o
  .bss           0x0000000000000000        0x0 Sinteck/Fonts/lv_font_eurostile_24.o
- .text          0x0000000000000000        0x0 Sinteck/Fonts/lv_font_eurostile_28.o
- .data          0x0000000000000000        0x0 Sinteck/Fonts/lv_font_eurostile_28.o
- .bss           0x0000000000000000        0x0 Sinteck/Fonts/lv_font_eurostile_28.o
  .text          0x0000000000000000        0x0 Sinteck/GUI/main_screen.o
  .data          0x0000000000000000        0x0 Sinteck/GUI/main_screen.o
  .bss           0x0000000000000000        0x0 Sinteck/GUI/main_screen.o
@@ -2119,7 +2113,7 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 Sinteck/GUI/screen_frequency.o
  .text.print_freq
                 0x0000000000000000      0x13c Sinteck/GUI/screen_frequency.o
- .bss.style_txt1.15226
+ .bss.style_txt1.15224
                 0x0000000000000000       0x3c Sinteck/GUI/screen_frequency.o
  COMMON         0x0000000000000000        0xc Sinteck/GUI/screen_frequency.o
  .text          0x0000000000000000        0x0 Sinteck/GUI/screen_mpx.o
@@ -2163,9 +2157,9 @@ Discarded input sections
                 0x0000000000000000       0x64 Sinteck/GUI/screen_rf.o
  .bss.ProgRF    0x0000000000000000        0x4 Sinteck/GUI/screen_rf.o
  .bss.ProgRF_1  0x0000000000000000        0x4 Sinteck/GUI/screen_rf.o
- .bss.style_txt1.15848
+ .bss.style_txt1.15846
                 0x0000000000000000       0x3c Sinteck/GUI/screen_rf.o
- .bss.style_txt1.15855
+ .bss.style_txt1.15853
                 0x0000000000000000       0x3c Sinteck/GUI/screen_rf.o
  .rodata.print_forward.str1.1
                 0x0000000000000000        0x2 Sinteck/GUI/screen_rf.o
@@ -3605,9 +3599,7 @@ LOAD Middlewares/Third_Party/FatFs/src/ff.o
 LOAD Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
 LOAD Middlewares/Third_Party/FatFs/src/option/syscall.o
 LOAD Sinteck/Fonts/lv_font_eurostile_10.o
-LOAD Sinteck/Fonts/lv_font_eurostile_22.o
 LOAD Sinteck/Fonts/lv_font_eurostile_24.o
-LOAD Sinteck/Fonts/lv_font_eurostile_28.o
 LOAD Sinteck/GUI/main_screen.o
 LOAD Sinteck/GUI/screen_audio.o
 LOAD Sinteck/GUI/screen_frequency.o
@@ -6210,7 +6202,7 @@ LOAD /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-
 .iplt           0x000000000801ced0        0x0
  .iplt          0x000000000801ced0        0x0 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/crtbegin.o
 
-.rodata         0x000000000801ced0    0xd79a8
+.rodata         0x000000000801ced0    0xce1a8
                 0x000000000801ced0                . = ALIGN (0x4)
  *(.rodata)
  .rodata        0x000000000801ced0        0x4 Sinteck/GUI/main_screen.o
@@ -6264,469 +6256,462 @@ LOAD /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-
  .rodata.gylph_bitmap
                 0x000000000801d22c      0xd92 Sinteck/Fonts/lv_font_eurostile_10.o
  *fill*         0x000000000801dfbe        0x2 
- .rodata.cmaps  0x000000000801dfc0       0x50 Sinteck/Fonts/lv_font_eurostile_22.o
+ .rodata.cmaps  0x000000000801dfc0       0x50 Sinteck/Fonts/lv_font_eurostile_24.o
  .rodata.gylph_bitmap
-                0x000000000801e010     0x3a26 Sinteck/Fonts/lv_font_eurostile_22.o
- *fill*         0x0000000008021a36        0x2 
- .rodata.cmaps  0x0000000008021a38       0x50 Sinteck/Fonts/lv_font_eurostile_24.o
- .rodata.gylph_bitmap
-                0x0000000008021a88     0x4473 Sinteck/Fonts/lv_font_eurostile_24.o
- *fill*         0x0000000008025efb        0x1 
- .rodata.cmaps  0x0000000008025efc       0x50 Sinteck/Fonts/lv_font_eurostile_28.o
- .rodata.gylph_bitmap
-                0x0000000008025f4c     0x5d3a Sinteck/Fonts/lv_font_eurostile_28.o
+                0x000000000801e010     0x4473 Sinteck/Fonts/lv_font_eurostile_24.o
  .rodata.print_alarme.str1.1
-                0x000000000802bc86       0x86 Sinteck/GUI/main_screen.o
+                0x0000000008022483       0x86 Sinteck/GUI/main_screen.o
  .rodata.print_audio.str1.1
-                0x000000000802bd0c        0x6 Sinteck/GUI/main_screen.o
+                0x0000000008022509        0x6 Sinteck/GUI/main_screen.o
  .rodata.print_frequencia.str1.1
-                0x000000000802bd12       0x16 Sinteck/GUI/main_screen.o
+                0x000000000802250f       0x16 Sinteck/GUI/main_screen.o
                                          0x26 (size before relaxing)
  .rodata.print_pot.str1.1
-                0x000000000802bd28       0x11 Sinteck/GUI/main_screen.o
+                0x0000000008022525       0x11 Sinteck/GUI/main_screen.o
  .rodata.print_status.str1.1
-                0x000000000802bd39        0x8 Sinteck/GUI/main_screen.o
+                0x0000000008022536        0x8 Sinteck/GUI/main_screen.o
  .rodata.print_temperatura.str1.1
-                0x000000000802bd41        0xb Sinteck/GUI/main_screen.o
+                0x000000000802253e        0xb Sinteck/GUI/main_screen.o
  .rodata.str1.1
-                0x000000000802bd4c       0x20 Sinteck/GUI/main_screen.o
+                0x0000000008022549       0x20 Sinteck/GUI/main_screen.o
+ *fill*         0x0000000008022569        0x3 
  .rodata.vumeter_pos_x
-                0x000000000802bd6c       0x50 Sinteck/GUI/main_screen.o
-                0x000000000802bd6c                vumeter_pos_x
+                0x000000000802256c       0x50 Sinteck/GUI/main_screen.o
+                0x000000000802256c                vumeter_pos_x
  .rodata.ButtonEventTelaAudio_2.str1.1
-                0x000000000802bdbc       0x42 Sinteck/GUI/screen_audio.o
+                0x00000000080225bc       0x42 Sinteck/GUI/screen_audio.o
  .rodata.btn_audio.str1.1
-                0x000000000802bdfe       0x29 Sinteck/GUI/screen_audio.o
+                0x00000000080225fe       0x29 Sinteck/GUI/screen_audio.o
  .rodata.btn_clipper.str1.1
-                0x000000000802be27       0x2d Sinteck/GUI/screen_audio.o
+                0x0000000008022627       0x2d Sinteck/GUI/screen_audio.o
  .rodata.btn_emphase.str1.1
-                0x000000000802be54       0x2d Sinteck/GUI/screen_audio.o
+                0x0000000008022654       0x2d Sinteck/GUI/screen_audio.o
  .rodata.btn_mp3.str1.1
-                0x000000000802be81       0x7e Sinteck/GUI/screen_audio.o
+                0x0000000008022681       0x7e Sinteck/GUI/screen_audio.o
  .rodata.btn_processador.str1.1
-                0x000000000802beff       0x35 Sinteck/GUI/screen_audio.o
+                0x00000000080226ff       0x35 Sinteck/GUI/screen_audio.o
  .rodata.btn_stereo.str1.1
-                0x000000000802bf34       0x2b Sinteck/GUI/screen_audio.o
+                0x0000000008022734       0x2b Sinteck/GUI/screen_audio.o
  .rodata.ButtonEventTelaFrequencia.str1.1
-                0x000000000802bf5f       0x68 Sinteck/GUI/screen_frequency.o
+                0x000000000802275f       0x68 Sinteck/GUI/screen_frequency.o
  .rodata.event_handler.str1.1
-                0x000000000802bfc7       0x33 Sinteck/GUI/screen_frequency.o
+                0x00000000080227c7       0x33 Sinteck/GUI/screen_frequency.o
                                          0x35 (size before relaxing)
- *fill*         0x000000000802bffa        0x2 
+ *fill*         0x00000000080227fa        0x2 
  .rodata.freq_pos_x
-                0x000000000802bffc       0x54 Sinteck/GUI/screen_frequency.o
-                0x000000000802bffc                freq_pos_x
+                0x00000000080227fc       0x54 Sinteck/GUI/screen_frequency.o
+                0x00000000080227fc                freq_pos_x
  .rodata.print_freq.str1.1
-                0x000000000802c050        0x7 Sinteck/GUI/screen_frequency.o
+                0x0000000008022850        0x7 Sinteck/GUI/screen_frequency.o
                                           0xb (size before relaxing)
  .rodata.prog_freq.str1.1
-                0x000000000802c057       0x38 Sinteck/GUI/screen_frequency.o
- *fill*         0x000000000802c08f        0x1 
+                0x0000000008022857       0x38 Sinteck/GUI/screen_frequency.o
+ *fill*         0x000000000802288f        0x1 
  .rodata.l_pos_x
-                0x000000000802c090       0x60 Sinteck/GUI/screen_mpx.o
-                0x000000000802c090                l_pos_x
+                0x0000000008022890       0x60 Sinteck/GUI/screen_mpx.o
+                0x0000000008022890                l_pos_x
  .rodata.m_pos_x
-                0x000000000802c0f0       0x60 Sinteck/GUI/screen_mpx.o
-                0x000000000802c0f0                m_pos_x
+                0x00000000080228f0       0x60 Sinteck/GUI/screen_mpx.o
+                0x00000000080228f0                m_pos_x
  .rodata.r_pos_x
-                0x000000000802c150       0x60 Sinteck/GUI/screen_mpx.o
-                0x000000000802c150                r_pos_x
+                0x0000000008022950       0x60 Sinteck/GUI/screen_mpx.o
+                0x0000000008022950                r_pos_x
  .rodata.e_pos_x
-                0x000000000802c1b0       0x40 Sinteck/GUI/screen_reading_efic.o
-                0x000000000802c1b0                e_pos_x
+                0x00000000080229b0       0x40 Sinteck/GUI/screen_reading_efic.o
+                0x00000000080229b0                e_pos_x
  .rodata.update_screen_efic.str1.1
-                0x000000000802c1f0        0x6 Sinteck/GUI/screen_reading_efic.o
+                0x00000000080229f0        0x6 Sinteck/GUI/screen_reading_efic.o
  .rodata.print_reading_status.str1.1
-                0x000000000802c1f6        0xb Sinteck/GUI/screen_reading_status.o
+                0x00000000080229f6        0xb Sinteck/GUI/screen_reading_status.o
  .rodata.update_screen_status.str1.1
-                0x000000000802c201       0x16 Sinteck/GUI/screen_reading_status.o
+                0x0000000008022a01       0x16 Sinteck/GUI/screen_reading_status.o
                                          0x19 (size before relaxing)
  .rodata.print_temp_1.str1.1
-                0x000000000802c217        0x6 Sinteck/GUI/screen_reading_temp.o
- *fill*         0x000000000802c217        0x1 
+                0x0000000008022a17        0x6 Sinteck/GUI/screen_reading_temp.o
+ *fill*         0x0000000008022a17        0x1 
  .rodata.t_pos_x
-                0x000000000802c218       0x50 Sinteck/GUI/screen_reading_temp.o
-                0x000000000802c218                t_pos_x
+                0x0000000008022a18       0x50 Sinteck/GUI/screen_reading_temp.o
+                0x0000000008022a18                t_pos_x
  .rodata.ipa_pos_x
-                0x000000000802c268       0x54 Sinteck/GUI/screen_reading_vpa.o
-                0x000000000802c268                ipa_pos_x
+                0x0000000008022a68       0x54 Sinteck/GUI/screen_reading_vpa.o
+                0x0000000008022a68                ipa_pos_x
  .rodata.print_vpa_1.str1.1
-                0x000000000802c2bc        0x6 Sinteck/GUI/screen_reading_vpa.o
+                0x0000000008022abc        0x6 Sinteck/GUI/screen_reading_vpa.o
  .rodata.vpa_pos_x
-                0x000000000802c2bc       0x54 Sinteck/GUI/screen_reading_vpa.o
-                0x000000000802c2bc                vpa_pos_x
+                0x0000000008022abc       0x54 Sinteck/GUI/screen_reading_vpa.o
+                0x0000000008022abc                vpa_pos_x
  .rodata.fwd1_pos_x
-                0x000000000802c310       0x54 Sinteck/GUI/screen_readings.o
-                0x000000000802c310                fwd1_pos_x
+                0x0000000008022b10       0x54 Sinteck/GUI/screen_readings.o
+                0x0000000008022b10                fwd1_pos_x
  .rodata.print_fwd_1.str1.1
-                0x000000000802c364        0x7 Sinteck/GUI/screen_readings.o
+                0x0000000008022b64        0x7 Sinteck/GUI/screen_readings.o
  .rodata.swr1_pos_x
-                0x000000000802c364       0x54 Sinteck/GUI/screen_readings.o
-                0x000000000802c364                swr1_pos_x
+                0x0000000008022b64       0x54 Sinteck/GUI/screen_readings.o
+                0x0000000008022b64                swr1_pos_x
  .rodata.ButtonEventTelaRF.str1.1
-                0x000000000802c3b8      0x13e Sinteck/GUI/screen_rf.o
+                0x0000000008022bb8      0x13e Sinteck/GUI/screen_rf.o
  .rodata.ButtonEventTelaRF_1.str1.1
-                0x000000000802c4f6       0xd2 Sinteck/GUI/screen_rf.o
+                0x0000000008022cf6       0xd2 Sinteck/GUI/screen_rf.o
  .rodata.ButtonEventTelaRF_2.str1.1
-                0x000000000802c5c8       0x13 Sinteck/GUI/screen_rf.o
+                0x0000000008022dc8       0x13 Sinteck/GUI/screen_rf.o
  .rodata.event_handler_swr.str1.1
-                0x000000000802c5db       0x3e Sinteck/GUI/screen_rf.o
+                0x0000000008022ddb       0x3e Sinteck/GUI/screen_rf.o
  .rodata.event_handler_target.str1.1
-                0x000000000802c619       0x2f Sinteck/GUI/screen_rf.o
+                0x0000000008022e19       0x2f Sinteck/GUI/screen_rf.o
  .rodata.fwd_pos_x
-                0x000000000802c648       0x50 Sinteck/GUI/screen_rf.o
-                0x000000000802c648                fwd_pos_x
+                0x0000000008022e48       0x50 Sinteck/GUI/screen_rf.o
+                0x0000000008022e48                fwd_pos_x
  .rodata.print_pwr.str1.1
-                0x000000000802c698        0x6 Sinteck/GUI/screen_rf.o
+                0x0000000008022e98        0x6 Sinteck/GUI/screen_rf.o
  .rodata.prog_swr.str1.1
-                0x000000000802c698       0x35 Sinteck/GUI/screen_rf.o
+                0x0000000008022e98       0x35 Sinteck/GUI/screen_rf.o
                                          0x49 (size before relaxing)
  .rodata.prog_target.str1.1
-                0x000000000802c6cd        0x4 Sinteck/GUI/screen_rf.o
- *fill*         0x000000000802c6cd        0x3 
+                0x0000000008022ecd        0x4 Sinteck/GUI/screen_rf.o
+ *fill*         0x0000000008022ecd        0x3 
  .rodata.pwr_pos_x
-                0x000000000802c6d0       0x50 Sinteck/GUI/screen_rf.o
-                0x000000000802c6d0                pwr_pos_x
+                0x0000000008022ed0       0x50 Sinteck/GUI/screen_rf.o
+                0x0000000008022ed0                pwr_pos_x
  .rodata.swr_pos_x
-                0x000000000802c720       0x50 Sinteck/GUI/screen_rf.o
-                0x000000000802c720                swr_pos_x
+                0x0000000008022f20       0x50 Sinteck/GUI/screen_rf.o
+                0x0000000008022f20                swr_pos_x
  .rodata.ButtonEventTelaSelecao.str1.1
-                0x000000000802c770       0x83 Sinteck/GUI/screen_sel.o
+                0x0000000008022f70       0x83 Sinteck/GUI/screen_sel.o
  .rodata.Btn_50u_map
-                0x000000000802c7f3      0xa20 Sinteck/img_inc/Btn_50u.o
-                0x000000000802c7f3                Btn_50u_map
+                0x0000000008022ff3      0xa20 Sinteck/img_inc/Btn_50u.o
+                0x0000000008022ff3                Btn_50u_map
  .rodata.Btn_50u_am_map
-                0x000000000802d213      0xa20 Sinteck/img_inc/Btn_50u_am.o
-                0x000000000802d213                Btn_50u_am_map
+                0x0000000008023a13      0xa20 Sinteck/img_inc/Btn_50u_am.o
+                0x0000000008023a13                Btn_50u_am_map
  .rodata.Btn_75u_map
-                0x000000000802dc33      0xa20 Sinteck/img_inc/Btn_75u.o
-                0x000000000802dc33                Btn_75u_map
+                0x0000000008024433      0xa20 Sinteck/img_inc/Btn_75u.o
+                0x0000000008024433                Btn_75u_map
  .rodata.Btn_75u_am_map
-                0x000000000802e653      0xa20 Sinteck/img_inc/Btn_75u_am.o
-                0x000000000802e653                Btn_75u_am_map
+                0x0000000008024e53      0xa20 Sinteck/img_inc/Btn_75u_am.o
+                0x0000000008024e53                Btn_75u_am_map
  .rodata.Btn_Audio_map
-                0x000000000802f073     0x2018 Sinteck/img_inc/Btn_Audio.o
-                0x000000000802f073                Btn_Audio_map
+                0x0000000008025873     0x2018 Sinteck/img_inc/Btn_Audio.o
+                0x0000000008025873                Btn_Audio_map
  .rodata.Btn_Audio_am_map
-                0x000000000803108b     0x2018 Sinteck/img_inc/Btn_Audio_am.o
-                0x000000000803108b                Btn_Audio_am_map
+                0x000000000802788b     0x2018 Sinteck/img_inc/Btn_Audio_am.o
+                0x000000000802788b                Btn_Audio_am_map
  .rodata.Btn_Frequency_map
-                0x00000000080330a3     0x2018 Sinteck/img_inc/Btn_Frequency.o
-                0x00000000080330a3                Btn_Frequency_map
+                0x00000000080298a3     0x2018 Sinteck/img_inc/Btn_Frequency.o
+                0x00000000080298a3                Btn_Frequency_map
  .rodata.Btn_Frequency_am_map
-                0x00000000080350bb     0x2018 Sinteck/img_inc/Btn_Frequency_am.o
-                0x00000000080350bb                Btn_Frequency_am_map
+                0x000000000802b8bb     0x2018 Sinteck/img_inc/Btn_Frequency_am.o
+                0x000000000802b8bb                Btn_Frequency_am_map
  .rodata.Btn_RF_map
-                0x00000000080370d3     0x2018 Sinteck/img_inc/Btn_RF.o
-                0x00000000080370d3                Btn_RF_map
+                0x000000000802d8d3     0x2018 Sinteck/img_inc/Btn_RF.o
+                0x000000000802d8d3                Btn_RF_map
  .rodata.Btn_RF_am_map
-                0x00000000080390eb     0x2018 Sinteck/img_inc/Btn_RF_am.o
-                0x00000000080390eb                Btn_RF_am_map
+                0x000000000802f8eb     0x2018 Sinteck/img_inc/Btn_RF_am.o
+                0x000000000802f8eb                Btn_RF_am_map
  .rodata.Btn_Readings_map
-                0x000000000803b103     0x2018 Sinteck/img_inc/Btn_Readings.o
-                0x000000000803b103                Btn_Readings_map
+                0x0000000008031903     0x2018 Sinteck/img_inc/Btn_Readings.o
+                0x0000000008031903                Btn_Readings_map
  .rodata.Btn_Readings_am_map
-                0x000000000803d11b     0x2018 Sinteck/img_inc/Btn_Readings_am.o
-                0x000000000803d11b                Btn_Readings_am_map
+                0x000000000803391b     0x2018 Sinteck/img_inc/Btn_Readings_am.o
+                0x000000000803391b                Btn_Readings_am_map
  .rodata.Btn_mic_map
-                0x000000000803f133      0xa20 Sinteck/img_inc/Btn_mic.o
-                0x000000000803f133                Btn_mic_map
+                0x0000000008035933      0xa20 Sinteck/img_inc/Btn_mic.o
+                0x0000000008035933                Btn_mic_map
  .rodata.Btn_mic_am_map
-                0x000000000803fb53      0xa20 Sinteck/img_inc/Btn_mic_am.o
-                0x000000000803fb53                Btn_mic_am_map
+                0x0000000008036353      0xa20 Sinteck/img_inc/Btn_mic_am.o
+                0x0000000008036353                Btn_mic_am_map
  .rodata.Btn_mono_map
-                0x0000000008040573      0xa20 Sinteck/img_inc/Btn_mono.o
-                0x0000000008040573                Btn_mono_map
+                0x0000000008036d73      0xa20 Sinteck/img_inc/Btn_mono.o
+                0x0000000008036d73                Btn_mono_map
  .rodata.Btn_mono_am_map
-                0x0000000008040f93      0xa20 Sinteck/img_inc/Btn_mono_am.o
-                0x0000000008040f93                Btn_mono_am_map
+                0x0000000008037793      0xa20 Sinteck/img_inc/Btn_mono_am.o
+                0x0000000008037793                Btn_mono_am_map
  .rodata.Btn_mp3_map
-                0x00000000080419b3      0xa20 Sinteck/img_inc/Btn_mp3.o
-                0x00000000080419b3                Btn_mp3_map
+                0x00000000080381b3      0xa20 Sinteck/img_inc/Btn_mp3.o
+                0x00000000080381b3                Btn_mp3_map
  .rodata.Btn_mp3Next_map
-                0x00000000080423d3      0xa20 Sinteck/img_inc/Btn_mp3Next.o
-                0x00000000080423d3                Btn_mp3Next_map
+                0x0000000008038bd3      0xa20 Sinteck/img_inc/Btn_mp3Next.o
+                0x0000000008038bd3                Btn_mp3Next_map
  .rodata.Btn_mp3Next_am_map
-                0x0000000008042df3      0xa20 Sinteck/img_inc/Btn_mp3Next_am.o
-                0x0000000008042df3                Btn_mp3Next_am_map
+                0x00000000080395f3      0xa20 Sinteck/img_inc/Btn_mp3Next_am.o
+                0x00000000080395f3                Btn_mp3Next_am_map
  .rodata.Btn_mp3Next_vd_map
-                0x0000000008043813      0xa20 Sinteck/img_inc/Btn_mp3Next_vd.o
-                0x0000000008043813                Btn_mp3Next_vd_map
+                0x000000000803a013      0xa20 Sinteck/img_inc/Btn_mp3Next_vd.o
+                0x000000000803a013                Btn_mp3Next_vd_map
  .rodata.Btn_mp3Pause_vd_map
-                0x0000000008044233      0xa20 Sinteck/img_inc/Btn_mp3Pause_vd.o
-                0x0000000008044233                Btn_mp3Pause_vd_map
+                0x000000000803aa33      0xa20 Sinteck/img_inc/Btn_mp3Pause_vd.o
+                0x000000000803aa33                Btn_mp3Pause_vd_map
  .rodata.Btn_mp3Play_map
-                0x0000000008044c53      0xa20 Sinteck/img_inc/Btn_mp3Play.o
-                0x0000000008044c53                Btn_mp3Play_map
+                0x000000000803b453      0xa20 Sinteck/img_inc/Btn_mp3Play.o
+                0x000000000803b453                Btn_mp3Play_map
  .rodata.Btn_mp3Play_am_map
-                0x0000000008045673      0xa20 Sinteck/img_inc/Btn_mp3Play_am.o
-                0x0000000008045673                Btn_mp3Play_am_map
+                0x000000000803be73      0xa20 Sinteck/img_inc/Btn_mp3Play_am.o
+                0x000000000803be73                Btn_mp3Play_am_map
  .rodata.Btn_mp3Play_vd_map
-                0x0000000008046093      0xa20 Sinteck/img_inc/Btn_mp3Play_vd.o
-                0x0000000008046093                Btn_mp3Play_vd_map
+                0x000000000803c893      0xa20 Sinteck/img_inc/Btn_mp3Play_vd.o
+                0x000000000803c893                Btn_mp3Play_vd_map
  .rodata.Btn_mp3Prev_map
-                0x0000000008046ab3      0xa20 Sinteck/img_inc/Btn_mp3Prev.o
-                0x0000000008046ab3                Btn_mp3Prev_map
+                0x000000000803d2b3      0xa20 Sinteck/img_inc/Btn_mp3Prev.o
+                0x000000000803d2b3                Btn_mp3Prev_map
  .rodata.Btn_mp3Prev_am_map
-                0x00000000080474d3      0xa20 Sinteck/img_inc/Btn_mp3Prev_am.o
-                0x00000000080474d3                Btn_mp3Prev_am_map
+                0x000000000803dcd3      0xa20 Sinteck/img_inc/Btn_mp3Prev_am.o
+                0x000000000803dcd3                Btn_mp3Prev_am_map
  .rodata.Btn_mp3Prev_vd_map
-                0x0000000008047ef3      0xa20 Sinteck/img_inc/Btn_mp3Prev_vd.o
-                0x0000000008047ef3                Btn_mp3Prev_vd_map
+                0x000000000803e6f3      0xa20 Sinteck/img_inc/Btn_mp3Prev_vd.o
+                0x000000000803e6f3                Btn_mp3Prev_vd_map
  .rodata.Btn_mp3Stop_map
-                0x0000000008048913      0xa20 Sinteck/img_inc/Btn_mp3Stop.o
-                0x0000000008048913                Btn_mp3Stop_map
+                0x000000000803f113      0xa20 Sinteck/img_inc/Btn_mp3Stop.o
+                0x000000000803f113                Btn_mp3Stop_map
  .rodata.Btn_mp3Stop_am_map
-                0x0000000008049333      0xa20 Sinteck/img_inc/Btn_mp3Stop_am.o
-                0x0000000008049333                Btn_mp3Stop_am_map
+                0x000000000803fb33      0xa20 Sinteck/img_inc/Btn_mp3Stop_am.o
+                0x000000000803fb33                Btn_mp3Stop_am_map
  .rodata.Btn_mp3Stop_vd_map
-                0x0000000008049d53      0xa20 Sinteck/img_inc/Btn_mp3Stop_vd.o
-                0x0000000008049d53                Btn_mp3Stop_vd_map
+                0x0000000008040553      0xa20 Sinteck/img_inc/Btn_mp3Stop_vd.o
+                0x0000000008040553                Btn_mp3Stop_vd_map
  .rodata.Btn_mp3_am_map
-                0x000000000804a773      0xa20 Sinteck/img_inc/Btn_mp3_am.o
-                0x000000000804a773                Btn_mp3_am_map
+                0x0000000008040f73      0xa20 Sinteck/img_inc/Btn_mp3_am.o
+                0x0000000008040f73                Btn_mp3_am_map
  .rodata.Btn_mpxext_map
-                0x000000000804b193      0xa20 Sinteck/img_inc/Btn_mpxext.o
-                0x000000000804b193                Btn_mpxext_map
+                0x0000000008041993      0xa20 Sinteck/img_inc/Btn_mpxext.o
+                0x0000000008041993                Btn_mpxext_map
  .rodata.Btn_mpxext_am_map
-                0x000000000804bbb3      0xa20 Sinteck/img_inc/Btn_mpxext_am.o
-                0x000000000804bbb3                Btn_mpxext_am_map
+                0x00000000080423b3      0xa20 Sinteck/img_inc/Btn_mpxext_am.o
+                0x00000000080423b3                Btn_mpxext_am_map
  .rodata.Btn_mpxint_map
-                0x000000000804c5d3      0xa20 Sinteck/img_inc/Btn_mpxint.o
-                0x000000000804c5d3                Btn_mpxint_map
+                0x0000000008042dd3      0xa20 Sinteck/img_inc/Btn_mpxint.o
+                0x0000000008042dd3                Btn_mpxint_map
  .rodata.Btn_mpxint_am_map
-                0x000000000804cff3      0xa20 Sinteck/img_inc/Btn_mpxint_am.o
-                0x000000000804cff3                Btn_mpxint_am_map
+                0x00000000080437f3      0xa20 Sinteck/img_inc/Btn_mpxint_am.o
+                0x00000000080437f3                Btn_mpxint_am_map
  .rodata.Btn_next_map
-                0x000000000804da13      0x200 Sinteck/img_inc/Btn_next.o
-                0x000000000804da13                Btn_next_map
+                0x0000000008044213      0x200 Sinteck/img_inc/Btn_next.o
+                0x0000000008044213                Btn_next_map
  .rodata.Btn_off_map
-                0x000000000804dc13      0xa20 Sinteck/img_inc/Btn_off.o
-                0x000000000804dc13                Btn_off_map
+                0x0000000008044413      0xa20 Sinteck/img_inc/Btn_off.o
+                0x0000000008044413                Btn_off_map
  .rodata.Btn_off_am_map
-                0x000000000804e633      0xa20 Sinteck/img_inc/Btn_off_am.o
-                0x000000000804e633                Btn_off_am_map
+                0x0000000008044e33      0xa20 Sinteck/img_inc/Btn_off_am.o
+                0x0000000008044e33                Btn_off_am_map
  .rodata.Btn_on_map
-                0x000000000804f053      0xa20 Sinteck/img_inc/Btn_on.o
-                0x000000000804f053                Btn_on_map
+                0x0000000008045853      0xa20 Sinteck/img_inc/Btn_on.o
+                0x0000000008045853                Btn_on_map
  .rodata.Btn_on_am_map
-                0x000000000804fa73      0xa20 Sinteck/img_inc/Btn_on_am.o
-                0x000000000804fa73                Btn_on_am_map
+                0x0000000008046273      0xa20 Sinteck/img_inc/Btn_on_am.o
+                0x0000000008046273                Btn_on_am_map
  .rodata.Btn_poweroff_map
-                0x0000000008050493     0x2018 Sinteck/img_inc/Btn_poweroff.o
-                0x0000000008050493                Btn_poweroff_map
+                0x0000000008046c93     0x2018 Sinteck/img_inc/Btn_poweroff.o
+                0x0000000008046c93                Btn_poweroff_map
  .rodata.Btn_poweroff_am_map
-                0x00000000080524ab     0x2154 Sinteck/img_inc/Btn_poweroff_am.o
-                0x00000000080524ab                Btn_poweroff_am_map
+                0x0000000008048cab     0x2154 Sinteck/img_inc/Btn_poweroff_am.o
+                0x0000000008048cab                Btn_poweroff_am_map
  .rodata.Btn_poweroff_vm_map
-                0x00000000080545ff     0x2154 Sinteck/img_inc/Btn_poweroff_vm.o
-                0x00000000080545ff                Btn_poweroff_vm_map
+                0x000000000804adff     0x2154 Sinteck/img_inc/Btn_poweroff_vm.o
+                0x000000000804adff                Btn_poweroff_vm_map
  .rodata.Btn_poweron_map
-                0x0000000008056753     0x2018 Sinteck/img_inc/Btn_poweron.o
-                0x0000000008056753                Btn_poweron_map
+                0x000000000804cf53     0x2018 Sinteck/img_inc/Btn_poweron.o
+                0x000000000804cf53                Btn_poweron_map
  .rodata.Btn_poweron_am_map
-                0x000000000805876b     0x2154 Sinteck/img_inc/Btn_poweron_am.o
-                0x000000000805876b                Btn_poweron_am_map
+                0x000000000804ef6b     0x2154 Sinteck/img_inc/Btn_poweron_am.o
+                0x000000000804ef6b                Btn_poweron_am_map
  .rodata.Btn_poweron_vd_map
-                0x000000000805a8bf     0x2154 Sinteck/img_inc/Btn_poweron_vd.o
-                0x000000000805a8bf                Btn_poweron_vd_map
+                0x00000000080510bf     0x2154 Sinteck/img_inc/Btn_poweron_vd.o
+                0x00000000080510bf                Btn_poweron_vd_map
  .rodata.Btn_prev_map
-                0x000000000805ca13      0x200 Sinteck/img_inc/Btn_prev.o
-                0x000000000805ca13                Btn_prev_map
+                0x0000000008053213      0x200 Sinteck/img_inc/Btn_prev.o
+                0x0000000008053213                Btn_prev_map
  .rodata.Btn_stereo_map
-                0x000000000805cc13      0xa20 Sinteck/img_inc/Btn_stereo.o
-                0x000000000805cc13                Btn_stereo_map
+                0x0000000008053413      0xa20 Sinteck/img_inc/Btn_stereo.o
+                0x0000000008053413                Btn_stereo_map
  .rodata.Btn_stereo_am_map
-                0x000000000805d633      0xa20 Sinteck/img_inc/Btn_stereo_am.o
-                0x000000000805d633                Btn_stereo_am_map
+                0x0000000008053e33      0xa20 Sinteck/img_inc/Btn_stereo_am.o
+                0x0000000008053e33                Btn_stereo_am_map
  .rodata.stereo_off_map
-                0x000000000805e053      0x230 Sinteck/img_inc/stereo_off.o
-                0x000000000805e053                stereo_off_map
+                0x0000000008054853      0x230 Sinteck/img_inc/stereo_off.o
+                0x0000000008054853                stereo_off_map
  .rodata.stereo_vd_map
-                0x000000000805e283      0x230 Sinteck/img_inc/stereo_vd.o
-                0x000000000805e283                stereo_vd_map
+                0x0000000008054a83      0x230 Sinteck/img_inc/stereo_vd.o
+                0x0000000008054a83                stereo_vd_map
  .rodata.tela_0_map
-                0x000000000805e4b3     0xa000 Sinteck/img_inc/tela_0.o
-                0x000000000805e4b3                tela_0_map
+                0x0000000008054cb3     0xa000 Sinteck/img_inc/tela_0.o
+                0x0000000008054cb3                tela_0_map
  .rodata.tela_audio_map
-                0x00000000080684b3     0xa000 Sinteck/img_inc/tela_audio.o
-                0x00000000080684b3                tela_audio_map
+                0x000000000805ecb3     0xa000 Sinteck/img_inc/tela_audio.o
+                0x000000000805ecb3                tela_audio_map
  .rodata.tela_audio_1_map
-                0x00000000080724b3     0xa000 Sinteck/img_inc/tela_audio_1.o
-                0x00000000080724b3                tela_audio_1_map
+                0x0000000008068cb3     0xa000 Sinteck/img_inc/tela_audio_1.o
+                0x0000000008068cb3                tela_audio_1_map
  .rodata.tela_audio_2_map
-                0x000000000807c4b3     0xa000 Sinteck/img_inc/tela_audio_2.o
-                0x000000000807c4b3                tela_audio_2_map
+                0x0000000008072cb3     0xa000 Sinteck/img_inc/tela_audio_2.o
+                0x0000000008072cb3                tela_audio_2_map
  .rodata.tela_freq_map
-                0x00000000080864b3     0xa000 Sinteck/img_inc/tela_freq.o
-                0x00000000080864b3                tela_freq_map
+                0x000000000807ccb3     0xa000 Sinteck/img_inc/tela_freq.o
+                0x000000000807ccb3                tela_freq_map
  .rodata.tela_reading_audio_map
-                0x00000000080904b3     0xa000 Sinteck/img_inc/tela_reading_audio.o
-                0x00000000080904b3                tela_reading_audio_map
+                0x0000000008086cb3     0xa000 Sinteck/img_inc/tela_reading_audio.o
+                0x0000000008086cb3                tela_reading_audio_map
  .rodata.tela_reading_efic_map
-                0x000000000809a4b3     0xa000 Sinteck/img_inc/tela_reading_efic.o
-                0x000000000809a4b3                tela_reading_efic_map
+                0x0000000008090cb3     0xa000 Sinteck/img_inc/tela_reading_efic.o
+                0x0000000008090cb3                tela_reading_efic_map
  .rodata.tela_reading_rf_map
-                0x00000000080a44b3     0xa000 Sinteck/img_inc/tela_reading_rf.o
-                0x00000000080a44b3                tela_reading_rf_map
+                0x000000000809acb3     0xa000 Sinteck/img_inc/tela_reading_rf.o
+                0x000000000809acb3                tela_reading_rf_map
  .rodata.tela_reading_temp_map
-                0x00000000080ae4b3     0xa000 Sinteck/img_inc/tela_reading_temp.o
-                0x00000000080ae4b3                tela_reading_temp_map
+                0x00000000080a4cb3     0xa000 Sinteck/img_inc/tela_reading_temp.o
+                0x00000000080a4cb3                tela_reading_temp_map
  .rodata.tela_reading_vpa_map
-                0x00000000080b84b3     0xa000 Sinteck/img_inc/tela_reading_vpa.o
-                0x00000000080b84b3                tela_reading_vpa_map
+                0x00000000080aecb3     0xa000 Sinteck/img_inc/tela_reading_vpa.o
+                0x00000000080aecb3                tela_reading_vpa_map
  .rodata.tela_rf_map
-                0x00000000080c24b3     0xa000 Sinteck/img_inc/tela_rf.o
-                0x00000000080c24b3                tela_rf_map
+                0x00000000080b8cb3     0xa000 Sinteck/img_inc/tela_rf.o
+                0x00000000080b8cb3                tela_rf_map
  .rodata.tela_rf_1_map
-                0x00000000080cc4b3     0xa000 Sinteck/img_inc/tela_rf_1.o
-                0x00000000080cc4b3                tela_rf_1_map
+                0x00000000080c2cb3     0xa000 Sinteck/img_inc/tela_rf_1.o
+                0x00000000080c2cb3                tela_rf_1_map
  .rodata.tela_rf_2_map
-                0x00000000080d64b3     0xa000 Sinteck/img_inc/tela_rf_2.o
-                0x00000000080d64b3                tela_rf_2_map
+                0x00000000080cccb3     0xa000 Sinteck/img_inc/tela_rf_2.o
+                0x00000000080cccb3                tela_rf_2_map
  .rodata.tela_sel_map
-                0x00000000080e04b3     0xa000 Sinteck/img_inc/tela_sel.o
-                0x00000000080e04b3                tela_sel_map
+                0x00000000080d6cb3     0xa000 Sinteck/img_inc/tela_sel.o
+                0x00000000080d6cb3                tela_sel_map
  .rodata.tela_status_map
-                0x00000000080ea4b3     0xa000 Sinteck/img_inc/tela_status.o
-                0x00000000080ea4b3                tela_status_map
+                0x00000000080e0cb3     0xa000 Sinteck/img_inc/tela_status.o
+                0x00000000080e0cb3                tela_status_map
  .rodata.USBD_FS_ConfigStrDescriptor.str1.1
-                0x00000000080f44b3        0xb USB_DEVICE/App/usbd_desc.o
+                0x00000000080eacb3        0xb USB_DEVICE/App/usbd_desc.o
  .rodata.USBD_FS_InterfaceStrDescriptor.str1.1
-                0x00000000080f44be        0xe USB_DEVICE/App/usbd_desc.o
+                0x00000000080eacbe        0xe USB_DEVICE/App/usbd_desc.o
  .rodata.USBD_FS_ManufacturerStrDescriptor.str1.1
-                0x00000000080f44cc       0x13 USB_DEVICE/App/usbd_desc.o
+                0x00000000080eaccc       0x13 USB_DEVICE/App/usbd_desc.o
  .rodata.USBD_FS_ProductStrDescriptor.str1.1
-                0x00000000080f44df       0x13 USB_DEVICE/App/usbd_desc.o
+                0x00000000080eacdf       0x13 USB_DEVICE/App/usbd_desc.o
  .rodata.STORAGE_Inquirydata_FS
-                0x00000000080f44f2       0x24 USB_DEVICE/App/usbd_storage_if.o
-                0x00000000080f44f2                STORAGE_Inquirydata_FS
+                0x00000000080eacf2       0x24 USB_DEVICE/App/usbd_storage_if.o
+                0x00000000080eacf2                STORAGE_Inquirydata_FS
  .rodata.CSWTCH.46
-                0x00000000080f4516        0x4 USB_DEVICE/Target/usbd_conf.o
+                0x00000000080ead16        0x4 USB_DEVICE/Target/usbd_conf.o
  .rodata.lv_obj_signal.str1.1
-                0x00000000080f451a        0x7 lvgl/src/lv_core/lv_obj.o
- .rodata.seg1.7394
-                0x00000000080f4521        0x1 lvgl/src/lv_draw/lv_draw.o
- .rodata.seg2.7395
-                0x00000000080f4522        0x2 lvgl/src/lv_draw/lv_draw.o
- .rodata.seg3.7396
-                0x00000000080f4524        0x3 lvgl/src/lv_draw/lv_draw.o
- .rodata.seg4.7397
-                0x00000000080f4527        0x4 lvgl/src/lv_draw/lv_draw.o
- .rodata.seg5.7398
-                0x00000000080f452b        0x5 lvgl/src/lv_draw/lv_draw.o
- .rodata.seg6.7399
-                0x00000000080f4530        0x6 lvgl/src/lv_draw/lv_draw.o
- .rodata.seg7.7400
-                0x00000000080f4536        0x7 lvgl/src/lv_draw/lv_draw.o
- .rodata.seg8.7401
-                0x00000000080f453d        0x8 lvgl/src/lv_draw/lv_draw.o
- *fill*         0x00000000080f4545        0x3 
- .rodata.seg_map.7402
-                0x00000000080f4548       0x20 lvgl/src/lv_draw/lv_draw.o
+                0x00000000080ead1a        0x7 lvgl/src/lv_core/lv_obj.o
+ .rodata.seg1.7392
+                0x00000000080ead21        0x1 lvgl/src/lv_draw/lv_draw.o
+ .rodata.seg2.7393
+                0x00000000080ead22        0x2 lvgl/src/lv_draw/lv_draw.o
+ .rodata.seg3.7394
+                0x00000000080ead24        0x3 lvgl/src/lv_draw/lv_draw.o
+ .rodata.seg4.7395
+                0x00000000080ead27        0x4 lvgl/src/lv_draw/lv_draw.o
+ .rodata.seg5.7396
+                0x00000000080ead2b        0x5 lvgl/src/lv_draw/lv_draw.o
+ .rodata.seg6.7397
+                0x00000000080ead30        0x6 lvgl/src/lv_draw/lv_draw.o
+ .rodata.seg7.7398
+                0x00000000080ead36        0x7 lvgl/src/lv_draw/lv_draw.o
+ .rodata.seg8.7399
+                0x00000000080ead3d        0x8 lvgl/src/lv_draw/lv_draw.o
+ *fill*         0x00000000080ead45        0x3 
+ .rodata.seg_map.7400
+                0x00000000080ead48       0x20 lvgl/src/lv_draw/lv_draw.o
  .rodata.CSWTCH.19
-                0x00000000080f4568        0xb lvgl/src/lv_draw/lv_draw_img.o
+                0x00000000080ead68        0xb lvgl/src/lv_draw/lv_draw_img.o
  .rodata.lv_draw_img.str1.1
-                0x00000000080f4573        0x8 lvgl/src/lv_draw/lv_draw_img.o
+                0x00000000080ead73        0x8 lvgl/src/lv_draw/lv_draw_img.o
  .rodata.CSWTCH.19
-                0x00000000080f457b        0x6 lvgl/src/lv_draw/lv_draw_label.o
- .rodata.opa_map2.7389
-                0x00000000080f4581        0x2 lvgl/src/lv_draw/lv_draw_rect.o
- .rodata.opa_map3.7390
-                0x00000000080f4583        0x3 lvgl/src/lv_draw/lv_draw_rect.o
- .rodata.opa_map4.7391
-                0x00000000080f4586        0x4 lvgl/src/lv_draw/lv_draw_rect.o
- .rodata.opa_map8.7392
-                0x00000000080f458a        0x8 lvgl/src/lv_draw/lv_draw_rect.o
+                0x00000000080ead7b        0x6 lvgl/src/lv_draw/lv_draw_label.o
+ .rodata.opa_map2.7387
+                0x00000000080ead81        0x2 lvgl/src/lv_draw/lv_draw_rect.o
+ .rodata.opa_map3.7388
+                0x00000000080ead83        0x3 lvgl/src/lv_draw/lv_draw_rect.o
+ .rodata.opa_map4.7389
+                0x00000000080ead86        0x4 lvgl/src/lv_draw/lv_draw_rect.o
+ .rodata.opa_map8.7390
+                0x00000000080ead8a        0x8 lvgl/src/lv_draw/lv_draw_rect.o
  .rodata.lv_txt_get_next_line.str1.1
-                0x00000000080f4592        0x8 lvgl/src/lv_misc/lv_txt.o
+                0x00000000080ead92        0x8 lvgl/src/lv_misc/lv_txt.o
  .rodata.lv_bar_signal.str1.1
-                0x00000000080f459a        0x7 lvgl/src/lv_objx/lv_bar.o
+                0x00000000080ead9a        0x7 lvgl/src/lv_objx/lv_bar.o
  .rodata.lv_btn_signal.str1.1
-                0x00000000080f45a1        0x7 lvgl/src/lv_objx/lv_btn.o
+                0x00000000080eada1        0x7 lvgl/src/lv_objx/lv_btn.o
  .rodata.lv_cont_signal.str1.1
-                0x00000000080f45a8        0x8 lvgl/src/lv_objx/lv_cont.o
+                0x00000000080eada8        0x8 lvgl/src/lv_objx/lv_cont.o
  .rodata.lv_ddlist_create.str1.1
-                0x00000000080f45b0       0x1b lvgl/src/lv_objx/lv_ddlist.o
+                0x00000000080eadb0       0x1b lvgl/src/lv_objx/lv_ddlist.o
  .rodata.lv_ddlist_design.str1.1
-                0x00000000080f45cb        0x4 lvgl/src/lv_objx/lv_ddlist.o
+                0x00000000080eadcb        0x4 lvgl/src/lv_objx/lv_ddlist.o
  .rodata.lv_ddlist_signal.str1.1
-                0x00000000080f45cf        0xa lvgl/src/lv_objx/lv_ddlist.o
+                0x00000000080eadcf        0xa lvgl/src/lv_objx/lv_ddlist.o
  .rodata.lv_img_signal.str1.1
-                0x00000000080f45d9        0x7 lvgl/src/lv_objx/lv_img.o
+                0x00000000080eadd9        0x7 lvgl/src/lv_objx/lv_img.o
  .rodata.lv_imgbtn_signal.str1.1
-                0x00000000080f45e0        0xa lvgl/src/lv_objx/lv_imgbtn.o
+                0x00000000080eade0        0xa lvgl/src/lv_objx/lv_imgbtn.o
  .rodata.lv_label_create.str1.1
-                0x00000000080f45ea        0x5 lvgl/src/lv_objx/lv_label.o
+                0x00000000080eadea        0x5 lvgl/src/lv_objx/lv_label.o
  .rodata.lv_label_signal.str1.1
-                0x00000000080f45ef        0x9 lvgl/src/lv_objx/lv_label.o
+                0x00000000080eadef        0x9 lvgl/src/lv_objx/lv_label.o
  .rodata.lv_page_signal.str1.1
-                0x00000000080f45f8        0x8 lvgl/src/lv_objx/lv_page.o
+                0x00000000080eadf8        0x8 lvgl/src/lv_objx/lv_page.o
  .rodata.lv_roller_signal.str1.1
-                0x00000000080f4600        0xa lvgl/src/lv_objx/lv_roller.o
+                0x00000000080eae00        0xa lvgl/src/lv_objx/lv_roller.o
  .rodata._svfprintf_r.str1.1
-                0x00000000080f460a       0x32 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-svfprintf.o)
+                0x00000000080eae0a       0x32 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-svfprintf.o)
                                          0x34 (size before relaxing)
  .rodata.blanks.8359
-                0x00000000080f463c       0x10 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-svfprintf.o)
+                0x00000000080eae3c       0x10 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-svfprintf.o)
  .rodata.zeroes.8360
-                0x00000000080f464c       0x10 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-svfprintf.o)
+                0x00000000080eae4c       0x10 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-svfprintf.o)
  .rodata._dtoa_r.str1.1
-                0x00000000080f465c        0xd /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-dtoa.o)
+                0x00000000080eae5c        0xd /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-dtoa.o)
                                           0xf (size before relaxing)
  .rodata._setlocale_r.str1.1
-                0x00000000080f4669        0x6 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-locale.o)
+                0x00000000080eae69        0x6 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-locale.o)
                                           0x9 (size before relaxing)
  .rodata.str1.1
-                0x00000000080f466f        0x2 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-locale.o)
- *fill*         0x00000000080f4671        0x7 
+                0x00000000080eae6f        0x2 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-locale.o)
+ *fill*         0x00000000080eae71        0x7 
  .rodata.__mprec_bigtens
-                0x00000000080f4678       0x28 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mprec.o)
-                0x00000000080f4678                __mprec_bigtens
+                0x00000000080eae78       0x28 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mprec.o)
+                0x00000000080eae78                __mprec_bigtens
  .rodata.__mprec_tens
-                0x00000000080f46a0       0xc8 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mprec.o)
-                0x00000000080f46a0                __mprec_tens
+                0x00000000080eaea0       0xc8 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mprec.o)
+                0x00000000080eaea0                __mprec_tens
  .rodata.p05.7196
-                0x00000000080f4768        0xc /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mprec.o)
+                0x00000000080eaf68        0xc /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mprec.o)
  .rodata._ctype_
-                0x00000000080f4774      0x101 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-ctype_.o)
-                0x00000000080f4774                _ctype_
-                0x00000000080f4878                . = ALIGN (0x4)
- *fill*         0x00000000080f4875        0x3 
+                0x00000000080eaf74      0x101 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-ctype_.o)
+                0x00000000080eaf74                _ctype_
+                0x00000000080eb078                . = ALIGN (0x4)
+ *fill*         0x00000000080eb075        0x3 
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x00000000080f4878        0x8
-                0x00000000080f4878                __exidx_start = .
+.ARM            0x00000000080eb078        0x8
+                0x00000000080eb078                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x00000000080f4878        0x8 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_udivmoddi4.o)
-                0x00000000080f4880                __exidx_end = .
+ .ARM.exidx     0x00000000080eb078        0x8 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_udivmoddi4.o)
+                0x00000000080eb080                __exidx_end = .
 
-.rel.dyn        0x00000000080f4880        0x0
- .rel.iplt      0x00000000080f4880        0x0 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/crtbegin.o
+.rel.dyn        0x00000000080eb080        0x0
+ .rel.iplt      0x00000000080eb080        0x0 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/crtbegin.o
 
-.preinit_array  0x00000000080f4880        0x0
-                0x00000000080f4880                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x00000000080eb080        0x0
+                0x00000000080eb080                PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
-                0x00000000080f4880                PROVIDE (__preinit_array_end, .)
+                0x00000000080eb080                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x00000000080f4880        0x4
-                0x00000000080f4880                PROVIDE (__init_array_start, .)
+.init_array     0x00000000080eb080        0x4
+                0x00000000080eb080                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array*)
- .init_array    0x00000000080f4880        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/crtbegin.o
-                0x00000000080f4884                PROVIDE (__init_array_end, .)
+ .init_array    0x00000000080eb080        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/crtbegin.o
+                0x00000000080eb084                PROVIDE (__init_array_end, .)
 
-.fini_array     0x00000000080f4884        0x4
+.fini_array     0x00000000080eb084        0x4
                 [!provide]                        PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x00000000080f4884        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/crtbegin.o
+ .fini_array    0x00000000080eb084        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end, .)
-                0x00000000080f4888                _sidata = LOADADDR (.data)
+                0x00000000080eb088                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000     0x239c load address 0x00000000080f4888
+.data           0x0000000020000000     0x175c load address 0x00000000080eb088
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -6797,812 +6782,798 @@ LOAD /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-
                 0x00000000200006f8       0x14 Sinteck/Fonts/lv_font_eurostile_10.o
                 0x00000000200006f8                lv_font_eurostile_10
  .data.font_dsc
-                0x000000002000070c       0x1c Sinteck/Fonts/lv_font_eurostile_22.o
+                0x000000002000070c       0x1c Sinteck/Fonts/lv_font_eurostile_24.o
  .data.glyph_dsc
-                0x0000000020000728      0x5f0 Sinteck/Fonts/lv_font_eurostile_22.o
- .data.lv_font_eurostile_22
-                0x0000000020000d18       0x14 Sinteck/Fonts/lv_font_eurostile_22.o
-                0x0000000020000d18                lv_font_eurostile_22
- .data.font_dsc
-                0x0000000020000d2c       0x1c Sinteck/Fonts/lv_font_eurostile_24.o
- .data.glyph_dsc
-                0x0000000020000d48      0x5f0 Sinteck/Fonts/lv_font_eurostile_24.o
+                0x0000000020000728      0x5f0 Sinteck/Fonts/lv_font_eurostile_24.o
  .data.lv_font_eurostile_24
-                0x0000000020001338       0x14 Sinteck/Fonts/lv_font_eurostile_24.o
-                0x0000000020001338                lv_font_eurostile_24
- .data.font_dsc
-                0x000000002000134c       0x1c Sinteck/Fonts/lv_font_eurostile_28.o
- .data.glyph_dsc
-                0x0000000020001368      0x5f0 Sinteck/Fonts/lv_font_eurostile_28.o
- .data.lv_font_eurostile_28
-                0x0000000020001958       0x14 Sinteck/Fonts/lv_font_eurostile_28.o
-                0x0000000020001958                lv_font_eurostile_28
+                0x0000000020000d18       0x14 Sinteck/Fonts/lv_font_eurostile_24.o
+                0x0000000020000d18                lv_font_eurostile_24
  .data.IndexAudio
-                0x000000002000196c       0x10 Sinteck/GUI/main_screen.o
-                0x000000002000196c                IndexAudio
- .data.Btn_50u  0x000000002000197c        0xc Sinteck/img_inc/Btn_50u.o
-                0x000000002000197c                Btn_50u
+                0x0000000020000d2c       0x10 Sinteck/GUI/main_screen.o
+                0x0000000020000d2c                IndexAudio
+ .data.Btn_50u  0x0000000020000d3c        0xc Sinteck/img_inc/Btn_50u.o
+                0x0000000020000d3c                Btn_50u
  .data.Btn_50u_am
-                0x0000000020001988        0xc Sinteck/img_inc/Btn_50u_am.o
-                0x0000000020001988                Btn_50u_am
- .data.Btn_75u  0x0000000020001994        0xc Sinteck/img_inc/Btn_75u.o
-                0x0000000020001994                Btn_75u
+                0x0000000020000d48        0xc Sinteck/img_inc/Btn_50u_am.o
+                0x0000000020000d48                Btn_50u_am
+ .data.Btn_75u  0x0000000020000d54        0xc Sinteck/img_inc/Btn_75u.o
+                0x0000000020000d54                Btn_75u
  .data.Btn_75u_am
-                0x00000000200019a0        0xc Sinteck/img_inc/Btn_75u_am.o
-                0x00000000200019a0                Btn_75u_am
+                0x0000000020000d60        0xc Sinteck/img_inc/Btn_75u_am.o
+                0x0000000020000d60                Btn_75u_am
  .data.Btn_Audio
-                0x00000000200019ac        0xc Sinteck/img_inc/Btn_Audio.o
-                0x00000000200019ac                Btn_Audio
+                0x0000000020000d6c        0xc Sinteck/img_inc/Btn_Audio.o
+                0x0000000020000d6c                Btn_Audio
  .data.Btn_Audio_am
-                0x00000000200019b8        0xc Sinteck/img_inc/Btn_Audio_am.o
-                0x00000000200019b8                Btn_Audio_am
+                0x0000000020000d78        0xc Sinteck/img_inc/Btn_Audio_am.o
+                0x0000000020000d78                Btn_Audio_am
  .data.Btn_Frequency
-                0x00000000200019c4        0xc Sinteck/img_inc/Btn_Frequency.o
-                0x00000000200019c4                Btn_Frequency
+                0x0000000020000d84        0xc Sinteck/img_inc/Btn_Frequency.o
+                0x0000000020000d84                Btn_Frequency
  .data.Btn_Frequency_am
-                0x00000000200019d0        0xc Sinteck/img_inc/Btn_Frequency_am.o
-                0x00000000200019d0                Btn_Frequency_am
- .data.Btn_RF   0x00000000200019dc        0xc Sinteck/img_inc/Btn_RF.o
-                0x00000000200019dc                Btn_RF
+                0x0000000020000d90        0xc Sinteck/img_inc/Btn_Frequency_am.o
+                0x0000000020000d90                Btn_Frequency_am
+ .data.Btn_RF   0x0000000020000d9c        0xc Sinteck/img_inc/Btn_RF.o
+                0x0000000020000d9c                Btn_RF
  .data.Btn_RF_am
-                0x00000000200019e8        0xc Sinteck/img_inc/Btn_RF_am.o
-                0x00000000200019e8                Btn_RF_am
+                0x0000000020000da8        0xc Sinteck/img_inc/Btn_RF_am.o
+                0x0000000020000da8                Btn_RF_am
  .data.Btn_Readings
-                0x00000000200019f4        0xc Sinteck/img_inc/Btn_Readings.o
-                0x00000000200019f4                Btn_Readings
+                0x0000000020000db4        0xc Sinteck/img_inc/Btn_Readings.o
+                0x0000000020000db4                Btn_Readings
  .data.Btn_Readings_am
-                0x0000000020001a00        0xc Sinteck/img_inc/Btn_Readings_am.o
-                0x0000000020001a00                Btn_Readings_am
- .data.Btn_mic  0x0000000020001a0c        0xc Sinteck/img_inc/Btn_mic.o
-                0x0000000020001a0c                Btn_mic
+                0x0000000020000dc0        0xc Sinteck/img_inc/Btn_Readings_am.o
+                0x0000000020000dc0                Btn_Readings_am
+ .data.Btn_mic  0x0000000020000dcc        0xc Sinteck/img_inc/Btn_mic.o
+                0x0000000020000dcc                Btn_mic
  .data.Btn_mic_am
-                0x0000000020001a18        0xc Sinteck/img_inc/Btn_mic_am.o
-                0x0000000020001a18                Btn_mic_am
+                0x0000000020000dd8        0xc Sinteck/img_inc/Btn_mic_am.o
+                0x0000000020000dd8                Btn_mic_am
  .data.Btn_mono
-                0x0000000020001a24        0xc Sinteck/img_inc/Btn_mono.o
-                0x0000000020001a24                Btn_mono
+                0x0000000020000de4        0xc Sinteck/img_inc/Btn_mono.o
+                0x0000000020000de4                Btn_mono
  .data.Btn_mono_am
-                0x0000000020001a30        0xc Sinteck/img_inc/Btn_mono_am.o
-                0x0000000020001a30                Btn_mono_am
- .data.Btn_mp3  0x0000000020001a3c        0xc Sinteck/img_inc/Btn_mp3.o
-                0x0000000020001a3c                Btn_mp3
+                0x0000000020000df0        0xc Sinteck/img_inc/Btn_mono_am.o
+                0x0000000020000df0                Btn_mono_am
+ .data.Btn_mp3  0x0000000020000dfc        0xc Sinteck/img_inc/Btn_mp3.o
+                0x0000000020000dfc                Btn_mp3
  .data.Btn_mp3Next
-                0x0000000020001a48        0xc Sinteck/img_inc/Btn_mp3Next.o
-                0x0000000020001a48                Btn_mp3Next
+                0x0000000020000e08        0xc Sinteck/img_inc/Btn_mp3Next.o
+                0x0000000020000e08                Btn_mp3Next
  .data.Btn_mp3Next_am
-                0x0000000020001a54        0xc Sinteck/img_inc/Btn_mp3Next_am.o
-                0x0000000020001a54                Btn_mp3Next_am
+                0x0000000020000e14        0xc Sinteck/img_inc/Btn_mp3Next_am.o
+                0x0000000020000e14                Btn_mp3Next_am
  .data.Btn_mp3Next_vd
-                0x0000000020001a60        0xc Sinteck/img_inc/Btn_mp3Next_vd.o
-                0x0000000020001a60                Btn_mp3Next_vd
+                0x0000000020000e20        0xc Sinteck/img_inc/Btn_mp3Next_vd.o
+                0x0000000020000e20                Btn_mp3Next_vd
  .data.Btn_mp3Pause_vd
-                0x0000000020001a6c        0xc Sinteck/img_inc/Btn_mp3Pause_vd.o
-                0x0000000020001a6c                Btn_mp3Pause_vd
+                0x0000000020000e2c        0xc Sinteck/img_inc/Btn_mp3Pause_vd.o
+                0x0000000020000e2c                Btn_mp3Pause_vd
  .data.Btn_mp3Play
-                0x0000000020001a78        0xc Sinteck/img_inc/Btn_mp3Play.o
-                0x0000000020001a78                Btn_mp3Play
+                0x0000000020000e38        0xc Sinteck/img_inc/Btn_mp3Play.o
+                0x0000000020000e38                Btn_mp3Play
  .data.Btn_mp3Play_am
-                0x0000000020001a84        0xc Sinteck/img_inc/Btn_mp3Play_am.o
-                0x0000000020001a84                Btn_mp3Play_am
+                0x0000000020000e44        0xc Sinteck/img_inc/Btn_mp3Play_am.o
+                0x0000000020000e44                Btn_mp3Play_am
  .data.Btn_mp3Play_vd
-                0x0000000020001a90        0xc Sinteck/img_inc/Btn_mp3Play_vd.o
-                0x0000000020001a90                Btn_mp3Play_vd
+                0x0000000020000e50        0xc Sinteck/img_inc/Btn_mp3Play_vd.o
+                0x0000000020000e50                Btn_mp3Play_vd
  .data.Btn_mp3Prev
-                0x0000000020001a9c        0xc Sinteck/img_inc/Btn_mp3Prev.o
-                0x0000000020001a9c                Btn_mp3Prev
+                0x0000000020000e5c        0xc Sinteck/img_inc/Btn_mp3Prev.o
+                0x0000000020000e5c                Btn_mp3Prev
  .data.Btn_mp3Prev_am
-                0x0000000020001aa8        0xc Sinteck/img_inc/Btn_mp3Prev_am.o
-                0x0000000020001aa8                Btn_mp3Prev_am
+                0x0000000020000e68        0xc Sinteck/img_inc/Btn_mp3Prev_am.o
+                0x0000000020000e68                Btn_mp3Prev_am
  .data.Btn_mp3Prev_vd
-                0x0000000020001ab4        0xc Sinteck/img_inc/Btn_mp3Prev_vd.o
-                0x0000000020001ab4                Btn_mp3Prev_vd
+                0x0000000020000e74        0xc Sinteck/img_inc/Btn_mp3Prev_vd.o
+                0x0000000020000e74                Btn_mp3Prev_vd
  .data.Btn_mp3Stop
-                0x0000000020001ac0        0xc Sinteck/img_inc/Btn_mp3Stop.o
-                0x0000000020001ac0                Btn_mp3Stop
+                0x0000000020000e80        0xc Sinteck/img_inc/Btn_mp3Stop.o
+                0x0000000020000e80                Btn_mp3Stop
  .data.Btn_mp3Stop_am
-                0x0000000020001acc        0xc Sinteck/img_inc/Btn_mp3Stop_am.o
-                0x0000000020001acc                Btn_mp3Stop_am
+                0x0000000020000e8c        0xc Sinteck/img_inc/Btn_mp3Stop_am.o
+                0x0000000020000e8c                Btn_mp3Stop_am
  .data.Btn_mp3Stop_vd
-                0x0000000020001ad8        0xc Sinteck/img_inc/Btn_mp3Stop_vd.o
-                0x0000000020001ad8                Btn_mp3Stop_vd
+                0x0000000020000e98        0xc Sinteck/img_inc/Btn_mp3Stop_vd.o
+                0x0000000020000e98                Btn_mp3Stop_vd
  .data.Btn_mp3_am
-                0x0000000020001ae4        0xc Sinteck/img_inc/Btn_mp3_am.o
-                0x0000000020001ae4                Btn_mp3_am
+                0x0000000020000ea4        0xc Sinteck/img_inc/Btn_mp3_am.o
+                0x0000000020000ea4                Btn_mp3_am
  .data.Btn_mpxext
-                0x0000000020001af0        0xc Sinteck/img_inc/Btn_mpxext.o
-                0x0000000020001af0                Btn_mpxext
+                0x0000000020000eb0        0xc Sinteck/img_inc/Btn_mpxext.o
+                0x0000000020000eb0                Btn_mpxext
  .data.Btn_mpxext_am
-                0x0000000020001afc        0xc Sinteck/img_inc/Btn_mpxext_am.o
-                0x0000000020001afc                Btn_mpxext_am
+                0x0000000020000ebc        0xc Sinteck/img_inc/Btn_mpxext_am.o
+                0x0000000020000ebc                Btn_mpxext_am
  .data.Btn_mpxint
-                0x0000000020001b08        0xc Sinteck/img_inc/Btn_mpxint.o
-                0x0000000020001b08                Btn_mpxint
+                0x0000000020000ec8        0xc Sinteck/img_inc/Btn_mpxint.o
+                0x0000000020000ec8                Btn_mpxint
  .data.Btn_mpxint_am
-                0x0000000020001b14        0xc Sinteck/img_inc/Btn_mpxint_am.o
-                0x0000000020001b14                Btn_mpxint_am
+                0x0000000020000ed4        0xc Sinteck/img_inc/Btn_mpxint_am.o
+                0x0000000020000ed4                Btn_mpxint_am
  .data.Btn_next
-                0x0000000020001b20        0xc Sinteck/img_inc/Btn_next.o
-                0x0000000020001b20                Btn_next
- .data.Btn_off  0x0000000020001b2c        0xc Sinteck/img_inc/Btn_off.o
-                0x0000000020001b2c                Btn_off
+                0x0000000020000ee0        0xc Sinteck/img_inc/Btn_next.o
+                0x0000000020000ee0                Btn_next
+ .data.Btn_off  0x0000000020000eec        0xc Sinteck/img_inc/Btn_off.o
+                0x0000000020000eec                Btn_off
  .data.Btn_off_am
-                0x0000000020001b38        0xc Sinteck/img_inc/Btn_off_am.o
-                0x0000000020001b38                Btn_off_am
- .data.Btn_on   0x0000000020001b44        0xc Sinteck/img_inc/Btn_on.o
-                0x0000000020001b44                Btn_on
+                0x0000000020000ef8        0xc Sinteck/img_inc/Btn_off_am.o
+                0x0000000020000ef8                Btn_off_am
+ .data.Btn_on   0x0000000020000f04        0xc Sinteck/img_inc/Btn_on.o
+                0x0000000020000f04                Btn_on
  .data.Btn_on_am
-                0x0000000020001b50        0xc Sinteck/img_inc/Btn_on_am.o
-                0x0000000020001b50                Btn_on_am
+                0x0000000020000f10        0xc Sinteck/img_inc/Btn_on_am.o
+                0x0000000020000f10                Btn_on_am
  .data.Btn_poweroff
-                0x0000000020001b5c        0xc Sinteck/img_inc/Btn_poweroff.o
-                0x0000000020001b5c                Btn_poweroff
+                0x0000000020000f1c        0xc Sinteck/img_inc/Btn_poweroff.o
+                0x0000000020000f1c                Btn_poweroff
  .data.Btn_poweroff_am
-                0x0000000020001b68        0xc Sinteck/img_inc/Btn_poweroff_am.o
-                0x0000000020001b68                Btn_poweroff_am
+                0x0000000020000f28        0xc Sinteck/img_inc/Btn_poweroff_am.o
+                0x0000000020000f28                Btn_poweroff_am
  .data.Btn_poweroff_vm
-                0x0000000020001b74        0xc Sinteck/img_inc/Btn_poweroff_vm.o
-                0x0000000020001b74                Btn_poweroff_vm
+                0x0000000020000f34        0xc Sinteck/img_inc/Btn_poweroff_vm.o
+                0x0000000020000f34                Btn_poweroff_vm
  .data.Btn_poweron
-                0x0000000020001b80        0xc Sinteck/img_inc/Btn_poweron.o
-                0x0000000020001b80                Btn_poweron
+                0x0000000020000f40        0xc Sinteck/img_inc/Btn_poweron.o
+                0x0000000020000f40                Btn_poweron
  .data.Btn_poweron_am
-                0x0000000020001b8c        0xc Sinteck/img_inc/Btn_poweron_am.o
-                0x0000000020001b8c                Btn_poweron_am
+                0x0000000020000f4c        0xc Sinteck/img_inc/Btn_poweron_am.o
+                0x0000000020000f4c                Btn_poweron_am
  .data.Btn_poweron_vd
-                0x0000000020001b98        0xc Sinteck/img_inc/Btn_poweron_vd.o
-                0x0000000020001b98                Btn_poweron_vd
+                0x0000000020000f58        0xc Sinteck/img_inc/Btn_poweron_vd.o
+                0x0000000020000f58                Btn_poweron_vd
  .data.Btn_prev
-                0x0000000020001ba4        0xc Sinteck/img_inc/Btn_prev.o
-                0x0000000020001ba4                Btn_prev
+                0x0000000020000f64        0xc Sinteck/img_inc/Btn_prev.o
+                0x0000000020000f64                Btn_prev
  .data.Btn_stereo
-                0x0000000020001bb0        0xc Sinteck/img_inc/Btn_stereo.o
-                0x0000000020001bb0                Btn_stereo
+                0x0000000020000f70        0xc Sinteck/img_inc/Btn_stereo.o
+                0x0000000020000f70                Btn_stereo
  .data.Btn_stereo_am
-                0x0000000020001bbc        0xc Sinteck/img_inc/Btn_stereo_am.o
-                0x0000000020001bbc                Btn_stereo_am
+                0x0000000020000f7c        0xc Sinteck/img_inc/Btn_stereo_am.o
+                0x0000000020000f7c                Btn_stereo_am
  .data.stereo_off
-                0x0000000020001bc8        0xc Sinteck/img_inc/stereo_off.o
-                0x0000000020001bc8                stereo_off
+                0x0000000020000f88        0xc Sinteck/img_inc/stereo_off.o
+                0x0000000020000f88                stereo_off
  .data.stereo_vd
-                0x0000000020001bd4        0xc Sinteck/img_inc/stereo_vd.o
-                0x0000000020001bd4                stereo_vd
- .data.tela_0   0x0000000020001be0        0xc Sinteck/img_inc/tela_0.o
-                0x0000000020001be0                tela_0
+                0x0000000020000f94        0xc Sinteck/img_inc/stereo_vd.o
+                0x0000000020000f94                stereo_vd
+ .data.tela_0   0x0000000020000fa0        0xc Sinteck/img_inc/tela_0.o
+                0x0000000020000fa0                tela_0
  .data.tela_audio
-                0x0000000020001bec        0xc Sinteck/img_inc/tela_audio.o
-                0x0000000020001bec                tela_audio
+                0x0000000020000fac        0xc Sinteck/img_inc/tela_audio.o
+                0x0000000020000fac                tela_audio
  .data.tela_audio_1
-                0x0000000020001bf8        0xc Sinteck/img_inc/tela_audio_1.o
-                0x0000000020001bf8                tela_audio_1
+                0x0000000020000fb8        0xc Sinteck/img_inc/tela_audio_1.o
+                0x0000000020000fb8                tela_audio_1
  .data.tela_audio_2
-                0x0000000020001c04        0xc Sinteck/img_inc/tela_audio_2.o
-                0x0000000020001c04                tela_audio_2
+                0x0000000020000fc4        0xc Sinteck/img_inc/tela_audio_2.o
+                0x0000000020000fc4                tela_audio_2
  .data.tela_freq
-                0x0000000020001c10        0xc Sinteck/img_inc/tela_freq.o
-                0x0000000020001c10                tela_freq
+                0x0000000020000fd0        0xc Sinteck/img_inc/tela_freq.o
+                0x0000000020000fd0                tela_freq
  .data.tela_reading_audio
-                0x0000000020001c1c        0xc Sinteck/img_inc/tela_reading_audio.o
-                0x0000000020001c1c                tela_reading_audio
+                0x0000000020000fdc        0xc Sinteck/img_inc/tela_reading_audio.o
+                0x0000000020000fdc                tela_reading_audio
  .data.tela_reading_efic
-                0x0000000020001c28        0xc Sinteck/img_inc/tela_reading_efic.o
-                0x0000000020001c28                tela_reading_efic
+                0x0000000020000fe8        0xc Sinteck/img_inc/tela_reading_efic.o
+                0x0000000020000fe8                tela_reading_efic
  .data.tela_reading_rf
-                0x0000000020001c34        0xc Sinteck/img_inc/tela_reading_rf.o
-                0x0000000020001c34                tela_reading_rf
+                0x0000000020000ff4        0xc Sinteck/img_inc/tela_reading_rf.o
+                0x0000000020000ff4                tela_reading_rf
  .data.tela_reading_temp
-                0x0000000020001c40        0xc Sinteck/img_inc/tela_reading_temp.o
-                0x0000000020001c40                tela_reading_temp
+                0x0000000020001000        0xc Sinteck/img_inc/tela_reading_temp.o
+                0x0000000020001000                tela_reading_temp
  .data.tela_reading_vpa
-                0x0000000020001c4c        0xc Sinteck/img_inc/tela_reading_vpa.o
-                0x0000000020001c4c                tela_reading_vpa
- .data.tela_rf  0x0000000020001c58        0xc Sinteck/img_inc/tela_rf.o
-                0x0000000020001c58                tela_rf
+                0x000000002000100c        0xc Sinteck/img_inc/tela_reading_vpa.o
+                0x000000002000100c                tela_reading_vpa
+ .data.tela_rf  0x0000000020001018        0xc Sinteck/img_inc/tela_rf.o
+                0x0000000020001018                tela_rf
  .data.tela_rf_1
-                0x0000000020001c64        0xc Sinteck/img_inc/tela_rf_1.o
-                0x0000000020001c64                tela_rf_1
+                0x0000000020001024        0xc Sinteck/img_inc/tela_rf_1.o
+                0x0000000020001024                tela_rf_1
  .data.tela_rf_2
-                0x0000000020001c70        0xc Sinteck/img_inc/tela_rf_2.o
-                0x0000000020001c70                tela_rf_2
+                0x0000000020001030        0xc Sinteck/img_inc/tela_rf_2.o
+                0x0000000020001030                tela_rf_2
  .data.tela_sel
-                0x0000000020001c7c        0xc Sinteck/img_inc/tela_sel.o
-                0x0000000020001c7c                tela_sel
+                0x000000002000103c        0xc Sinteck/img_inc/tela_sel.o
+                0x000000002000103c                tela_sel
  .data.tela_status
-                0x0000000020001c88        0xc Sinteck/img_inc/tela_status.o
-                0x0000000020001c88                tela_status
- .data.FS_Desc  0x0000000020001c94       0x20 USB_DEVICE/App/usbd_desc.o
-                0x0000000020001c94                FS_Desc
+                0x0000000020001048        0xc Sinteck/img_inc/tela_status.o
+                0x0000000020001048                tela_status
+ .data.FS_Desc  0x0000000020001054       0x20 USB_DEVICE/App/usbd_desc.o
+                0x0000000020001054                FS_Desc
  .data.USBD_FS_BOSDesc
-                0x0000000020001cb4        0xc USB_DEVICE/App/usbd_desc.o
-                0x0000000020001cb4                USBD_FS_BOSDesc
+                0x0000000020001074        0xc USB_DEVICE/App/usbd_desc.o
+                0x0000000020001074                USBD_FS_BOSDesc
  .data.USBD_FS_DeviceDesc
-                0x0000000020001cc0       0x12 USB_DEVICE/App/usbd_desc.o
-                0x0000000020001cc0                USBD_FS_DeviceDesc
- *fill*         0x0000000020001cd2        0x2 
+                0x0000000020001080       0x12 USB_DEVICE/App/usbd_desc.o
+                0x0000000020001080                USBD_FS_DeviceDesc
+ *fill*         0x0000000020001092        0x2 
  .data.USBD_LangIDDesc
-                0x0000000020001cd4        0x4 USB_DEVICE/App/usbd_desc.o
-                0x0000000020001cd4                USBD_LangIDDesc
+                0x0000000020001094        0x4 USB_DEVICE/App/usbd_desc.o
+                0x0000000020001094                USBD_LangIDDesc
  .data.USBD_StringSerial
-                0x0000000020001cd8       0x1a USB_DEVICE/App/usbd_desc.o
-                0x0000000020001cd8                USBD_StringSerial
- *fill*         0x0000000020001cf2        0x2 
+                0x0000000020001098       0x1a USB_DEVICE/App/usbd_desc.o
+                0x0000000020001098                USBD_StringSerial
+ *fill*         0x00000000200010b2        0x2 
  .data.USBD_Storage_Interface_fops_FS
-                0x0000000020001cf4       0x20 USB_DEVICE/App/usbd_storage_if.o
-                0x0000000020001cf4                USBD_Storage_Interface_fops_FS
+                0x00000000200010b4       0x20 USB_DEVICE/App/usbd_storage_if.o
+                0x00000000200010b4                USBD_Storage_Interface_fops_FS
  .data.lv_encoded_get_char_id
-                0x0000000020001d14        0x4 lvgl/src/lv_misc/lv_txt.o
-                0x0000000020001d14                lv_encoded_get_char_id
+                0x00000000200010d4        0x4 lvgl/src/lv_misc/lv_txt.o
+                0x00000000200010d4                lv_encoded_get_char_id
  .data.lv_txt_encoded_get_byte_id
-                0x0000000020001d18        0x4 lvgl/src/lv_misc/lv_txt.o
-                0x0000000020001d18                lv_txt_encoded_get_byte_id
+                0x00000000200010d8        0x4 lvgl/src/lv_misc/lv_txt.o
+                0x00000000200010d8                lv_txt_encoded_get_byte_id
  .data.lv_txt_encoded_next
-                0x0000000020001d1c        0x4 lvgl/src/lv_misc/lv_txt.o
-                0x0000000020001d1c                lv_txt_encoded_next
+                0x00000000200010dc        0x4 lvgl/src/lv_misc/lv_txt.o
+                0x00000000200010dc                lv_txt_encoded_next
  .data.lv_txt_encoded_prev
-                0x0000000020001d20        0x4 lvgl/src/lv_misc/lv_txt.o
-                0x0000000020001d20                lv_txt_encoded_prev
+                0x00000000200010e0        0x4 lvgl/src/lv_misc/lv_txt.o
+                0x00000000200010e0                lv_txt_encoded_prev
  .data.lv_txt_encoded_size
-                0x0000000020001d24        0x4 lvgl/src/lv_misc/lv_txt.o
-                0x0000000020001d24                lv_txt_encoded_size
+                0x00000000200010e4        0x4 lvgl/src/lv_misc/lv_txt.o
+                0x00000000200010e4                lv_txt_encoded_size
  .data.lv_txt_get_encoded_length
-                0x0000000020001d28        0x4 lvgl/src/lv_misc/lv_txt.o
-                0x0000000020001d28                lv_txt_get_encoded_length
+                0x00000000200010e8        0x4 lvgl/src/lv_misc/lv_txt.o
+                0x00000000200010e8                lv_txt_get_encoded_length
  .data._impure_ptr
-                0x0000000020001d2c        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-impure.o)
-                0x0000000020001d2c                _impure_ptr
+                0x00000000200010ec        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-impure.o)
+                0x00000000200010ec                _impure_ptr
  .data.impure_data
-                0x0000000020001d30       0xf0 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-impure.o)
+                0x00000000200010f0       0xf0 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-impure.o)
  .data.__malloc_av_
-                0x0000000020001e20      0x408 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mallocr.o)
-                0x0000000020001e20                __malloc_av_
+                0x00000000200011e0      0x408 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mallocr.o)
+                0x00000000200011e0                __malloc_av_
  .data.__malloc_sbrk_base
-                0x0000000020002228        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mallocr.o)
-                0x0000000020002228                __malloc_sbrk_base
+                0x00000000200015e8        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mallocr.o)
+                0x00000000200015e8                __malloc_sbrk_base
  .data.__malloc_trim_threshold
-                0x000000002000222c        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mallocr.o)
-                0x000000002000222c                __malloc_trim_threshold
+                0x00000000200015ec        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mallocr.o)
+                0x00000000200015ec                __malloc_trim_threshold
  .data.__global_locale
-                0x0000000020002230      0x16c /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-locale.o)
-                0x0000000020002230                __global_locale
-                0x000000002000239c                . = ALIGN (0x4)
-                0x000000002000239c                _edata = .
+                0x00000000200015f0      0x16c /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-locale.o)
+                0x00000000200015f0                __global_locale
+                0x000000002000175c                . = ALIGN (0x4)
+                0x000000002000175c                _edata = .
 
-.igot.plt       0x000000002000239c        0x0 load address 0x00000000080f6c24
- .igot.plt      0x000000002000239c        0x0 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/crtbegin.o
-                0x000000002000239c                . = ALIGN (0x4)
+.igot.plt       0x000000002000175c        0x0 load address 0x00000000080ec7e4
+ .igot.plt      0x000000002000175c        0x0 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/crtbegin.o
+                0x000000002000175c                . = ALIGN (0x4)
 
-.bss            0x000000002000239c     0x8d14 load address 0x00000000080f6c24
-                0x000000002000239c                _sbss = .
-                0x000000002000239c                __bss_start__ = _sbss
+.bss            0x000000002000175c     0x8914 load address 0x00000000080ec7e4
+                0x000000002000175c                _sbss = .
+                0x000000002000175c                __bss_start__ = _sbss
  *(.bss)
- .bss           0x000000002000239c       0x1c /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/crtbegin.o
+ .bss           0x000000002000175c       0x1c /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/crtbegin.o
  *(.bss*)
- .bss.buf_tft   0x00000000200023b8      0xce4 Core/Src/ST7735.o
-                0x00000000200023b8                buf_tft
+ .bss.buf_tft   0x0000000020001778      0xce4 Core/Src/ST7735.o
+                0x0000000020001778                buf_tft
  .bss.evt_queue
-                0x000000002000309c       0x82 Core/Src/key.o
+                0x000000002000245c       0x82 Core/Src/key.o
  .bss.Cfg_Audio
-                0x000000002000311e        0x1 Core/Src/main.o
-                0x000000002000311e                Cfg_Audio
+                0x00000000200024de        0x1 Core/Src/main.o
+                0x00000000200024de                Cfg_Audio
  .bss.Cfg_Clipper
-                0x000000002000311f        0x1 Core/Src/main.o
-                0x000000002000311f                Cfg_Clipper
+                0x00000000200024df        0x1 Core/Src/main.o
+                0x00000000200024df                Cfg_Clipper
  .bss.Cfg_Emphase
-                0x0000000020003120        0x1 Core/Src/main.o
-                0x0000000020003120                Cfg_Emphase
+                0x00000000200024e0        0x1 Core/Src/main.o
+                0x00000000200024e0                Cfg_Emphase
  .bss.Cfg_Processador
-                0x0000000020003121        0x1 Core/Src/main.o
-                0x0000000020003121                Cfg_Processador
- *fill*         0x0000000020003122        0x2 
- .bss.MenuSel   0x0000000020003124        0x4 Core/Src/main.o
-                0x0000000020003124                MenuSel
+                0x00000000200024e1        0x1 Core/Src/main.o
+                0x00000000200024e1                Cfg_Processador
+ *fill*         0x00000000200024e2        0x2 
+ .bss.MenuSel   0x00000000200024e4        0x4 Core/Src/main.o
+                0x00000000200024e4                MenuSel
  .bss.TelaAtiva
-                0x0000000020003128        0x4 Core/Src/main.o
-                0x0000000020003128                TelaAtiva
- .bss.buf       0x000000002000312c      0xc80 Core/Src/main.o
- .bss.buffer    0x0000000020003dac       0xc8 Core/Src/main.o
-                0x0000000020003dac                buffer
- .bss.disp_buf  0x0000000020003e74       0x1c Core/Src/main.o
- .bss.falha     0x0000000020003e90        0x4 Core/Src/main.o
-                0x0000000020003e90                falha
- .bss.forward   0x0000000020003e94        0x4 Core/Src/main.o
-                0x0000000020003e94                forward
+                0x00000000200024e8        0x4 Core/Src/main.o
+                0x00000000200024e8                TelaAtiva
+ .bss.buf       0x00000000200024ec      0xc80 Core/Src/main.o
+ .bss.buffer    0x000000002000316c       0xc8 Core/Src/main.o
+                0x000000002000316c                buffer
+ .bss.disp_buf  0x0000000020003234       0x1c Core/Src/main.o
+ .bss.falha     0x0000000020003250        0x4 Core/Src/main.o
+                0x0000000020003250                falha
+ .bss.forward   0x0000000020003254        0x4 Core/Src/main.o
+                0x0000000020003254                forward
  .bss.mp3_status
-                0x0000000020003e98        0x1 Core/Src/main.o
-                0x0000000020003e98                mp3_status
- *fill*         0x0000000020003e99        0x3 
- .bss.mpx       0x0000000020003e9c        0x4 Core/Src/main.o
-                0x0000000020003e9c                mpx
+                0x0000000020003258        0x1 Core/Src/main.o
+                0x0000000020003258                mp3_status
+ *fill*         0x0000000020003259        0x3 
+ .bss.mpx       0x000000002000325c        0x4 Core/Src/main.o
+                0x000000002000325c                mpx
  .bss.reflected
-                0x0000000020003ea0        0x4 Core/Src/main.o
-                0x0000000020003ea0                reflected
- .bss.sent_hor  0x0000000020003ea4        0x1 Core/Src/main.o
-                0x0000000020003ea4                sent_hor
- *fill*         0x0000000020003ea5        0x1 
- .bss.tft_pwm   0x0000000020003ea6        0x2 Core/Src/main.o
-                0x0000000020003ea6                tft_pwm
+                0x0000000020003260        0x4 Core/Src/main.o
+                0x0000000020003260                reflected
+ .bss.sent_hor  0x0000000020003264        0x1 Core/Src/main.o
+                0x0000000020003264                sent_hor
+ *fill*         0x0000000020003265        0x1 
+ .bss.tft_pwm   0x0000000020003266        0x2 Core/Src/main.o
+                0x0000000020003266                tft_pwm
  .bss.timer_gui
-                0x0000000020003ea8        0x4 Core/Src/main.o
-                0x0000000020003ea8                timer_gui
+                0x0000000020003268        0x4 Core/Src/main.o
+                0x0000000020003268                timer_gui
  .bss.timer_key
-                0x0000000020003eac        0x4 Core/Src/main.o
-                0x0000000020003eac                timer_key
+                0x000000002000326c        0x4 Core/Src/main.o
+                0x000000002000326c                timer_key
  .bss.timer_loop
-                0x0000000020003eb0        0x4 Core/Src/main.o
-                0x0000000020003eb0                timer_loop
- .bss.CLKLast   0x0000000020003eb4        0x1 Core/Src/misc.o
-                0x0000000020003eb4                CLKLast
- .bss.aVal      0x0000000020003eb5        0x1 Core/Src/misc.o
-                0x0000000020003eb5                aVal
- .bss.bCW       0x0000000020003eb6        0x1 Core/Src/misc.o
-                0x0000000020003eb6                bCW
- *fill*         0x0000000020003eb7        0x1 
+                0x0000000020003270        0x4 Core/Src/main.o
+                0x0000000020003270                timer_loop
+ .bss.CLKLast   0x0000000020003274        0x1 Core/Src/misc.o
+                0x0000000020003274                CLKLast
+ .bss.aVal      0x0000000020003275        0x1 Core/Src/misc.o
+                0x0000000020003275                aVal
+ .bss.bCW       0x0000000020003276        0x1 Core/Src/misc.o
+                0x0000000020003276                bCW
+ *fill*         0x0000000020003277        0x1 
  .bss.encoderPosCount
-                0x0000000020003eb8        0x4 Core/Src/misc.o
-                0x0000000020003eb8                encoderPosCount
+                0x0000000020003278        0x4 Core/Src/misc.o
+                0x0000000020003278                encoderPosCount
  .bss.heap_end.7031
-                0x0000000020003ebc        0x4 Core/Src/syscalls.o
+                0x000000002000327c        0x4 Core/Src/syscalls.o
  .bss.cfgidx.12274
-                0x0000000020003ec0        0x1 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
- *fill*         0x0000000020003ec1        0x3 
- .bss.disk      0x0000000020003ec4        0xc Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
-                0x0000000020003ec4                disk
+                0x0000000020003280        0x1 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
+ *fill*         0x0000000020003281        0x3 
+ .bss.disk      0x0000000020003284        0xc Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
+                0x0000000020003284                disk
  .bss.Task_Principal
-                0x0000000020003ed0        0x4 Sinteck/GUI/main_screen.o
+                0x0000000020003290        0x4 Sinteck/GUI/main_screen.o
  .bss.Tela_Principal
-                0x0000000020003ed4        0x4 Sinteck/GUI/main_screen.o
- .bss.bar       0x0000000020003ed8       0x50 Sinteck/GUI/main_screen.o
+                0x0000000020003294        0x4 Sinteck/GUI/main_screen.o
+ .bss.bar       0x0000000020003298       0x50 Sinteck/GUI/main_screen.o
  .bss.cod_falha
-                0x0000000020003f28        0x4 Sinteck/GUI/main_screen.o
+                0x00000000200032e8        0x4 Sinteck/GUI/main_screen.o
  .bss.desc_falha
-                0x0000000020003f2c        0x4 Sinteck/GUI/main_screen.o
+                0x00000000200032ec        0x4 Sinteck/GUI/main_screen.o
  .bss.img_fundo
-                0x0000000020003f30        0x4 Sinteck/GUI/main_screen.o
+                0x00000000200032f0        0x4 Sinteck/GUI/main_screen.o
  .bss.img_stereo
-                0x0000000020003f34        0x4 Sinteck/GUI/main_screen.o
- .bss.style_cont.15220
-                0x0000000020003f38       0x3c Sinteck/GUI/main_screen.o
+                0x00000000200032f4        0x4 Sinteck/GUI/main_screen.o
+ .bss.style_cont.15218
+                0x00000000200032f8       0x3c Sinteck/GUI/main_screen.o
  .bss.style_indic_am
-                0x0000000020003f74       0x3c Sinteck/GUI/main_screen.o
+                0x0000000020003334       0x3c Sinteck/GUI/main_screen.o
  .bss.style_indic_cy
-                0x0000000020003fb0       0x3c Sinteck/GUI/main_screen.o
+                0x0000000020003370       0x3c Sinteck/GUI/main_screen.o
  .bss.style_indic_off
-                0x0000000020003fec       0x3c Sinteck/GUI/main_screen.o
+                0x00000000200033ac       0x3c Sinteck/GUI/main_screen.o
  .bss.style_indic_vd
-                0x0000000020004028       0x3c Sinteck/GUI/main_screen.o
+                0x00000000200033e8       0x3c Sinteck/GUI/main_screen.o
  .bss.style_indic_vm
-                0x0000000020004064       0x3c Sinteck/GUI/main_screen.o
- .bss.style_txt.15196
-                0x00000000200040a0       0x3c Sinteck/GUI/main_screen.o
- .bss.style_txt.15203
-                0x00000000200040dc       0x3c Sinteck/GUI/main_screen.o
- .bss.style_txt.15209
-                0x0000000020004118       0x3c Sinteck/GUI/main_screen.o
- .bss.style_txt1.15181
-                0x0000000020004154       0x3c Sinteck/GUI/main_screen.o
- .bss.style_txt_fwd.15188
-                0x0000000020004190       0x3c Sinteck/GUI/main_screen.o
- .bss.style_txt_ref.15190
-                0x00000000200041cc       0x3c Sinteck/GUI/main_screen.o
- .bss.txt_fwd   0x0000000020004208        0x4 Sinteck/GUI/main_screen.o
- .bss.txt_pot   0x000000002000420c        0x4 Sinteck/GUI/main_screen.o
- .bss.txt_ref   0x0000000020004210        0x4 Sinteck/GUI/main_screen.o
- .bss.txt_swr   0x0000000020004214        0x4 Sinteck/GUI/main_screen.o
- .bss.txt_temp  0x0000000020004218        0x4 Sinteck/GUI/main_screen.o
+                0x0000000020003424       0x3c Sinteck/GUI/main_screen.o
+ .bss.style_txt.15194
+                0x0000000020003460       0x3c Sinteck/GUI/main_screen.o
+ .bss.style_txt.15201
+                0x000000002000349c       0x3c Sinteck/GUI/main_screen.o
+ .bss.style_txt.15207
+                0x00000000200034d8       0x3c Sinteck/GUI/main_screen.o
+ .bss.style_txt1.15179
+                0x0000000020003514       0x3c Sinteck/GUI/main_screen.o
+ .bss.style_txt_fwd.15186
+                0x0000000020003550       0x3c Sinteck/GUI/main_screen.o
+ .bss.style_txt_ref.15188
+                0x000000002000358c       0x3c Sinteck/GUI/main_screen.o
+ .bss.txt_fwd   0x00000000200035c8        0x4 Sinteck/GUI/main_screen.o
+ .bss.txt_pot   0x00000000200035cc        0x4 Sinteck/GUI/main_screen.o
+ .bss.txt_ref   0x00000000200035d0        0x4 Sinteck/GUI/main_screen.o
+ .bss.txt_swr   0x00000000200035d4        0x4 Sinteck/GUI/main_screen.o
+ .bss.txt_temp  0x00000000200035d8        0x4 Sinteck/GUI/main_screen.o
  .bss.IndiceAudio
-                0x000000002000421c        0x4 Sinteck/GUI/screen_audio.o
-                0x000000002000421c                IndiceAudio
+                0x00000000200035dc        0x4 Sinteck/GUI/screen_audio.o
+                0x00000000200035dc                IndiceAudio
  .bss.IndiceAudio_1
-                0x0000000020004220        0x4 Sinteck/GUI/screen_audio.o
-                0x0000000020004220                IndiceAudio_1
+                0x00000000200035e0        0x4 Sinteck/GUI/screen_audio.o
+                0x00000000200035e0                IndiceAudio_1
  .bss.IndiceAudio_2
-                0x0000000020004224        0x4 Sinteck/GUI/screen_audio.o
-                0x0000000020004224                IndiceAudio_2
+                0x00000000200035e4        0x4 Sinteck/GUI/screen_audio.o
+                0x00000000200035e4                IndiceAudio_2
  .bss.TelaAudioProg
-                0x0000000020004228        0x4 Sinteck/GUI/screen_audio.o
-                0x0000000020004228                TelaAudioProg
+                0x00000000200035e8        0x4 Sinteck/GUI/screen_audio.o
+                0x00000000200035e8                TelaAudioProg
  .bss.TelaAudioProg_1
-                0x000000002000422c        0x4 Sinteck/GUI/screen_audio.o
-                0x000000002000422c                TelaAudioProg_1
+                0x00000000200035ec        0x4 Sinteck/GUI/screen_audio.o
+                0x00000000200035ec                TelaAudioProg_1
  .bss.TelaAudioProg_2
-                0x0000000020004230        0x4 Sinteck/GUI/screen_audio.o
-                0x0000000020004230                TelaAudioProg_2
+                0x00000000200035f0        0x4 Sinteck/GUI/screen_audio.o
+                0x00000000200035f0                TelaAudioProg_2
  .bss.Tela_Audio
-                0x0000000020004234        0x4 Sinteck/GUI/screen_audio.o
+                0x00000000200035f4        0x4 Sinteck/GUI/screen_audio.o
  .bss.Tela_Audio_1
-                0x0000000020004238        0x4 Sinteck/GUI/screen_audio.o
+                0x00000000200035f8        0x4 Sinteck/GUI/screen_audio.o
  .bss.Tela_Audio_2
-                0x000000002000423c        0x4 Sinteck/GUI/screen_audio.o
- .bss.bar       0x0000000020004240        0x8 Sinteck/GUI/screen_audio.o
+                0x00000000200035fc        0x4 Sinteck/GUI/screen_audio.o
+ .bss.bar       0x0000000020003600        0x8 Sinteck/GUI/screen_audio.o
  .bss.img_fundo
-                0x0000000020004248        0x4 Sinteck/GUI/screen_audio.o
- .bss.imgbtn1   0x000000002000424c        0x8 Sinteck/GUI/screen_audio.o
- .bss.imgbtn2   0x0000000020004254       0x10 Sinteck/GUI/screen_audio.o
+                0x0000000020003608        0x4 Sinteck/GUI/screen_audio.o
+ .bss.imgbtn1   0x000000002000360c        0x8 Sinteck/GUI/screen_audio.o
+ .bss.imgbtn2   0x0000000020003614       0x10 Sinteck/GUI/screen_audio.o
  .bss.imgbtn_next
-                0x0000000020004264        0x8 Sinteck/GUI/screen_audio.o
+                0x0000000020003624        0x8 Sinteck/GUI/screen_audio.o
  .bss.imgbtn_prev
-                0x000000002000426c        0xc Sinteck/GUI/screen_audio.o
+                0x000000002000362c        0xc Sinteck/GUI/screen_audio.o
  .bss.style_indic
-                0x0000000020004278       0x3c Sinteck/GUI/screen_audio.o
+                0x0000000020003638       0x3c Sinteck/GUI/screen_audio.o
  .bss.style_indic_am
-                0x00000000200042b4       0x3c Sinteck/GUI/screen_audio.o
+                0x0000000020003674       0x3c Sinteck/GUI/screen_audio.o
  .bss.style_indic_vd
-                0x00000000200042f0       0x3c Sinteck/GUI/screen_audio.o
+                0x00000000200036b0       0x3c Sinteck/GUI/screen_audio.o
  .bss.IndiceFREQ
-                0x000000002000432c        0x4 Sinteck/GUI/screen_frequency.o
-                0x000000002000432c                IndiceFREQ
+                0x00000000200036ec        0x4 Sinteck/GUI/screen_frequency.o
+                0x00000000200036ec                IndiceFREQ
  .bss.TelaProgFREQ
-                0x0000000020004330        0x4 Sinteck/GUI/screen_frequency.o
-                0x0000000020004330                TelaProgFREQ
+                0x00000000200036f0        0x4 Sinteck/GUI/screen_frequency.o
+                0x00000000200036f0                TelaProgFREQ
  .bss.Tela_Freq
-                0x0000000020004334        0x4 Sinteck/GUI/screen_frequency.o
- .bss.bar       0x0000000020004338       0x54 Sinteck/GUI/screen_frequency.o
+                0x00000000200036f4        0x4 Sinteck/GUI/screen_frequency.o
+ .bss.bar       0x00000000200036f8       0x54 Sinteck/GUI/screen_frequency.o
  .bss.img_fundo
-                0x000000002000438c        0x4 Sinteck/GUI/screen_frequency.o
+                0x000000002000374c        0x4 Sinteck/GUI/screen_frequency.o
  .bss.rollerfreq
-                0x0000000020004390       0x18 Sinteck/GUI/screen_frequency.o
- .bss.sf        0x00000000200043a8       0x28 Sinteck/GUI/screen_frequency.o
+                0x0000000020003750       0x18 Sinteck/GUI/screen_frequency.o
+ .bss.sf        0x0000000020003768       0x28 Sinteck/GUI/screen_frequency.o
  .bss.style_indic_bar
-                0x00000000200043d0       0x3c Sinteck/GUI/screen_frequency.o
+                0x0000000020003790       0x3c Sinteck/GUI/screen_frequency.o
  .bss.style_indic_bar_vd
-                0x000000002000440c       0x3c Sinteck/GUI/screen_frequency.o
+                0x00000000200037cc       0x3c Sinteck/GUI/screen_frequency.o
  .bss.style_roller
-                0x0000000020004448       0x3c Sinteck/GUI/screen_frequency.o
+                0x0000000020003808       0x3c Sinteck/GUI/screen_frequency.o
  .bss.style_roller_anim
-                0x0000000020004484       0x3c Sinteck/GUI/screen_frequency.o
+                0x0000000020003844       0x3c Sinteck/GUI/screen_frequency.o
  .bss.style_roller_bg
-                0x00000000200044c0       0x3c Sinteck/GUI/screen_frequency.o
+                0x0000000020003880       0x3c Sinteck/GUI/screen_frequency.o
  .bss.style_roller_s
-                0x00000000200044fc       0x3c Sinteck/GUI/screen_frequency.o
+                0x00000000200038bc       0x3c Sinteck/GUI/screen_frequency.o
  .bss.Tela_Reading_MPX
-                0x0000000020004538        0x4 Sinteck/GUI/screen_mpx.o
- .bss.bar_l     0x000000002000453c       0x60 Sinteck/GUI/screen_mpx.o
- .bss.bar_m     0x000000002000459c       0x60 Sinteck/GUI/screen_mpx.o
- .bss.bar_r     0x00000000200045fc       0x60 Sinteck/GUI/screen_mpx.o
+                0x00000000200038f8        0x4 Sinteck/GUI/screen_mpx.o
+ .bss.bar_l     0x00000000200038fc       0x60 Sinteck/GUI/screen_mpx.o
+ .bss.bar_m     0x000000002000395c       0x60 Sinteck/GUI/screen_mpx.o
+ .bss.bar_r     0x00000000200039bc       0x60 Sinteck/GUI/screen_mpx.o
  .bss.img_fundo
-                0x000000002000465c        0x4 Sinteck/GUI/screen_mpx.o
+                0x0000000020003a1c        0x4 Sinteck/GUI/screen_mpx.o
  .bss.imgbtn_next
-                0x0000000020004660        0x4 Sinteck/GUI/screen_mpx.o
+                0x0000000020003a20        0x4 Sinteck/GUI/screen_mpx.o
  .bss.style_indic_bar
-                0x0000000020004664       0x3c Sinteck/GUI/screen_mpx.o
+                0x0000000020003a24       0x3c Sinteck/GUI/screen_mpx.o
  .bss.style_indic_bar_vd
-                0x00000000200046a0       0x3c Sinteck/GUI/screen_mpx.o
+                0x0000000020003a60       0x3c Sinteck/GUI/screen_mpx.o
  .bss.Task_Reading_EFIC
-                0x00000000200046dc        0x4 Sinteck/GUI/screen_reading_efic.o
+                0x0000000020003a9c        0x4 Sinteck/GUI/screen_reading_efic.o
  .bss.Tela_Reading_EFIC
-                0x00000000200046e0        0x4 Sinteck/GUI/screen_reading_efic.o
- .bss.bar_e     0x00000000200046e4       0x40 Sinteck/GUI/screen_reading_efic.o
+                0x0000000020003aa0        0x4 Sinteck/GUI/screen_reading_efic.o
+ .bss.bar_e     0x0000000020003aa4       0x40 Sinteck/GUI/screen_reading_efic.o
  .bss.img_fundo
-                0x0000000020004724        0x4 Sinteck/GUI/screen_reading_efic.o
+                0x0000000020003ae4        0x4 Sinteck/GUI/screen_reading_efic.o
  .bss.imgbtn_next
-                0x0000000020004728        0x4 Sinteck/GUI/screen_reading_efic.o
+                0x0000000020003ae8        0x4 Sinteck/GUI/screen_reading_efic.o
  .bss.imgbtn_prev
-                0x000000002000472c        0x4 Sinteck/GUI/screen_reading_efic.o
+                0x0000000020003aec        0x4 Sinteck/GUI/screen_reading_efic.o
  .bss.style_indic_bar
-                0x0000000020004730       0x3c Sinteck/GUI/screen_reading_efic.o
+                0x0000000020003af0       0x3c Sinteck/GUI/screen_reading_efic.o
  .bss.style_indic_bar_vd
-                0x000000002000476c       0x3c Sinteck/GUI/screen_reading_efic.o
- .bss.style_txt1.15248
-                0x00000000200047a8       0x3c Sinteck/GUI/screen_reading_efic.o
- .bss.txt_efic  0x00000000200047e4        0x4 Sinteck/GUI/screen_reading_efic.o
+                0x0000000020003b2c       0x3c Sinteck/GUI/screen_reading_efic.o
+ .bss.style_txt1.15246
+                0x0000000020003b68       0x3c Sinteck/GUI/screen_reading_efic.o
+ .bss.txt_efic  0x0000000020003ba4        0x4 Sinteck/GUI/screen_reading_efic.o
  .bss.Task_Status
-                0x00000000200047e8        0x4 Sinteck/GUI/screen_reading_status.o
+                0x0000000020003ba8        0x4 Sinteck/GUI/screen_reading_status.o
  .bss.Tela_Reading_STS
-                0x00000000200047ec        0x4 Sinteck/GUI/screen_reading_status.o
+                0x0000000020003bac        0x4 Sinteck/GUI/screen_reading_status.o
  .bss.img_fundo
-                0x00000000200047f0        0x4 Sinteck/GUI/screen_reading_status.o
- .bss.imgbtn2   0x00000000200047f4        0x4 Sinteck/GUI/screen_reading_status.o
- .bss.style_txt1.15207
-                0x00000000200047f8       0x3c Sinteck/GUI/screen_reading_status.o
- .bss.txt_pll   0x0000000020004834        0x4 Sinteck/GUI/screen_reading_status.o
- .bss.txt_temp  0x0000000020004838        0x4 Sinteck/GUI/screen_reading_status.o
- .bss.txt_vswr  0x000000002000483c        0x4 Sinteck/GUI/screen_reading_status.o
+                0x0000000020003bb0        0x4 Sinteck/GUI/screen_reading_status.o
+ .bss.imgbtn2   0x0000000020003bb4        0x4 Sinteck/GUI/screen_reading_status.o
+ .bss.style_txt1.15205
+                0x0000000020003bb8       0x3c Sinteck/GUI/screen_reading_status.o
+ .bss.txt_pll   0x0000000020003bf4        0x4 Sinteck/GUI/screen_reading_status.o
+ .bss.txt_temp  0x0000000020003bf8        0x4 Sinteck/GUI/screen_reading_status.o
+ .bss.txt_vswr  0x0000000020003bfc        0x4 Sinteck/GUI/screen_reading_status.o
  .bss.Task_Reading_TEMP
-                0x0000000020004840        0x4 Sinteck/GUI/screen_reading_temp.o
+                0x0000000020003c00        0x4 Sinteck/GUI/screen_reading_temp.o
  .bss.Tela_Reading_TEMP
-                0x0000000020004844        0x4 Sinteck/GUI/screen_reading_temp.o
- .bss.bar_t     0x0000000020004848       0x50 Sinteck/GUI/screen_reading_temp.o
+                0x0000000020003c04        0x4 Sinteck/GUI/screen_reading_temp.o
+ .bss.bar_t     0x0000000020003c08       0x50 Sinteck/GUI/screen_reading_temp.o
  .bss.img_fundo
-                0x0000000020004898        0x4 Sinteck/GUI/screen_reading_temp.o
+                0x0000000020003c58        0x4 Sinteck/GUI/screen_reading_temp.o
  .bss.imgbtn_next
-                0x000000002000489c        0x4 Sinteck/GUI/screen_reading_temp.o
+                0x0000000020003c5c        0x4 Sinteck/GUI/screen_reading_temp.o
  .bss.imgbtn_prev
-                0x00000000200048a0        0x4 Sinteck/GUI/screen_reading_temp.o
+                0x0000000020003c60        0x4 Sinteck/GUI/screen_reading_temp.o
  .bss.style_indic_bar
-                0x00000000200048a4       0x3c Sinteck/GUI/screen_reading_temp.o
+                0x0000000020003c64       0x3c Sinteck/GUI/screen_reading_temp.o
  .bss.style_indic_bar_vd
-                0x00000000200048e0       0x3c Sinteck/GUI/screen_reading_temp.o
- .bss.style_txt1.15220
-                0x000000002000491c       0x3c Sinteck/GUI/screen_reading_temp.o
- .bss.txt_temp  0x0000000020004958        0x4 Sinteck/GUI/screen_reading_temp.o
+                0x0000000020003ca0       0x3c Sinteck/GUI/screen_reading_temp.o
+ .bss.style_txt1.15218
+                0x0000000020003cdc       0x3c Sinteck/GUI/screen_reading_temp.o
+ .bss.txt_temp  0x0000000020003d18        0x4 Sinteck/GUI/screen_reading_temp.o
  .bss.Task_Reading_VPA
-                0x000000002000495c        0x4 Sinteck/GUI/screen_reading_vpa.o
+                0x0000000020003d1c        0x4 Sinteck/GUI/screen_reading_vpa.o
  .bss.Tela_Reading_VPA
-                0x0000000020004960        0x4 Sinteck/GUI/screen_reading_vpa.o
- .bss.bar_ipa   0x0000000020004964       0x54 Sinteck/GUI/screen_reading_vpa.o
- .bss.bar_vpa   0x00000000200049b8       0x54 Sinteck/GUI/screen_reading_vpa.o
+                0x0000000020003d20        0x4 Sinteck/GUI/screen_reading_vpa.o
+ .bss.bar_ipa   0x0000000020003d24       0x54 Sinteck/GUI/screen_reading_vpa.o
+ .bss.bar_vpa   0x0000000020003d78       0x54 Sinteck/GUI/screen_reading_vpa.o
  .bss.img_fundo
-                0x0000000020004a0c        0x4 Sinteck/GUI/screen_reading_vpa.o
+                0x0000000020003dcc        0x4 Sinteck/GUI/screen_reading_vpa.o
  .bss.imgbtn_next
-                0x0000000020004a10        0x4 Sinteck/GUI/screen_reading_vpa.o
+                0x0000000020003dd0        0x4 Sinteck/GUI/screen_reading_vpa.o
  .bss.imgbtn_prev
-                0x0000000020004a14        0x4 Sinteck/GUI/screen_reading_vpa.o
+                0x0000000020003dd4        0x4 Sinteck/GUI/screen_reading_vpa.o
  .bss.style_indic_bar
-                0x0000000020004a18       0x3c Sinteck/GUI/screen_reading_vpa.o
+                0x0000000020003dd8       0x3c Sinteck/GUI/screen_reading_vpa.o
  .bss.style_indic_bar_vd
-                0x0000000020004a54       0x3c Sinteck/GUI/screen_reading_vpa.o
- .bss.style_txt1.15222
-                0x0000000020004a90       0x3c Sinteck/GUI/screen_reading_vpa.o
- .bss.style_txt1.15228
-                0x0000000020004acc       0x3c Sinteck/GUI/screen_reading_vpa.o
- .bss.txt_ipa   0x0000000020004b08        0x4 Sinteck/GUI/screen_reading_vpa.o
- .bss.txt_vpa   0x0000000020004b0c        0x4 Sinteck/GUI/screen_reading_vpa.o
+                0x0000000020003e14       0x3c Sinteck/GUI/screen_reading_vpa.o
+ .bss.style_txt1.15220
+                0x0000000020003e50       0x3c Sinteck/GUI/screen_reading_vpa.o
+ .bss.style_txt1.15226
+                0x0000000020003e8c       0x3c Sinteck/GUI/screen_reading_vpa.o
+ .bss.txt_ipa   0x0000000020003ec8        0x4 Sinteck/GUI/screen_reading_vpa.o
+ .bss.txt_vpa   0x0000000020003ecc        0x4 Sinteck/GUI/screen_reading_vpa.o
  .bss.Task_Readings
-                0x0000000020004b10        0x4 Sinteck/GUI/screen_readings.o
+                0x0000000020003ed0        0x4 Sinteck/GUI/screen_readings.o
  .bss.Tela_Readings
-                0x0000000020004b14        0x4 Sinteck/GUI/screen_readings.o
- .bss.bar_fwd   0x0000000020004b18       0x54 Sinteck/GUI/screen_readings.o
- .bss.bar_swr   0x0000000020004b6c       0x54 Sinteck/GUI/screen_readings.o
+                0x0000000020003ed4        0x4 Sinteck/GUI/screen_readings.o
+ .bss.bar_fwd   0x0000000020003ed8       0x54 Sinteck/GUI/screen_readings.o
+ .bss.bar_swr   0x0000000020003f2c       0x54 Sinteck/GUI/screen_readings.o
  .bss.img_fundo
-                0x0000000020004bc0        0x4 Sinteck/GUI/screen_readings.o
+                0x0000000020003f80        0x4 Sinteck/GUI/screen_readings.o
  .bss.imgbtn_next
-                0x0000000020004bc4        0x4 Sinteck/GUI/screen_readings.o
+                0x0000000020003f84        0x4 Sinteck/GUI/screen_readings.o
  .bss.style_indic_bar
-                0x0000000020004bc8       0x3c Sinteck/GUI/screen_readings.o
+                0x0000000020003f88       0x3c Sinteck/GUI/screen_readings.o
  .bss.style_indic_bar_vd
-                0x0000000020004c04       0x3c Sinteck/GUI/screen_readings.o
- .bss.style_txt1.15239
-                0x0000000020004c40       0x3c Sinteck/GUI/screen_readings.o
- .bss.style_txt1.15244
-                0x0000000020004c7c       0x3c Sinteck/GUI/screen_readings.o
- .bss.txt_fwd   0x0000000020004cb8        0x4 Sinteck/GUI/screen_readings.o
- .bss.txt_swr   0x0000000020004cbc        0x4 Sinteck/GUI/screen_readings.o
- .bss.IndiceRF  0x0000000020004cc0        0x4 Sinteck/GUI/screen_rf.o
-                0x0000000020004cc0                IndiceRF
+                0x0000000020003fc4       0x3c Sinteck/GUI/screen_readings.o
+ .bss.style_txt1.15237
+                0x0000000020004000       0x3c Sinteck/GUI/screen_readings.o
+ .bss.style_txt1.15242
+                0x000000002000403c       0x3c Sinteck/GUI/screen_readings.o
+ .bss.txt_fwd   0x0000000020004078        0x4 Sinteck/GUI/screen_readings.o
+ .bss.txt_swr   0x000000002000407c        0x4 Sinteck/GUI/screen_readings.o
+ .bss.IndiceRF  0x0000000020004080        0x4 Sinteck/GUI/screen_rf.o
+                0x0000000020004080                IndiceRF
  .bss.IndiceRF_1
-                0x0000000020004cc4        0x4 Sinteck/GUI/screen_rf.o
-                0x0000000020004cc4                IndiceRF_1
+                0x0000000020004084        0x4 Sinteck/GUI/screen_rf.o
+                0x0000000020004084                IndiceRF_1
  .bss.IndiceRF_2
-                0x0000000020004cc8        0x4 Sinteck/GUI/screen_rf.o
-                0x0000000020004cc8                IndiceRF_2
- .bss.Task_RF   0x0000000020004ccc        0x4 Sinteck/GUI/screen_rf.o
+                0x0000000020004088        0x4 Sinteck/GUI/screen_rf.o
+                0x0000000020004088                IndiceRF_2
+ .bss.Task_RF   0x000000002000408c        0x4 Sinteck/GUI/screen_rf.o
  .bss.Task_RF_1
-                0x0000000020004cd0        0x4 Sinteck/GUI/screen_rf.o
+                0x0000000020004090        0x4 Sinteck/GUI/screen_rf.o
  .bss.TelaProgRF
-                0x0000000020004cd4        0x4 Sinteck/GUI/screen_rf.o
-                0x0000000020004cd4                TelaProgRF
+                0x0000000020004094        0x4 Sinteck/GUI/screen_rf.o
+                0x0000000020004094                TelaProgRF
  .bss.TelaProgRF_1
-                0x0000000020004cd8        0x4 Sinteck/GUI/screen_rf.o
-                0x0000000020004cd8                TelaProgRF_1
+                0x0000000020004098        0x4 Sinteck/GUI/screen_rf.o
+                0x0000000020004098                TelaProgRF_1
  .bss.TelaProgRF_2
-                0x0000000020004cdc        0x4 Sinteck/GUI/screen_rf.o
-                0x0000000020004cdc                TelaProgRF_2
- .bss.Tela_RF   0x0000000020004ce0        0x4 Sinteck/GUI/screen_rf.o
+                0x000000002000409c        0x4 Sinteck/GUI/screen_rf.o
+                0x000000002000409c                TelaProgRF_2
+ .bss.Tela_RF   0x00000000200040a0        0x4 Sinteck/GUI/screen_rf.o
  .bss.Tela_RF_1
-                0x0000000020004ce4        0x4 Sinteck/GUI/screen_rf.o
+                0x00000000200040a4        0x4 Sinteck/GUI/screen_rf.o
  .bss.Tela_RF_2
-                0x0000000020004ce8        0x4 Sinteck/GUI/screen_rf.o
- .bss.bar_fwd   0x0000000020004cec       0x50 Sinteck/GUI/screen_rf.o
- .bss.bar_pwr   0x0000000020004d3c       0x28 Sinteck/GUI/screen_rf.o
- .bss.bar_swr   0x0000000020004d64       0x50 Sinteck/GUI/screen_rf.o
+                0x00000000200040a8        0x4 Sinteck/GUI/screen_rf.o
+ .bss.bar_fwd   0x00000000200040ac       0x50 Sinteck/GUI/screen_rf.o
+ .bss.bar_pwr   0x00000000200040fc       0x28 Sinteck/GUI/screen_rf.o
+ .bss.bar_swr   0x0000000020004124       0x50 Sinteck/GUI/screen_rf.o
  .bss.img_fundo
-                0x0000000020004db4        0x4 Sinteck/GUI/screen_rf.o
+                0x0000000020004174        0x4 Sinteck/GUI/screen_rf.o
  .bss.img_fundo_1
-                0x0000000020004db8        0x4 Sinteck/GUI/screen_rf.o
+                0x0000000020004178        0x4 Sinteck/GUI/screen_rf.o
  .bss.img_fundo_2
-                0x0000000020004dbc        0x4 Sinteck/GUI/screen_rf.o
- .bss.imgbtn1   0x0000000020004dc0        0x8 Sinteck/GUI/screen_rf.o
+                0x000000002000417c        0x4 Sinteck/GUI/screen_rf.o
+ .bss.imgbtn1   0x0000000020004180        0x8 Sinteck/GUI/screen_rf.o
  .bss.imgbtn_next
-                0x0000000020004dc8        0x8 Sinteck/GUI/screen_rf.o
+                0x0000000020004188        0x8 Sinteck/GUI/screen_rf.o
  .bss.rollerswr
-                0x0000000020004dd0        0x8 Sinteck/GUI/screen_rf.o
+                0x0000000020004190        0x8 Sinteck/GUI/screen_rf.o
  .bss.rollertarget
-                0x0000000020004dd8        0x8 Sinteck/GUI/screen_rf.o
- .bss.sa        0x0000000020004de0       0x28 Sinteck/GUI/screen_rf.o
+                0x0000000020004198        0x8 Sinteck/GUI/screen_rf.o
+ .bss.sa        0x00000000200041a0       0x28 Sinteck/GUI/screen_rf.o
  .bss.style_indic_bar
-                0x0000000020004e08       0x3c Sinteck/GUI/screen_rf.o
+                0x00000000200041c8       0x3c Sinteck/GUI/screen_rf.o
  .bss.style_indic_bar_vd
-                0x0000000020004e44       0x3c Sinteck/GUI/screen_rf.o
+                0x0000000020004204       0x3c Sinteck/GUI/screen_rf.o
  .bss.style_roller_anim
-                0x0000000020004e80       0x3c Sinteck/GUI/screen_rf.o
+                0x0000000020004240       0x3c Sinteck/GUI/screen_rf.o
  .bss.style_roller_b
-                0x0000000020004ebc       0x3c Sinteck/GUI/screen_rf.o
+                0x000000002000427c       0x3c Sinteck/GUI/screen_rf.o
  .bss.style_roller_bg
-                0x0000000020004ef8       0x3c Sinteck/GUI/screen_rf.o
+                0x00000000200042b8       0x3c Sinteck/GUI/screen_rf.o
  .bss.style_roller_save
-                0x0000000020004f34       0x3c Sinteck/GUI/screen_rf.o
- .bss.style_txt_fwd.15842
-                0x0000000020004f70       0x3c Sinteck/GUI/screen_rf.o
- .bss.var.16005
-                0x0000000020004fac        0x1 Sinteck/GUI/screen_rf.o
- *fill*         0x0000000020004fad        0x3 
- .bss.Tela_Sel  0x0000000020004fb0        0x4 Sinteck/GUI/screen_sel.o
+                0x00000000200042f4       0x3c Sinteck/GUI/screen_rf.o
+ .bss.style_txt_fwd.15840
+                0x0000000020004330       0x3c Sinteck/GUI/screen_rf.o
+ .bss.var.16003
+                0x000000002000436c        0x1 Sinteck/GUI/screen_rf.o
+ *fill*         0x000000002000436d        0x3 
+ .bss.Tela_Sel  0x0000000020004370        0x4 Sinteck/GUI/screen_sel.o
  .bss.img_fundo
-                0x0000000020004fb4        0x4 Sinteck/GUI/screen_sel.o
- .bss.imgbtn1   0x0000000020004fb8       0x10 Sinteck/GUI/screen_sel.o
+                0x0000000020004374        0x4 Sinteck/GUI/screen_sel.o
+ .bss.imgbtn1   0x0000000020004378       0x10 Sinteck/GUI/screen_sel.o
  .bss.mem.12484
-                0x0000000020004fc8      0x270 USB_DEVICE/Target/usbd_conf.o
+                0x0000000020004388      0x270 USB_DEVICE/Target/usbd_conf.o
  .bss.indev_act
-                0x0000000020005238        0x4 lvgl/src/lv_core/lv_indev.o
+                0x00000000200045f8        0x4 lvgl/src/lv_core/lv_indev.o
  .bss.event_act_data
-                0x000000002000523c        0x4 lvgl/src/lv_core/lv_obj.o
+                0x00000000200045fc        0x4 lvgl/src/lv_core/lv_obj.o
  .bss.event_temp_data_head
-                0x0000000020005240        0x4 lvgl/src/lv_core/lv_obj.o
+                0x0000000020004600        0x4 lvgl/src/lv_core/lv_obj.o
  .bss.lv_initialized
-                0x0000000020005244        0x1 lvgl/src/lv_core/lv_obj.o
- *fill*         0x0000000020005245        0x3 
+                0x0000000020004604        0x1 lvgl/src/lv_core/lv_obj.o
+ *fill*         0x0000000020004605        0x3 
  .bss.disp_refr
-                0x0000000020005248        0x4 lvgl/src/lv_core/lv_refr.o
- .bss.px_num    0x000000002000524c        0x4 lvgl/src/lv_core/lv_refr.o
+                0x0000000020004608        0x4 lvgl/src/lv_core/lv_refr.o
+ .bss.px_num    0x000000002000460c        0x4 lvgl/src/lv_core/lv_refr.o
  .bss.draw_buf_size
-                0x0000000020005250        0x4 lvgl/src/lv_draw/lv_draw.o
+                0x0000000020004610        0x4 lvgl/src/lv_draw/lv_draw.o
  .bss.entry_cnt
-                0x0000000020005254        0x2 lvgl/src/lv_draw/lv_img_cache.o
- *fill*         0x0000000020005256        0x2 
- .bss.disp_def  0x0000000020005258        0x4 lvgl/src/lv_hal/lv_hal_disp.o
- .bss.sys_time  0x000000002000525c        0x4 lvgl/src/lv_hal/lv_hal_tick.o
+                0x0000000020004614        0x2 lvgl/src/lv_draw/lv_img_cache.o
+ *fill*         0x0000000020004616        0x2 
+ .bss.disp_def  0x0000000020004618        0x4 lvgl/src/lv_hal/lv_hal_disp.o
+ .bss.sys_time  0x000000002000461c        0x4 lvgl/src/lv_hal/lv_hal_tick.o
  .bss.tick_irq_flag
-                0x0000000020005260        0x1 lvgl/src/lv_hal/lv_hal_tick.o
+                0x0000000020004620        0x1 lvgl/src/lv_hal/lv_hal_tick.o
  .bss.anim_list_changed
-                0x0000000020005261        0x1 lvgl/src/lv_misc/lv_anim.o
- *fill*         0x0000000020005262        0x2 
+                0x0000000020004621        0x1 lvgl/src/lv_misc/lv_anim.o
+ *fill*         0x0000000020004622        0x2 
  .bss.last_task_run
-                0x0000000020005264        0x4 lvgl/src/lv_misc/lv_anim.o
- .bss.work_mem  0x0000000020005268        0x4 lvgl/src/lv_misc/lv_mem.o
+                0x0000000020004624        0x4 lvgl/src/lv_misc/lv_anim.o
+ .bss.work_mem  0x0000000020004628        0x4 lvgl/src/lv_misc/lv_mem.o
  .bss.work_mem_int.5741
-                0x000000002000526c     0x4800 lvgl/src/lv_misc/lv_mem.o
- .bss.zero_mem  0x0000000020009a6c        0x4 lvgl/src/lv_misc/lv_mem.o
- .bss.busy_time.6469
-                0x0000000020009a70        0x4 lvgl/src/lv_misc/lv_task.o
- .bss.handler_start.6468
-                0x0000000020009a74        0x4 lvgl/src/lv_misc/lv_task.o
+                0x000000002000462c     0x4400 lvgl/src/lv_misc/lv_mem.o
+ .bss.zero_mem  0x0000000020008a2c        0x4 lvgl/src/lv_misc/lv_mem.o
+ .bss.busy_time.6467
+                0x0000000020008a30        0x4 lvgl/src/lv_misc/lv_task.o
+ .bss.handler_start.6466
+                0x0000000020008a34        0x4 lvgl/src/lv_misc/lv_task.o
  .bss.idle_last
-                0x0000000020009a78        0x1 lvgl/src/lv_misc/lv_task.o
- *fill*         0x0000000020009a79        0x3 
- .bss.idle_period_start.6467
-                0x0000000020009a7c        0x4 lvgl/src/lv_misc/lv_task.o
+                0x0000000020008a38        0x1 lvgl/src/lv_misc/lv_task.o
+ *fill*         0x0000000020008a39        0x3 
+ .bss.idle_period_start.6465
+                0x0000000020008a3c        0x4 lvgl/src/lv_misc/lv_task.o
  .bss.lv_task_run
-                0x0000000020009a80        0x1 lvgl/src/lv_misc/lv_task.o
+                0x0000000020008a40        0x1 lvgl/src/lv_misc/lv_task.o
  .bss.task_created
-                0x0000000020009a81        0x1 lvgl/src/lv_misc/lv_task.o
+                0x0000000020008a41        0x1 lvgl/src/lv_misc/lv_task.o
  .bss.task_deleted
-                0x0000000020009a82        0x1 lvgl/src/lv_misc/lv_task.o
- .bss.task_handler_mutex.6466
-                0x0000000020009a83        0x1 lvgl/src/lv_misc/lv_task.o
+                0x0000000020008a42        0x1 lvgl/src/lv_misc/lv_task.o
+ .bss.task_handler_mutex.6464
+                0x0000000020008a43        0x1 lvgl/src/lv_misc/lv_task.o
  .bss.ancestor_design_f
-                0x0000000020009a84        0x4 lvgl/src/lv_objx/lv_bar.o
+                0x0000000020008a44        0x4 lvgl/src/lv_objx/lv_bar.o
  .bss.ancestor_signal
-                0x0000000020009a88        0x4 lvgl/src/lv_objx/lv_bar.o
+                0x0000000020008a48        0x4 lvgl/src/lv_objx/lv_bar.o
  .bss.ancestor_design
-                0x0000000020009a8c        0x4 lvgl/src/lv_objx/lv_btn.o
+                0x0000000020008a4c        0x4 lvgl/src/lv_objx/lv_btn.o
  .bss.ancestor_signal
-                0x0000000020009a90        0x4 lvgl/src/lv_objx/lv_btn.o
+                0x0000000020008a50        0x4 lvgl/src/lv_objx/lv_btn.o
  .bss.ancestor_signal
-                0x0000000020009a94        0x4 lvgl/src/lv_objx/lv_cont.o
+                0x0000000020008a54        0x4 lvgl/src/lv_objx/lv_cont.o
  .bss.ancestor_design
-                0x0000000020009a98        0x4 lvgl/src/lv_objx/lv_ddlist.o
+                0x0000000020008a58        0x4 lvgl/src/lv_objx/lv_ddlist.o
  .bss.ancestor_scrl_signal
-                0x0000000020009a9c        0x4 lvgl/src/lv_objx/lv_ddlist.o
+                0x0000000020008a5c        0x4 lvgl/src/lv_objx/lv_ddlist.o
  .bss.ancestor_signal
-                0x0000000020009aa0        0x4 lvgl/src/lv_objx/lv_ddlist.o
+                0x0000000020008a60        0x4 lvgl/src/lv_objx/lv_ddlist.o
  .bss.ancestor_signal
-                0x0000000020009aa4        0x4 lvgl/src/lv_objx/lv_img.o
+                0x0000000020008a64        0x4 lvgl/src/lv_objx/lv_img.o
  .bss.ancestor_design
-                0x0000000020009aa8        0x4 lvgl/src/lv_objx/lv_imgbtn.o
+                0x0000000020008a68        0x4 lvgl/src/lv_objx/lv_imgbtn.o
  .bss.ancestor_signal
-                0x0000000020009aac        0x4 lvgl/src/lv_objx/lv_imgbtn.o
+                0x0000000020008a6c        0x4 lvgl/src/lv_objx/lv_imgbtn.o
  .bss.ancestor_signal
-                0x0000000020009ab0        0x4 lvgl/src/lv_objx/lv_label.o
+                0x0000000020008a70        0x4 lvgl/src/lv_objx/lv_label.o
  .bss.ancestor_design
-                0x0000000020009ab4        0x4 lvgl/src/lv_objx/lv_page.o
+                0x0000000020008a74        0x4 lvgl/src/lv_objx/lv_page.o
  .bss.ancestor_signal
-                0x0000000020009ab8        0x4 lvgl/src/lv_objx/lv_page.o
+                0x0000000020008a78        0x4 lvgl/src/lv_objx/lv_page.o
  .bss.ancestor_scrl_signal
-                0x0000000020009abc        0x4 lvgl/src/lv_objx/lv_roller.o
+                0x0000000020008a7c        0x4 lvgl/src/lv_objx/lv_roller.o
  .bss.ancestor_signal
-                0x0000000020009ac0        0x4 lvgl/src/lv_objx/lv_roller.o
+                0x0000000020008a80        0x4 lvgl/src/lv_objx/lv_roller.o
  .bss.current_theme
-                0x0000000020009ac4        0x4 lvgl/src/lv_themes/lv_theme.o
+                0x0000000020008a84        0x4 lvgl/src/lv_themes/lv_theme.o
  .bss.__malloc_current_mallinfo
-                0x0000000020009ac8       0x28 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mallocr.o)
-                0x0000000020009ac8                __malloc_current_mallinfo
+                0x0000000020008a88       0x28 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mallocr.o)
+                0x0000000020008a88                __malloc_current_mallinfo
  .bss.__malloc_max_sbrked_mem
-                0x0000000020009af0        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mallocr.o)
-                0x0000000020009af0                __malloc_max_sbrked_mem
+                0x0000000020008ab0        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mallocr.o)
+                0x0000000020008ab0                __malloc_max_sbrked_mem
  .bss.__malloc_max_total_mem
-                0x0000000020009af4        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mallocr.o)
-                0x0000000020009af4                __malloc_max_total_mem
+                0x0000000020008ab4        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mallocr.o)
+                0x0000000020008ab4                __malloc_max_total_mem
  .bss.__malloc_top_pad
-                0x0000000020009af8        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mallocr.o)
-                0x0000000020009af8                __malloc_top_pad
+                0x0000000020008ab8        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mallocr.o)
+                0x0000000020008ab8                __malloc_top_pad
  *(COMMON)
- COMMON         0x0000000020009afc        0x4 Core/Src/ST7735.o
-                0x0000000020009afc                scr_width
-                0x0000000020009afe                scr_height
- COMMON         0x0000000020009b00      0x258 Core/Src/key.o
-                0x0000000020009b00                btenter
-                0x0000000020009b18                bt
- COMMON         0x0000000020009d58      0x250 Core/Src/main.o
-                0x0000000020009d58                hdac1
-                0x0000000020009d6c                hi2c1
-                0x0000000020009db8                htim3
-                0x0000000020009df8                hspi3
-                0x0000000020009e5c                hadc1
-                0x0000000020009ec0                hrtc
-                0x0000000020009ee4                huart2
-                0x0000000020009f64                hqspi
- COMMON         0x0000000020009fa8       0x40 Core/Src/stm32l4xx_hal_timebase_tim.o
-                0x0000000020009fa8                htim6
- COMMON         0x0000000020009fe8       0x28 Core/Src/w25qxx.o
-                0x0000000020009fe8                w25qxx
- COMMON         0x000000002000a010        0x4 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.o
-                0x000000002000a010                uwTick
- COMMON         0x000000002000a014      0x468 FATFS/App/fatfs.o
-                0x000000002000a014                USERPath
-                0x000000002000a018                retUSER
-                0x000000002000a01c                USERFile
-                0x000000002000a24c                USERFatFS
- COMMON         0x000000002000a47c        0x8 Sinteck/GUI/screen_rf.o
-                0x000000002000a47c                roller_swr
-                0x000000002000a480                roller_target
- COMMON         0x000000002000a484      0x29c USB_DEVICE/App/usb_device.o
-                0x000000002000a484                hUsbDeviceFS
- COMMON         0x000000002000a720      0x200 USB_DEVICE/App/usbd_desc.o
-                0x000000002000a720                USBD_StrDesc
- COMMON         0x000000002000a920      0x408 USB_DEVICE/Target/usbd_conf.o
-                0x000000002000a920                hpcd_USB_OTG_FS
- COMMON         0x000000002000ad28      0x30c lvgl/src/lv_core/lv_style.o
-                0x000000002000ad28                lv_style_pretty_color
-                0x000000002000ad64                lv_style_transp
-                0x000000002000ada0                lv_style_btn_rel
-                0x000000002000addc                lv_style_btn_pr
-                0x000000002000ae18                lv_style_pretty
-                0x000000002000ae54                lv_style_transp_tight
-                0x000000002000ae90                lv_style_btn_ina
-                0x000000002000aecc                lv_style_transp_fit
-                0x000000002000af08                lv_style_plain
-                0x000000002000af44                lv_style_btn_tgl_rel
-                0x000000002000af80                lv_style_scr
-                0x000000002000afbc                lv_style_btn_tgl_pr
-                0x000000002000aff8                lv_style_plain_color
- COMMON         0x000000002000b034       0x6c lvgl/src/lv_misc/lv_gc.o
-                0x000000002000b034                _lv_task_ll
-                0x000000002000b040                _lv_indev_ll
-                0x000000002000b04c                _lv_draw_buf
-                0x000000002000b050                _lv_disp_ll
-                0x000000002000b05c                _lv_img_defoder_ll
-                0x000000002000b068                _lv_drv_ll
-                0x000000002000b074                _lv_task_act
-                0x000000002000b078                _lv_img_cache_array
-                0x000000002000b07c                _lv_anim_ll
-                0x000000002000b088                _lv_group_ll
-                0x000000002000b094                _lv_file_ll
- COMMON         0x000000002000b0a0        0x9 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-lock.o)
-                0x000000002000b0a0                __lock___atexit_recursive_mutex
-                0x000000002000b0a1                __lock___arc4random_mutex
-                0x000000002000b0a2                __lock___env_recursive_mutex
-                0x000000002000b0a3                __lock___sinit_recursive_mutex
-                0x000000002000b0a4                __lock___malloc_recursive_mutex
-                0x000000002000b0a5                __lock___at_quick_exit_mutex
-                0x000000002000b0a6                __lock___dd_hash_mutex
-                0x000000002000b0a7                __lock___tz_mutex
-                0x000000002000b0a8                __lock___sfp_recursive_mutex
- *fill*         0x000000002000b0a9        0x3 
- COMMON         0x000000002000b0ac        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-reent.o)
-                0x000000002000b0ac                errno
-                0x000000002000b0b0                . = ALIGN (0x4)
-                0x000000002000b0b0                _ebss = .
-                0x000000002000b0b0                __bss_end__ = _ebss
+ COMMON         0x0000000020008abc        0x4 Core/Src/ST7735.o
+                0x0000000020008abc                scr_width
+                0x0000000020008abe                scr_height
+ COMMON         0x0000000020008ac0      0x258 Core/Src/key.o
+                0x0000000020008ac0                btenter
+                0x0000000020008ad8                bt
+ COMMON         0x0000000020008d18      0x250 Core/Src/main.o
+                0x0000000020008d18                hdac1
+                0x0000000020008d2c                hi2c1
+                0x0000000020008d78                htim3
+                0x0000000020008db8                hspi3
+                0x0000000020008e1c                hadc1
+                0x0000000020008e80                hrtc
+                0x0000000020008ea4                huart2
+                0x0000000020008f24                hqspi
+ COMMON         0x0000000020008f68       0x40 Core/Src/stm32l4xx_hal_timebase_tim.o
+                0x0000000020008f68                htim6
+ COMMON         0x0000000020008fa8       0x28 Core/Src/w25qxx.o
+                0x0000000020008fa8                w25qxx
+ COMMON         0x0000000020008fd0        0x4 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.o
+                0x0000000020008fd0                uwTick
+ COMMON         0x0000000020008fd4      0x468 FATFS/App/fatfs.o
+                0x0000000020008fd4                USERPath
+                0x0000000020008fd8                retUSER
+                0x0000000020008fdc                USERFile
+                0x000000002000920c                USERFatFS
+ COMMON         0x000000002000943c        0x8 Sinteck/GUI/screen_rf.o
+                0x000000002000943c                roller_swr
+                0x0000000020009440                roller_target
+ COMMON         0x0000000020009444      0x29c USB_DEVICE/App/usb_device.o
+                0x0000000020009444                hUsbDeviceFS
+ COMMON         0x00000000200096e0      0x200 USB_DEVICE/App/usbd_desc.o
+                0x00000000200096e0                USBD_StrDesc
+ COMMON         0x00000000200098e0      0x408 USB_DEVICE/Target/usbd_conf.o
+                0x00000000200098e0                hpcd_USB_OTG_FS
+ COMMON         0x0000000020009ce8      0x30c lvgl/src/lv_core/lv_style.o
+                0x0000000020009ce8                lv_style_pretty_color
+                0x0000000020009d24                lv_style_transp
+                0x0000000020009d60                lv_style_btn_rel
+                0x0000000020009d9c                lv_style_btn_pr
+                0x0000000020009dd8                lv_style_pretty
+                0x0000000020009e14                lv_style_transp_tight
+                0x0000000020009e50                lv_style_btn_ina
+                0x0000000020009e8c                lv_style_transp_fit
+                0x0000000020009ec8                lv_style_plain
+                0x0000000020009f04                lv_style_btn_tgl_rel
+                0x0000000020009f40                lv_style_scr
+                0x0000000020009f7c                lv_style_btn_tgl_pr
+                0x0000000020009fb8                lv_style_plain_color
+ COMMON         0x0000000020009ff4       0x6c lvgl/src/lv_misc/lv_gc.o
+                0x0000000020009ff4                _lv_task_ll
+                0x000000002000a000                _lv_indev_ll
+                0x000000002000a00c                _lv_draw_buf
+                0x000000002000a010                _lv_disp_ll
+                0x000000002000a01c                _lv_img_defoder_ll
+                0x000000002000a028                _lv_drv_ll
+                0x000000002000a034                _lv_task_act
+                0x000000002000a038                _lv_img_cache_array
+                0x000000002000a03c                _lv_anim_ll
+                0x000000002000a048                _lv_group_ll
+                0x000000002000a054                _lv_file_ll
+ COMMON         0x000000002000a060        0x9 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-lock.o)
+                0x000000002000a060                __lock___atexit_recursive_mutex
+                0x000000002000a061                __lock___arc4random_mutex
+                0x000000002000a062                __lock___env_recursive_mutex
+                0x000000002000a063                __lock___sinit_recursive_mutex
+                0x000000002000a064                __lock___malloc_recursive_mutex
+                0x000000002000a065                __lock___at_quick_exit_mutex
+                0x000000002000a066                __lock___dd_hash_mutex
+                0x000000002000a067                __lock___tz_mutex
+                0x000000002000a068                __lock___sfp_recursive_mutex
+ *fill*         0x000000002000a069        0x3 
+ COMMON         0x000000002000a06c        0x4 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-reent.o)
+                0x000000002000a06c                errno
+                0x000000002000a070                . = ALIGN (0x4)
+                0x000000002000a070                _ebss = .
+                0x000000002000a070                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x000000002000b0b0      0x600 load address 0x00000000080f6c24
-                0x000000002000b0b0                . = ALIGN (0x4)
-                0x000000002000b0b0                PROVIDE (end, .)
+                0x000000002000a070      0x600 load address 0x00000000080ec7e4
+                0x000000002000a070                . = ALIGN (0x4)
+                0x000000002000a070                PROVIDE (end, .)
                 [!provide]                        PROVIDE (_end, .)
-                0x000000002000b2b0                . = (. + _Min_Heap_Size)
- *fill*         0x000000002000b0b0      0x200 
-                0x000000002000b6b0                . = (. + _Min_Stack_Size)
- *fill*         0x000000002000b2b0      0x400 
-                0x000000002000b6b0                . = ALIGN (0x4)
+                0x000000002000a270                . = (. + _Min_Heap_Size)
+ *fill*         0x000000002000a070      0x200 
+                0x000000002000a670                . = (. + _Min_Stack_Size)
+ *fill*         0x000000002000a270      0x400 
+                0x000000002000a670                . = ALIGN (0x4)
 
 /DISCARD/
  libc.a(*)
@@ -7705,327 +7676,323 @@ LOAD /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-
  .ARM.attributes
                 0x00000000000009e9       0x39 Sinteck/Fonts/lv_font_eurostile_10.o
  .ARM.attributes
-                0x0000000000000a22       0x39 Sinteck/Fonts/lv_font_eurostile_22.o
+                0x0000000000000a22       0x39 Sinteck/Fonts/lv_font_eurostile_24.o
  .ARM.attributes
-                0x0000000000000a5b       0x39 Sinteck/Fonts/lv_font_eurostile_24.o
+                0x0000000000000a5b       0x39 Sinteck/GUI/main_screen.o
  .ARM.attributes
-                0x0000000000000a94       0x39 Sinteck/Fonts/lv_font_eurostile_28.o
+                0x0000000000000a94       0x39 Sinteck/GUI/screen_audio.o
  .ARM.attributes
-                0x0000000000000acd       0x39 Sinteck/GUI/main_screen.o
+                0x0000000000000acd       0x39 Sinteck/GUI/screen_frequency.o
  .ARM.attributes
-                0x0000000000000b06       0x39 Sinteck/GUI/screen_audio.o
+                0x0000000000000b06       0x39 Sinteck/GUI/screen_mpx.o
  .ARM.attributes
-                0x0000000000000b3f       0x39 Sinteck/GUI/screen_frequency.o
+                0x0000000000000b3f       0x39 Sinteck/GUI/screen_reading_efic.o
  .ARM.attributes
-                0x0000000000000b78       0x39 Sinteck/GUI/screen_mpx.o
+                0x0000000000000b78       0x39 Sinteck/GUI/screen_reading_status.o
  .ARM.attributes
-                0x0000000000000bb1       0x39 Sinteck/GUI/screen_reading_efic.o
+                0x0000000000000bb1       0x39 Sinteck/GUI/screen_reading_temp.o
  .ARM.attributes
-                0x0000000000000bea       0x39 Sinteck/GUI/screen_reading_status.o
+                0x0000000000000bea       0x39 Sinteck/GUI/screen_reading_vpa.o
  .ARM.attributes
-                0x0000000000000c23       0x39 Sinteck/GUI/screen_reading_temp.o
+                0x0000000000000c23       0x39 Sinteck/GUI/screen_readings.o
  .ARM.attributes
-                0x0000000000000c5c       0x39 Sinteck/GUI/screen_reading_vpa.o
+                0x0000000000000c5c       0x39 Sinteck/GUI/screen_rf.o
  .ARM.attributes
-                0x0000000000000c95       0x39 Sinteck/GUI/screen_readings.o
+                0x0000000000000c95       0x39 Sinteck/GUI/screen_sel.o
  .ARM.attributes
-                0x0000000000000cce       0x39 Sinteck/GUI/screen_rf.o
+                0x0000000000000cce       0x39 Sinteck/img_inc/Btn_50u.o
  .ARM.attributes
-                0x0000000000000d07       0x39 Sinteck/GUI/screen_sel.o
+                0x0000000000000d07       0x39 Sinteck/img_inc/Btn_50u_am.o
  .ARM.attributes
-                0x0000000000000d40       0x39 Sinteck/img_inc/Btn_50u.o
+                0x0000000000000d40       0x39 Sinteck/img_inc/Btn_75u.o
  .ARM.attributes
-                0x0000000000000d79       0x39 Sinteck/img_inc/Btn_50u_am.o
+                0x0000000000000d79       0x39 Sinteck/img_inc/Btn_75u_am.o
  .ARM.attributes
-                0x0000000000000db2       0x39 Sinteck/img_inc/Btn_75u.o
+                0x0000000000000db2       0x39 Sinteck/img_inc/Btn_Audio.o
  .ARM.attributes
-                0x0000000000000deb       0x39 Sinteck/img_inc/Btn_75u_am.o
+                0x0000000000000deb       0x39 Sinteck/img_inc/Btn_Audio_am.o
  .ARM.attributes
-                0x0000000000000e24       0x39 Sinteck/img_inc/Btn_Audio.o
+                0x0000000000000e24       0x39 Sinteck/img_inc/Btn_Frequency.o
  .ARM.attributes
-                0x0000000000000e5d       0x39 Sinteck/img_inc/Btn_Audio_am.o
+                0x0000000000000e5d       0x39 Sinteck/img_inc/Btn_Frequency_am.o
  .ARM.attributes
-                0x0000000000000e96       0x39 Sinteck/img_inc/Btn_Frequency.o
+                0x0000000000000e96       0x39 Sinteck/img_inc/Btn_RF.o
  .ARM.attributes
-                0x0000000000000ecf       0x39 Sinteck/img_inc/Btn_Frequency_am.o
+                0x0000000000000ecf       0x39 Sinteck/img_inc/Btn_RF_am.o
  .ARM.attributes
-                0x0000000000000f08       0x39 Sinteck/img_inc/Btn_RF.o
+                0x0000000000000f08       0x39 Sinteck/img_inc/Btn_Readings.o
  .ARM.attributes
-                0x0000000000000f41       0x39 Sinteck/img_inc/Btn_RF_am.o
+                0x0000000000000f41       0x39 Sinteck/img_inc/Btn_Readings_am.o
  .ARM.attributes
-                0x0000000000000f7a       0x39 Sinteck/img_inc/Btn_Readings.o
+                0x0000000000000f7a       0x39 Sinteck/img_inc/Btn_mic.o
  .ARM.attributes
-                0x0000000000000fb3       0x39 Sinteck/img_inc/Btn_Readings_am.o
+                0x0000000000000fb3       0x39 Sinteck/img_inc/Btn_mic_am.o
  .ARM.attributes
-                0x0000000000000fec       0x39 Sinteck/img_inc/Btn_mic.o
+                0x0000000000000fec       0x39 Sinteck/img_inc/Btn_mono.o
  .ARM.attributes
-                0x0000000000001025       0x39 Sinteck/img_inc/Btn_mic_am.o
+                0x0000000000001025       0x39 Sinteck/img_inc/Btn_mono_am.o
  .ARM.attributes
-                0x000000000000105e       0x39 Sinteck/img_inc/Btn_mono.o
+                0x000000000000105e       0x39 Sinteck/img_inc/Btn_mp3.o
  .ARM.attributes
-                0x0000000000001097       0x39 Sinteck/img_inc/Btn_mono_am.o
+                0x0000000000001097       0x39 Sinteck/img_inc/Btn_mp3Next.o
  .ARM.attributes
-                0x00000000000010d0       0x39 Sinteck/img_inc/Btn_mp3.o
+                0x00000000000010d0       0x39 Sinteck/img_inc/Btn_mp3Next_am.o
  .ARM.attributes
-                0x0000000000001109       0x39 Sinteck/img_inc/Btn_mp3Next.o
+                0x0000000000001109       0x39 Sinteck/img_inc/Btn_mp3Next_vd.o
  .ARM.attributes
-                0x0000000000001142       0x39 Sinteck/img_inc/Btn_mp3Next_am.o
+                0x0000000000001142       0x39 Sinteck/img_inc/Btn_mp3Pause_vd.o
  .ARM.attributes
-                0x000000000000117b       0x39 Sinteck/img_inc/Btn_mp3Next_vd.o
+                0x000000000000117b       0x39 Sinteck/img_inc/Btn_mp3Play.o
  .ARM.attributes
-                0x00000000000011b4       0x39 Sinteck/img_inc/Btn_mp3Pause_vd.o
+                0x00000000000011b4       0x39 Sinteck/img_inc/Btn_mp3Play_am.o
  .ARM.attributes
-                0x00000000000011ed       0x39 Sinteck/img_inc/Btn_mp3Play.o
+                0x00000000000011ed       0x39 Sinteck/img_inc/Btn_mp3Play_vd.o
  .ARM.attributes
-                0x0000000000001226       0x39 Sinteck/img_inc/Btn_mp3Play_am.o
+                0x0000000000001226       0x39 Sinteck/img_inc/Btn_mp3Prev.o
  .ARM.attributes
-                0x000000000000125f       0x39 Sinteck/img_inc/Btn_mp3Play_vd.o
+                0x000000000000125f       0x39 Sinteck/img_inc/Btn_mp3Prev_am.o
  .ARM.attributes
-                0x0000000000001298       0x39 Sinteck/img_inc/Btn_mp3Prev.o
+                0x0000000000001298       0x39 Sinteck/img_inc/Btn_mp3Prev_vd.o
  .ARM.attributes
-                0x00000000000012d1       0x39 Sinteck/img_inc/Btn_mp3Prev_am.o
+                0x00000000000012d1       0x39 Sinteck/img_inc/Btn_mp3Stop.o
  .ARM.attributes
-                0x000000000000130a       0x39 Sinteck/img_inc/Btn_mp3Prev_vd.o
+                0x000000000000130a       0x39 Sinteck/img_inc/Btn_mp3Stop_am.o
  .ARM.attributes
-                0x0000000000001343       0x39 Sinteck/img_inc/Btn_mp3Stop.o
+                0x0000000000001343       0x39 Sinteck/img_inc/Btn_mp3Stop_vd.o
  .ARM.attributes
-                0x000000000000137c       0x39 Sinteck/img_inc/Btn_mp3Stop_am.o
+                0x000000000000137c       0x39 Sinteck/img_inc/Btn_mp3_am.o
  .ARM.attributes
-                0x00000000000013b5       0x39 Sinteck/img_inc/Btn_mp3Stop_vd.o
+                0x00000000000013b5       0x39 Sinteck/img_inc/Btn_mpxext.o
  .ARM.attributes
-                0x00000000000013ee       0x39 Sinteck/img_inc/Btn_mp3_am.o
+                0x00000000000013ee       0x39 Sinteck/img_inc/Btn_mpxext_am.o
  .ARM.attributes
-                0x0000000000001427       0x39 Sinteck/img_inc/Btn_mpxext.o
+                0x0000000000001427       0x39 Sinteck/img_inc/Btn_mpxint.o
  .ARM.attributes
-                0x0000000000001460       0x39 Sinteck/img_inc/Btn_mpxext_am.o
+                0x0000000000001460       0x39 Sinteck/img_inc/Btn_mpxint_am.o
  .ARM.attributes
-                0x0000000000001499       0x39 Sinteck/img_inc/Btn_mpxint.o
+                0x0000000000001499       0x39 Sinteck/img_inc/Btn_next.o
  .ARM.attributes
-                0x00000000000014d2       0x39 Sinteck/img_inc/Btn_mpxint_am.o
+                0x00000000000014d2       0x39 Sinteck/img_inc/Btn_off.o
  .ARM.attributes
-                0x000000000000150b       0x39 Sinteck/img_inc/Btn_next.o
+                0x000000000000150b       0x39 Sinteck/img_inc/Btn_off_am.o
  .ARM.attributes
-                0x0000000000001544       0x39 Sinteck/img_inc/Btn_off.o
+                0x0000000000001544       0x39 Sinteck/img_inc/Btn_on.o
  .ARM.attributes
-                0x000000000000157d       0x39 Sinteck/img_inc/Btn_off_am.o
+                0x000000000000157d       0x39 Sinteck/img_inc/Btn_on_am.o
  .ARM.attributes
-                0x00000000000015b6       0x39 Sinteck/img_inc/Btn_on.o
+                0x00000000000015b6       0x39 Sinteck/img_inc/Btn_poweroff.o
  .ARM.attributes
-                0x00000000000015ef       0x39 Sinteck/img_inc/Btn_on_am.o
+                0x00000000000015ef       0x39 Sinteck/img_inc/Btn_poweroff_am.o
  .ARM.attributes
-                0x0000000000001628       0x39 Sinteck/img_inc/Btn_poweroff.o
+                0x0000000000001628       0x39 Sinteck/img_inc/Btn_poweroff_vm.o
  .ARM.attributes
-                0x0000000000001661       0x39 Sinteck/img_inc/Btn_poweroff_am.o
+                0x0000000000001661       0x39 Sinteck/img_inc/Btn_poweron.o
  .ARM.attributes
-                0x000000000000169a       0x39 Sinteck/img_inc/Btn_poweroff_vm.o
+                0x000000000000169a       0x39 Sinteck/img_inc/Btn_poweron_am.o
  .ARM.attributes
-                0x00000000000016d3       0x39 Sinteck/img_inc/Btn_poweron.o
+                0x00000000000016d3       0x39 Sinteck/img_inc/Btn_poweron_vd.o
  .ARM.attributes
-                0x000000000000170c       0x39 Sinteck/img_inc/Btn_poweron_am.o
+                0x000000000000170c       0x39 Sinteck/img_inc/Btn_prev.o
  .ARM.attributes
-                0x0000000000001745       0x39 Sinteck/img_inc/Btn_poweron_vd.o
+                0x0000000000001745       0x39 Sinteck/img_inc/Btn_stereo.o
  .ARM.attributes
-                0x000000000000177e       0x39 Sinteck/img_inc/Btn_prev.o
+                0x000000000000177e       0x39 Sinteck/img_inc/Btn_stereo_am.o
  .ARM.attributes
-                0x00000000000017b7       0x39 Sinteck/img_inc/Btn_stereo.o
+                0x00000000000017b7       0x39 Sinteck/img_inc/stereo_off.o
  .ARM.attributes
-                0x00000000000017f0       0x39 Sinteck/img_inc/Btn_stereo_am.o
+                0x00000000000017f0       0x39 Sinteck/img_inc/stereo_vd.o
  .ARM.attributes
-                0x0000000000001829       0x39 Sinteck/img_inc/stereo_off.o
+                0x0000000000001829       0x39 Sinteck/img_inc/tela_0.o
  .ARM.attributes
-                0x0000000000001862       0x39 Sinteck/img_inc/stereo_vd.o
+                0x0000000000001862       0x39 Sinteck/img_inc/tela_audio.o
  .ARM.attributes
-                0x000000000000189b       0x39 Sinteck/img_inc/tela_0.o
+                0x000000000000189b       0x39 Sinteck/img_inc/tela_audio_1.o
  .ARM.attributes
-                0x00000000000018d4       0x39 Sinteck/img_inc/tela_audio.o
+                0x00000000000018d4       0x39 Sinteck/img_inc/tela_audio_2.o
  .ARM.attributes
-                0x000000000000190d       0x39 Sinteck/img_inc/tela_audio_1.o
+                0x000000000000190d       0x39 Sinteck/img_inc/tela_freq.o
  .ARM.attributes
-                0x0000000000001946       0x39 Sinteck/img_inc/tela_audio_2.o
+                0x0000000000001946       0x39 Sinteck/img_inc/tela_reading_audio.o
  .ARM.attributes
-                0x000000000000197f       0x39 Sinteck/img_inc/tela_freq.o
+                0x000000000000197f       0x39 Sinteck/img_inc/tela_reading_efic.o
  .ARM.attributes
-                0x00000000000019b8       0x39 Sinteck/img_inc/tela_reading_audio.o
+                0x00000000000019b8       0x39 Sinteck/img_inc/tela_reading_rf.o
  .ARM.attributes
-                0x00000000000019f1       0x39 Sinteck/img_inc/tela_reading_efic.o
+                0x00000000000019f1       0x39 Sinteck/img_inc/tela_reading_temp.o
  .ARM.attributes
-                0x0000000000001a2a       0x39 Sinteck/img_inc/tela_reading_rf.o
+                0x0000000000001a2a       0x39 Sinteck/img_inc/tela_reading_vpa.o
  .ARM.attributes
-                0x0000000000001a63       0x39 Sinteck/img_inc/tela_reading_temp.o
+                0x0000000000001a63       0x39 Sinteck/img_inc/tela_rf.o
  .ARM.attributes
-                0x0000000000001a9c       0x39 Sinteck/img_inc/tela_reading_vpa.o
+                0x0000000000001a9c       0x39 Sinteck/img_inc/tela_rf_1.o
  .ARM.attributes
-                0x0000000000001ad5       0x39 Sinteck/img_inc/tela_rf.o
+                0x0000000000001ad5       0x39 Sinteck/img_inc/tela_rf_2.o
  .ARM.attributes
-                0x0000000000001b0e       0x39 Sinteck/img_inc/tela_rf_1.o
+                0x0000000000001b0e       0x39 Sinteck/img_inc/tela_sel.o
  .ARM.attributes
-                0x0000000000001b47       0x39 Sinteck/img_inc/tela_rf_2.o
+                0x0000000000001b47       0x39 Sinteck/img_inc/tela_status.o
  .ARM.attributes
-                0x0000000000001b80       0x39 Sinteck/img_inc/tela_sel.o
+                0x0000000000001b80       0x39 USB_DEVICE/App/usb_device.o
  .ARM.attributes
-                0x0000000000001bb9       0x39 Sinteck/img_inc/tela_status.o
+                0x0000000000001bb9       0x39 USB_DEVICE/App/usbd_desc.o
  .ARM.attributes
-                0x0000000000001bf2       0x39 USB_DEVICE/App/usb_device.o
+                0x0000000000001bf2       0x39 USB_DEVICE/App/usbd_storage_if.o
  .ARM.attributes
-                0x0000000000001c2b       0x39 USB_DEVICE/App/usbd_desc.o
+                0x0000000000001c2b       0x39 USB_DEVICE/Target/usbd_conf.o
  .ARM.attributes
-                0x0000000000001c64       0x39 USB_DEVICE/App/usbd_storage_if.o
+                0x0000000000001c64       0x39 lvgl/src/lv_core/lv_disp.o
  .ARM.attributes
-                0x0000000000001c9d       0x39 USB_DEVICE/Target/usbd_conf.o
+                0x0000000000001c9d       0x39 lvgl/src/lv_core/lv_indev.o
  .ARM.attributes
-                0x0000000000001cd6       0x39 lvgl/src/lv_core/lv_disp.o
+                0x0000000000001cd6       0x39 lvgl/src/lv_core/lv_obj.o
  .ARM.attributes
-                0x0000000000001d0f       0x39 lvgl/src/lv_core/lv_indev.o
+                0x0000000000001d0f       0x39 lvgl/src/lv_core/lv_refr.o
  .ARM.attributes
-                0x0000000000001d48       0x39 lvgl/src/lv_core/lv_obj.o
+                0x0000000000001d48       0x39 lvgl/src/lv_core/lv_style.o
  .ARM.attributes
-                0x0000000000001d81       0x39 lvgl/src/lv_core/lv_refr.o
+                0x0000000000001d81       0x39 lvgl/src/lv_draw/lv_draw.o
  .ARM.attributes
-                0x0000000000001dba       0x39 lvgl/src/lv_core/lv_style.o
+                0x0000000000001dba       0x39 lvgl/src/lv_draw/lv_draw_basic.o
  .ARM.attributes
-                0x0000000000001df3       0x39 lvgl/src/lv_draw/lv_draw.o
+                0x0000000000001df3       0x39 lvgl/src/lv_draw/lv_draw_img.o
  .ARM.attributes
-                0x0000000000001e2c       0x39 lvgl/src/lv_draw/lv_draw_basic.o
+                0x0000000000001e2c       0x39 lvgl/src/lv_draw/lv_draw_label.o
  .ARM.attributes
-                0x0000000000001e65       0x39 lvgl/src/lv_draw/lv_draw_img.o
+                0x0000000000001e65       0x39 lvgl/src/lv_draw/lv_draw_rect.o
  .ARM.attributes
-                0x0000000000001e9e       0x39 lvgl/src/lv_draw/lv_draw_label.o
+                0x0000000000001e9e       0x39 lvgl/src/lv_draw/lv_img_cache.o
  .ARM.attributes
-                0x0000000000001ed7       0x39 lvgl/src/lv_draw/lv_draw_rect.o
+                0x0000000000001ed7       0x39 lvgl/src/lv_draw/lv_img_decoder.o
  .ARM.attributes
-                0x0000000000001f10       0x39 lvgl/src/lv_draw/lv_img_cache.o
+                0x0000000000001f10       0x39 lvgl/src/lv_font/lv_font.o
  .ARM.attributes
-                0x0000000000001f49       0x39 lvgl/src/lv_draw/lv_img_decoder.o
+                0x0000000000001f49       0x39 lvgl/src/lv_font/lv_font_fmt_txt.o
  .ARM.attributes
-                0x0000000000001f82       0x39 lvgl/src/lv_font/lv_font.o
+                0x0000000000001f82       0x39 lvgl/src/lv_hal/lv_hal_disp.o
  .ARM.attributes
-                0x0000000000001fbb       0x39 lvgl/src/lv_font/lv_font_fmt_txt.o
+                0x0000000000001fbb       0x39 lvgl/src/lv_hal/lv_hal_indev.o
  .ARM.attributes
-                0x0000000000001ff4       0x39 lvgl/src/lv_hal/lv_hal_disp.o
+                0x0000000000001ff4       0x39 lvgl/src/lv_hal/lv_hal_tick.o
  .ARM.attributes
-                0x000000000000202d       0x39 lvgl/src/lv_hal/lv_hal_indev.o
+                0x000000000000202d       0x39 lvgl/src/lv_misc/lv_anim.o
  .ARM.attributes
-                0x0000000000002066       0x39 lvgl/src/lv_hal/lv_hal_tick.o
+                0x0000000000002066       0x39 lvgl/src/lv_misc/lv_area.o
  .ARM.attributes
-                0x000000000000209f       0x39 lvgl/src/lv_misc/lv_anim.o
+                0x000000000000209f       0x39 lvgl/src/lv_misc/lv_circ.o
  .ARM.attributes
-                0x00000000000020d8       0x39 lvgl/src/lv_misc/lv_area.o
+                0x00000000000020d8       0x39 lvgl/src/lv_misc/lv_gc.o
  .ARM.attributes
-                0x0000000000002111       0x39 lvgl/src/lv_misc/lv_circ.o
+                0x0000000000002111       0x39 lvgl/src/lv_misc/lv_ll.o
  .ARM.attributes
-                0x000000000000214a       0x39 lvgl/src/lv_misc/lv_gc.o
+                0x000000000000214a       0x39 lvgl/src/lv_misc/lv_mem.o
  .ARM.attributes
-                0x0000000000002183       0x39 lvgl/src/lv_misc/lv_ll.o
+                0x0000000000002183       0x39 lvgl/src/lv_misc/lv_task.o
  .ARM.attributes
-                0x00000000000021bc       0x39 lvgl/src/lv_misc/lv_mem.o
+                0x00000000000021bc       0x39 lvgl/src/lv_misc/lv_txt.o
  .ARM.attributes
-                0x00000000000021f5       0x39 lvgl/src/lv_misc/lv_task.o
+                0x00000000000021f5       0x39 lvgl/src/lv_misc/lv_utils.o
  .ARM.attributes
-                0x000000000000222e       0x39 lvgl/src/lv_misc/lv_txt.o
+                0x000000000000222e       0x39 lvgl/src/lv_objx/lv_bar.o
  .ARM.attributes
-                0x0000000000002267       0x39 lvgl/src/lv_misc/lv_utils.o
+                0x0000000000002267       0x39 lvgl/src/lv_objx/lv_btn.o
  .ARM.attributes
-                0x00000000000022a0       0x39 lvgl/src/lv_objx/lv_bar.o
+                0x00000000000022a0       0x39 lvgl/src/lv_objx/lv_cont.o
  .ARM.attributes
-                0x00000000000022d9       0x39 lvgl/src/lv_objx/lv_btn.o
+                0x00000000000022d9       0x39 lvgl/src/lv_objx/lv_ddlist.o
  .ARM.attributes
-                0x0000000000002312       0x39 lvgl/src/lv_objx/lv_cont.o
+                0x0000000000002312       0x39 lvgl/src/lv_objx/lv_img.o
  .ARM.attributes
-                0x000000000000234b       0x39 lvgl/src/lv_objx/lv_ddlist.o
+                0x000000000000234b       0x39 lvgl/src/lv_objx/lv_imgbtn.o
  .ARM.attributes
-                0x0000000000002384       0x39 lvgl/src/lv_objx/lv_img.o
+                0x0000000000002384       0x39 lvgl/src/lv_objx/lv_label.o
  .ARM.attributes
-                0x00000000000023bd       0x39 lvgl/src/lv_objx/lv_imgbtn.o
+                0x00000000000023bd       0x39 lvgl/src/lv_objx/lv_page.o
  .ARM.attributes
-                0x00000000000023f6       0x39 lvgl/src/lv_objx/lv_label.o
+                0x00000000000023f6       0x39 lvgl/src/lv_objx/lv_roller.o
  .ARM.attributes
-                0x000000000000242f       0x39 lvgl/src/lv_objx/lv_page.o
+                0x000000000000242f       0x39 lvgl/src/lv_themes/lv_theme.o
  .ARM.attributes
-                0x0000000000002468       0x39 lvgl/src/lv_objx/lv_roller.o
+                0x0000000000002468       0x21 startup/startup_stm32l476xx.o
  .ARM.attributes
-                0x00000000000024a1       0x39 lvgl/src/lv_themes/lv_theme.o
+                0x0000000000002489       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-atoi.o)
  .ARM.attributes
-                0x00000000000024da       0x21 startup/startup_stm32l476xx.o
+                0x00000000000024bd       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-callocr.o)
  .ARM.attributes
-                0x00000000000024fb       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-atoi.o)
+                0x00000000000024f1       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-errno.o)
  .ARM.attributes
-                0x000000000000252f       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-callocr.o)
+                0x0000000000002525       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-impure.o)
  .ARM.attributes
-                0x0000000000002563       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-errno.o)
+                0x0000000000002559       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-init.o)
  .ARM.attributes
-                0x0000000000002597       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-impure.o)
+                0x000000000000258d       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mallocr.o)
  .ARM.attributes
-                0x00000000000025cb       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-init.o)
+                0x00000000000025c1       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-memcpy-stub.o)
  .ARM.attributes
-                0x00000000000025ff       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mallocr.o)
+                0x00000000000025f5       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-memset.o)
  .ARM.attributes
-                0x0000000000002633       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-memcpy-stub.o)
+                0x0000000000002629       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mlock.o)
  .ARM.attributes
-                0x0000000000002667       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-memset.o)
+                0x000000000000265d       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-sbrkr.o)
  .ARM.attributes
-                0x000000000000269b       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mlock.o)
+                0x0000000000002691       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-sprintf.o)
  .ARM.attributes
-                0x00000000000026cf       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-sbrkr.o)
+                0x00000000000026c5       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-strcpy.o)
  .ARM.attributes
-                0x0000000000002703       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-sprintf.o)
+                0x00000000000026f9       0x1b /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-strlen.o)
  .ARM.attributes
-                0x0000000000002737       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-strcpy.o)
+                0x0000000000002714       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-strtol.o)
  .ARM.attributes
-                0x000000000000276b       0x1b /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-strlen.o)
+                0x0000000000002748       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-svfprintf.o)
  .ARM.attributes
-                0x0000000000002786       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-strtol.o)
+                0x000000000000277c       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-vsprintf.o)
  .ARM.attributes
-                0x00000000000027ba       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-svfprintf.o)
+                0x00000000000027b0       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-dtoa.o)
  .ARM.attributes
-                0x00000000000027ee       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-vsprintf.o)
+                0x00000000000027e4       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-freer.o)
  .ARM.attributes
-                0x0000000000002822       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-dtoa.o)
+                0x0000000000002818       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-locale.o)
  .ARM.attributes
-                0x0000000000002856       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-freer.o)
+                0x000000000000284c       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-localeconv.o)
  .ARM.attributes
-                0x000000000000288a       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-locale.o)
+                0x0000000000002880       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-lock.o)
  .ARM.attributes
-                0x00000000000028be       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-localeconv.o)
+                0x00000000000028b4       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-malloc.o)
  .ARM.attributes
-                0x00000000000028f2       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-lock.o)
+                0x00000000000028e8       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mbtowc_r.o)
  .ARM.attributes
-                0x0000000000002926       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-malloc.o)
+                0x000000000000291c       0x20 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-memchr.o)
  .ARM.attributes
-                0x000000000000295a       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mbtowc_r.o)
+                0x000000000000293c       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mprec.o)
  .ARM.attributes
-                0x000000000000298e       0x20 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-memchr.o)
+                0x0000000000002970       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-reent.o)
  .ARM.attributes
-                0x00000000000029ae       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-mprec.o)
+                0x00000000000029a4       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-svfiprintf.o)
  .ARM.attributes
-                0x00000000000029e2       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-reent.o)
+                0x00000000000029d8       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-wctomb_r.o)
  .ARM.attributes
-                0x0000000000002a16       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-svfiprintf.o)
+                0x0000000000002a0c       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-ctype_.o)
  .ARM.attributes
-                0x0000000000002a4a       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-wctomb_r.o)
+                0x0000000000002a40       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-memmove.o)
  .ARM.attributes
-                0x0000000000002a7e       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-ctype_.o)
+                0x0000000000002a74       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-reallocr.o)
  .ARM.attributes
-                0x0000000000002ab2       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-memmove.o)
+                0x0000000000002aa8       0x22 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_arm_addsubdf3.o)
  .ARM.attributes
-                0x0000000000002ae6       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/libc.a(lib_a-reallocr.o)
+                0x0000000000002aca       0x22 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_arm_muldivdf3.o)
  .ARM.attributes
-                0x0000000000002b1a       0x22 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_arm_addsubdf3.o)
+                0x0000000000002aec       0x22 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_arm_cmpdf2.o)
  .ARM.attributes
-                0x0000000000002b3c       0x22 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_arm_muldivdf3.o)
+                0x0000000000002b0e       0x22 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_arm_unorddf2.o)
  .ARM.attributes
-                0x0000000000002b5e       0x22 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_arm_cmpdf2.o)
+                0x0000000000002b30       0x22 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_arm_fixdfsi.o)
  .ARM.attributes
-                0x0000000000002b80       0x22 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_arm_unorddf2.o)
+                0x0000000000002b52       0x22 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_aeabi_uldivmod.o)
  .ARM.attributes
-                0x0000000000002ba2       0x22 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_arm_fixdfsi.o)
+                0x0000000000002b74       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_udivmoddi4.o)
  .ARM.attributes
-                0x0000000000002bc4       0x22 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_aeabi_uldivmod.o)
+                0x0000000000002ba8       0x22 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x0000000000002be6       0x34 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_udivmoddi4.o)
- .ARM.attributes
-                0x0000000000002c1a       0x22 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/libgcc.a(_dvmd_tls.o)
- .ARM.attributes
-                0x0000000000002c3c       0x22 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/crtn.o
+                0x0000000000002bca       0x22 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ARMTools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/crtn.o
 OUTPUT(STM32L4.elf elf32-littlearm)
 
 .comment        0x0000000000000000       0x7c
@@ -8074,9 +8041,7 @@ OUTPUT(STM32L4.elf elf32-littlearm)
  .comment       0x000000000000007c       0x7d Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
  .comment       0x000000000000007c       0x7d Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
  .comment       0x000000000000007c       0x7d Sinteck/Fonts/lv_font_eurostile_10.o
- .comment       0x000000000000007c       0x7d Sinteck/Fonts/lv_font_eurostile_22.o
  .comment       0x000000000000007c       0x7d Sinteck/Fonts/lv_font_eurostile_24.o
- .comment       0x000000000000007c       0x7d Sinteck/Fonts/lv_font_eurostile_28.o
  .comment       0x000000000000007c       0x7d Sinteck/GUI/main_screen.o
  .comment       0x000000000000007c       0x7d Sinteck/GUI/screen_audio.o
  .comment       0x000000000000007c       0x7d Sinteck/GUI/screen_frequency.o

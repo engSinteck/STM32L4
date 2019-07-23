@@ -184,7 +184,7 @@ void print_eficiencia(void)
 	// Area de Refletida
 	static lv_style_t style_txt1;
 	lv_style_copy(&style_txt1, &lv_style_plain);
-	style_txt1.text.font = &lv_font_eurostile_28;
+	style_txt1.text.font = &lv_font_eurostile_24;					// &lv_font_eurostile_28;
 	style_txt1.text.letter_space = 1;
 	style_txt1.text.line_space = 1;
 	style_txt1.text.color = LV_COLOR_CYAN;

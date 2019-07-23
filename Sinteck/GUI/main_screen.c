@@ -294,7 +294,7 @@ void print_alarme(uint32_t falha)
 	// Create a new style
 	static lv_style_t style_cont;
 	lv_style_copy(&style_cont, &lv_style_plain);
-	style_cont.text.font = &lv_font_eurostile_22;
+	style_cont.text.font = &lv_font_eurostile_24;
 	style_cont.text.letter_space = 1;
 	style_cont.text.line_space = 1;
 	style_cont.text.color = LV_COLOR_WHITE;

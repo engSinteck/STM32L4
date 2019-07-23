@@ -10,6 +10,7 @@
 #include "lvgl/lvgl.h"
 #include "stdio.h"
 #include "string.h"
+#include "log.h"
 #include "Sinteck/GUI/EX15-XT.h"
 
 static void main_screen_event(lv_obj_t * obj, lv_event_t event);
@@ -84,20 +85,26 @@ void main_screen(void)
 	TelaAtiva = TelaPrincipal;
 }
 
-void print_frequencia(uint32_t frequencia)
+void print_frequencia(long int frequencia)
 {
-	uint16_t q0, q1, q2, q3, q4, q5;
-	q0 = 1;
-	q1 = 0;
-	q2 = 3;
-	// Decimal
-	q3 = 1;
-	q4 = 0;
-	q5 = 0;
+	uint16_t q0, q1, q2, q3, q4;
 
-
-	sprintf(buffer, "%d%d%d.%d%d%d Mhz", q0, q1, q2, q3, q4, q5);
-
+	sprintf(buffer, "%ld", frequencia);
+	if(strlen(buffer) > 4) {
+		q0 = buffer[0] - '0';
+		q1 = buffer[1] - '0';
+		q2 = buffer[2] - '0';
+		q3 = buffer[3] - '0';
+		q4 = buffer[4] - '0';
+		sprintf(buffer, "%d%d%d.%d%d%d Mhz", q0, q1, q2, q3, q4, 0);
+	}
+	else {
+		q0 = buffer[0] - '0';
+		q1 = buffer[1] - '0';
+		q2 = buffer[2] - '0';
+		q3 = buffer[3] - '0';
+		sprintf(buffer, "%d%d.%d%d%d Mhz", q0, q1, q2, q3, 0);
+	}
 	// Area de Frequencia
 	static lv_style_t style_txt1;
 	lv_style_copy(&style_txt1, &lv_style_plain);

@@ -90,16 +90,23 @@ void create_vumeter_freq(void)
 
 void print_freq(long int frequencia)
 {
-	uint16_t q0, q1, q2, q3, q4, q5;
-	q0 = 1;
-	q1 = 0;
-	q2 = 3;
-	// Decimal
-	q3 = 1;
-	q4 = 0;
-	q5 = 0;
+	uint8_t q0, q1, q2, q3, q4;
 
-	sprintf(buffer, "%d%d%d", q0, q1, q2);
+	sprintf(buffer, "%ld", frequencia);
+	if(strlen(buffer) > 4) {
+		q0 = buffer[0];
+		q1 = buffer[1];
+		q2 = buffer[2];
+		q3 = buffer[3];
+		q4 = buffer[4];
+	}
+	else {
+		q0 = '0';
+		q1 = buffer[0];
+		q2 = buffer[1];
+		q3 = buffer[2];
+		q4 = buffer[3];
+	}
 
 	// Area de Frequencia
 	static lv_style_t style_txt1;
@@ -109,6 +116,7 @@ void print_freq(long int frequencia)
 	style_txt1.text.line_space = 2;
 	style_txt1.text.color = LV_COLOR_WHITE;
 
+	sprintf(buffer,"%d%d%d" , q0, q1, q2);
 	// Cria um novo rotulo
 	lv_obj_t * txt_freq = lv_label_create(Tela_Freq, NULL);
 	lv_obj_set_style(txt_freq, &style_txt1); 						// Configura o estilo criado
@@ -119,7 +127,7 @@ void print_freq(long int frequencia)
 	lv_obj_set_width(txt_freq, 300); 								// Configuura o comprimento
 	lv_obj_align(txt_freq, NULL, LV_ALIGN_IN_TOP_LEFT, 11, 41); 	// Alinha ao centro
 
-	sprintf(buffer,"%d%d%d" , q3, q4, q5);
+	sprintf(buffer,"%d%d%d" , q3, q4, 0);
 	// Cria um novo rotulo
 	lv_obj_t * txt_freq2 = lv_label_create(Tela_Freq, NULL);
 	lv_obj_set_style(txt_freq2, &style_txt1); 						// Configura o estilo criado
@@ -138,6 +146,13 @@ void update_vumeter(long int freq)
 	style_indic_bar_vd.body.main_color = LV_COLOR_MAKE(0, 255, 0);
 	style_indic_bar_vd.body.border.color = LV_COLOR_MAKE(0, 255, 0);
 
+	// Clear Vumeter
+	for(uint8_t x = 0; x < 21; x++) {
+		lv_bar_set_style(bar[x], LV_BAR_STYLE_BG, &style_indic_bar);
+		lv_bar_set_style(bar[x], LV_BAR_STYLE_INDIC, &style_indic_bar);
+	}
+
+	// Update Vumeter
 	uint32_t pos = ((freq / 100) - 87) - 1;
 	lv_bar_set_style(bar[pos], LV_BAR_STYLE_BG, &style_indic_bar_vd);
 	lv_bar_set_style(bar[pos], LV_BAR_STYLE_INDIC, &style_indic_bar_vd);
@@ -182,12 +197,37 @@ static void event_handler(lv_obj_t * obj, lv_event_t event)
         out[4] = buf[0];
         out[5] = 0;
 
-        //printf("Selected Roller: %d Digit: %s  Frequencia: %d\n", id, buf, atoi(out));
+        logI("Selected Roller: %d Digit: %s  Frequencia: %d\n", id, buf, atoi(out));
     }
 }
 
 void prog_freq(void)
 {
+
+	uint8_t q0, q1, q2, q3, q4;
+
+	sprintf(buffer, "%ld", frequencia);
+	if(strlen(buffer) > 4) {
+		q0 = buffer[0] - '0';
+		q1 = buffer[1] - '0';
+		if(q1 == 0) q1 = 2;
+		q2 = buffer[2] - '0';
+		q3 = buffer[3] - '0';
+		q4 = buffer[4] - '0';
+		logI(buffer, "Frequencia: %d%d%d.%d%d%dMhz\n", q0, q1, q2, q3, q4, 0);
+	}
+	else {
+		q0 = 0;
+		q1 = buffer[0] - '0';
+		if(q1 == 8) q1 = 0;
+		else if(q1 == 9) q1 = 1;
+		else if(q1 == 0) q1 = 2;
+		q2 = buffer[1] - '0';
+		q3 = buffer[2] - '0';
+		q4 = buffer[3] - '0';
+		logI(buffer, "Frequencia: %d%d%d.%d%d%dMhz\n", q0, q1, q2, q3, q4, 0);
+	}
+
 	lv_style_copy(&style_roller, &lv_style_plain_color);
 	style_roller.body.main_color = LV_COLOR_BLACK;
 	style_roller.body.grad_color = LV_COLOR_BLACK;
@@ -233,7 +273,11 @@ void prog_freq(void)
 	lv_obj_set_user_data(rollerfreq[5], 5);
     lv_roller_set_options(rollerfreq[5], "0\n1", LV_ROLLER_MODE_INIFINITE);
     lv_roller_set_visible_row_count(rollerfreq[5], 1);
-    lv_roller_set_selected(rollerfreq[5], 1, true);
+    if(strlen(buffer) > 4) {
+    	lv_roller_set_selected(rollerfreq[5], q0, false);
+    }else {
+    	lv_roller_set_selected(rollerfreq[5], 0, false);
+    }
     lv_roller_set_fix_width(rollerfreq[5], 19);
     lv_roller_set_style(rollerfreq[5], LV_ROLLER_STYLE_BG, &style_roller);
     lv_roller_set_style(rollerfreq[5], LV_ROLLER_STYLE_SEL, &style_roller);
@@ -242,9 +286,9 @@ void prog_freq(void)
     // Centena
     rollerfreq[4] = lv_roller_create(Tela_Freq, NULL);
     lv_obj_set_user_data(rollerfreq[4], 4);
-    lv_roller_set_options(rollerfreq[4], "0\n8\n9", LV_ROLLER_MODE_INIFINITE);
+    lv_roller_set_options(rollerfreq[4], "8\n9\n0", LV_ROLLER_MODE_INIFINITE);
     lv_roller_set_visible_row_count(rollerfreq[4], 1);
-    lv_roller_set_selected(rollerfreq[4], 0, true);
+    lv_roller_set_selected(rollerfreq[4], q1, false);
     lv_roller_set_fix_width(rollerfreq[4], 19);
     lv_roller_set_style(rollerfreq[4], LV_ROLLER_STYLE_BG, &style_roller);
     lv_roller_set_style(rollerfreq[4], LV_ROLLER_STYLE_SEL, &style_roller);
@@ -255,7 +299,7 @@ void prog_freq(void)
     lv_obj_set_user_data(rollerfreq[3], 3);
     lv_roller_set_options(rollerfreq[3], "0\n1\n2\n3\n4\n5\n6\n7\n8\n9", LV_ROLLER_MODE_INIFINITE);
     lv_roller_set_visible_row_count(rollerfreq[3], 1);
-    lv_roller_set_selected(rollerfreq[3], 3, true);
+    lv_roller_set_selected(rollerfreq[3], q2, false);
     lv_roller_set_fix_width(rollerfreq[3], 19);
     lv_roller_set_style(rollerfreq[3], LV_ROLLER_STYLE_BG, &style_roller);
     lv_roller_set_style(rollerfreq[3], LV_ROLLER_STYLE_SEL, &style_roller);
@@ -266,7 +310,7 @@ void prog_freq(void)
     lv_obj_set_user_data(rollerfreq[2], 2);
     lv_roller_set_options(rollerfreq[2], "0\n1\n2\n3\n4\n5\n6\n7\n8\n9", LV_ROLLER_MODE_INIFINITE);
     lv_roller_set_visible_row_count(rollerfreq[2], 1);
-    lv_roller_set_selected(rollerfreq[2], 1, true);
+    lv_roller_set_selected(rollerfreq[2], q3, false);
     lv_roller_set_fix_width(rollerfreq[2], 19);
     lv_roller_set_style(rollerfreq[2], LV_ROLLER_STYLE_BG, &style_roller);
     lv_roller_set_style(rollerfreq[2], LV_ROLLER_STYLE_SEL, &style_roller);
@@ -277,7 +321,7 @@ void prog_freq(void)
     lv_obj_set_user_data(rollerfreq[1], 1);
     lv_roller_set_options(rollerfreq[1], "0\n1\n2\n3\n4\n5\n6\n7\n8\n9", LV_ROLLER_MODE_INIFINITE);
     lv_roller_set_visible_row_count(rollerfreq[1], 1);
-    lv_roller_set_selected(rollerfreq[1], 0, true);
+    lv_roller_set_selected(rollerfreq[1], q4, false);
     lv_roller_set_fix_width(rollerfreq[1], 19);
     lv_roller_set_style(rollerfreq[1], LV_ROLLER_STYLE_BG, &style_roller);
     lv_roller_set_style(rollerfreq[1], LV_ROLLER_STYLE_SEL, &style_roller);
@@ -288,7 +332,7 @@ void prog_freq(void)
     lv_obj_set_user_data(rollerfreq[0], 0);
     lv_roller_set_options(rollerfreq[0], "0", LV_ROLLER_MODE_INIFINITE);
     lv_roller_set_visible_row_count(rollerfreq[0], 1);
-    lv_roller_set_selected(rollerfreq[0], 0, true);
+    lv_roller_set_selected(rollerfreq[0], 0, false);
     lv_roller_set_fix_width(rollerfreq[0], 19);
     lv_roller_set_style(rollerfreq[0], LV_ROLLER_STYLE_BG, &style_roller);
     lv_roller_set_style(rollerfreq[0], LV_ROLLER_STYLE_SEL, &style_roller);
@@ -405,6 +449,7 @@ void ButtonEventTelaFrequencia(uint8_t event, uint8_t tipo, uint8_t id)
 	uint8_t x;
 	char buf[32];
 	char out[8];
+	uint16_t value;
 
 	if(event == EVT_PBTN_INPUT) {
 		if(tipo == PBTN_SCLK) {	// Single Click
@@ -419,6 +464,11 @@ void ButtonEventTelaFrequencia(uint8_t event, uint8_t tipo, uint8_t id)
 						logI("TelaFrequencia - KEY_DN - IndiceFREQ: %ld\n", IndiceFREQ);
 						update_style_roller_freq(IndiceFREQ + 1);
 					}
+					else if(TelaProgFREQ == 2) {
+						value = lv_roller_get_selected(rollerfreq[IndiceFREQ]);
+						if(value > 0) value--;
+						lv_roller_set_selected(rollerfreq[IndiceFREQ], value, false);
+					}
 					break;
 				case KEY_UP:
 					if(TelaProgFREQ == 0) {
@@ -427,6 +477,31 @@ void ButtonEventTelaFrequencia(uint8_t event, uint8_t tipo, uint8_t id)
 						if(IndiceFREQ > 1) IndiceFREQ--;
 						logI("TelaFrequencia - KEY_UP - IndiceFREQ: %ld\n", IndiceFREQ);
 						update_style_roller_freq(IndiceFREQ + 1);
+					}
+					else if(TelaProgFREQ == 2) {
+						if(IndiceFREQ == 1 || IndiceFREQ == 2 || IndiceFREQ == 3 ) {
+							value = lv_roller_get_selected(rollerfreq[IndiceFREQ]);
+							value++;
+							if(value > 9) value = 9;
+							lv_roller_set_selected(rollerfreq[IndiceFREQ], value, false);
+						}
+						else if(IndiceFREQ == 4) {
+							value = lv_roller_get_selected(rollerfreq[IndiceFREQ]);
+							value++;
+							if(lv_roller_get_selected(rollerfreq[5]) == 1) {
+								if(value > 2) value = 2;
+							}
+							else {
+								if(value > 1) value = 1;
+							}
+							lv_roller_set_selected(rollerfreq[IndiceFREQ], value, false);
+						}
+						else if(IndiceFREQ == 5) {
+							value = lv_roller_get_selected(rollerfreq[IndiceFREQ]);
+							value++;
+							if(value > 1) value = 1;
+							lv_roller_set_selected(rollerfreq[IndiceFREQ], value, false);
+						}
 					}
 					break;
 				case KEY_ENTER:
@@ -461,6 +536,8 @@ void ButtonEventTelaFrequencia(uint8_t event, uint8_t tipo, uint8_t id)
 				        out[4] = buf[0];
 				        out[5] = 0;
 
+				        frequencia = atoi(out);
+				        update_vumeter(frequencia);
 				        logI("Selected Roller: %d Digit: %s  Frequencia: %d\n", id, buf, atoi(out));
 
 					}

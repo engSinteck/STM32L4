@@ -45,7 +45,7 @@ uint16_t tft_pwm = 0;
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 // Variaves TX EX15-XT
-long int frequencia = 10310;
+long int frequencia = 9810;
 uint8_t Cfg_Stereo = 1, Cfg_Audio = 0, Cfg_Processador = 0, Cfg_Clipper = 0, Cfg_Emphase = 0, RFEnable = 1, mp3_status = 0;
 uint8_t pll_status = 1;
 char buffer[200] = {0};

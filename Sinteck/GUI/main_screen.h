@@ -20,7 +20,7 @@
 #define	FAIL_SWR		7
 
 void main_screen(void);
-void print_frequencia(u_int32_t freq);
+void print_frequencia(long int freq);
 void print_pot(float fwd, float swr);
 void print_audio(u_int8_t stereo, u_int8_t audio);
 void print_temperatura(float temp);

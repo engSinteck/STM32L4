@@ -50233,7 +50233,7 @@ void lv_circ_next(lv_point_t * c, lv_coord_t * tmp)
  801569a:	f9b1 2000 	ldrsh.w	r2, [r1]
  801569e:	2a00      	cmp	r2, #0
  80156a0:	dc04      	bgt.n	80156ac <lv_circ_next+0x1e>
-        (*tmp) += 2 * c->y + 1; // Change in decision criterion for y -> y+1
+        (*tmp) += 2 * c->y + 1; /*Change in decision criterion for y -> y+1*/
  80156a2:	3201      	adds	r2, #1
  80156a4:	eb02 0244 	add.w	r2, r2, r4, lsl #1
  80156a8:	800a      	strh	r2, [r1, #0]
@@ -50244,7 +50244,7 @@ void lv_circ_next(lv_point_t * c, lv_coord_t * tmp)
  80156ae:	3b01      	subs	r3, #1
  80156b0:	b21b      	sxth	r3, r3
  80156b2:	8003      	strh	r3, [r0, #0]
-        (*tmp) += 2 * (c->y - c->x) + 1; // Change for y -> y+1, x -> x-1
+        (*tmp) += 2 * (c->y - c->x) + 1; /*Change for y -> y+1, x -> x-1*/
  80156b4:	1aed      	subs	r5, r5, r3
  80156b6:	880b      	ldrh	r3, [r1, #0]
  80156b8:	3301      	adds	r3, #1

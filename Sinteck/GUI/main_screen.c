@@ -433,8 +433,22 @@ static void update_vumeter_mpx(uint32_t value)
 
 	if(value > Last_mpx) {
 		for(x = Last_mpx; x <= value; x++) {
-			lv_bar_set_style(bar[x], LV_BAR_STYLE_BG, &style_indic_vd);
-			lv_bar_set_style(bar[x], LV_BAR_STYLE_INDIC, &style_indic_vd);
+			if(x == 13) {
+				lv_bar_set_style(bar[x], LV_BAR_STYLE_BG, &style_indic_cy);
+				lv_bar_set_style(bar[x], LV_BAR_STYLE_INDIC, &style_indic_cy);
+			}
+			else if(x == 14 || x == 15 || x == 16) {
+				lv_bar_set_style(bar[x], LV_BAR_STYLE_BG, &style_indic_am);
+				lv_bar_set_style(bar[x], LV_BAR_STYLE_INDIC, &style_indic_am);
+			}
+			else if(x == 17 || x == 18 || x == 19) {
+				lv_bar_set_style(bar[x], LV_BAR_STYLE_BG, &style_indic_vm);
+				lv_bar_set_style(bar[x], LV_BAR_STYLE_INDIC, &style_indic_vm);
+			}
+			else {
+				lv_bar_set_style(bar[x], LV_BAR_STYLE_BG, &style_indic_vd);
+				lv_bar_set_style(bar[x], LV_BAR_STYLE_INDIC, &style_indic_vd);
+			}
 		}
 	}
 	else {

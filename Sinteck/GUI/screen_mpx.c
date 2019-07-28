@@ -35,6 +35,11 @@ static lv_obj_t * bar_l[24];
 static lv_obj_t * bar_r[24];
 static lv_style_t style_indic_bar;
 static lv_style_t style_indic_bar_vd;
+static lv_style_t style_indic_bar_cy;
+static lv_style_t style_indic_bar_am;
+static lv_style_t style_indic_bar_lj;
+static lv_style_t style_indic_bar_vm;
+
 static lv_task_t * Task_MPX;
 
 const int32_t m_pos_x[24] = {14, 20, 26, 32, 38, 44, 50, 56, 62, 68, 74, 80,
@@ -69,6 +74,7 @@ void screen_reading_mpx(void)
 	lv_obj_set_event_cb(img_fundo, btn_event_esc_audio);
 	lv_obj_set_click(img_fundo, 1);
 
+	create_style_vumeter();
 	create_vumeter_m();
 	create_vumeter_r();
 	create_vumeter_l();
@@ -80,22 +86,54 @@ void screen_reading_mpx(void)
 	TelaAtiva = TelaMpx;
 }
 
+void create_style_vumeter(void)
+{
+		// Indicador OFF
+		lv_style_copy(&style_indic_bar, &lv_style_pretty);
+		style_indic_bar.body.radius = 0;
+		style_indic_bar.body.grad_color = LV_COLOR_MAKE(105, 105, 105);
+		style_indic_bar.body.main_color = LV_COLOR_MAKE(105, 105, 105);
+		style_indic_bar.body.border.color = LV_COLOR_MAKE(105, 105, 105);
+
+		// Verde
+		lv_style_copy(&style_indic_bar_vd, &lv_style_pretty);
+		style_indic_bar_vd.body.radius = 0;
+		style_indic_bar_vd.body.grad_color = LV_COLOR_MAKE(0, 255, 0);
+		style_indic_bar_vd.body.main_color = LV_COLOR_MAKE(0, 255, 0);
+		style_indic_bar_vd.body.border.color = LV_COLOR_MAKE(0, 255, 0);
+
+		// Amarelo
+		lv_style_copy(&style_indic_bar_am, &lv_style_pretty);
+		style_indic_bar_am.body.radius = 0;
+		style_indic_bar_am.body.grad_color = LV_COLOR_YELLOW;
+		style_indic_bar_am.body.main_color = LV_COLOR_YELLOW;
+		style_indic_bar_am.body.border.color = LV_COLOR_YELLOW;
+
+		// Amarelo
+		lv_style_copy(&style_indic_bar_lj, &lv_style_pretty);
+		style_indic_bar_lj.body.radius = 0;
+		style_indic_bar_lj.body.grad_color = LV_COLOR_ORANGE;
+		style_indic_bar_lj.body.main_color = LV_COLOR_ORANGE;
+		style_indic_bar_lj.body.border.color = LV_COLOR_ORANGE;
+
+		// Ciano
+		lv_style_copy(&style_indic_bar_cy, &lv_style_pretty);
+		style_indic_bar_cy.body.radius = 0;
+		style_indic_bar_cy.body.grad_color = LV_COLOR_CYAN;
+		style_indic_bar_cy.body.main_color = LV_COLOR_CYAN;
+		style_indic_bar_cy.body.border.color = LV_COLOR_CYAN;
+
+		// Vermelho
+		lv_style_copy(&style_indic_bar_vm, &lv_style_pretty);
+		style_indic_bar_vm.body.radius = 0;
+		style_indic_bar_vm.body.grad_color = LV_COLOR_RED;
+		style_indic_bar_vm.body.main_color = LV_COLOR_RED;
+		style_indic_bar_vm.body.border.color = LV_COLOR_RED;
+
+}
+
 void create_vumeter_m(void)
 {
-	// Area do Barguraph
-	// Indicador OFF
-	lv_style_copy(&style_indic_bar, &lv_style_pretty);
-	style_indic_bar.body.radius = 0;
-	style_indic_bar.body.grad_color = LV_COLOR_MAKE(105, 105, 105);
-	style_indic_bar.body.main_color = LV_COLOR_MAKE(105, 105, 105);
-	style_indic_bar.body.border.color = LV_COLOR_MAKE(105, 105, 105);
-
-	lv_style_copy(&style_indic_bar_vd, &lv_style_pretty);
-	style_indic_bar_vd.body.radius = 0;
-	style_indic_bar_vd.body.grad_color = LV_COLOR_MAKE(0, 255, 0);
-	style_indic_bar_vd.body.main_color = LV_COLOR_MAKE(0, 255, 0);
-	style_indic_bar_vd.body.border.color = LV_COLOR_MAKE(0, 255, 0);
-
 	// Create a default bar
 	for(uint8_t x = 0; x < 24; x++) {
 		bar_m[x] = lv_bar_create(Tela_Reading_MPX, NULL);
@@ -109,20 +147,6 @@ void create_vumeter_m(void)
 
 void create_vumeter_r(void)
 {
-	// Area do Barguraph
-	// Indicador OFF
-	lv_style_copy(&style_indic_bar, &lv_style_pretty);
-	style_indic_bar.body.radius = 0;
-	style_indic_bar.body.grad_color = LV_COLOR_MAKE(105, 105, 105);
-	style_indic_bar.body.main_color = LV_COLOR_MAKE(105, 105, 105);
-	style_indic_bar.body.border.color = LV_COLOR_MAKE(105, 105, 105);
-
-	lv_style_copy(&style_indic_bar_vd, &lv_style_pretty);
-	style_indic_bar_vd.body.radius = 0;
-	style_indic_bar_vd.body.grad_color = LV_COLOR_MAKE(0, 255, 0);
-	style_indic_bar_vd.body.main_color = LV_COLOR_MAKE(0, 255, 0);
-	style_indic_bar_vd.body.border.color = LV_COLOR_MAKE(0, 255, 0);
-
 	// Create a default bar
 	for(uint8_t x = 0; x < 24; x++) {
 		bar_r[x] = lv_bar_create(Tela_Reading_MPX, NULL);
@@ -136,20 +160,6 @@ void create_vumeter_r(void)
 
 void create_vumeter_l(void)
 {
-	// Area do Barguraph
-	// Indicador OFF
-	lv_style_copy(&style_indic_bar, &lv_style_pretty);
-	style_indic_bar.body.radius = 0;
-	style_indic_bar.body.grad_color = LV_COLOR_MAKE(105, 105, 105);
-	style_indic_bar.body.main_color = LV_COLOR_MAKE(105, 105, 105);
-	style_indic_bar.body.border.color = LV_COLOR_MAKE(105, 105, 105);
-
-	lv_style_copy(&style_indic_bar_vd, &lv_style_pretty);
-	style_indic_bar_vd.body.radius = 0;
-	style_indic_bar_vd.body.grad_color = LV_COLOR_MAKE(0, 255, 0);
-	style_indic_bar_vd.body.main_color = LV_COLOR_MAKE(0, 255, 0);
-	style_indic_bar_vd.body.border.color = LV_COLOR_MAKE(0, 255, 0);
-
 	// Create a default bar
 	for(uint8_t x = 0; x < 24; x++) {
 		bar_l[x] = lv_bar_create(Tela_Reading_MPX, NULL);
@@ -229,8 +239,26 @@ static void update_vumeter_mpx2(uint32_t value)
 
 	if(value > Last_mpx2) {
 		for(x = Last_mpx2; x <= value; x++) {
-			lv_bar_set_style(bar_m[x], LV_BAR_STYLE_BG, &style_indic_bar_vd);
-			lv_bar_set_style(bar_m[x], LV_BAR_STYLE_INDIC, &style_indic_bar_vd);
+			if(x == 15) {
+				lv_bar_set_style(bar_m[x], LV_BAR_STYLE_BG, &style_indic_bar_cy);
+				lv_bar_set_style(bar_m[x], LV_BAR_STYLE_INDIC, &style_indic_bar_cy);
+			}
+			else if(x == 16 || x == 17) {
+				lv_bar_set_style(bar_m[x], LV_BAR_STYLE_BG, &style_indic_bar_am);
+				lv_bar_set_style(bar_m[x], LV_BAR_STYLE_INDIC, &style_indic_bar_am);
+			}
+			else if(x == 18 || x == 19 || x == 20 || x == 21) {
+				lv_bar_set_style(bar_m[x], LV_BAR_STYLE_BG, &style_indic_bar_lj);
+				lv_bar_set_style(bar_m[x], LV_BAR_STYLE_INDIC, &style_indic_bar_lj);
+			}
+			else if( x == 22 || x == 23) {
+				lv_bar_set_style(bar_m[x], LV_BAR_STYLE_BG, &style_indic_bar_vm);
+				lv_bar_set_style(bar_m[x], LV_BAR_STYLE_INDIC, &style_indic_bar_vm);
+			}
+			else {
+				lv_bar_set_style(bar_m[x], LV_BAR_STYLE_BG, &style_indic_bar_vd);
+				lv_bar_set_style(bar_m[x], LV_BAR_STYLE_INDIC, &style_indic_bar_vd);
+			}
 		}
 	}
 	else {
@@ -248,8 +276,22 @@ static void update_vumeter_audio_l(uint32_t value)
 
 	if(value > Last_audio_l) {
 		for(x = Last_audio_l; x <= value; x++) {
-			lv_bar_set_style(bar_l[x], LV_BAR_STYLE_BG, &style_indic_bar_vd);
-			lv_bar_set_style(bar_l[x], LV_BAR_STYLE_INDIC, &style_indic_bar_vd);
+			if(x == 19) {
+				lv_bar_set_style(bar_l[x], LV_BAR_STYLE_BG, &style_indic_bar_cy);
+				lv_bar_set_style(bar_l[x], LV_BAR_STYLE_INDIC, &style_indic_bar_cy);
+			}
+			else if(x == 20 || x == 21) {
+				lv_bar_set_style(bar_l[x], LV_BAR_STYLE_BG, &style_indic_bar_am);
+				lv_bar_set_style(bar_l[x], LV_BAR_STYLE_INDIC, &style_indic_bar_am);
+			}
+			else if(x == 22 || x == 23 ) {
+				lv_bar_set_style(bar_l[x], LV_BAR_STYLE_BG, &style_indic_bar_vm);
+				lv_bar_set_style(bar_l[x], LV_BAR_STYLE_INDIC, &style_indic_bar_vm);
+			}
+			else {
+				lv_bar_set_style(bar_l[x], LV_BAR_STYLE_BG, &style_indic_bar_vd);
+				lv_bar_set_style(bar_l[x], LV_BAR_STYLE_INDIC, &style_indic_bar_vd);
+			}
 		}
 	}
 	else {
@@ -267,8 +309,22 @@ static void update_vumeter_audio_r(uint32_t value)
 
 	if(value > Last_audio_r) {
 		for(x = Last_audio_r; x <= value; x++) {
-			lv_bar_set_style(bar_r[x], LV_BAR_STYLE_BG, &style_indic_bar_vd);
-			lv_bar_set_style(bar_r[x], LV_BAR_STYLE_INDIC, &style_indic_bar_vd);
+			if(x == 19) {
+				lv_bar_set_style(bar_r[x], LV_BAR_STYLE_BG, &style_indic_bar_cy);
+				lv_bar_set_style(bar_r[x], LV_BAR_STYLE_INDIC, &style_indic_bar_cy);
+			}
+			else if(x == 20 || x == 21) {
+				lv_bar_set_style(bar_r[x], LV_BAR_STYLE_BG, &style_indic_bar_am);
+				lv_bar_set_style(bar_r[x], LV_BAR_STYLE_INDIC, &style_indic_bar_am);
+			}
+			else if(x == 22 || x == 23 ) {
+				lv_bar_set_style(bar_r[x], LV_BAR_STYLE_BG, &style_indic_bar_vm);
+				lv_bar_set_style(bar_r[x], LV_BAR_STYLE_INDIC, &style_indic_bar_vm);
+			}
+			else {
+				lv_bar_set_style(bar_r[x], LV_BAR_STYLE_BG, &style_indic_bar_vd);
+				lv_bar_set_style(bar_r[x], LV_BAR_STYLE_INDIC, &style_indic_bar_vd);
+			}
 		}
 	}
 	else {

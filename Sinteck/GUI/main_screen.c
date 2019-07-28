@@ -43,7 +43,7 @@ extern char buffer[500];
 extern long int frequencia;
 extern uint8_t Cfg_Stereo, Cfg_Audio, Cfg_Processador, Cfg_Clipper, Cfg_Emphase, RFEnable, mp3_status, sent_hor;
 extern float temperatura, forward, reflected;
-extern uint32_t TelaAtiva, falha, mpx;
+extern uint32_t TelaAtiva, falha, mpx, Last_mpx;
 
 #if LV_USE_FILESYSTEM == 0
 	LV_IMG_DECLARE(tela_0);
@@ -429,280 +429,21 @@ void bargraph_off(uint8_t value)
 
 static void update_vumeter_mpx(uint32_t value)
 {
-	switch(value) {
-		case 0:
-			bargraph_off(0);
-			break;
-		case 1:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			bargraph_off(1);
-			break;
-		case 2:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			bargraph_off(2);
-			break;
-		case 3:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			bargraph_off(3);
-			break;
-		case 4:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[3], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[3], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			bargraph_off(4);
-			break;
-		case 5:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[3], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[3], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[4], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[4], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			bargraph_off(5);
-			break;
-		case 6:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[3], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[3], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[4], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[4], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[5], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[5], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			bargraph_off(6);
-			break;
-		case 7:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[3], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[3], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[4], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[4], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[5], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[5], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[6], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[6], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			bargraph_off(7);
-			break;
-		case 8:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[3], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[3], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[4], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[4], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[5], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[5], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[6], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[6], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[7], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[7], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			bargraph_off(8);
-			break;
-		case 9:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[3], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[3], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[4], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[4], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[5], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[5], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[6], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[6], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[7], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[7], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[8], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[8], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			bargraph_off(9);
-			break;
-		case 10:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[3], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[3], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[4], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[4], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[5], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[5], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[6], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[6], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[7], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[7], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[8], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[8], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[9], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[9], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			bargraph_off(10);
-			break;
-		case 11:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[3], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[3], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[4], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[4], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[5], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[5], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[6], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[6], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[7], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[7], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[8], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[8], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[9], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[9], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[10], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[10], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			bargraph_off(11);
-			break;
-		case 12:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[3], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[3], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[4], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[4], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[5], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[5], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[6], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[6], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[7], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[7], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[8], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[8], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[9], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[9], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[10], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[10], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[11], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[11], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			bargraph_off(12);
-			break;
-		case 13:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[3], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[3], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[4], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[4], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[5], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[5], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[6], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[6], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[7], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[7], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[8], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[8], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[9], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[9], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[10], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[10], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[11], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[11], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[12], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[12], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			bargraph_off(13);
-			break;
-		case 14:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[3], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[3], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[4], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[4], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[5], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[5], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[6], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[6], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[7], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[7], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[8], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[8], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[9], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[9], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[10], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[10], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[11], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[11], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[12], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[12], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[13], LV_BAR_STYLE_BG, &style_indic_cy); lv_bar_set_style(bar[13], LV_BAR_STYLE_INDIC, &style_indic_cy);
-			bargraph_off(14);
-			break;
-		case 15:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[3], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[3], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[4], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[4], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[5], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[5], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[6], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[6], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[7], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[7], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[8], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[8], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[9], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[9], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[10], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[10], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[11], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[11], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[12], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[12], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[13], LV_BAR_STYLE_BG, &style_indic_cy); lv_bar_set_style(bar[13], LV_BAR_STYLE_INDIC, &style_indic_cy);
-			lv_bar_set_style(bar[14], LV_BAR_STYLE_BG, &style_indic_am); lv_bar_set_style(bar[14], LV_BAR_STYLE_INDIC, &style_indic_am);
-			bargraph_off(15);
-			break;
-		case 16:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[3], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[3], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[4], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[4], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[5], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[5], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[6], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[6], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[7], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[7], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[8], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[8], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[9], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[9], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[10], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[10], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[11], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[11], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[12], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[12], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[13], LV_BAR_STYLE_BG, &style_indic_cy); lv_bar_set_style(bar[13], LV_BAR_STYLE_INDIC, &style_indic_cy);
-			lv_bar_set_style(bar[14], LV_BAR_STYLE_BG, &style_indic_am); lv_bar_set_style(bar[14], LV_BAR_STYLE_INDIC, &style_indic_am);
-			lv_bar_set_style(bar[15], LV_BAR_STYLE_BG, &style_indic_am); lv_bar_set_style(bar[15], LV_BAR_STYLE_INDIC, &style_indic_am);
-			bargraph_off(16);
-			break;
-		case 17:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[3], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[3], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[4], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[4], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[5], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[5], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[6], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[6], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[7], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[7], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[8], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[8], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[9], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[9], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[10], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[10], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[11], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[11], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[12], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[12], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[13], LV_BAR_STYLE_BG, &style_indic_cy); lv_bar_set_style(bar[13], LV_BAR_STYLE_INDIC, &style_indic_cy);
-			lv_bar_set_style(bar[14], LV_BAR_STYLE_BG, &style_indic_am); lv_bar_set_style(bar[14], LV_BAR_STYLE_INDIC, &style_indic_am);
-			lv_bar_set_style(bar[15], LV_BAR_STYLE_BG, &style_indic_am); lv_bar_set_style(bar[15], LV_BAR_STYLE_INDIC, &style_indic_am);
-			lv_bar_set_style(bar[16], LV_BAR_STYLE_BG, &style_indic_am); lv_bar_set_style(bar[16], LV_BAR_STYLE_INDIC, &style_indic_am);
-			bargraph_off(17);
-			break;
-		case 18:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[3], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[3], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[4], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[4], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[5], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[5], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[6], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[6], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[7], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[7], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[8], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[8], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[9], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[9], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[10], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[10], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[11], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[11], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[12], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[12], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[13], LV_BAR_STYLE_BG, &style_indic_cy); lv_bar_set_style(bar[13], LV_BAR_STYLE_INDIC, &style_indic_cy);
-			lv_bar_set_style(bar[14], LV_BAR_STYLE_BG, &style_indic_am); lv_bar_set_style(bar[14], LV_BAR_STYLE_INDIC, &style_indic_am);
-			lv_bar_set_style(bar[15], LV_BAR_STYLE_BG, &style_indic_am); lv_bar_set_style(bar[15], LV_BAR_STYLE_INDIC, &style_indic_am);
-			lv_bar_set_style(bar[16], LV_BAR_STYLE_BG, &style_indic_am); lv_bar_set_style(bar[16], LV_BAR_STYLE_INDIC, &style_indic_am);
-			lv_bar_set_style(bar[17], LV_BAR_STYLE_BG, &style_indic_vm); lv_bar_set_style(bar[17], LV_BAR_STYLE_INDIC, &style_indic_vm);
-			bargraph_off(18);
-			break;
-		case 19:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[3], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[3], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[4], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[4], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[5], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[5], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[6], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[6], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[7], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[7], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[8], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[8], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[9], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[9], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[10], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[10], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[11], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[11], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[12], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[12], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[13], LV_BAR_STYLE_BG, &style_indic_cy); lv_bar_set_style(bar[13], LV_BAR_STYLE_INDIC, &style_indic_cy);
-			lv_bar_set_style(bar[14], LV_BAR_STYLE_BG, &style_indic_am); lv_bar_set_style(bar[14], LV_BAR_STYLE_INDIC, &style_indic_am);
-			lv_bar_set_style(bar[15], LV_BAR_STYLE_BG, &style_indic_am); lv_bar_set_style(bar[15], LV_BAR_STYLE_INDIC, &style_indic_am);
-			lv_bar_set_style(bar[16], LV_BAR_STYLE_BG, &style_indic_am); lv_bar_set_style(bar[16], LV_BAR_STYLE_INDIC, &style_indic_am);
-			lv_bar_set_style(bar[17], LV_BAR_STYLE_BG, &style_indic_vm); lv_bar_set_style(bar[17], LV_BAR_STYLE_INDIC, &style_indic_vm);
-			lv_bar_set_style(bar[18], LV_BAR_STYLE_BG, &style_indic_vm); lv_bar_set_style(bar[18], LV_BAR_STYLE_INDIC, &style_indic_vm);
-			bargraph_off(19);
-			break;
-		case 20:
-			lv_bar_set_style(bar[0], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[0], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[1], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[1], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[2], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[2], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[3], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[3], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[4], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[4], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[5], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[5], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[6], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[6], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[7], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[7], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[8], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[8], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[9], LV_BAR_STYLE_BG, &style_indic_vd);	lv_bar_set_style(bar[9], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[10], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[10], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[11], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[11], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[12], LV_BAR_STYLE_BG, &style_indic_vd); lv_bar_set_style(bar[12], LV_BAR_STYLE_INDIC, &style_indic_vd);
-			lv_bar_set_style(bar[13], LV_BAR_STYLE_BG, &style_indic_cy); lv_bar_set_style(bar[13], LV_BAR_STYLE_INDIC, &style_indic_cy);
-			lv_bar_set_style(bar[14], LV_BAR_STYLE_BG, &style_indic_am); lv_bar_set_style(bar[14], LV_BAR_STYLE_INDIC, &style_indic_am);
-			lv_bar_set_style(bar[15], LV_BAR_STYLE_BG, &style_indic_am); lv_bar_set_style(bar[15], LV_BAR_STYLE_INDIC, &style_indic_am);
-			lv_bar_set_style(bar[16], LV_BAR_STYLE_BG, &style_indic_am); lv_bar_set_style(bar[16], LV_BAR_STYLE_INDIC, &style_indic_am);
-			lv_bar_set_style(bar[17], LV_BAR_STYLE_BG, &style_indic_vm); lv_bar_set_style(bar[17], LV_BAR_STYLE_INDIC, &style_indic_vm);
-			lv_bar_set_style(bar[18], LV_BAR_STYLE_BG, &style_indic_vm); lv_bar_set_style(bar[18], LV_BAR_STYLE_INDIC, &style_indic_vm);
-			lv_bar_set_style(bar[19], LV_BAR_STYLE_BG, &style_indic_vm); lv_bar_set_style(bar[19], LV_BAR_STYLE_INDIC, &style_indic_vm);
-			break;
+	uint32_t x;
+
+	if(value > Last_mpx) {
+		for(x = Last_mpx; x <= value; x++) {
+			lv_bar_set_style(bar[x], LV_BAR_STYLE_BG, &style_indic_vd);
+			lv_bar_set_style(bar[x], LV_BAR_STYLE_INDIC, &style_indic_vd);
+		}
 	}
+	else {
+		for(x = value; x <= Last_mpx; x++) {
+			lv_bar_set_style(bar[x], LV_BAR_STYLE_BG, &style_indic_off);
+			lv_bar_set_style(bar[x], LV_BAR_STYLE_INDIC, &style_indic_off);
+		}
+	}
+	Last_mpx = value;
 }
 
 static void update_main_screen(lv_task_t * param)
@@ -756,7 +497,7 @@ static void update_main_screen(lv_task_t * param)
     update_vumeter_mpx(mpx);
 	if(!sent_hor) {
 		mpx++;
-		if(mpx > 20) {
+		if(mpx >= 20) {
 			sent_hor = 1;
 			mpx--;
 		}

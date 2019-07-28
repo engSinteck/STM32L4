@@ -15,8 +15,16 @@
 
 static void btn_event_next_audio(lv_obj_t * btn, lv_event_t event);
 static void btn_event_esc_audio(lv_obj_t * btn, lv_event_t event);
+static void update_mpx_screen(lv_task_t * param);
+static void update_vumeter_mpx2(uint32_t value);
+static void update_vumeter_audio_l(uint32_t audio_l);
+static void update_vumeter_audio_r(uint32_t audio_r);
 
 extern uint32_t TelaAtiva;
+extern uint8_t sent_mpx;
+extern uint32_t mpx2, Last_mpx2;
+extern uint32_t audio_l, Last_audio_l;
+extern uint32_t audio_r, Last_audio_r;
 
 static lv_obj_t * Tela_Reading_MPX;
 static lv_obj_t * img_fundo;
@@ -27,6 +35,7 @@ static lv_obj_t * bar_l[24];
 static lv_obj_t * bar_r[24];
 static lv_style_t style_indic_bar;
 static lv_style_t style_indic_bar_vd;
+static lv_task_t * Task_MPX;
 
 const int32_t m_pos_x[24] = {14, 20, 26, 32, 38, 44, 50, 56, 62, 68, 74, 80,
                              86, 92, 98, 104, 110, 116, 122, 128, 134, 140, 146, 152};
@@ -64,8 +73,10 @@ void screen_reading_mpx(void)
 	create_vumeter_r();
 	create_vumeter_l();
 	btn_next_audio();
-//	btn_esc_audio();
 	lv_scr_load(Tela_Reading_MPX);
+
+	// Task Update MPX Screen
+	Task_MPX = lv_task_create(update_mpx_screen, 500, LV_TASK_PRIO_MID, NULL);
 	TelaAtiva = TelaMpx;
 }
 
@@ -175,6 +186,7 @@ static void btn_event_next_audio(lv_obj_t * btn, lv_event_t event)
 {
 	if(event == LV_EVENT_APPLY) {
 		//printf("Button Next Released SCREEN_READING_TEMP\n");
+		lv_task_del(Task_MPX);
 		lv_obj_del(Tela_Reading_MPX);
 		screen_reading_temp();
 	}
@@ -205,8 +217,92 @@ static void btn_event_esc_audio(lv_obj_t * btn, lv_event_t event)
 {
 	if(event == LV_EVENT_APPLY) {
 		//printf("Button ESC Released\n");
+		lv_task_del(Task_MPX);
 		lv_obj_del(Tela_Reading_MPX);
 		screen_readings();
+	}
+}
+
+static void update_vumeter_mpx2(uint32_t value)
+{
+	uint32_t x;
+
+	if(value > Last_mpx2) {
+		for(x = Last_mpx2; x <= value; x++) {
+			lv_bar_set_style(bar_m[x], LV_BAR_STYLE_BG, &style_indic_bar_vd);
+			lv_bar_set_style(bar_m[x], LV_BAR_STYLE_INDIC, &style_indic_bar_vd);
+		}
+	}
+	else {
+		for(x = value; x <= Last_mpx2; x++) {
+			lv_bar_set_style(bar_m[x], LV_BAR_STYLE_BG, &style_indic_bar);
+			lv_bar_set_style(bar_m[x], LV_BAR_STYLE_INDIC, &style_indic_bar);
+		}
+	}
+	Last_mpx2 = value;
+}
+
+static void update_vumeter_audio_l(uint32_t value)
+{
+	uint32_t x;
+
+	if(value > Last_audio_l) {
+		for(x = Last_audio_l; x <= value; x++) {
+			lv_bar_set_style(bar_l[x], LV_BAR_STYLE_BG, &style_indic_bar_vd);
+			lv_bar_set_style(bar_l[x], LV_BAR_STYLE_INDIC, &style_indic_bar_vd);
+		}
+	}
+	else {
+		for(x = value; x <= Last_audio_l; x++) {
+			lv_bar_set_style(bar_l[x], LV_BAR_STYLE_BG, &style_indic_bar);
+			lv_bar_set_style(bar_l[x], LV_BAR_STYLE_INDIC, &style_indic_bar);
+		}
+	}
+	Last_audio_l = value;
+}
+
+static void update_vumeter_audio_r(uint32_t value)
+{
+	uint32_t x;
+
+	if(value > Last_audio_r) {
+		for(x = Last_audio_r; x <= value; x++) {
+			lv_bar_set_style(bar_r[x], LV_BAR_STYLE_BG, &style_indic_bar_vd);
+			lv_bar_set_style(bar_r[x], LV_BAR_STYLE_INDIC, &style_indic_bar_vd);
+		}
+	}
+	else {
+		for(x = value; x <= Last_audio_r; x++) {
+			lv_bar_set_style(bar_r[x], LV_BAR_STYLE_BG, &style_indic_bar);
+			lv_bar_set_style(bar_r[x], LV_BAR_STYLE_INDIC, &style_indic_bar);
+		}
+	}
+	Last_audio_r = value;
+}
+
+static void update_mpx_screen(lv_task_t * param)
+{
+	update_vumeter_mpx2(mpx2);
+	update_vumeter_audio_l(audio_l);
+	update_vumeter_audio_r(audio_r);
+	if(!sent_mpx) {
+		mpx2++;
+		audio_l++;
+		audio_r++;
+		if(mpx2 >= 24) {
+			sent_mpx = 1;
+			mpx2--;
+			audio_l--;
+			audio_r--;
+		}
+	}
+	else {
+		mpx2--;
+		audio_l--;
+		audio_r--;
+		if(mpx2 == 0) {
+			sent_mpx = 0;
+		}
 	}
 }
 

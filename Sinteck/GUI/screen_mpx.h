@@ -9,6 +9,7 @@
 #define EX15_XT_SRC_SCREEN_MPX_H_
 
 void screen_reading_mpx(void);
+void create_style_vumeter(void);
 void create_vumeter_m(void);
 void create_vumeter_r(void);
 void create_vumeter_l(void);

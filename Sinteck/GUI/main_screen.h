@@ -29,4 +29,5 @@ void create_vumeter(void);
 void print_alarme(u_int32_t falha);
 void ButtonEventTelaPrincipal(uint8_t event, uint8_t tipo, uint8_t id);
 
+
 #endif /* EX15_XT_MAIN_SCREEN_H_ */

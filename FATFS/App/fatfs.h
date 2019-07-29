@@ -26,6 +26,7 @@
 #include "ff.h"
 #include "ff_gen_drv.h"
 #include "user_diskio.h" /* defines USER_Driver as external */
+#include "w25qxx.h"
 
 /* USER CODE BEGIN Includes */
 

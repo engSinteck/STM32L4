@@ -79,6 +79,12 @@ void create_vumeter_freq(void)
 	style_indic_bar.body.main_color = LV_COLOR_MAKE(105, 105, 105);
 	style_indic_bar.body.border.color = LV_COLOR_MAKE(105, 105, 105);
 
+	lv_style_copy(&style_indic_bar_vd, &lv_style_pretty);
+	style_indic_bar_vd.body.radius = 0;
+	style_indic_bar_vd.body.grad_color = LV_COLOR_MAKE(0, 255, 0);
+	style_indic_bar_vd.body.main_color = LV_COLOR_MAKE(0, 255, 0);
+	style_indic_bar_vd.body.border.color = LV_COLOR_MAKE(0, 255, 0);
+
 	// Create a default bar
 	for(uint8_t x = 0; x < 21; x++) {
 		bar[x] = lv_bar_create(Tela_Freq, NULL);
@@ -144,10 +150,6 @@ void print_freq(long int frequencia)
 
 void update_vumeter(long int freq)
 {
-	style_indic_bar_vd.body.grad_color = LV_COLOR_MAKE(0, 255, 0);
-	style_indic_bar_vd.body.main_color = LV_COLOR_MAKE(0, 255, 0);
-	style_indic_bar_vd.body.border.color = LV_COLOR_MAKE(0, 255, 0);
-
 	// Clear Vumeter
 	for(uint8_t x = 0; x < 21; x++) {
 		lv_bar_set_style(bar[x], LV_BAR_STYLE_BG, &style_indic_bar);

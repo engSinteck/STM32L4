@@ -144,7 +144,7 @@ int main(void)
   MX_SPI3_Init();
   MX_TIM3_Init();
   MX_RTC_Init();
-  MX_FATFS_Init();
+  //MX_FATFS_Init();
   MX_ADC1_Init();
   MX_DAC1_Init();
   MX_USB_DEVICE_Init();
@@ -166,8 +166,7 @@ int main(void)
   // Inicia Tecla
   KeyboardInit(0x01);
 
-  // Inicia W25Q128
-  W25qxx_Init();
+  MX_FATFS_Init();
 
   // Teste Float
   temperatura = (float)(2000 *(3.30/4095.0));

@@ -36,6 +36,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include <string.h>
 #include "ff_gen_drv.h"
+#include "w25qxx.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -78,11 +79,14 @@ Diskio_drvTypeDef  USER_Driver =
   * @retval DSTATUS: Operation status
   */
 DSTATUS USER_initialize (
-	BYTE pdrv           /* Physical drive nmuber to identify the drive */
+	BYTE pdrv           /* Physical drive number to identify the drive */
 )
 {
   /* USER CODE BEGIN INIT */
     Stat = STA_NOINIT;
+    if(W25qxx_Init()) {
+    	Stat &= ~STA_NOINIT;
+    }
     return Stat;
   /* USER CODE END INIT */
 }
@@ -97,7 +101,7 @@ DSTATUS USER_status (
 )
 {
   /* USER CODE BEGIN STATUS */
-    Stat = STA_NOINIT;
+    Stat &= ~STA_NOINIT;
     return Stat;
   /* USER CODE END STATUS */
 }

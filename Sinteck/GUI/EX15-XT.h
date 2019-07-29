@@ -8,6 +8,8 @@
 #ifndef EX15_XT_SRC_EX15_XT_H_
 #define EX15_XT_SRC_EX15_XT_H_
 
+#define LV_USE_BACKGROUND	1
+
 #include "Sinteck/GUI/main_screen.h"
 #include "Sinteck/GUI/screen_sel.h"
 #include "Sinteck/GUI/screen_frequency.h"

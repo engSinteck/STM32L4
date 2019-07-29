@@ -15,6 +15,7 @@
 
 //static void main_screen_event(lv_obj_t * obj, lv_event_t event);
 static void update_main_screen(lv_task_t * param);
+static void memory_monitor(lv_task_t * param);
 static void update_vumeter_mpx(uint32_t value);
 
 const char *IndexAudio[] = {"MPX INT", "MPX EXT", "MP3 USB", "MIC EXT"};
@@ -91,6 +92,10 @@ void main_screen(void)
 
 	// Task Update Main Screen
 	Task_Principal = lv_task_create(update_main_screen, 500, LV_TASK_PRIO_MID, NULL);
+
+    /* Create a memory monitor task which prints the memory usage in periodically.*/
+   lv_task_create(memory_monitor, 2000, LV_TASK_PRIO_MID, NULL);
+
 	TelaAtiva = TelaPrincipal;
 }
 
@@ -431,6 +436,24 @@ static void main_screen_event(lv_obj_t * obj, lv_event_t event)
     }
 }
 */
+
+
+/**
+ * Print the memory usage periodically
+ * @param param
+ */
+static void memory_monitor(lv_task_t * param)
+{
+    (void) param; /*Unused*/
+
+    lv_mem_monitor_t mon;
+    lv_mem_monitor(&mon);
+    logI("used: %6d (%3d %%), frag: %3d %%, biggest free: %6d\n", (int)mon.total_size - mon.free_size,
+            mon.used_pct,
+            mon.frag_pct,
+            (int)mon.free_biggest_size);
+}
+
 
 static void update_vumeter_mpx(uint32_t value)
 {

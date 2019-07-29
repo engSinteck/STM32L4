@@ -328,7 +328,9 @@ uint8_t * USBD_FS_SerialStrDescriptor(USBD_SpeedTypeDef speed, uint16_t *length)
   /* Update the serial number string descriptor with the data from the unique
    * ID */
   Get_SerialNum();
-
+  /* USER CODE BEGIN USBD_FS_SerialStrDescriptor */
+  
+  /* USER CODE END USBD_FS_SerialStrDescriptor */
   return (uint8_t *) USBD_StringSerial;
 }
 

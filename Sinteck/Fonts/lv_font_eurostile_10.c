@@ -241,7 +241,7 @@ static LV_ATTRIBUTE_LARGE_CONST const uint8_t gylph_bitmap[] = {
  *  GLYPH DESCRIPTION
  *--------------------*/
 
-static lv_font_fmt_txt_glyph_dsc_t glyph_dsc[] = {
+static const lv_font_fmt_txt_glyph_dsc_t glyph_dsc[] = {
     {.bitmap_index = 0, .adv_w = 0, .box_h = 0, .box_w = 0, .ofs_x = 0, .ofs_y = 0} /* id = 0 reserved */,
     {.bitmap_index = 0, .adv_w = 40, .box_h = 0, .box_w = 0, .ofs_x = 0, .ofs_y = 0},
     {.bitmap_index = 0, .adv_w = 128, .box_h = 7, .box_w = 8, .ofs_x = 0, .ofs_y = 0},
@@ -292,11 +292,11 @@ static lv_font_fmt_txt_glyph_dsc_t glyph_dsc[] = {
  *  CHARACTER MAPPING
  *--------------------*/
 
-static uint16_t unicode_list_0[] = {
+static const uint16_t unicode_list_0[] = {
     0x0, 0x5, 0xe
 };
 
-static uint16_t unicode_list_3[] = {
+static const uint16_t unicode_list_3[] = {
     0x0, 0x19, 0x4f
 };
 

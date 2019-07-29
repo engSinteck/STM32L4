@@ -13,6 +13,9 @@
 #include "main.h"
 #include "lvgl/lvgl.h"
 
+
+#define USE_NODMA  1
+
 extern SPI_HandleTypeDef hspi3;
 
 /* Which SPI use */

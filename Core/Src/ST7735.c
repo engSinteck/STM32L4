@@ -10,6 +10,7 @@
 #include "stdio.h"
 #include "ST7735.h"
 #include "font5x7.h"
+#include "lvgl/lvgl.h"
 #include "log.h"
 
 extern char buffer[];
@@ -17,6 +18,7 @@ extern char buffer[];
 uint16_t scr_width;
 uint16_t scr_height;
 //uint8_t buf_tft[3300] = {0};
+static lv_disp_drv_t * disp_p;
 
 void ST7735_write(uint8_t data)
 {
@@ -207,6 +209,7 @@ void ST7735_Flush_3(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_color_t
 	ST7735_cmd(0x2c); // Memory write
 	A0_H();
 	//
+#if USE_NODMA
 	for(uint16_t x = 0; x <= size-1; x++) {
 		tmp[0] = color_p->full >> 8;
 		tmp[1] = color_p->full;
@@ -214,7 +217,14 @@ void ST7735_Flush_3(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_color_t
 		color_p++;
 		teste++;
 	}
-
+#else
+    /*SPI transmit data with DMA*/
+	disp_p = disp_drv;
+	if ( HAL_SPI_Transmit_DMA(&_SPI_PORT, (uint8_t *)color_p, size * 2) != HAL_OK)
+    {
+        //while(1);	/*Halt on error*/
+    }
+#endif
 
 //	for(uint16_t x = 0; x <= size-1; x++) {
 //		buf_tft[(x*2) + 0] = color_p->full >> 8;
@@ -227,10 +237,10 @@ void ST7735_Flush_3(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_color_t
 	CS_H();
 
 //	sprintf(buffer, "ST7735-Flush3 X1: %d X2: %d Y1: %d Y2: %d Size: %d Teste: %d\n", area->x1, area->x2, area->y1, area->y2, size, teste);
-//    LV_LOG_ERROR(buffer);
 //    logI(buffer);
-
+#if USE_NODMA
 	lv_disp_flush_ready(disp_drv);                  /* Tell you are ready with the flushing*/
+#endif
 }
 
 void ST7735_Flush_2(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_color_t * color_p)
@@ -443,3 +453,15 @@ void ST7735_PutStr5x7(uint8_t X, uint8_t Y, char *str, uint16_t color) {
         if (X < scr_width - 6) { X += 6; } else if (Y < scr_height - 8) { X = 0; Y += 8; } else { X = 0; Y = 0; }
     };
 }
+
+void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
+{
+    logI("debug HAL_SPI_TxCpltCallback\n");
+	lv_disp_flush_ready(disp_p);
+}
+
+void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi)
+{
+	logI("debug SPI ERROR\n");
+}
+

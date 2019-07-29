@@ -945,4 +945,6 @@ void 	W25qxx_ReadBlock(uint8_t* pBuffer,uint32_t Block_Address,uint32_t OffsetIn
 }
 
 //###################################################################################################################
-
+void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi)
+{
+}

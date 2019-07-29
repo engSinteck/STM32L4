@@ -51,7 +51,7 @@ uint8_t pll_status = 1;
 char buffer[200] = {0};
 float temperatura = 25.0f;
 float forward = 0.0f, reflected = 0.0f, max_rfl = 1.5f, target = 15.0f;
-uint32_t TelaAtiva = 0, MenuSel = 0, falha = 0, mpx = 0, Max_Reflected = 15, Target_Int = 15;
+uint32_t TelaAtiva = 0, MenuSel = 0, falha = 0, mpx = 0, Last_mpx = 0, Max_Reflected = 15, Target_Int = 15;
 uint8_t sent_hor = 0;
 /* USER CODE END PD */
 

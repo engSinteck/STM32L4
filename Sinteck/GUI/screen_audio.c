@@ -44,6 +44,7 @@ static lv_obj_t * bar[2];
 static lv_style_t style_indic_vd;
 static lv_style_t style_indic_am;
 static lv_style_t style_indic;
+static lv_style_t style_fundo;
 
 #if LV_USE_FILESYSTEM == 0
 	LV_IMG_DECLARE(tela_audio);
@@ -91,7 +92,12 @@ void screen_audio(void)
 {
 	// Create a Screen
 	Tela_Audio = lv_obj_create(NULL, NULL);
+	lv_style_copy(&style_fundo, &lv_style_plain_color);
+	style_fundo.body.main_color = LV_COLOR_BLACK;
+	style_fundo.body.grad_color = LV_COLOR_BLACK;
+	lv_obj_set_style(Tela_Audio, &style_fundo); 					// Configura o estilo criado
 
+#if LV_USE_BACKGROUND
 	// Imagem de Fundo
 	img_fundo = lv_img_create(Tela_Audio, NULL);
 #if	LV_USE_FILESYSTEM
@@ -102,6 +108,7 @@ void screen_audio(void)
     lv_obj_set_protect(img_fundo, LV_PROTECT_POS);
 	lv_obj_set_event_cb(img_fundo, btn_event_esc);
 	lv_obj_set_click(img_fundo, 1);
+#endif
 	btn_next();
 
 	// Create Bar
@@ -281,6 +288,10 @@ void screen_audio_1(void)
 {
 	// Create a Screen
 	Tela_Audio_1 = lv_obj_create(NULL, NULL);
+	lv_style_copy(&style_fundo, &lv_style_plain_color);
+	style_fundo.body.main_color = LV_COLOR_BLACK;
+	style_fundo.body.grad_color = LV_COLOR_BLACK;
+	lv_obj_set_style(Tela_Audio_1, &style_fundo); 					// Configura o estilo criado
 
 	// Create Bar
 	lv_style_copy(&style_indic_vd, &lv_style_pretty);
@@ -301,6 +312,7 @@ void screen_audio_1(void)
 	style_indic.body.main_color = LV_COLOR_BLACK;
 	style_indic.body.border.color = LV_COLOR_BLACK;
 
+#if LV_USE_BACKGROUND
 	// Imagem de Fundo
 	img_fundo = lv_img_create(Tela_Audio_1, NULL);
 #if LV_USE_FILESYSTEM
@@ -309,6 +321,7 @@ void screen_audio_1(void)
     lv_img_set_src(img_fundo, &tela_audio_1);
 #endif
     lv_obj_set_protect(img_fundo, LV_PROTECT_POS);
+#endif
 	btn_next1();
 	btn_prev1();
 
@@ -422,6 +435,10 @@ void screen_audio_2(void)
 {
 	// Create a Screen
 	Tela_Audio_2 = lv_obj_create(NULL, NULL);
+	lv_style_copy(&style_fundo, &lv_style_plain_color);
+	style_fundo.body.main_color = LV_COLOR_BLACK;
+	style_fundo.body.grad_color = LV_COLOR_BLACK;
+	lv_obj_set_style(Tela_Audio_2, &style_fundo); 					// Configura o estilo criado
 
 	// Create Bar
 	lv_style_copy(&style_indic_vd, &lv_style_pretty);
@@ -442,6 +459,7 @@ void screen_audio_2(void)
 	style_indic.body.main_color = LV_COLOR_BLACK;
 	style_indic.body.border.color = LV_COLOR_BLACK;
 
+#if LV_USE_BACKGROUND
 	// Imagem de Fundo
 	img_fundo = lv_img_create(Tela_Audio_2, NULL);
 #if LV_USE_FILESYSTEM
@@ -450,7 +468,8 @@ void screen_audio_2(void)
     lv_img_set_src(img_fundo, &tela_audio_2);
 #endif
     lv_obj_set_protect(img_fundo, LV_PROTECT_POS);
-	btn_prev2();
+#endif
+    btn_prev2();
 	// ON
 	imgbtn1[0] = lv_imgbtn_create(Tela_Audio_2, NULL);
 	lv_obj_set_user_data(imgbtn1[0], 0);
@@ -1065,7 +1084,9 @@ void ButtonEventTelaAudio(uint8_t event, uint8_t tipo, uint8_t id)
 			switch(id) {
 				case KEY_DN:
 					if(TelaAudioProg == 0) {
-						lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
+						//lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
+						lv_obj_del(Tela_Audio);
+						screen_sel();
 					}
 					else {
 						if(IndiceAudio >= 1) IndiceAudio--;

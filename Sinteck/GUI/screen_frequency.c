@@ -2,7 +2,8 @@
  * screen_frequency.c
  *
  *  Created on: 4 de jul de 2019
- *      Author: rinaldo
+ *      Author: Rinaldo Dos Santos
+ *      Sinteck Next
  */
 #include "main.h"
 #include "lvgl/lvgl.h"
@@ -31,6 +32,7 @@ static lv_style_t style_roller_anim;
 static lv_style_t style_roller;
 static lv_style_t style_roller_bg;
 static lv_style_t style_roller_s;
+static lv_style_t style_fundo;
 static lv_anim_t sf;
 
 const int32_t freq_pos_x[21] = {8, 15, 22, 29, 36, 43, 50, 57, 64, 71,
@@ -43,7 +45,12 @@ void screen_freq(void)
 {
 	// Create a Screen
 	Tela_Freq = lv_obj_create(NULL, NULL);
+	lv_style_copy(&style_fundo, &lv_style_plain_color);
+	style_fundo.body.main_color = LV_COLOR_BLACK;
+	style_fundo.body.grad_color = LV_COLOR_BLACK;
+	lv_obj_set_style(Tela_Freq, &style_fundo); 					// Configura o estilo criado
 
+#if LV_USE_BACKGROUND
 	// Imagem de Fundo
 	img_fundo = lv_img_create(Tela_Freq, NULL);
 #if	LV_USE_FILESYSTEM
@@ -54,6 +61,7 @@ void screen_freq(void)
 	lv_obj_set_protect(img_fundo, LV_PROTECT_POS);
 	lv_obj_set_event_cb(img_fundo, btn_event_esc_freq);
 	lv_obj_set_click(img_fundo, 1);
+#endif
 	create_vumeter_freq();
 	update_vumeter(frequencia);
 	prog_freq();
@@ -70,12 +78,6 @@ void create_vumeter_freq(void)
 	style_indic_bar.body.grad_color = LV_COLOR_MAKE(105, 105, 105);
 	style_indic_bar.body.main_color = LV_COLOR_MAKE(105, 105, 105);
 	style_indic_bar.body.border.color = LV_COLOR_MAKE(105, 105, 105);
-
-	lv_style_copy(&style_indic_bar_vd, &lv_style_pretty);
-	style_indic_bar_vd.body.radius = 0;
-	style_indic_bar_vd.body.grad_color = LV_COLOR_MAKE(0, 255, 0);
-	style_indic_bar_vd.body.main_color = LV_COLOR_MAKE(0, 255, 0);
-	style_indic_bar_vd.body.border.color = LV_COLOR_MAKE(0, 255, 0);
 
 	// Create a default bar
 	for(uint8_t x = 0; x < 21; x++) {
@@ -162,6 +164,7 @@ static void btn_event_esc_freq(lv_obj_t * btn, lv_event_t event)
 {
 	if(event == LV_EVENT_APPLY) {
 		//printf("Button ESC Released\n");
+		lv_anim_del (sf.var, NULL);
 		lv_obj_del(Tela_Freq);
 		screen_sel();
 	}
@@ -203,7 +206,6 @@ static void event_handler(lv_obj_t * obj, lv_event_t event)
 
 void prog_freq(void)
 {
-
 	uint8_t q0, q1, q2, q3, q4;
 
 	sprintf(buffer, "%ld", frequencia);
@@ -248,7 +250,7 @@ void prog_freq(void)
 	style_roller_bg.body.main_color = LV_COLOR_YELLOW;
 	style_roller_bg.body.grad_color = LV_COLOR_YELLOW;
 	style_roller_bg.text.font = &lv_font_eurostile_24;
-	style_roller_bg.text.letter_space = 2;
+	style_roller_bg.text.letter_space = 1;
 	style_roller_bg.text.line_space = 24;
 	style_roller_bg.text.color = LV_COLOR_BLACK;
 
@@ -272,7 +274,7 @@ void prog_freq(void)
 	rollerfreq[5] = lv_roller_create(Tela_Freq, NULL);
 	lv_obj_set_user_data(rollerfreq[5], 5);
     lv_roller_set_options(rollerfreq[5], "0\n1", LV_ROLLER_MODE_INIFINITE);
-    lv_roller_set_visible_row_count(rollerfreq[5], 1);
+    lv_roller_set_visible_row_count(rollerfreq[5], 2);
     if(strlen(buffer) > 4) {
     	lv_roller_set_selected(rollerfreq[5], q0, false);
     }else {
@@ -281,62 +283,62 @@ void prog_freq(void)
     lv_roller_set_fix_width(rollerfreq[5], 19);
     lv_roller_set_style(rollerfreq[5], LV_ROLLER_STYLE_BG, &style_roller);
     lv_roller_set_style(rollerfreq[5], LV_ROLLER_STYLE_SEL, &style_roller);
-    lv_obj_align(rollerfreq[5], NULL, LV_ALIGN_IN_TOP_LEFT, 10, 48);
+    lv_obj_align(rollerfreq[5], NULL, LV_ALIGN_IN_TOP_LEFT, 10, 45);
     lv_obj_set_event_cb(rollerfreq[5], event_handler);
     // Centena
     rollerfreq[4] = lv_roller_create(Tela_Freq, NULL);
     lv_obj_set_user_data(rollerfreq[4], 4);
     lv_roller_set_options(rollerfreq[4], "8\n9\n0", LV_ROLLER_MODE_INIFINITE);
-    lv_roller_set_visible_row_count(rollerfreq[4], 1);
+    lv_roller_set_visible_row_count(rollerfreq[4], 2);
     lv_roller_set_selected(rollerfreq[4], q1, false);
     lv_roller_set_fix_width(rollerfreq[4], 19);
     lv_roller_set_style(rollerfreq[4], LV_ROLLER_STYLE_BG, &style_roller);
     lv_roller_set_style(rollerfreq[4], LV_ROLLER_STYLE_SEL, &style_roller);
-    lv_obj_align(rollerfreq[4], NULL, LV_ALIGN_IN_TOP_LEFT, 33, 48);
+    lv_obj_align(rollerfreq[4], NULL, LV_ALIGN_IN_TOP_LEFT, 33, 45);
     lv_obj_set_event_cb(rollerfreq[4], event_handler);
     // Dezena
     rollerfreq[3] = lv_roller_create(Tela_Freq, NULL);
     lv_obj_set_user_data(rollerfreq[3], 3);
     lv_roller_set_options(rollerfreq[3], "0\n1\n2\n3\n4\n5\n6\n7\n8\n9", LV_ROLLER_MODE_INIFINITE);
-    lv_roller_set_visible_row_count(rollerfreq[3], 1);
+    lv_roller_set_visible_row_count(rollerfreq[3], 2);
     lv_roller_set_selected(rollerfreq[3], q2, false);
     lv_roller_set_fix_width(rollerfreq[3], 19);
     lv_roller_set_style(rollerfreq[3], LV_ROLLER_STYLE_BG, &style_roller);
     lv_roller_set_style(rollerfreq[3], LV_ROLLER_STYLE_SEL, &style_roller);
-    lv_obj_align(rollerfreq[3], NULL, LV_ALIGN_IN_TOP_LEFT, 57, 48);
+    lv_obj_align(rollerfreq[3], NULL, LV_ALIGN_IN_TOP_LEFT, 57, 45);
     lv_obj_set_event_cb(rollerfreq[3], event_handler);
     // Casa 1
     rollerfreq[2] = lv_roller_create(Tela_Freq, NULL);
     lv_obj_set_user_data(rollerfreq[2], 2);
     lv_roller_set_options(rollerfreq[2], "0\n1\n2\n3\n4\n5\n6\n7\n8\n9", LV_ROLLER_MODE_INIFINITE);
-    lv_roller_set_visible_row_count(rollerfreq[2], 1);
+    lv_roller_set_visible_row_count(rollerfreq[2], 2);
     lv_roller_set_selected(rollerfreq[2], q3, false);
     lv_roller_set_fix_width(rollerfreq[2], 19);
     lv_roller_set_style(rollerfreq[2], LV_ROLLER_STYLE_BG, &style_roller);
     lv_roller_set_style(rollerfreq[2], LV_ROLLER_STYLE_SEL, &style_roller);
-    lv_obj_align(rollerfreq[2], NULL, LV_ALIGN_IN_TOP_LEFT, 84, 48);
+    lv_obj_align(rollerfreq[2], NULL, LV_ALIGN_IN_TOP_LEFT, 84, 45);
     lv_obj_set_event_cb(rollerfreq[2], event_handler);
     // Casa 2
     rollerfreq[1] = lv_roller_create(Tela_Freq, NULL);
     lv_obj_set_user_data(rollerfreq[1], 1);
     lv_roller_set_options(rollerfreq[1], "0\n1\n2\n3\n4\n5\n6\n7\n8\n9", LV_ROLLER_MODE_INIFINITE);
-    lv_roller_set_visible_row_count(rollerfreq[1], 1);
+    lv_roller_set_visible_row_count(rollerfreq[1], 2);
     lv_roller_set_selected(rollerfreq[1], q4, false);
     lv_roller_set_fix_width(rollerfreq[1], 19);
     lv_roller_set_style(rollerfreq[1], LV_ROLLER_STYLE_BG, &style_roller);
     lv_roller_set_style(rollerfreq[1], LV_ROLLER_STYLE_SEL, &style_roller);
-    lv_obj_align(rollerfreq[1], NULL, LV_ALIGN_IN_TOP_LEFT, 107, 48);
+    lv_obj_align(rollerfreq[1], NULL, LV_ALIGN_IN_TOP_LEFT, 107, 45);
     lv_obj_set_event_cb(rollerfreq[1], event_handler);
     // Casa 3
     rollerfreq[0] = lv_roller_create(Tela_Freq, NULL);
     lv_obj_set_user_data(rollerfreq[0], 0);
     lv_roller_set_options(rollerfreq[0], "0", LV_ROLLER_MODE_INIFINITE);
-    lv_roller_set_visible_row_count(rollerfreq[0], 1);
+    lv_roller_set_visible_row_count(rollerfreq[0], 2);
     lv_roller_set_selected(rollerfreq[0], 0, false);
     lv_roller_set_fix_width(rollerfreq[0], 19);
     lv_roller_set_style(rollerfreq[0], LV_ROLLER_STYLE_BG, &style_roller);
     lv_roller_set_style(rollerfreq[0], LV_ROLLER_STYLE_SEL, &style_roller);
-    lv_obj_align(rollerfreq[0], NULL, LV_ALIGN_IN_TOP_LEFT, 131, 48);
+    lv_obj_align(rollerfreq[0], NULL, LV_ALIGN_IN_TOP_LEFT, 131, 45);
     lv_obj_set_event_cb(rollerfreq[0], event_handler);
 }
 
@@ -456,7 +458,10 @@ void ButtonEventTelaFrequencia(uint8_t event, uint8_t tipo, uint8_t id)
 			switch(id) {
 				case KEY_DN:
 					if(TelaProgFREQ == 0) {
-						lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
+						//lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
+						lv_anim_del (sf.var, NULL);
+						lv_obj_del(Tela_Freq);
+						screen_sel();
 					}
 					else if(TelaProgFREQ == 1) {
 						IndiceFREQ++;
@@ -465,9 +470,18 @@ void ButtonEventTelaFrequencia(uint8_t event, uint8_t tipo, uint8_t id)
 						update_style_roller_freq(IndiceFREQ + 1);
 					}
 					else if(TelaProgFREQ == 2) {
+						logI("TelaFrequencia 2 - KEY_DN - IndiceFREQ: %ld\n", IndiceFREQ);
 						value = lv_roller_get_selected(rollerfreq[IndiceFREQ]);
 						if(value > 0) value--;
 						lv_roller_set_selected(rollerfreq[IndiceFREQ], value, false);
+						logI("TelaFrequencia 3 - KEY_DN - IndiceFREQ: %ld Value: %d\n", IndiceFREQ, value);
+						if(IndiceFREQ == 5) {
+							if(lv_roller_get_selected(rollerfreq[5]) == 0) {
+								logI("TelaFrequencia 4 - KEY_DN - IndiceFREQ: %ld\n", IndiceFREQ);
+								lv_roller_set_options(rollerfreq[4], "8\n9\n0", LV_ROLLER_MODE_INIFINITE);
+								lv_roller_set_selected(rollerfreq[4], 0, false);
+							}
+						}
 					}
 					break;
 				case KEY_UP:
@@ -499,7 +513,16 @@ void ButtonEventTelaFrequencia(uint8_t event, uint8_t tipo, uint8_t id)
 						else if(IndiceFREQ == 5) {
 							value = lv_roller_get_selected(rollerfreq[IndiceFREQ]);
 							value++;
-							if(value > 1) value = 1;
+							logI("Frequencia >= 100MHz Value: %d\n", value);
+							if(value == 1) {
+								value = 1;
+								lv_roller_set_options(rollerfreq[4], "0", LV_ROLLER_MODE_INIFINITE);
+								lv_roller_set_selected(rollerfreq[4], 0, false);
+							}
+							else {
+								lv_roller_set_options(rollerfreq[4], "8\n9\n0", LV_ROLLER_MODE_INIFINITE);
+								lv_roller_set_selected(rollerfreq[4], 0, false);
+							}
 							lv_roller_set_selected(rollerfreq[IndiceFREQ], value, false);
 						}
 					}
@@ -543,6 +566,7 @@ void ButtonEventTelaFrequencia(uint8_t event, uint8_t tipo, uint8_t id)
 					}
 					break;
 				case KEY_ESC:
+					//lv_anim_del (sf.var, NULL);
 					TelaProgFREQ = 0;
 					IndiceFREQ = 0;
 					update_style_roller_freq(0);

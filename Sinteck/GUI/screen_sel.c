@@ -20,8 +20,13 @@ static void btn_event_esc_sel(lv_obj_t * btn, lv_event_t event);
 void sel_screen_send_button(uint32_t btn, lv_btn_state_t state);
 
 static lv_obj_t * Tela_Sel;
-static lv_obj_t * img_fundo;
+
+#if LV_USE_BACKGROUND
+	static lv_obj_t * img_fundo;
+#endif
+
 static lv_obj_t * imgbtn1[4];
+static lv_style_t style_fundo;
 
 #if LV_USE_FILESYSTEM == 0
 	LV_IMG_DECLARE(tela_sel);
@@ -40,7 +45,12 @@ void screen_sel(void)
 	MenuSel = 0;
 	// Create a Screen
 	Tela_Sel = lv_obj_create(NULL, NULL);
+	lv_style_copy(&style_fundo, &lv_style_plain_color);
+	style_fundo.body.main_color = LV_COLOR_BLACK;
+	style_fundo.body.grad_color = LV_COLOR_BLACK;
+	lv_obj_set_style(Tela_Sel, &style_fundo); 					// Configura o estilo criado
 
+#if LV_USE_BACKGROUND
 	// Imagem de Fundo
 	img_fundo = lv_img_create(Tela_Sel, NULL);
 #if	LV_USE_FILESYSTEM
@@ -52,6 +62,7 @@ void screen_sel(void)
 	lv_obj_set_user_data(img_fundo, 0);
 	lv_obj_set_event_cb(img_fundo, btn_event_esc_sel);
 	lv_obj_set_click(img_fundo, 1);
+#endif
 	// Cria Botoes
 	create_buttons();
 
@@ -148,7 +159,7 @@ void create_buttons(void)
 static void btn_event_esc_sel(lv_obj_t * btn, lv_event_t event)
 {
 	if(event == LV_EVENT_APPLY) {
-		uint32_t id = lv_obj_get_user_data(btn);
+		//uint32_t id = lv_obj_get_user_data(btn);
 		lv_obj_del(Tela_Sel);
 		main_screen();
 	}
@@ -205,7 +216,9 @@ void ButtonEventTelaSelecao(uint8_t event, uint8_t tipo, uint8_t id)
 					logI("Debug: Tela_Selecao KEY_ENTER: MenuSel: %ld\n", MenuSel);
 					break;
 				case KEY_ESC:
-					lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
+					//lv_event_send(img_fundo, LV_EVENT_APPLY, NULL);
+					lv_obj_del(Tela_Sel);
+					main_screen();
 					break;
 			}
 		}
